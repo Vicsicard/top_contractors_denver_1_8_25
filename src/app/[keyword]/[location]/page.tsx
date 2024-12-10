@@ -73,7 +73,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return generateMetaContent(keyword, locationData);
 }
 
-export default async function LocationPage({ params, searchParams }: PageProps) {
+export default async function LocationPage({ params }: Omit<PageProps, 'searchParams'>): Promise<JSX.Element> {
   const keyword = parseUrlSegment(params.keyword);
   const searchData = loadSearchData();
   const locationData = searchData.locations.find(
