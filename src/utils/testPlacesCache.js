@@ -1,6 +1,6 @@
-const { getPlacesData } = require('./placesApi');
+import { getPlacesData } from './placesApi.js';
 
-async function testPlacesCache() {
+async function testPlacesCache(): Promise<void> {
   try {
     console.log('First call - should fetch from Google Places API:');
     console.time('First call');
@@ -22,9 +22,8 @@ async function testPlacesCache() {
     });
     console.timeEnd('Second call');
     console.log(`Found ${secondCall.results?.length || 0} results`);
-
   } catch (error) {
-    console.error('Test failed:', error);
+    console.error('Error:', error);
   }
 }
 

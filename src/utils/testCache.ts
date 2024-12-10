@@ -9,7 +9,7 @@ const __dirname = dirname(__filename);
 // Load environment variables from .env.local
 dotenv.config({ path: join(__dirname, '../../.env.local') });
 
-async function testPlacesCache() {
+async function testPlacesCache(): Promise<void> {
   try {
     console.log('Starting Places API cache test...');
 
