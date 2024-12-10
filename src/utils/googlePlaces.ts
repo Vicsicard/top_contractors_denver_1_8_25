@@ -12,9 +12,6 @@ export async function searchPlaces(keyword: string, location: string): Promise<P
   // Format the query string
   const query = `${keyword} in ${location}`;
   
-  // Encode the query for URL
-  const encodedQuery = encodeURIComponent(query);
-  
   try {
     const response = await fetch(
       `https://places.googleapis.com/v1/places:searchText`,
@@ -49,4 +46,4 @@ export async function searchPlaces(keyword: string, location: string): Promise<P
     console.error('Error fetching places:', error);
     throw error;
   }
-} 
+}

@@ -34,7 +34,7 @@ let cached: CachedConnection = {
 
 // Create global type
 declare global {
-  var mongooseCache: CachedConnection | undefined;
+  let mongooseCache: CachedConnection | undefined;
 }
 
 // Check if we have a cached connection in global scope

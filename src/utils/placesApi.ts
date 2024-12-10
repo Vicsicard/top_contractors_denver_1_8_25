@@ -6,8 +6,24 @@ export interface PlacesApiOptions {
   location: string;
 }
 
+export interface PlaceResult {
+  place_id: string;
+  name: string;
+  formatted_address: string;
+  geometry: {
+    location: {
+      lat: number;
+      lng: number;
+    };
+  };
+  rating?: number;
+  user_ratings_total?: number;
+  formatted_phone_number?: string;
+  website?: string;
+}
+
 export interface PlacesApiResponse {
-  results: Array<any>;
+  results: PlaceResult[];
   status: string;
   error_message?: string;
 }
