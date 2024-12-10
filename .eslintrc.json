@@ -1,36 +1,17 @@
 {
-  "extends": [
-    "next/core-web-vitals",
-    "next/typescript",
-    "plugin:@typescript-eslint/recommended"
-  ],
+  "extends": ["next/core-web-vitals", "plugin:@typescript-eslint/recommended"],
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint"],
   "rules": {
-    "@typescript-eslint/no-unused-vars": "error",
-    "@typescript-eslint/no-explicit-any": "warn",
-    "@typescript-eslint/explicit-function-return-type": ["warn", {
-      "allowExpressions": true,
-      "allowTypedFunctionExpressions": true,
-      "allowHigherOrderFunctions": true
-    }],
-    "import/no-unresolved": "error",
-    "no-var": ["error", { "ignoreRestArgs": true }],
-    "overrides": [
-      {
-        "files": ["*.d.ts"],
-        "rules": {
-          "no-var": "off"
-        }
-      }
-    ]
+    "@typescript-eslint/explicit-function-return-type": "warn",
+    "no-var": "error"
   },
-  "settings": {
-    "import/resolver": {
-      "typescript": {
-        "alwaysTryTypes": true,
-        "project": "./tsconfig.json"
+  "overrides": [
+    {
+      "files": ["*.d.ts"],
+      "rules": {
+        "no-var": "off"
       }
     }
-  }
+  ]
 }
