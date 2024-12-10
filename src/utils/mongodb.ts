@@ -7,17 +7,18 @@ import { dirname, join } from 'path';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-// Load environment variables from .env.local
-const envPath = join(__dirname, '../../.env.local');
-console.log('Loading environment variables from:', envPath);
-dotenv.config({ path: envPath });
+// Load environment variables from root .env.local
+dotenv.config({ path: join(__dirname, '../../../.env.local') });
 
+// Get MongoDB URI from environment variables
 const mongoUri = process.env.MONGODB_URI;
 console.log('MongoDB URI available:', !!mongoUri);
 
 if (!mongoUri) {
-  throw new Error('Please define the MONGODB_URI environment variable');
+  throw new Error('MONGODB_URI is not defined in environment variables');
 }
+
+// Now TypeScript knows mongoUri is a string
 
 // Define the interface for our cached connection
 interface CachedConnection {
@@ -56,7 +57,13 @@ export async function connectDB(): Promise<typeof mongoose> {
         bufferCommands: false,
       };
 
-      cached.promise = mongoose.connect(mongoUri);
+      // Ensure mongoUri is defined before using it
+      if (!mongoUri) {
+        throw new Error('MONGODB_URI is not defined in environment variables');
+      }
+
+      // Now TypeScript knows mongoUri is a string
+      cached.promise = mongoose.connect(mongoUri, opts);
     }
 
     cached.conn = await cached.promise;

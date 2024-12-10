@@ -1,5 +1,5 @@
 'use client';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 export default function SearchBox({ initialKeywords, initialLocations }) {
     const router = useRouter();

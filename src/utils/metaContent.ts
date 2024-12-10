@@ -1,5 +1,41 @@
 import { Metadata } from 'next';
-import { Location } from './searchData';
+import { Location } from '@/utils/searchData';
+
+export interface StructuredData {
+  '@context': string;
+  '@type': string;
+  name: string;
+  description: string;
+  itemListElement: Array<{
+    '@type': string;
+    position: number;
+    item: {
+      '@type': string;
+      name: string;
+      address: {
+        '@type': string;
+        streetAddress: string;
+      };
+      telephone?: string;
+      url?: string;
+      aggregateRating?: {
+        '@type': string;
+        ratingValue: number;
+        reviewCount: number;
+      };
+    };
+  }>;
+  numberOfItems?: number;
+  itemListOrder?: string;
+  areaServed?: {
+    '@type': string;
+    name: string;
+    containedIn: {
+      '@type': string;
+      name: string;
+    };
+  };
+}
 
 export function generateMetaContent(
   keyword: string,
@@ -35,7 +71,7 @@ export function generateStructuredData(
   keyword: string,
   location: Location,
   count: number = 10
-) {
+): StructuredData {
   return {
     '@context': 'https://schema.org',
     '@type': 'ItemList',

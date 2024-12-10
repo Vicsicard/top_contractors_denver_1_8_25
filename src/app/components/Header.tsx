@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import PlacesSearch from './PlacesSearch';
+import PlacesSearch from '@/app/components/PlacesSearch';
 
 export default function Header() {
   return (

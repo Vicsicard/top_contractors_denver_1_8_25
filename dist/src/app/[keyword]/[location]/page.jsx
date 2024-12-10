@@ -1,10 +1,10 @@
-import { searchPlaces } from '@/utils/googlePlaces';
-import { parseUrlSegment } from '@/utils/urlHelpers';
-import { loadSearchData } from '@/utils/searchData';
-import { generateMetaContent, generateStructuredData } from '@/utils/metaContent';
+import { searchPlaces } from '@/utils/googlePlaces.js';
+import { parseUrlSegment } from '@/utils/urlHelpers.js';
+import { loadSearchData } from '@/utils/searchData.js';
+import { generateMetaContent, generateStructuredData } from '@/utils/metaContent.js';
 import Breadcrumbs from '@/components/Breadcrumbs';
-import { JsonLd } from '@/components/JsonLd';
-import CategoryList from '@/components/CategoryList';
+import { JsonLd } from '@/components/JsonLd.js';
+import CategoryList from '@/components/CategoryList.js';
 export async function generateMetadata({ params }) {
     const keyword = parseUrlSegment(params.keyword);
     const searchData = loadSearchData();

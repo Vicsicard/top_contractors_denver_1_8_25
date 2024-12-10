@@ -1,14 +1,17 @@
 import mongoose from 'mongoose';
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
 import * as dotenv from 'dotenv';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
+// Get the directory path for the current module
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-// Load environment variables
-dotenv.config({ path: new URL('../../.env.local', import.meta.url) });
+// Load environment variables from root .env.local
+dotenv.config({ path: join(__dirname, '../../../.env.local') });
+// Get MongoDB URI from environment variables
 const mongoUri = process.env.MONGODB_URI;
+console.log('MongoDB URI available:', !!mongoUri);
 if (!mongoUri) {
-    throw new Error('Please define the MONGODB_URI environment variable');
+    throw new Error('MONGODB_URI is not defined in environment variables');
 }
 // Create cache object
 let cached = {
@@ -33,6 +36,11 @@ export async function connectDB() {
             const opts = {
                 bufferCommands: false,
             };
+            // Ensure mongoUri is defined before using it
+            if (!mongoUri) {
+                throw new Error('MONGODB_URI is not defined in environment variables');
+            }
+            // Now TypeScript knows mongoUri is a string
             cached.promise = mongoose.connect(mongoUri, opts);
         }
         cached.conn = await cached.promise;

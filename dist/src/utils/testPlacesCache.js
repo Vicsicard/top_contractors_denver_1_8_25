@@ -1,40 +1,54 @@
 import { fileURLToPath } from 'url';
-import { dirname } from 'path';
+import { dirname, join } from 'path';
 import * as dotenv from 'dotenv';
+import { getPlacesData } from './placesApi.js';
 import { connectDB } from './mongodb.js';
+import mongoose from 'mongoose';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-// Load environment variables
-dotenv.config({ path: new URL('../../.env.local', import.meta.url) });
-async function testConnection() {
+// Load environment variables from root .env.local
+dotenv.config({ path: join(__dirname, '../../../.env.local') });
+async function testPlacesCache() {
     try {
-        // Verify environment variables
-        console.log('Checking environment variables...');
-        const mongoUri = process.env.MONGODB_URI;
-        console.log('MongoDB URI available:', !!mongoUri);
-        if (!mongoUri) {
-            throw new Error('MONGODB_URI is not defined');
-        }
-        console.log('Testing MongoDB connection...');
-        const mongoose = await connectDB();
+        console.log('Testing Places Cache...');
+        // Test data
+        const testData = {
+            keyword: 'plumbers',
+            location: 'Denver, CO'
+        };
+        // Connect to MongoDB
+        console.log('Connecting to MongoDB...');
+        await connectDB();
         console.log('Connection successful!');
         // Test the connection with a simple operation
+        if (!mongoose.connection.db) {
+            throw new Error('Database connection not established');
+        }
         const collections = await mongoose.connection.db.collections();
         console.log(`Connected to database with ${collections.length} collections`);
-        // Close the connection
-        await mongoose.disconnect();
-        console.log('Connection closed successfully.');
+        // Test the getPlacesData function
+        console.log('Testing getPlacesData function...');
+        const results = await getPlacesData(testData);
+        console.log('Results:', {
+            status: results.status,
+            resultCount: results.results.length,
+            firstResult: results.results[0] ? {
+                name: results.results[0].name,
+                address: results.results[0].formatted_address
+            } : null
+        });
+        // Close the MongoDB connection
+        await mongoose.connection.close();
+        console.log('Test completed successfully!');
     }
     catch (error) {
-        console.error('Test failed with error:', error instanceof Error ? error.message : String(error));
-        if (error instanceof Error && error.stack) {
-            console.error('Error stack:', error.stack);
+        console.error('Error during test:', error);
+        // Ensure connection is closed even if there's an error
+        if (mongoose.connection.readyState !== 0) {
+            await mongoose.connection.close();
         }
         process.exit(1);
     }
 }
 // Run the test
-testConnection().catch(error => {
-    console.error('Unhandled error:', error instanceof Error ? error.message : String(error));
-    process.exit(1);
-});
+testPlacesCache();

@@ -72,7 +72,13 @@ export async function getPlacesData(options: PlacesApiOptions): Promise<PlacesAp
 
 async function fetchFromGooglePlaces(options: PlacesApiOptions): Promise<PlacesApiResponse> {
   const { keyword, location } = options;
-  const apiKey = process.env.NEXT_GOOGLE_PLACES_API_KEY;
+  const apiKey = process.env.NEXT_PUBLIC_GOOGLE_PLACES_API_KEY;
+  
+  console.log('Environment variables:', {
+    hasGoogleKey: !!process.env.NEXT_PUBLIC_GOOGLE_PLACES_API_KEY,
+    hasMongoUri: !!process.env.MONGODB_URI,
+    envKeys: Object.keys(process.env)
+  });
   
   if (!apiKey) {
     throw new Error('Google Places API key is not configured');

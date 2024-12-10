@@ -54,9 +54,13 @@ export async function getPlacesData(options) {
     }
 }
 async function fetchFromGooglePlaces(options) {
-    var _a;
     const { keyword, location } = options;
-    const apiKey = process.env.NEXT_GOOGLE_PLACES_API_KEY;
+    const apiKey = process.env.NEXT_PUBLIC_GOOGLE_PLACES_API_KEY;
+    console.log('Environment variables:', {
+        hasGoogleKey: !!process.env.NEXT_PUBLIC_GOOGLE_PLACES_API_KEY,
+        hasMongoUri: !!process.env.MONGODB_URI,
+        envKeys: Object.keys(process.env)
+    });
     if (!apiKey) {
         throw new Error('Google Places API key is not configured');
     }
@@ -72,7 +76,7 @@ async function fetchFromGooglePlaces(options) {
         if (data.status !== 'OK' && data.status !== 'ZERO_RESULTS') {
             throw new Error(`Google Places API returned status: ${data.status}`);
         }
-        console.log(`Successfully fetched ${((_a = data.results) === null || _a === void 0 ? void 0 : _a.length) || 0} results from Google Places API`);
+        console.log(`Successfully fetched ${data.results?.length || 0} results from Google Places API`);
         return data;
     }
     catch (error) {

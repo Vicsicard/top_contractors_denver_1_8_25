@@ -1,19 +1,58 @@
 import { Metadata } from 'next';
-import { searchPlaces } from '@/utils/googlePlaces';
-import { parseUrlSegment } from '@/utils/urlHelpers';
-import { loadSearchData } from '@/utils/searchData';
-import { generateMetaContent, generateStructuredData } from '@/utils/metaContent';
+import { searchPlaces } from '@/utils/googlePlaces.js';
+import { parseUrlSegment } from '@/utils/urlHelpers.js';
+import { loadSearchData } from '@/utils/searchData.js';
+import { generateMetaContent, generateStructuredData } from '@/utils/metaContent.js';
 import Breadcrumbs from '@/components/Breadcrumbs';
-import { JsonLd } from '@/components/JsonLd';
-import CategoryList from '@/components/CategoryList';
+import { JsonLd } from '@/components/JsonLd.js';
+import CategoryList from '@/components/CategoryList.js';
 
 interface PageProps {
   params: {
     keyword: string;
     location: string;
   };
-  searchParams: {
-    page?: string;
+  searchParams: Record<string, string>;
+}
+
+interface Contractor {
+  id: string;
+  name: string;
+  rating: number;
+  reviewCount: number;
+  address: string;
+  phone?: string;
+  website?: string;
+  services: string[];
+}
+
+interface Place {
+  place_id: string;
+  name: string;
+  rating?: number;
+  user_ratings_total?: number;
+  formatted_address: string;
+  formatted_phone_number?: string;
+  website?: string;
+}
+
+interface StructuredDataListItem {
+  '@type': string;
+  position: number;
+  item: {
+    '@type': string;
+    name: string;
+    address: {
+      '@type': string;
+      streetAddress: string;
+    };
+    telephone?: string;
+    url?: string;
+    aggregateRating?: {
+      '@type': string;
+      ratingValue: number;
+      reviewCount: number;
+    };
   };
 }
 
@@ -51,11 +90,11 @@ export default async function LocationPage({ params, searchParams }: PageProps) 
   }
 
   try {
-    const places = await searchPlaces(keyword, `${locationData.location}, ${locationData.county}`);
+    const places: Place[] = await searchPlaces(keyword, `${locationData.location}, ${locationData.county}`);
     const topPlaces = places.slice(0, 10); // Get top 10 results
 
     // Transform places data for CategoryList component
-    const contractors = topPlaces.map(place => ({
+    const contractors: Contractor[] = topPlaces.map(place => ({
       id: place.place_id,
       name: place.name,
       rating: place.rating || 0,
@@ -68,7 +107,7 @@ export default async function LocationPage({ params, searchParams }: PageProps) 
 
     // Generate structured data
     const structuredData = generateStructuredData(keyword, locationData);
-    structuredData.itemListElement = contractors.map((contractor, index) => ({
+    structuredData.itemListElement = contractors.map((contractor, index): StructuredDataListItem => ({
       '@type': 'ListItem',
       position: index + 1,
       item: {

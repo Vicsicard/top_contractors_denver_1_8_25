@@ -1,19 +1,20 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import Header from "./components/Header.js";
+import Footer from "./components/Footer.js";
 import "./globals.css";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
   weight: "100 900",
-});
+} as const);
+
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
   weight: "100 900",
-});
+} as const);
 
 export const metadata: Metadata = {
   title: "Denver Contractors | Find Trusted Local Contractors",

@@ -1,7 +1,7 @@
-import mongoose, { Schema, Document } from 'mongoose';
+import mongoose from 'mongoose';
 
 // Define the cache schema
-export interface IPlaceCache extends Document {
+export interface IPlaceCache extends mongoose.Document {
   placeId: string;
   data: any;
   keyword: string;
@@ -9,14 +9,14 @@ export interface IPlaceCache extends Document {
   createdAt: Date;
 }
 
-const PlaceCacheSchema = new Schema({
+const PlaceCacheSchema = new mongoose.Schema({
   placeId: {
     type: String,
     required: true,
     unique: true,
   },
   data: {
-    type: Schema.Types.Mixed,
+    type: mongoose.Schema.Types.Mixed,
     required: true,
   },
   keyword: {
@@ -43,4 +43,4 @@ PlaceCacheSchema.index({ createdAt: 1 }, { expireAfterSeconds: 180 * 24 * 60 * 6
 export const PlaceCache = (mongoose.models.PlaceCache as mongoose.Model<IPlaceCache>) || 
   mongoose.model<IPlaceCache>('PlaceCache', PlaceCacheSchema);
 
-export default { PlaceCache };
+export default { PlaceCache: './PlaceCache.js' };

@@ -7,7 +7,6 @@ const __dirname = dirname(__filename);
 // Load environment variables from .env.local
 dotenv.config({ path: join(__dirname, '../../.env.local') });
 async function testPlacesCache() {
-    var _a, _b;
     try {
         console.log('Starting Places API cache test...');
         // Test environment variables
@@ -25,7 +24,7 @@ async function testPlacesCache() {
         console.time('First call');
         const firstCall = await getPlacesData(searchOptions);
         console.timeEnd('First call');
-        console.log(`Found ${((_a = firstCall.results) === null || _a === void 0 ? void 0 : _a.length) || 0} results`);
+        console.log(`Found ${firstCall.results?.length || 0} results`);
         // Wait 2 seconds
         console.log('\nWaiting 2 seconds before second call...');
         await new Promise(resolve => setTimeout(resolve, 2000));
@@ -33,7 +32,7 @@ async function testPlacesCache() {
         console.time('Second call');
         const secondCall = await getPlacesData(searchOptions);
         console.timeEnd('Second call');
-        console.log(`Found ${((_b = secondCall.results) === null || _b === void 0 ? void 0 : _b.length) || 0} results`);
+        console.log(`Found ${secondCall.results?.length || 0} results`);
         // Verify results match
         const firstCallIds = new Set(firstCall.results.map(r => r.place_id));
         const secondCallIds = new Set(secondCall.results.map(r => r.place_id));

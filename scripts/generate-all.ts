@@ -1,7 +1,7 @@
 import { exec } from 'child_process';
 import { promisify } from 'util';
-import DirectoryGenerator from './generate-directory';
-import { generateSitemaps } from './generate-sitemaps';
+import DirectoryGenerator from './generate-directory.js';
+import { generateSitemaps } from './generate-sitemaps.js';
 
 const execAsync = promisify(exec);
 
@@ -9,35 +9,33 @@ async function runCommand(command: string): Promise<void> {
   try {
     const { stdout, stderr } = await execAsync(command);
     console.log(stdout);
-    if (stderr) console.error(stderr);
+    if (stderr) {
+      console.error(stderr);
+    }
   } catch (error) {
-    console.error(`Error executing command: ${command}`, error);
+    console.error('Error executing command:', error);
     throw error;
   }
 }
 
-async function generateAll() {
-  console.log('🚀 Starting full site generation...');
-
+async function generateAll(): Promise<void> {
   try {
-    // 1. Generate directory pages
-    console.log('\n📁 Generating directory pages...');
-    const generator = new DirectoryGenerator();
-    await generator.generateAllPages();
+    const categories = ['plumbers', 'electricians', 'contractors'];
+    const locations = ['denver', 'boulder', 'aurora'];
+    const baseUrl = 'https://denvercontractors.com';
 
-    // 2. Generate sitemaps
-    console.log('\n🗺️ Generating sitemaps...');
-    await generateSitemaps();
+    // Generate directory structure
+    const generator = new DirectoryGenerator(process.cwd());
+    await generator.generateDirectory(categories, locations);
 
-    // 3. Build the Next.js project
-    console.log('\n🏗️ Building Next.js project...');
-    await runCommand('next build');
+    // Generate sitemaps
+    await generateSitemaps(baseUrl, categories, locations);
 
-    console.log('\n✅ Site generation completed successfully!');
+    console.log('Generation completed successfully!');
   } catch (error) {
-    console.error('\n❌ Error during site generation:', error);
+    console.error('Error during generation:', error);
     process.exit(1);
   }
 }
 
-generateAll(); 
+generateAll();

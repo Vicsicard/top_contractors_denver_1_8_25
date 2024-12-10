@@ -1,12 +1,12 @@
-import mongoose, { Schema } from 'mongoose';
-const PlaceCacheSchema = new Schema({
+import mongoose from 'mongoose';
+const PlaceCacheSchema = new mongoose.Schema({
     placeId: {
         type: String,
         required: true,
         unique: true,
     },
     data: {
-        type: Schema.Types.Mixed,
+        type: mongoose.Schema.Types.Mixed,
         required: true,
     },
     keyword: {
@@ -30,4 +30,4 @@ PlaceCacheSchema.index({ createdAt: 1 }, { expireAfterSeconds: 180 * 24 * 60 * 6
 // Prevent TS error about model already being defined
 export const PlaceCache = mongoose.models.PlaceCache ||
     mongoose.model('PlaceCache', PlaceCacheSchema);
-export default { PlaceCache };
+export default { PlaceCache: './PlaceCache.js' };

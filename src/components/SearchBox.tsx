@@ -1,8 +1,9 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { Location } from '@/utils/searchData';
+import { getPlacesData } from '@/utils/placesApi';
 
 interface SearchBoxProps {
   initialKeywords: string[];
