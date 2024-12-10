@@ -1,16 +1,14 @@
 import type { Metadata } from 'next';
-import type { PageProps } from '@/types/next';
 import { loadSearchData } from '@/utils/searchData';
 import { parseUrlSegment } from '@/utils/urlHelpers';
 
-interface Props {
+interface PageProps {
   params: {
     keyword: string;
   };
-  searchParams: { [key: string]: string | string[] | undefined };
 }
 
-export default async function Page({ params, searchParams }: Props) {
+export default async function Page({ params }: PageProps) {
   const { keyword } = params;
   const parsedKeyword = parseUrlSegment(keyword);
   
@@ -26,7 +24,7 @@ export default async function Page({ params, searchParams }: Props) {
   );
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { keyword } = params;
   const parsedKeyword = parseUrlSegment(keyword);
   
