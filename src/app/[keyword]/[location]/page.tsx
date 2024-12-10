@@ -1,11 +1,11 @@
 import { Metadata } from 'next';
-import { searchPlaces } from '@/utils/googlePlaces.js';
-import { parseUrlSegment } from '@/utils/urlHelpers.js';
-import { loadSearchData } from '@/utils/searchData.js';
-import { generateMetaContent, generateStructuredData } from '@/utils/metaContent.js';
+import { searchPlaces } from '@/utils/googlePlaces';
+import { parseUrlSegment } from '@/utils/urlHelpers';
+import { loadSearchData } from '@/utils/searchData';
+import { generateMetaContent, generateStructuredData } from '@/utils/metaContent';
 import Breadcrumbs from '@/components/Breadcrumbs';
-import { JsonLd } from '@/components/JsonLd.js';
-import CategoryList from '@/components/CategoryList.js';
+import { JsonLd } from '@/components/JsonLd';
+import CategoryList from '@/components/CategoryList';
 
 interface PageProps {
   params: {

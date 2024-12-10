@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
-import { PlaceCache, IPlaceCache } from '../models/PlaceCache.js';
-import { connectDB } from './mongodb.js';
+import { PlaceCache, IPlaceCache } from '../models/PlaceCache';
+import { connectDB } from './mongodb';
 
 export interface PlacesApiOptions {
   keyword: string;

@@ -1,4 +1,4 @@
-import { getPlacesData } from './placesApi.js';
+import { getPlacesData } from './placesApi';
 import * as dotenv from 'dotenv';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';

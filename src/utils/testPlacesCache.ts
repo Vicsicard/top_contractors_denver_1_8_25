@@ -1,8 +1,8 @@
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import * as dotenv from 'dotenv';
-import { getPlacesData } from './placesApi.js';
-import { connectDB } from './mongodb.js';
+import { getPlacesData } from './placesApi';
+import { connectDB } from './mongodb';
 import mongoose from 'mongoose';
 
 const __filename = fileURLToPath(import.meta.url);
