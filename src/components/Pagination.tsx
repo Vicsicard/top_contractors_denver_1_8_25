@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import React from 'react';
 
 interface PaginationProps {
   currentPage: number;
@@ -12,7 +13,7 @@ export default function Pagination({
   totalPages, 
   baseUrl,
   maxDisplayed = 5 
-}: PaginationProps): JSX.Element {
+}: PaginationProps): JSX.Element | null {
   // Don't render pagination if there's only one page
   if (totalPages <= 1) return null;
 

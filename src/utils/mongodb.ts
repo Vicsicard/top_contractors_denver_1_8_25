@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose, { Connection } from 'mongoose';
 import * as dotenv from 'dotenv';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
@@ -10,68 +10,56 @@ const __dirname = dirname(__filename);
 // Load environment variables from root .env.local
 dotenv.config({ path: join(__dirname, '../../../.env.local') });
 
-// Get MongoDB URI from environment variables
-const mongoUri = process.env.MONGODB_URI;
-console.log('MongoDB URI available:', !!mongoUri);
+const MONGODB_URI = process.env.MONGODB_URI;
 
-if (!mongoUri) {
-  throw new Error('MONGODB_URI is not defined in environment variables');
+if (!MONGODB_URI) {
+  throw new Error('Please define the MONGODB_URI environment variable inside .env.local');
 }
 
-// Now TypeScript knows mongoUri is a string
-
-// Define the interface for our cached connection
-interface CachedConnection {
-  conn: typeof mongoose | null;
-  promise: Promise<typeof mongoose> | null;
+interface MongooseCache {
+  conn: Connection | null;
+  promise: Promise<Connection> | null;
 }
 
-// Create cache object
-let cached: CachedConnection = {
-  conn: null,
-  promise: null,
-};
-
-// Create global type
-declare global {
-  let mongooseCache: CachedConnection | undefined;
-}
-
-// Check if we have a cached connection in global scope
+// Initialize the global cache if it doesn't exist
 if (!global.mongooseCache) {
-  global.mongooseCache = cached;
-} else {
-  cached = global.mongooseCache;
+  global.mongooseCache = {
+    conn: null,
+    promise: null,
+  };
 }
 
-export async function connectDB(): Promise<typeof mongoose> {
-  try {
-    if (cached.conn) {
-      console.log('Using existing MongoDB connection');
-      return cached.conn;
-    }
+/**
+ * Global is used here to maintain a cached connection across hot reloads
+ * in development. This prevents connections growing exponentially
+ * during API Route usage.
+ */
+const cached: MongooseCache = global.mongooseCache;
 
-    if (!cached.promise) {
-      console.log('Creating new MongoDB connection...');
-      const opts = {
-        bufferCommands: false,
-      };
-
-      // Ensure mongoUri is defined before using it
-      if (!mongoUri) {
-        throw new Error('MONGODB_URI is not defined in environment variables');
-      }
-
-      // Now TypeScript knows mongoUri is a string
-      cached.promise = mongoose.connect(mongoUri, opts);
-    }
-
-    cached.conn = await cached.promise;
-    console.log('MongoDB connection established');
+export async function connectToDatabase(): Promise<Connection> {
+  if (cached.conn) {
     return cached.conn;
-  } catch (error) {
-    console.error('Error connecting to MongoDB:', error);
-    cached.promise = null;
-    throw error;
   }
+
+  if (!cached.promise) {
+    const opts = {
+      bufferCommands: false,
+    };
+
+    cached.promise = mongoose.connect(MONGODB_URI!, opts).then((mongoose) => {
+      return mongoose.connection;
+    });
+  }
+
+  try {
+    cached.conn = await cached.promise;
+  } catch (e) {
+    cached.promise = null;
+    throw e;
+  }
+
+  return cached.conn;
 }
+
+// Export the old name for backward compatibility
+export const connectDB = connectToDatabase;

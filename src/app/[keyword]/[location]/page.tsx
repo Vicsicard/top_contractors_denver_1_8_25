@@ -7,14 +7,15 @@ import { JsonLd } from '@/components/JsonLd';
 import CategoryList from '@/components/CategoryList';
 
 interface PageProps {
-  params: {
+  params: Promise<{
     keyword: string;
     location: string;
-  };
+  }>;
 }
 
-export default async function Page({ params }: PageProps) {
-  const { keyword, location } = params;
+export default async function Page({ params }: PageProps): Promise<JSX.Element> {
+  const resolvedParams = await params;
+  const { keyword, location } = resolvedParams;
   const parsedKeyword = parseUrlSegment(keyword);
   const searchData = loadSearchData();
   const locationData = searchData.locations.find(
@@ -33,35 +34,39 @@ export default async function Page({ params }: PageProps) {
   }
 
   const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": `${parsedKeyword} in ${locationData.location}`,
-    "description": `Find the best ${parsedKeyword} in ${locationData.location}, ${locationData.county} County`,
-    "areaServed": {
-      "@type": "City",
-      "name": locationData.location,
-      "containedIn": locationData.county
-    },
-    "provider": {
-      "@type": "LocalBusiness",
-      "name": "Denver Contractors"
+    type: 'Service',
+    data: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": `${parsedKeyword} in ${locationData.location}`,
+      "description": `Find the best ${parsedKeyword} in ${locationData.location}, ${locationData.county} County`,
+      "areaServed": {
+        "@type": "City",
+        "name": locationData.location,
+        "containedIn": locationData.county
+      },
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "Denver Contractors"
+      }
     }
   };
 
   return (
     <div className="container mx-auto px-4 py-8">
       <Breadcrumbs keyword={keyword} location={location} />
-      <JsonLd data={jsonLd} />
+      <JsonLd {...jsonLd} />
       <h1 className="text-3xl font-bold mb-4">
         {parsedKeyword} in {locationData.location}
       </h1>
-      <CategoryList />
+      <CategoryList contractors={[]} />
     </div>
   );
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { keyword, location } = params;
+  const resolvedParams = await params;
+  const { keyword, location } = resolvedParams;
   const parsedKeyword = parseUrlSegment(keyword);
   const searchData = loadSearchData();
   const locationData = searchData.locations.find(
@@ -78,7 +83,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return generateMetaContent(parsedKeyword, locationData);
 }
 
-export async function generateStaticParams() {
+export async function generateStaticParams(): Promise<Array<{ keyword: string; location: string }>> {
   const searchData = loadSearchData();
   return searchData.locations.flatMap(loc => 
     searchData.keywords.map(keyword => ({

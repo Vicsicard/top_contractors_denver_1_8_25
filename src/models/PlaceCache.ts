@@ -25,7 +25,14 @@ const PlaceCacheSchema = new mongoose.Schema<IPlaceCache>({
     unique: true,
   },
   data: {
-    type: PlaceData,
+    type: {
+      name: { type: String, required: true },
+      formatted_address: { type: String, required: true },
+      place_id: { type: String, required: true },
+      rating: { type: Number, required: false },
+      user_ratings_total: { type: Number, required: false },
+      last_updated: { type: Date, required: true }
+    },
     required: true,
   },
   keyword: {
@@ -39,8 +46,7 @@ const PlaceCacheSchema = new mongoose.Schema<IPlaceCache>({
   createdAt: {
     type: Date,
     default: Date.now,
-    expires: 180 * 24 * 60 * 60, // 180 days in seconds
-  },
+  }
 });
 
 // Create indexes for efficient querying
@@ -48,7 +54,5 @@ PlaceCacheSchema.index({ placeId: 1 });
 PlaceCacheSchema.index({ keyword: 1, location: 1 });
 PlaceCacheSchema.index({ createdAt: 1 }, { expireAfterSeconds: 180 * 24 * 60 * 60 });
 
-// Prevent TS error about model already being defined
-const PlaceCache = mongoose.models.PlaceCache || mongoose.model<IPlaceCache>('PlaceCache', PlaceCacheSchema);
-
-export default PlaceCache;
+// Create and export the model
+export const PlaceCache = mongoose.models.PlaceCache || mongoose.model<IPlaceCache>('PlaceCache', PlaceCacheSchema);

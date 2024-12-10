@@ -1,72 +1,43 @@
 import { loadSearchData } from './searchData';
 import { formatKeywordForUrl, formatLocationForUrl } from './urlHelpers';
 
-export async function generateSitemap(domain: string): string {
+export async function generateSitemap(domain: string): Promise<string> {
   const searchData = loadSearchData();
   const currentDate = new Date().toISOString();
 
-  // Start the XML string
-  let xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Static Pages -->
-  <url>
+  let sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n';
+  sitemap += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
+
+  // Add homepage
+  sitemap += `  <url>
     <loc>${domain}</loc>
     <lastmod>${currentDate}</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>${domain}/categories</loc>
+  </url>\n`;
+
+  // Add keyword pages
+  for (const keyword of searchData.keywords) {
+    const formattedKeyword = formatKeywordForUrl(keyword);
+    sitemap += `  <url>
+    <loc>${domain}/${formattedKeyword}</loc>
     <lastmod>${currentDate}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>${domain}/cities</loc>
-    <lastmod>${currentDate}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
+  </url>\n`;
 
-  <!-- Dynamic Service Pages -->`;
-
-  // Add service category pages
-  searchData.keywords.forEach((keyword) => {
-    xml += `
-  <url>
-    <loc>${domain}/categories/${formatKeywordForUrl(keyword)}</loc>
-    <lastmod>${currentDate}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>`;
-  });
-
-  // Add location pages
-  searchData.locations.forEach((location) => {
-    xml += `
-  <url>
-    <loc>${domain}/cities/${formatLocationForUrl(location.location)}</loc>
-    <lastmod>${currentDate}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>`;
-  });
-
-  // Add service+location combination pages
-  searchData.keywords.forEach((keyword) => {
-    searchData.locations.forEach((location) => {
-      xml += `
-  <url>
-    <loc>${domain}/${formatKeywordForUrl(keyword)}/${formatLocationForUrl(location.location)}</loc>
+    // Add location pages for each keyword
+    for (const location of searchData.locations) {
+      const formattedLocation = formatLocationForUrl(location.location);
+      sitemap += `  <url>
+    <loc>${domain}/${formattedKeyword}/${formattedLocation}</loc>
     <lastmod>${currentDate}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
-  </url>`;
-    });
-  });
+  </url>\n`;
+    }
+  }
 
-  // Close the XML
-  xml += '\n</urlset>';
-
-  return xml;
+  sitemap += '</urlset>';
+  return sitemap;
 }

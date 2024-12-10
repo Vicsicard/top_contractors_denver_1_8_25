@@ -3,13 +3,14 @@ import { loadSearchData } from '@/utils/searchData';
 import { parseUrlSegment } from '@/utils/urlHelpers';
 
 interface PageProps {
-  params: {
+  params: Promise<{
     keyword: string;
-  };
+  }>;
 }
 
-export default async function Page({ params }: PageProps) {
-  const { keyword } = params;
+export default async function Page({ params }: PageProps): Promise<JSX.Element> {
+  const resolvedParams = await params;
+  const { keyword } = resolvedParams;
   const parsedKeyword = parseUrlSegment(keyword);
   
   return (
@@ -25,7 +26,8 @@ export default async function Page({ params }: PageProps) {
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { keyword } = params;
+  const resolvedParams = await params;
+  const { keyword } = resolvedParams;
   const parsedKeyword = parseUrlSegment(keyword);
   
   return {
@@ -34,7 +36,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export async function generateStaticParams() {
+export async function generateStaticParams(): Promise<Array<{ keyword: string }>> {
   const searchData = loadSearchData();
   return searchData.keywords.map(keyword => ({
     keyword: parseUrlSegment(keyword),
