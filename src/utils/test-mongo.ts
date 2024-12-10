@@ -10,7 +10,7 @@ const __dirname = dirname(__filename);
 // Load environment variables from .env.local
 dotenv.config({ path: join(__dirname, '../../.env.local') });
 
-async function testConnection() {
+async function testConnection(): Promise<void> {
   const uri = process.env.MONGODB_URI;
 
   if (!uri) {

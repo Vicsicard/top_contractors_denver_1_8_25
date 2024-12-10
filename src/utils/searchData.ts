@@ -7,6 +7,15 @@ export interface Location {
   county: string;
 }
 
+interface KeywordRow {
+  keyword: string;
+}
+
+interface LocationRow {
+  location: string;
+  county: string;
+}
+
 export interface SearchData {
   keywords: string[];
   locations: Location[];
@@ -34,8 +43,8 @@ export function loadSearchData(): SearchData {
   });
 
   searchData = {
-    keywords: keywordsData.map((row: any) => row.keyword),
-    locations: locationsData.map((row: any) => ({
+    keywords: keywordsData.map((row: KeywordRow) => row.keyword),
+    locations: locationsData.map((row: LocationRow) => ({
       location: row.location,
       county: row.county,
     })),
