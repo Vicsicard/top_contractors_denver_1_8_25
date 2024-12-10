@@ -1,5 +1,4 @@
-import mongoose from 'mongoose';
-import { PlaceCache, IPlaceCache } from '../models/PlaceCache';
+import { PlaceCache } from '../models/PlaceCache';
 import { connectDB } from './mongodb';
 
 export interface PlacesApiOptions {
