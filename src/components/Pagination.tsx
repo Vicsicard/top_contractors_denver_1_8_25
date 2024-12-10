@@ -12,13 +12,13 @@ export default function Pagination({
   totalPages, 
   baseUrl,
   maxDisplayed = 5 
-}: PaginationProps) {
+}: PaginationProps): JSX.Element {
   // Don't render pagination if there's only one page
   if (totalPages <= 1) return null;
 
   // Calculate range of pages to display
   let startPage = Math.max(1, currentPage - Math.floor(maxDisplayed / 2));
-  let endPage = Math.min(totalPages, startPage + maxDisplayed - 1);
+  const endPage = Math.min(totalPages, startPage + maxDisplayed - 1);
 
   // Adjust start if we're near the end
   if (endPage - startPage + 1 < maxDisplayed) {
@@ -32,7 +32,7 @@ export default function Pagination({
   );
 
   // Helper function to generate page URLs
-  const getPageUrl = (page: number) => {
+  const getPageUrl = (page: number): string => {
     return page === 1 ? baseUrl : `${baseUrl}?page=${page}`;
   };
 

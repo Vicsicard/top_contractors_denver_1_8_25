@@ -10,19 +10,10 @@ interface Contractor {
 }
 
 interface CategoryListProps {
-  keyword: string;
-  location: {
-    location: string;
-    county: string;
-  };
   contractors: Contractor[];
 }
 
-export default function CategoryList({
-  keyword,
-  location,
-  contractors,
-}: CategoryListProps) {
+export default function CategoryList({ contractors }: CategoryListProps): JSX.Element {
   return (
     <div className="space-y-8">
       {contractors.map((contractor, index) => (

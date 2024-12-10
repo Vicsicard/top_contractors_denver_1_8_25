@@ -1,16 +1,15 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { Location } from '@/utils/searchData';
-import { getPlacesData } from '@/utils/placesApi';
 
 interface SearchBoxProps {
-  initialKeywords: string[];
-  initialLocations: Location[];
+  initialKeywords?: string[];
+  initialLocations?: Location[];
 }
 
-export default function SearchBox({ initialKeywords, initialLocations }: SearchBoxProps) {
+export default function SearchBox({ initialKeywords = [], initialLocations = [] }: SearchBoxProps): JSX.Element {
   const router = useRouter();
   const [keywordQuery, setKeywordQuery] = useState('');
   const [locationQuery, setLocationQuery] = useState('');
@@ -19,41 +18,52 @@ export default function SearchBox({ initialKeywords, initialLocations }: SearchB
   const [selectedKeyword, setSelectedKeyword] = useState('');
   const [selectedLocation, setSelectedLocation] = useState('');
 
-  const keywordRef = useRef<HTMLDivElement>(null);
-  const locationRef = useRef<HTMLDivElement>(null);
+  const keywordRef = useState<HTMLDivElement | null>(null);
+  const locationRef = useState<HTMLDivElement | null>(null);
 
   // Filter suggestions based on input
-  const keywordSuggestions = initialKeywords.filter(keyword =>
+  const keywordSuggestions = initialKeywords.filter((keyword: string): boolean =>
     keyword.toLowerCase().includes(keywordQuery.toLowerCase())
   );
 
-  const locationSuggestions = initialLocations.filter(location =>
+  const locationSuggestions = initialLocations.filter((location: Location): boolean =>
     location.location.toLowerCase().includes(locationQuery.toLowerCase()) ||
     location.county.toLowerCase().includes(locationQuery.toLowerCase())
   );
 
-  // Handle clicks outside suggestion boxes
-  useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
+  useEffect((): (() => void) => {
+    const handleOutsideClick = (event: MouseEvent): void => {
       if (keywordRef.current && !keywordRef.current.contains(event.target as Node)) {
         setShowKeywordSuggestions(false);
       }
       if (locationRef.current && !locationRef.current.contains(event.target as Node)) {
         setShowLocationSuggestions(false);
       }
-    }
+    };
 
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
+    document.addEventListener('mousedown', handleOutsideClick);
+    return (): void => document.removeEventListener('mousedown', handleOutsideClick);
+  }, [keywordRef, locationRef]);
 
   // Handle search submission
-  const handleSearch = () => {
+  const handleSearch = async (): Promise<void> => {
     if (selectedKeyword && selectedLocation) {
       const keywordSlug = selectedKeyword.toLowerCase().replace(/\s+/g, '-');
       const locationSlug = selectedLocation.toLowerCase().replace(/\s+/g, '-');
       router.push(`/${keywordSlug}/${locationSlug}`);
     }
+  };
+
+  const handleKeywordChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    setKeywordQuery(e.target.value);
+    setShowKeywordSuggestions(true);
+    setSelectedKeyword('');
+  };
+
+  const handleLocationChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    setLocationQuery(e.target.value);
+    setShowLocationSuggestions(true);
+    setSelectedLocation('');
   };
 
   return (
@@ -68,11 +78,7 @@ export default function SearchBox({ initialKeywords, initialLocations }: SearchB
             id="keyword-search"
             type="text"
             value={keywordQuery}
-            onChange={(e) => {
-              setKeywordQuery(e.target.value);
-              setShowKeywordSuggestions(true);
-              setSelectedKeyword('');
-            }}
+            onChange={handleKeywordChange}
             placeholder="e.g., Plumbers"
             className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             aria-label="Search for service type"
@@ -105,11 +111,7 @@ export default function SearchBox({ initialKeywords, initialLocations }: SearchB
             id="location-search"
             type="text"
             value={locationQuery}
-            onChange={(e) => {
-              setLocationQuery(e.target.value);
-              setShowLocationSuggestions(true);
-              setSelectedLocation('');
-            }}
+            onChange={handleLocationChange}
             placeholder="e.g., Denver"
             className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             aria-label="Search for location"

@@ -1,9 +1,35 @@
-type PlacesSearchResult = {
+interface GooglePlace {
+  displayName: {
+    text: string;
+  };
+  formattedAddress: string;
+  id: string;
+  rating?: {
+    value: number;
+  };
+  userRatingCount?: {
+    value: number;
+  };
+}
+
+interface PlacesSearchResult {
   name: string;
   formatted_address: string;
   place_id: string;
   rating?: number;
   user_ratings_total?: number;
+}
+
+interface PlacesApiError {
+  error: {
+    code: number;
+    message: string;
+    status: string;
+  };
+}
+
+interface PlacesApiResponse {
+  places: GooglePlace[];
 }
 
 export async function searchPlaces(keyword: string, location: string): Promise<PlacesSearchResult[]> {
@@ -19,13 +45,10 @@ export async function searchPlaces(keyword: string, location: string): Promise<P
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'X-Goog-Api-Key': apiKey!,
-          'X-Goog-FieldMask': 'places.displayName,places.formattedAddress,places.id,places.rating,places.userRatingCount'
+          'X-Goog-Api-Key': apiKey,
+          'X-Goog-FieldMask': 'places.displayName,places.formattedAddress,places.id,places.rating,places.userRatingCount',
         },
-        body: JSON.stringify({
-          textQuery: query,
-          languageCode: "en"
-        })
+        body: JSON.stringify({ textQuery: query }),
       }
     );
 
@@ -33,14 +56,18 @@ export async function searchPlaces(keyword: string, location: string): Promise<P
       throw new Error(`Google Places API error: ${response.statusText}`);
     }
 
-    const data = await response.json();
+    const data = await response.json() as PlacesApiResponse | PlacesApiError;
     
-    return data.places.map((place: any) => ({
+    if ('error' in data) {
+      throw new Error(`Google Places API error: ${data.error.message}`);
+    }
+    
+    return data.places.map((place: GooglePlace) => ({
       name: place.displayName.text,
       formatted_address: place.formattedAddress,
       place_id: place.id,
-      rating: place.rating,
-      user_ratings_total: place.userRatingCount
+      rating: place.rating?.value,
+      user_ratings_total: place.userRatingCount?.value,
     }));
   } catch (error) {
     console.error('Error fetching places:', error);

@@ -1,7 +1,7 @@
 import { loadSearchData } from '@/utils/searchData';
 import SearchBox from '@/components/SearchBox';
 
-export default function Home() {
+export default function Home(): JSX.Element {
   const searchData = loadSearchData();
 
   return (

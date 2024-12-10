@@ -3,12 +3,12 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-export default function PlacesSearch() {
+export default function PlacesSearch(): JSX.Element {
   const [keyword, setKeyword] = useState('');
   const [location, setLocation] = useState('');
   const router = useRouter();
 
-  const handleSearch = (e: React.FormEvent) => {
+  const handleSearch = async (e: React.FormEvent): Promise<void> => {
     e.preventDefault();
     
     // Encode the parameters for the URL
@@ -51,4 +51,4 @@ export default function PlacesSearch() {
       </form>
     </div>
   );
-} 
+}

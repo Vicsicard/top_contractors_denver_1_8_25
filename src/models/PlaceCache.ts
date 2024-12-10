@@ -1,22 +1,31 @@
 import mongoose from 'mongoose';
 
 // Define the cache schema
+interface PlaceData {
+  name: string;
+  formatted_address: string;
+  place_id: string;
+  rating?: number;
+  user_ratings_total?: number;
+  last_updated: Date;
+}
+
 export interface IPlaceCache extends mongoose.Document {
   placeId: string;
-  data: any;
+  data: PlaceData;
   keyword: string;
   location: string;
   createdAt: Date;
 }
 
-const PlaceCacheSchema = new mongoose.Schema({
+const PlaceCacheSchema = new mongoose.Schema<IPlaceCache>({
   placeId: {
     type: String,
     required: true,
     unique: true,
   },
   data: {
-    type: mongoose.Schema.Types.Mixed,
+    type: PlaceData,
     required: true,
   },
   keyword: {
@@ -40,7 +49,6 @@ PlaceCacheSchema.index({ keyword: 1, location: 1 });
 PlaceCacheSchema.index({ createdAt: 1 }, { expireAfterSeconds: 180 * 24 * 60 * 60 });
 
 // Prevent TS error about model already being defined
-export const PlaceCache = (mongoose.models.PlaceCache as mongoose.Model<IPlaceCache>) || 
-  mongoose.model<IPlaceCache>('PlaceCache', PlaceCacheSchema);
+const PlaceCache = mongoose.models.PlaceCache || mongoose.model<IPlaceCache>('PlaceCache', PlaceCacheSchema);
 
-export default { PlaceCache: './PlaceCache.js' };
+export default PlaceCache;

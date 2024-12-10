@@ -15,7 +15,7 @@ interface SearchResultsProps {
   error?: string;
 }
 
-export default function SearchResults({ results, isLoading, error }: SearchResultsProps) {
+export default function SearchResults({ results, isLoading, error }: SearchResultsProps): JSX.Element {
   if (isLoading) {
     return (
       <div className="w-full p-8 text-center">

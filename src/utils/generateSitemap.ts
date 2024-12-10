@@ -1,7 +1,7 @@
 import { loadSearchData } from './searchData';
 import { formatKeywordForUrl, formatLocationForUrl } from './urlHelpers';
 
-export async function generateSitemap(domain: string) {
+export async function generateSitemap(domain: string): string {
   const searchData = loadSearchData();
   const currentDate = new Date().toISOString();
 
