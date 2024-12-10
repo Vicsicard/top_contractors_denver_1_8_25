@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "generate": "prisma generate"
+    "generate": "prisma generate",
+    "generate-sitemap": "ts-node scripts/generate-sitemap.ts"
   },
   "dependencies": {
     "@prisma/client": "^6.0.1",
