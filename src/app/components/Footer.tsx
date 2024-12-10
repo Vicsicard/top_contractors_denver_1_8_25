@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-export default function Footer() {
+export default function Footer(): JSX.Element {
   return (
     <footer className="bg-gray-50 border-t">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -74,7 +74,7 @@ export default function Footer() {
         {/* Copyright - SEO optimized with current year */}
         <div className="mt-8 pt-8 border-t border-gray-200">
           <p className="text-gray-500 text-sm text-center">
-            © {new Date().getFullYear()} Denver Contractors. All rights reserved.
+            {new Date().getFullYear()} Denver Contractors. All rights reserved.
           </p>
         </div>
       </div>

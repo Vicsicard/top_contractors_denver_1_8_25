@@ -5,7 +5,7 @@ interface BreadcrumbsProps {
   location: string;
 }
 
-export default function Breadcrumbs({ keyword, location }: BreadcrumbsProps) {
+export default function Breadcrumbs({ keyword, location }: BreadcrumbsProps): JSX.Element {
   return (
     <nav className="text-sm text-gray-600 mb-6" aria-label="Breadcrumb">
       <ol className="list-none p-0 inline-flex">
@@ -27,4 +27,4 @@ export default function Breadcrumbs({ keyword, location }: BreadcrumbsProps) {
       </ol>
     </nav>
   );
-} 
+}
