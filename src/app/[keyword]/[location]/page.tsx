@@ -5,6 +5,7 @@ import { loadContractors } from '@/utils/searchData';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import CategoryList from '@/components/CategoryList';
 import JsonLd from '@/components/JsonLd';
+import React from 'react';
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const resolvedParams = await params;
@@ -21,7 +22,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export default async function Page({ params }: PageProps): Promise<JSX.Element> {
+export default async function Page({ params }: PageProps): Promise<React.ReactElement> {
   const resolvedParams = await params;
   const { keyword, location } = resolvedParams;
   if (!location) {
