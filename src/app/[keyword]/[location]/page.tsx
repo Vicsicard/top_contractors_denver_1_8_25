@@ -1,34 +1,53 @@
-import type { Metadata } from 'next';
-import { loadSearchData } from '@/utils/searchData';
 import { parseUrlSegment } from '@/utils/urlHelpers';
-import { generateMetaContent } from '@/utils/metaContent';
-import Breadcrumbs from '@/app/components/Breadcrumbs';
+import { loadSearchData } from '@/utils/searchData';
+import { Metadata } from 'next';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import { JsonLd } from '@/components/JsonLd';
 import CategoryList from '@/components/CategoryList';
 
-interface PageProps {
-  params: Promise<{
-    keyword: string;
-    location: string;
-  }>;
+interface PageParams {
+  keyword: string;
+  location: string;
 }
 
-export default async function Page({ params }: PageProps): Promise<JSX.Element> {
-  const resolvedParams = await params;
-  const { keyword, location } = resolvedParams;
+interface PageProps {
+  params: PageParams;
+  searchParams?: { [key: string]: string | string[] | undefined };
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  console.log('generateMetadata params:', JSON.stringify(params, null, 2));
+  const { keyword, location } = params;
   const parsedKeyword = parseUrlSegment(keyword);
+  const parsedLocation = parseUrlSegment(location);
+  
+  return {
+    title: `${keyword} in ${location} - Find Local Contractors`,
+    description: `Find trusted ${keyword.toLowerCase()} in ${location}. Get connected with skilled professionals for your home improvement and construction needs.`,
+    alternates: {
+      canonical: `/${parsedKeyword}/${parsedLocation}`,
+    },
+  };
+}
+
+export default function Page({ params }: PageProps): JSX.Element {
+  console.log('Page component params:', JSON.stringify(params, null, 2));
+  console.log('Page component params type:', Object.prototype.toString.call(params));
+  console.log('Is params a promise?', params instanceof Promise);
+  
+  const { keyword, location } = params;
+  const parsedKeyword = parseUrlSegment(keyword);
+  const parsedLocation = parseUrlSegment(location);
   const searchData = loadSearchData();
   const locationData = searchData.locations.find(
-    (loc) => parseUrlSegment(loc.location) === parseUrlSegment(location)
+    (loc) => parseUrlSegment(loc.location) === parsedLocation
   );
 
   if (!locationData) {
     return (
       <div className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold mb-4">
-          {parsedKeyword} in {location}
-        </h1>
-        <p>Location not found.</p>
+        <h1 className="text-3xl font-bold mb-4">Location Not Found</h1>
+        <p>Sorry, we could not find the location you&apos;re looking for.</p>
       </div>
     );
   }
@@ -64,31 +83,20 @@ export default async function Page({ params }: PageProps): Promise<JSX.Element> 
   );
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const resolvedParams = await params;
-  const { keyword, location } = resolvedParams;
-  const parsedKeyword = parseUrlSegment(keyword);
+export async function generateStaticParams(): Promise<PageParams[]> {
+  console.log('generateStaticParams called');
   const searchData = loadSearchData();
-  const locationData = searchData.locations.find(
-    (loc) => parseUrlSegment(loc.location) === parseUrlSegment(location)
-  );
-  
-  if (!locationData) {
-    return {
-      title: `${parsedKeyword} in ${location} - Not Found`,
-      description: `Location not found for ${parsedKeyword} services.`,
-    };
-  }
-  
-  return generateMetaContent(parsedKeyword, locationData);
-}
+  const params = [];
 
-export async function generateStaticParams(): Promise<Array<{ keyword: string; location: string }>> {
-  const searchData = loadSearchData();
-  return searchData.locations.flatMap(loc => 
-    searchData.keywords.map(keyword => ({
-      keyword: parseUrlSegment(keyword),
-      location: parseUrlSegment(loc.location),
-    }))
-  );
+  for (const keyword of searchData.keywords) {
+    for (const location of searchData.locations) {
+      params.push({
+        keyword,
+        location: location.location,
+      });
+    }
+  }
+
+  console.log('Generated params:', JSON.stringify(params, null, 2));
+  return params;
 }
