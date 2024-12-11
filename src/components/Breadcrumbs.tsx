@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 interface BreadcrumbsProps {
   keyword: string;
-  location: string;
+  location?: string;
 }
 
 export default function Breadcrumbs({ keyword, location }: BreadcrumbsProps): JSX.Element {
@@ -19,7 +19,7 @@ export default function Breadcrumbs({ keyword, location }: BreadcrumbsProps): JS
             {keyword}
           </Link>
         </li>
-        <li className="text-gray-600">{location}</li>
+        {location && <li className="text-gray-600">{location}</li>}
       </ul>
     </nav>
   );

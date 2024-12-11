@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { Location } from '@/utils/searchData';
+import { Location, MetadataParams } from '@/types/routes';
 
 export interface StructuredData {
   '@context': string;
@@ -37,15 +37,9 @@ export interface StructuredData {
   };
 }
 
-export function generateMetaContent(
-  keyword: string,
-  location: Location,
-  count: number = 10
-): Metadata {
-  const title = `The ${count} Best ${keyword} in ${location.location}, ${location.county}`;
-  const description = `Compare the top ${count} ${keyword.toLowerCase()} in ${
-    location.location
-  }, ${location.county}. View detailed profiles, customer reviews, and contact information.`;
+export function generateMetaContent({ keyword, location }: MetadataParams): Metadata {
+  const title = `${keyword} in ${location} | Denver Contractors`;
+  const description = `Find trusted ${keyword.toLowerCase()} contractors in ${location}. Get connected with qualified professionals for your project needs.`;
 
   return {
     title,
@@ -53,16 +47,21 @@ export function generateMetaContent(
     openGraph: {
       title,
       description,
-      type: 'website',
+      siteName: 'Denver Contractors',
       locale: 'en_US',
+      type: 'website',
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
     },
+    robots: {
+      index: true,
+      follow: true,
+    },
     alternates: {
-      canonical: `/${encodeURIComponent(keyword)}/${encodeURIComponent(location.location)}`,
+      canonical: `https://denvercontractors.com/${keyword.toLowerCase()}/${location.toLowerCase()}`,
     },
   };
 }
@@ -75,8 +74,8 @@ export function generateStructuredData(
   return {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: `Top ${keyword} in ${location.location}, ${location.county}`,
-    description: `List of the best ${count} ${keyword.toLowerCase()} in ${location.location}, ${location.county}`,
+    name: `${keyword} Contractors in ${location.location}`,
+    description: `List of ${keyword.toLowerCase()} contractors serving ${location.location}`,
     numberOfItems: count,
     itemListOrder: 'https://schema.org/ItemListOrderDescending',
     itemListElement: [], // This will be populated with actual data

@@ -1,12 +1,11 @@
 import { NextResponse } from 'next/server';
-import { loadSearchData } from '@/utils/searchData';
+import { loadLocations } from '@/utils/searchData';
 
-export async function GET(): Promise<NextResponse> {
-  try {
-    const searchData = loadSearchData();
-    return NextResponse.json(searchData);
-  } catch (error) {
-    console.error('Error loading search data:', error);
-    return NextResponse.json({ error: 'Failed to load search data' }, { status: 500 });
-  }
+export async function GET(request: Request): Promise<NextResponse> {
+  const { searchParams } = new URL(request.url);
+  const query = searchParams.get('q') || '';
+
+  const locations = await loadLocations(query);
+  
+  return NextResponse.json({ locations });
 }

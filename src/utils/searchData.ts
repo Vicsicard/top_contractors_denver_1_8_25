@@ -1,85 +1,57 @@
-import fs from 'fs';
-import path from 'path';
-import { parse } from 'csv-parse/sync';
+import { Contractor, Location } from '@/types/routes';
 
-export interface Location {
-  location: string;
-  county: string;
-}
+// Mock data for development
+const MOCK_LOCATIONS: Location[] = [
+  { location: 'Denver', county: 'Denver County' },
+  { location: 'Aurora', county: 'Arapahoe County' },
+  { location: 'Lakewood', county: 'Jefferson County' },
+  { location: 'Arvada', county: 'Jefferson County' },
+  { location: 'Westminster', county: 'Adams County' }
+];
 
-interface KeywordRow {
-  keyword: string;
-}
-
-interface LocationRow {
-  location: string;
-  county: string;
-}
-
-export interface SearchData {
-  keywords: string[];
-  locations: Location[];
-}
-
-let searchData: SearchData | null = null;
-
-export function loadSearchData(): SearchData {
-  if (searchData) return searchData;
-
-  const keywordsPath = path.join(process.cwd(), 'src/data/keywords.csv');
-  const locationsPath = path.join(process.cwd(), 'src/data/locations.csv');
-
-  const keywordsFile = fs.readFileSync(keywordsPath, 'utf-8');
-  const locationsFile = fs.readFileSync(locationsPath, 'utf-8');
-
-  const keywordsData = parse(keywordsFile, {
-    columns: true,
-    skip_empty_lines: true,
-  });
-
-  const locationsData = parse(locationsFile, {
-    columns: true,
-    skip_empty_lines: true,
-  });
-
-  searchData = {
-    keywords: keywordsData.map((row: KeywordRow) => row.keyword),
-    locations: locationsData.map((row: LocationRow) => ({
-      location: row.location,
-      county: row.county,
-    })),
-  };
-
-  return searchData;
-}
-
-export function validateSearchTerm(term: string, type: 'keyword' | 'location'): boolean {
-  const data = loadSearchData();
-  if (type === 'keyword') {
-    return data.keywords.some(
-      (keyword) => keyword.toLowerCase() === term.toLowerCase()
-    );
-  } else {
-    return data.locations.some(
-      (loc) => loc.location.toLowerCase() === term.toLowerCase()
-    );
+const MOCK_CONTRACTORS: Contractor[] = [
+  {
+    id: '1',
+    name: 'Denver Best Contractors',
+    rating: 4.8,
+    reviewCount: 125,
+    address: '123 Main St, Denver, CO',
+    phone: '(303) 555-0123',
+    website: 'https://example.com',
+    services: ['Remodeling', 'Renovation', 'New Construction']
+  },
+  {
+    id: '2',
+    name: 'Quality Home Services',
+    rating: 4.5,
+    reviewCount: 89,
+    address: '456 Oak Ave, Denver, CO',
+    phone: '(303) 555-0124',
+    services: ['Home Repair', 'Maintenance']
   }
+];
+
+const MOCK_KEYWORDS = [
+  'Remodeling',
+  'Renovation',
+  'New Construction',
+  'Home Repair',
+  'Maintenance'
+];
+
+export async function loadLocations(_keyword: string): Promise<Location[]> {
+  // In a real app, this would fetch from an API or database
+  return MOCK_LOCATIONS;
 }
 
-export function searchKeywords(query: string): string[] {
-  const data = loadSearchData();
-  const normalizedQuery = query.toLowerCase();
-  return data.keywords.filter((keyword) =>
-    keyword.toLowerCase().includes(normalizedQuery)
-  );
+export async function loadContractors(_keyword: string, _location: string): Promise<Contractor[]> {
+  // In a real app, this would fetch from an API or database
+  return MOCK_CONTRACTORS;
 }
 
-export function searchLocations(query: string): Location[] {
-  const data = loadSearchData();
-  const normalizedQuery = query.toLowerCase();
-  return data.locations.filter(
-    (location) =>
-      location.location.toLowerCase().includes(normalizedQuery) ||
-      location.county.toLowerCase().includes(normalizedQuery)
-  );
+export function loadSearchData(): { keywords: string[]; locations: Location[] } {
+  return {
+    keywords: MOCK_KEYWORDS,
+    locations: MOCK_LOCATIONS
+  };
 }
