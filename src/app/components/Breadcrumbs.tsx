@@ -1,11 +1,12 @@
 import Link from 'next/link';
+import React from 'react';
 
 interface BreadcrumbsProps {
-  keyword: string;
-  location: string;
+  keyword?: string;
+  location?: string;
 }
 
-export default function Breadcrumbs({ keyword, location }: BreadcrumbsProps): JSX.Element {
+export default function Breadcrumbs({ keyword, location }: BreadcrumbsProps): React.ReactElement {
   return (
     <nav className="text-sm text-gray-600 mb-6" aria-label="Breadcrumb">
       <ol className="list-none p-0 inline-flex">
