@@ -1,9 +1,11 @@
+import React from 'react';
+
 interface JsonLdProps {
   type: string;
-  data: Record<string, unknown>;
+  data: Record<string, any>;
 }
 
-export function JsonLd({ type, data }: JsonLdProps): JSX.Element {
+export function JsonLd({ type, data }: JsonLdProps): React.ReactElement {
   return (
     <script
       type={type}
