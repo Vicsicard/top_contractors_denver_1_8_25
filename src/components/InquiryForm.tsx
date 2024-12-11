@@ -27,7 +27,7 @@ const initialFormData: FormData = {
   budget: '',
 };
 
-export default function InquiryForm(): JSX.Element {
+export default function InquiryForm(): React.ReactElement {
   const router = useRouter();
   const [formData, setFormData] = useState<FormData>(initialFormData);
   const [isSubmitting, setIsSubmitting] = useState(false);
