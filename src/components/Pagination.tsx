@@ -1,4 +1,6 @@
+import React from 'react';
+
 // Temporarily disabled while focusing on core functionality
-export default function Pagination(): JSX.Element {
+export default function Pagination(): React.ReactElement {
   return <></>;
 }
