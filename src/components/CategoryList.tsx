@@ -1,3 +1,4 @@
+import React from 'react';
 import { Contractor } from '@/types/routes';
 
 interface CategoryListProps {
@@ -6,7 +7,7 @@ interface CategoryListProps {
   location: string;
 }
 
-export default function CategoryList({ contractors }: CategoryListProps): JSX.Element {
+export default function CategoryList({ contractors }: CategoryListProps): React.ReactElement {
   return (
     <div className="space-y-6">
       {contractors.map((contractor) => (
