@@ -1,11 +1,12 @@
+import React from 'react';
 import Link from 'next/link';
 
 interface BreadcrumbsProps {
-  keyword: string;
+  keyword?: string;
   location?: string;
 }
 
-export default function Breadcrumbs({ keyword, location }: BreadcrumbsProps): JSX.Element {
+export default function Breadcrumbs({ keyword, location }: BreadcrumbsProps): React.ReactElement {
   return (
     <nav className="text-sm breadcrumbs py-4">
       <ul>
