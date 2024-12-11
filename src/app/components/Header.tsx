@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import PlacesSearch from '@/app/components/PlacesSearch';
+import React from 'react';
 
-export default function Header(): JSX.Element {
+const Header: React.FC = () => {
   return (
     <header className="bg-white shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -33,4 +34,6 @@ export default function Header(): JSX.Element {
       </div>
     </header>
   );
-}
+};
+
+export default Header;
