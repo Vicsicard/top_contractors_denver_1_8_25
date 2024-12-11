@@ -1,20 +1,12 @@
-import type { Metadata } from "next";
-import localFont from "next/font/local";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import "./globals.css";
+import './globals.css';
+import { GeistSans } from 'geist/font/sans';
+import { GeistMono } from 'geist/font/mono';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import React from 'react';
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-} as const);
-
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-} as const);
+const geistSans = GeistSans;
+const geistMono = GeistMono;
 
 export const metadata: Metadata = {
   title: "Denver Contractors | Find Trusted Local Contractors",
@@ -33,7 +25,7 @@ export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
-}): JSX.Element {
+}): React.ReactElement {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}>
