@@ -1,9 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-export default function SearchBox(): JSX.Element {
+export default function SearchBox(): React.ReactElement {
   const [keyword, setKeyword] = useState('');
   const router = useRouter();
 
