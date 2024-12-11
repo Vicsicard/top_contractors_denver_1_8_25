@@ -1,3 +1,4 @@
+import React from 'react';
 import type { Metadata } from 'next';
 import SearchBox from '@/components/SearchBox';
 
@@ -6,7 +7,7 @@ export const metadata: Metadata = {
   description: 'Find trusted local contractors in Denver and surrounding areas. Get connected with skilled professionals for your home improvement and construction needs.',
 };
 
-export default function Home(): JSX.Element {
+export default function Home(): React.ReactElement {
   return (
     <main>
       <section className="bg-gradient-to-b from-blue-50 to-white">
