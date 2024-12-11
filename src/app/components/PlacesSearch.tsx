@@ -2,8 +2,9 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import React from 'react';
 
-export default function PlacesSearch(): JSX.Element {
+const PlacesSearch: React.FC = () => {
   const [keyword, setKeyword] = useState('');
   const [location, setLocation] = useState('');
   const router = useRouter();
@@ -51,4 +52,6 @@ export default function PlacesSearch(): JSX.Element {
       </form>
     </div>
   );
-}
+};
+
+export default PlacesSearch;
