@@ -1,6 +1,7 @@
 import Link from 'next/link';
+import React from 'react';
 
-export default function Footer(): JSX.Element {
+const Footer: React.FC = () => {
   return (
     <footer className="bg-gray-50 border-t">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -80,4 +81,6 @@ export default function Footer(): JSX.Element {
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;
