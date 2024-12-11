@@ -1,3 +1,4 @@
+import React from 'react';
 import Link from 'next/link';
 import { Location } from '@/types/routes';
 
@@ -6,7 +7,7 @@ interface LocationListProps {
   keyword: string;
 }
 
-export default function LocationList({ locations, keyword }: LocationListProps): JSX.Element {
+export default function LocationList({ locations, keyword }: LocationListProps): React.ReactElement {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {locations.map((location) => (
