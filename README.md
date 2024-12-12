@@ -4,12 +4,12 @@ A Next.js-based web application for finding and connecting with contractors in t
 
 ## Features
 
-- 🔍 Real-time contractor search powered by Google Places API
-- 📍 Location-based contractor filtering with caching
+- 🔍 Contractor search powered by Google Places API (in progress)
+- 📍 Location-based filtering for Denver area
 - 📱 Responsive design for all devices
-- ⚡ Fast, server-side rendered pages with caching
+- ⚡ Fast, server-side rendered pages
 - 🎨 Modern UI with TailwindCSS
-- 💾 MongoDB-based caching for improved performance
+- 💾 MongoDB-based caching system
 - 🔄 Automatic data refresh for outdated cache entries
 
 ## Tech Stack
@@ -68,11 +68,12 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## API Integration
 
-### Google Places API
+### Google Places API (In Progress)
 - Real-time search for contractors
 - Location-based filtering
 - Business details including ratings and contact info
 - Automatic caching of results
+- Currently debugging integration
 
 ### MongoDB Integration
 - Caching layer for API responses
@@ -80,11 +81,24 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - Connection pooling for better performance
 - Error handling middleware
 
+## Development Status
+
+### Current Focus
+- Debugging Google Places API integration
+- Testing API responses
+- Monitoring rate limits
+- Verifying environment variables
+
+### Known Issues
+- Google Places API integration needs debugging
+- Mock data still showing instead of real results
+- Need to verify environment variables in production
+
 ## Available Scripts
 
 - `npm run dev` - Start development server
 - `npm run build` - Build for production
-- `npm start` - Start production server
+- `npm run start` - Start production server
 - `npm run lint` - Run ESLint
 - `npm run type-check` - Run TypeScript compiler check
 
@@ -101,7 +115,11 @@ NEXT_PUBLIC_BASE_URL    # Base URL for the application
 
 The application is deployed on Vercel. Each push to the main branch triggers an automatic deployment.
 
-Production URL: https://www.topcontractorsdenver.com
+### Required Setup
+1. Configure environment variables in Vercel
+2. Enable Google Places API and set restrictions
+3. Configure MongoDB Atlas connection
+4. Set up proper CORS and security settings
 
 ## Contributing
 
@@ -122,3 +140,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - MongoDB for database services
 - Google for Places API
 - Contributors and maintainers
+
+## Support
+
+For support, please open an issue in the GitHub repository or contact the maintainers.

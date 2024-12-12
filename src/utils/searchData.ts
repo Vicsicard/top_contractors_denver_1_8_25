@@ -1,38 +1,5 @@
-import { Contractor } from '@/types/routes';
-import { Location } from '@/types/location';
 import { Business } from '@/types/business';
 import { searchPlaces, PlacesSearchResult } from './googlePlaces';
-
-// Mock data for development
-const MOCK_CONTRACTORS: Contractor[] = [
-  {
-    id: '1',
-    name: 'Denver Best Contractors',
-    rating: 4.8,
-    reviewCount: 125,
-    address: '123 Main St, Denver, CO',
-    phone: '(303) 555-0123',
-    website: 'https://example.com',
-    services: ['Remodeling', 'Renovation', 'New Construction']
-  },
-  {
-    id: '2',
-    name: 'Quality Home Services',
-    rating: 4.5,
-    reviewCount: 89,
-    address: '456 Oak Ave, Denver, CO',
-    phone: '(303) 555-0124',
-    services: ['Home Repair', 'Maintenance']
-  }
-];
-
-const MOCK_KEYWORDS = [
-  'Remodeling',
-  'Renovation',
-  'New Construction',
-  'Home Repair',
-  'Maintenance'
-];
 
 interface SearchOptions {
   skip?: number;
@@ -57,10 +24,23 @@ function locationToBusiness(place: PlacesSearchResult): Business {
 }
 
 export async function loadLocations(query: string, options?: SearchOptions): Promise<SearchResult> {
+  console.log('Loading locations for query:', query);
+  
+  if (!query) {
+    console.log('Empty query, returning empty results');
+    return {
+      locations: [],
+      total: 0
+    };
+  }
+
   try {
     const places = await searchPlaces(query, 'Denver, Colorado');
-    const businesses = places.map(locationToBusiness);
+    console.log(`Received ${places.length} places from Google Places API`);
     
+    const businesses = places.map(locationToBusiness);
+    console.log(`Transformed ${businesses.length} places to businesses`);
+
     const skip = options?.skip || 0;
     const limit = options?.limit || 10;
     const paginatedResults = businesses.slice(skip, skip + limit);
@@ -78,14 +58,14 @@ export async function loadLocations(query: string, options?: SearchOptions): Pro
   }
 }
 
-export async function loadContractors(_keyword: string, _location: string): Promise<Contractor[]> {
+export async function loadContractors(_keyword: string, _location: string): Promise<Business[]> {
   // In a real app, this would fetch from an API or database
-  return MOCK_CONTRACTORS;
+  return [];
 }
 
-export function loadSearchData(): { keywords: string[]; locations: Location[] } {
+export function loadSearchData(): { keywords: string[]; locations: string[] } {
   return {
-    keywords: MOCK_KEYWORDS,
+    keywords: [],
     locations: []
   };
 }
