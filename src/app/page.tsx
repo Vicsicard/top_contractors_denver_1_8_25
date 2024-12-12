@@ -1,13 +1,12 @@
 import React from 'react';
-import type { Metadata } from 'next';
 import SearchBox from '@/components/SearchBox';
+import { loadLocations } from '@/utils/searchData';
 
-export const metadata: Metadata = {
-  title: 'Denver Contractors - Find Local Contractors in Denver',
-  description: 'Find trusted local contractors in Denver and surrounding areas. Get connected with skilled professionals for your home improvement and construction needs.',
-};
+export default async function Home(): Promise<React.ReactElement> {
+  // Test the search functionality
+  const testResults = await loadLocations('plumbers');
+  console.log('Test search results:', testResults);
 
-export default function Home(): React.ReactElement {
   return (
     <main>
       <section className="bg-gradient-to-b from-blue-50 to-white">
@@ -22,6 +21,14 @@ export default function Home(): React.ReactElement {
             <div className="bg-white rounded-2xl shadow-soft p-6 transform transition-transform hover:scale-[1.02]">
               <SearchBox />
             </div>
+            {testResults.locations.length > 0 && (
+              <div className="mt-8 text-left bg-white p-6 rounded-lg shadow">
+                <h2 className="text-2xl font-semibold mb-4">Sample Results:</h2>
+                <pre className="bg-gray-50 p-4 rounded overflow-auto max-h-96">
+                  {JSON.stringify(testResults, null, 2)}
+                </pre>
+              </div>
+            )}
           </div>
         </div>
       </section>

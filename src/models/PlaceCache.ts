@@ -23,6 +23,7 @@ const PlaceCacheSchema = new mongoose.Schema<IPlaceCache>({
     type: String,
     required: true,
     unique: true,
+    index: true
   },
   data: {
     type: {
@@ -38,21 +39,35 @@ const PlaceCacheSchema = new mongoose.Schema<IPlaceCache>({
   keyword: {
     type: String,
     required: true,
+    index: true
   },
   location: {
     type: String,
     required: true,
+    index: true
   },
   createdAt: {
     type: Date,
     default: Date.now,
+    expires: 180 * 24 * 60 * 60 // 180 days TTL index
   }
 });
 
-// Create indexes for efficient querying
-PlaceCacheSchema.index({ placeId: 1 });
+// Create compound index for keyword and location
 PlaceCacheSchema.index({ keyword: 1, location: 1 });
-PlaceCacheSchema.index({ createdAt: 1 }, { expireAfterSeconds: 180 * 24 * 60 * 60 });
+
+// Add error handling middleware
+PlaceCacheSchema.post('save', function(
+  error: Error & { code?: number },
+  doc: IPlaceCache,
+  next: (err?: Error) => void
+) {
+  if (error.name === 'MongoServerError' && error.code === 11000) {
+    next(new Error('Place already exists in cache'));
+  } else {
+    next(error);
+  }
+});
 
 // Create and export the model
 export const PlaceCache = mongoose.models.PlaceCache || mongoose.model<IPlaceCache>('PlaceCache', PlaceCacheSchema);

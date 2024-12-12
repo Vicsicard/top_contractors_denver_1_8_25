@@ -5,4 +5,6 @@ export interface Business {
   address: string;
   categories: string[];
   phone?: string;
+  website?: string;
+  businessStatus?: string;
 }

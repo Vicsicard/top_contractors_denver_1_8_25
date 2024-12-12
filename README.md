@@ -4,20 +4,23 @@ A Next.js-based web application for finding and connecting with contractors in t
 
 ## Features
 
-- 🔍 Search for contractors by service type
-- 📍 Location-based contractor filtering
+- 🔍 Real-time contractor search powered by Google Places API
+- 📍 Location-based contractor filtering with caching
 - 📱 Responsive design for all devices
-- ⚡ Fast, server-side rendered pages
+- ⚡ Fast, server-side rendered pages with caching
 - 🎨 Modern UI with TailwindCSS
+- 💾 MongoDB-based caching for improved performance
+- 🔄 Automatic data refresh for outdated cache entries
 
 ## Tech Stack
 
 - **Framework**: Next.js 15.1.0
 - **Language**: TypeScript
 - **Styling**: TailwindCSS
-- **Database**: MongoDB
-- **API**: Google Places API
+- **Database**: MongoDB 6.11.0
+- **API**: Google Places API v2
 - **Deployment**: Vercel
+- **Caching**: MongoDB with TTL indexes
 
 ## Getting Started
 
@@ -36,7 +39,9 @@ npm install
 Create a `.env.local` file in the root directory and add:
 ```env
 MONGODB_URI=your_mongodb_uri
-GOOGLE_PLACES_API_KEY=your_google_places_api_key
+MONGODB_DB=top_contractors_denver
+NEXT_PUBLIC_GOOGLE_PLACES_API_KEY=your_google_places_api_key
+NEXT_PUBLIC_BASE_URL=http://localhost:3000
 ```
 
 4. Run the development server:
@@ -48,11 +53,32 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Project Structure
 
-- `/src/app` - Next.js app router pages and layouts
-- `/src/components` - Reusable React components
-- `/src/utils` - Utility functions and helpers
-- `/src/models` - Data models and types
-- `/public` - Static assets
+```
+/src
+  /app             # Next.js app router pages and layouts
+  /components      # Reusable React components
+  /utils           # Utility functions and API handlers
+    /googlePlaces.ts   # Google Places API integration
+    /mongodb.ts        # MongoDB connection and utilities
+  /models          # Data models and MongoDB schemas
+  /types           # TypeScript type definitions
+/docs             # API and implementation documentation
+/public           # Static assets
+```
+
+## API Integration
+
+### Google Places API
+- Real-time search for contractors
+- Location-based filtering
+- Business details including ratings and contact info
+- Automatic caching of results
+
+### MongoDB Integration
+- Caching layer for API responses
+- TTL indexes for automatic cache cleanup
+- Connection pooling for better performance
+- Error handling middleware
 
 ## Available Scripts
 
@@ -62,9 +88,20 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - `npm run lint` - Run ESLint
 - `npm run type-check` - Run TypeScript compiler check
 
+## Environment Variables
+
+```env
+MONGODB_URI              # MongoDB connection string
+MONGODB_DB              # Database name
+NEXT_PUBLIC_GOOGLE_PLACES_API_KEY  # Google Places API key
+NEXT_PUBLIC_BASE_URL    # Base URL for the application
+```
+
 ## Deployment
 
 The application is deployed on Vercel. Each push to the main branch triggers an automatic deployment.
+
+Production URL: https://www.topcontractorsdenver.com
 
 ## Contributing
 
@@ -84,3 +121,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - Vercel for hosting and deployment
 - MongoDB for database services
 - Google for Places API
+- Contributors and maintainers

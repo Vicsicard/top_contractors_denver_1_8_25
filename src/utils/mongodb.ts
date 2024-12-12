@@ -44,11 +44,33 @@ export async function connectToDatabase(): Promise<Connection> {
   if (!cached.promise) {
     const opts = {
       bufferCommands: false,
+      serverSelectionTimeoutMS: 30000,
+      socketTimeoutMS: 45000,
+      family: 4,
+      maxPoolSize: 50,
+      minPoolSize: 10,
+      autoIndex: true,
+      useCache: true,
+      authSource: 'admin'
     };
 
-    cached.promise = mongoose.connect(MONGODB_URI!, opts).then((mongoose) => {
-      return mongoose.connection;
-    });
+    cached.promise = mongoose.connect(MONGODB_URI!, opts)
+      .then((mongoose) => {
+        mongoose.connection.on('connected', () => console.log('MongoDB connected successfully'));
+        mongoose.connection.on('error', (err) => console.error('MongoDB connection error:', err));
+        mongoose.connection.on('disconnected', () => console.log('MongoDB disconnected'));
+        mongoose.connection.on('reconnected', () => console.log('MongoDB reconnected'));
+        mongoose.connection.on('disconnecting', () => console.log('MongoDB disconnecting'));
+        
+        return mongoose.connection;
+      })
+      .catch((error) => {
+        console.error('Error connecting to MongoDB:', error);
+        if (error.name === 'MongooseServerSelectionError') {
+          console.error('Server selection error. Current server state:', error.reason?.servers);
+        }
+        throw error;
+      });
   }
 
   try {

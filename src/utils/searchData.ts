@@ -1,36 +1,9 @@
 import { Contractor } from '@/types/routes';
 import { Location } from '@/types/location';
 import { Business } from '@/types/business';
+import { searchPlaces, PlacesSearchResult } from './googlePlaces';
 
 // Mock data for development
-const MOCK_LOCATIONS: Location[] = [
-  {
-    location: 'Denver',
-    name: 'Denver City',
-    services: ['Plumbing', 'Electrical', 'HVAC']
-  },
-  {
-    location: 'Aurora',
-    name: 'Aurora City',
-    services: ['Roofing', 'Landscaping']
-  },
-  {
-    location: 'Lakewood',
-    name: 'Lakewood Area',
-    services: ['Painting', 'Carpentry']
-  },
-  {
-    location: 'Arvada',
-    name: 'Arvada District',
-    services: ['Flooring', 'Windows']
-  },
-  {
-    location: 'Westminster',
-    name: 'Westminster Zone',
-    services: ['Electrical', 'Plumbing']
-  }
-];
-
 const MOCK_CONTRACTORS: Contractor[] = [
   {
     id: '1',
@@ -71,30 +44,38 @@ interface SearchResult {
   total: number;
 }
 
-function locationToBusiness(location: Location): Business {
+function locationToBusiness(place: PlacesSearchResult): Business {
   return {
-    name: location.location,
-    rating: 0,
-    reviewCount: 0,
-    address: location.location,
-    categories: [],
-    phone: ''
+    name: place.name,
+    rating: place.rating || 0,
+    reviewCount: place.user_ratings_total || 0,
+    address: place.formatted_address,
+    categories: place.categories || [],
+    phone: place.phone || '',
+    website: place.website || ''
   };
 }
 
 export async function loadLocations(query: string, options?: SearchOptions): Promise<SearchResult> {
-  // Mock implementation for now
-  const mockLocations: Location[] = MOCK_LOCATIONS;
+  try {
+    const places = await searchPlaces(query, 'Denver, Colorado');
+    const businesses = places.map(locationToBusiness);
+    
+    const skip = options?.skip || 0;
+    const limit = options?.limit || 10;
+    const paginatedResults = businesses.slice(skip, skip + limit);
 
-  const { skip = 0, limit = 10 } = options || {};
-  const filteredLocations = mockLocations
-    .filter(loc => loc.location.toLowerCase().includes(query.toLowerCase()))
-    .map(locationToBusiness);
-
-  return {
-    locations: filteredLocations.slice(skip, skip + limit),
-    total: filteredLocations.length
-  };
+    return {
+      locations: paginatedResults,
+      total: businesses.length
+    };
+  } catch (error) {
+    console.error('Error loading locations:', error);
+    return {
+      locations: [],
+      total: 0
+    };
+  }
 }
 
 export async function loadContractors(_keyword: string, _location: string): Promise<Contractor[]> {
@@ -105,6 +86,6 @@ export async function loadContractors(_keyword: string, _location: string): Prom
 export function loadSearchData(): { keywords: string[]; locations: Location[] } {
   return {
     keywords: MOCK_KEYWORDS,
-    locations: MOCK_LOCATIONS
+    locations: []
   };
 }
