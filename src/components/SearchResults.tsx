@@ -1,4 +1,6 @@
 import React from 'react';
+import Pagination from './Pagination';
+import { PaginatedResponse } from '@/types/pagination';
 
 interface Business {
   name: string;
@@ -10,12 +12,18 @@ interface Business {
 }
 
 interface SearchResultsProps {
-  results: Business[];
+  results: PaginatedResponse<Business>;
   isLoading: boolean;
   error?: string;
+  onPageChange: (page: number) => void;
 }
 
-export default function SearchResults({ results, isLoading, error }: SearchResultsProps): React.ReactElement {
+export default function SearchResults({ 
+  results, 
+  isLoading, 
+  error,
+  onPageChange 
+}: SearchResultsProps): React.ReactElement {
   if (isLoading) {
     return (
       <div className="w-full p-8 text-center">
@@ -36,7 +44,7 @@ export default function SearchResults({ results, isLoading, error }: SearchResul
     );
   }
 
-  if (results.length === 0) {
+  if (!results.data || results.data.length === 0) {
     return (
       <div className="w-full p-8 text-center text-neutral-600">
         <p>No results found. Try adjusting your search criteria.</p>
@@ -46,37 +54,24 @@ export default function SearchResults({ results, isLoading, error }: SearchResul
 
   return (
     <div className="space-y-4">
-      {results.map((business, index) => (
-        <div
-          key={`${business.name}-${index}`}
-          className="bg-white p-6 rounded-xl shadow-soft hover:shadow-lg transition-shadow duration-300"
-        >
-          <div className="flex justify-between items-start">
-            <div>
-              <h3 className="text-lg font-semibold text-neutral-900 mb-2">
-                {business.name}
-              </h3>
-              <div className="flex items-center space-x-2 mb-2">
-                <div className="flex items-center">
-                  <span className="text-primary-600 font-medium">
-                    {business.rating.toFixed(1)}
-                  </span>
-                  <span className="text-neutral-500 text-sm ml-1">
-                    ({business.reviewCount} reviews)
-                  </span>
-                </div>
-              </div>
-              <p className="text-neutral-600 text-sm mb-2">{business.address}</p>
-              {business.phone && (
-                <p className="text-neutral-600 text-sm">{business.phone}</p>
-              )}
-            </div>
-            <div className="text-right">
-              <div className="flex flex-wrap gap-2 justify-end">
-                {business.categories.slice(0, 3).map((category, idx) => (
+      <div className="space-y-4">
+        {results.data.map((business, index) => (
+          <div
+            key={`${business.name}-${index}`}
+            className="p-4 rounded-xl border border-neutral-200 hover:border-blue-500 transition-colors"
+          >
+            <h3 className="text-lg font-semibold">{business.name}</h3>
+            <div className="mt-2 text-sm text-neutral-600">
+              <p>{business.address}</p>
+              {business.phone && <p className="mt-1">{business.phone}</p>}
+              <p className="mt-1">
+                {business.rating} stars ({business.reviewCount} reviews)
+              </p>
+              <div className="mt-2 flex flex-wrap gap-2">
+                {business.categories.map((category, i) => (
                   <span
-                    key={idx}
-                    className="px-3 py-1 bg-primary-50 text-primary-700 text-sm rounded-full"
+                    key={i}
+                    className="px-2 py-1 bg-neutral-100 rounded-full text-xs"
                   >
                     {category}
                   </span>
@@ -84,8 +79,18 @@ export default function SearchResults({ results, isLoading, error }: SearchResul
               </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
+      
+      {results.pagination && (
+        <Pagination
+          currentPage={results.pagination.currentPage}
+          totalPages={results.pagination.totalPages}
+          itemsPerPage={results.pagination.itemsPerPage}
+          totalItems={results.pagination.totalItems}
+          onPageChange={onPageChange}
+        />
+      )}
     </div>
   );
 }

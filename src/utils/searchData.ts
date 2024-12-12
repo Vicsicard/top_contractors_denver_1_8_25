@@ -1,12 +1,34 @@
-import { Contractor, Location } from '@/types/routes';
+import { Contractor } from '@/types/routes';
+import { Location } from '@/types/location';
+import { Business } from '@/types/business';
 
 // Mock data for development
 const MOCK_LOCATIONS: Location[] = [
-  { location: 'Denver', county: 'Denver County' },
-  { location: 'Aurora', county: 'Arapahoe County' },
-  { location: 'Lakewood', county: 'Jefferson County' },
-  { location: 'Arvada', county: 'Jefferson County' },
-  { location: 'Westminster', county: 'Adams County' }
+  {
+    location: 'Denver',
+    name: 'Denver City',
+    services: ['Plumbing', 'Electrical', 'HVAC']
+  },
+  {
+    location: 'Aurora',
+    name: 'Aurora City',
+    services: ['Roofing', 'Landscaping']
+  },
+  {
+    location: 'Lakewood',
+    name: 'Lakewood Area',
+    services: ['Painting', 'Carpentry']
+  },
+  {
+    location: 'Arvada',
+    name: 'Arvada District',
+    services: ['Flooring', 'Windows']
+  },
+  {
+    location: 'Westminster',
+    name: 'Westminster Zone',
+    services: ['Electrical', 'Plumbing']
+  }
 ];
 
 const MOCK_CONTRACTORS: Contractor[] = [
@@ -39,9 +61,40 @@ const MOCK_KEYWORDS = [
   'Maintenance'
 ];
 
-export async function loadLocations(_keyword: string): Promise<Location[]> {
-  // In a real app, this would fetch from an API or database
-  return MOCK_LOCATIONS;
+interface SearchOptions {
+  skip?: number;
+  limit?: number;
+}
+
+interface SearchResult {
+  locations: Business[];
+  total: number;
+}
+
+function locationToBusiness(location: Location): Business {
+  return {
+    name: location.location,
+    rating: 0,
+    reviewCount: 0,
+    address: location.location,
+    categories: [],
+    phone: ''
+  };
+}
+
+export async function loadLocations(query: string, options?: SearchOptions): Promise<SearchResult> {
+  // Mock implementation for now
+  const mockLocations: Location[] = MOCK_LOCATIONS;
+
+  const { skip = 0, limit = 10 } = options || {};
+  const filteredLocations = mockLocations
+    .filter(loc => loc.location.toLowerCase().includes(query.toLowerCase()))
+    .map(locationToBusiness);
+
+  return {
+    locations: filteredLocations.slice(skip, skip + limit),
+    total: filteredLocations.length
+  };
 }
 
 export async function loadContractors(_keyword: string, _location: string): Promise<Contractor[]> {
