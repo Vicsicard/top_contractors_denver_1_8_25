@@ -19,15 +19,17 @@ export async function GET(request: Request) {
     console.log('API: Found results:', { count: results.length });
 
     return NextResponse.json({
-      status: 'success',
-      results
+      results,
+      metadata: {
+        count: results.length,
+        query: { keyword, location }
+      }
     });
-
   } catch (error) {
-    console.error('API: Search error:', error);
-    return NextResponse.json({
-      status: 'error',
-      message: error instanceof Error ? error.message : 'An error occurred during search'
-    }, { status: 500 });
+    console.error('API Error:', error);
+    return NextResponse.json(
+      { error: 'Failed to fetch results' },
+      { status: 500 }
+    );
   }
 }
