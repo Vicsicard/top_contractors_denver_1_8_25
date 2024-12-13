@@ -2,6 +2,9 @@
 
 A Next.js-based web application for finding and connecting with contractors in the Denver area. Built with TypeScript and deployed on Vercel.
 
+## Overview
+This project is a web application built with Next.js, TypeScript, and MongoDB, aimed at helping users find contractors in Denver using the Google Places API.
+
 ## Features
 
 - 🔍 Smart contractor search with Google Places API integration
@@ -13,6 +16,8 @@ A Next.js-based web application for finding and connecting with contractors in t
 - 💾 Efficient MongoDB caching system
 - 🔄 Automatic data refresh for outdated entries
 - 🎨 Clean, modern UI with Tailwind CSS
+- Search for contractors based on user input.
+- Display detailed information about contractors, including ratings and reviews.
 
 ## Tech Stack
 
@@ -25,7 +30,7 @@ A Next.js-based web application for finding and connecting with contractors in t
 - **Deployment**: Vercel
 - **Caching**: MongoDB with TTL indexes
 
-## Getting Started
+## Installation
 
 1. Clone the repository:
 ```bash
@@ -33,25 +38,26 @@ git clone https://github.com/yourusername/denver_contractors.git
 cd denver_contractors
 ```
 
-2. Install dependencies:
-```bash
-npm install
-```
+2. Run `npm install` to install dependencies.
 
-3. Set up environment variables:
-Create a `.env.local` file in the root directory and add:
-```env
-MONGODB_URI=your_mongodb_uri
-MONGODB_DB=top_contractors_denver
-NEXT_PUBLIC_GOOGLE_PLACES_API_KEY=your_google_places_api_key
-```
+3. Create a `.env.local` file with the following environment variables:
+   - `GOOGLE_PLACES_API_KEY`
+   - `MONGODB_URI`
+   - `MONGODB_DB`
+   - `NEXT_PUBLIC_BASE_URL`
 
-4. Run the development server:
-```bash
-npm run dev
-```
+## Usage
 
-Open [http://localhost:3004](http://localhost:3004) with your browser to see the result.
+- Run `npm run dev` to start the development server.
+- Access the application at `http://localhost:3000`.
+
+## Deployment
+
+- The application is deployed on Vercel. Monitor the deployment for any errors or warnings.
+
+## Next Steps
+
+- Continue to optimize the application and address any remaining issues.
 
 ## Project Structure
 
