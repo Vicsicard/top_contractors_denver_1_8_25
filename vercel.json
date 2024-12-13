@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "routes": [
+  "builds": [
     {
-      "src": "/search/(?<keyword>[^/]+)/(?<location>[^/]+)",
-      "dest": "/search/[keyword]/[location]?keyword=$keyword&location=$location"
-    },
+      "src": "package.json",
+      "use": "@vercel/next"
+    }
+  ],
+  "routes": [
     {
       "src": "/api/(.*)",
       "headers": {
