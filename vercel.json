@@ -8,6 +8,10 @@
   ],
   "routes": [
     {
+      "src": "/search/(?<keyword>[^/]+)/(?<location>[^/]+)",
+      "dest": "/search/[keyword]/[location]?keyword=$keyword&location=$location"
+    },
+    {
       "src": "/api/(.*)",
       "headers": {
         "Access-Control-Allow-Origin": "*"

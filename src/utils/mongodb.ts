@@ -1,87 +1,77 @@
-import mongoose, { Connection } from 'mongoose';
-import * as dotenv from 'dotenv';
-import { fileURLToPath } from 'url';
-import { dirname, join } from 'path';
+import mongoose from 'mongoose';
 
-// Get the directory path for the current module
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-// Load environment variables from root .env.local
-dotenv.config({ path: join(__dirname, '../../../.env.local') });
-
-const MONGODB_URI = process.env.MONGODB_URI;
-
-if (!MONGODB_URI) {
-  throw new Error('Please define the MONGODB_URI environment variable inside .env.local');
-}
-
-interface MongooseCache {
-  conn: Connection | null;
-  promise: Promise<Connection> | null;
-}
-
-// Initialize the global cache if it doesn't exist
-if (!global.mongooseCache) {
-  global.mongooseCache = {
-    conn: null,
-    promise: null,
+declare global {
+  var mongooseCache: {
+    conn: typeof mongoose | null;
+    promise: Promise<typeof mongoose> | null;
   };
 }
 
-/**
- * Global is used here to maintain a cached connection across hot reloads
- * in development. This prevents connections growing exponentially
- * during API Route usage.
- */
-const cached: MongooseCache = global.mongooseCache;
+if (!global.mongooseCache) {
+  global.mongooseCache = {
+    conn: null,
+    promise: null
+  };
+}
 
-export async function connectToDatabase(): Promise<Connection> {
-  if (cached.conn) {
-    return cached.conn;
+export async function connectDB() {
+  if (global.mongooseCache.conn) {
+    console.log('Using cached MongoDB connection');
+    return global.mongooseCache.conn;
   }
 
-  if (!cached.promise) {
+  if (!process.env.MONGODB_URI) {
+    throw new Error('Please define the MONGODB_URI environment variable');
+  }
+
+  if (!global.mongooseCache.promise) {
     const opts = {
       bufferCommands: false,
-      serverSelectionTimeoutMS: 30000,
-      socketTimeoutMS: 45000,
+      maxPoolSize: 10,
+      minPoolSize: 5,
+      socketTimeoutMS: 30000,
       family: 4,
-      maxPoolSize: 50,
-      minPoolSize: 10,
-      autoIndex: true,
-      useCache: true,
-      authSource: 'admin'
+      serverSelectionTimeoutMS: 5000,
     };
 
-    cached.promise = mongoose.connect(MONGODB_URI!, opts)
+    global.mongooseCache.promise = mongoose
+      .connect(process.env.MONGODB_URI, opts)
       .then((mongoose) => {
-        mongoose.connection.on('connected', () => console.log('MongoDB connected successfully'));
-        mongoose.connection.on('error', (err) => console.error('MongoDB connection error:', err));
-        mongoose.connection.on('disconnected', () => console.log('MongoDB disconnected'));
-        mongoose.connection.on('reconnected', () => console.log('MongoDB reconnected'));
-        mongoose.connection.on('disconnecting', () => console.log('MongoDB disconnecting'));
+        console.log('MongoDB connected successfully');
+        // Set up connection event handlers
+        const db = mongoose.connection;
         
-        return mongoose.connection;
+        db.on('connected', () => {
+          console.log('MongoDB connected');
+        });
+
+        db.on('error', (error) => {
+          console.error('MongoDB error:', error);
+        });
+
+        db.on('disconnected', () => {
+          console.log('MongoDB disconnected');
+        });
+
+        db.on('reconnected', () => {
+          console.log('MongoDB reconnected');
+        });
+
+        return mongoose;
       })
       .catch((error) => {
-        console.error('Error connecting to MongoDB:', error);
-        if (error.name === 'MongooseServerSelectionError') {
-          console.error('Server selection error. Current server state:', error.reason?.servers);
-        }
+        console.error('MongoDB connection error:', error);
         throw error;
       });
   }
 
   try {
-    cached.conn = await cached.promise;
+    global.mongooseCache.conn = await global.mongooseCache.promise;
+    return global.mongooseCache.conn;
   } catch (e) {
-    cached.promise = null;
+    global.mongooseCache.promise = null;
     throw e;
   }
-
-  return cached.conn;
 }
 
-// Export the old name for backward compatibility
-export const connectDB = connectToDatabase;
+export default connectDB;

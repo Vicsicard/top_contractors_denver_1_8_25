@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import PlacesSearch from '@/app/components/PlacesSearch';
 import React from 'react';
 
 const Header: React.FC = () => {
@@ -14,7 +13,7 @@ const Header: React.FC = () => {
           </Link>
           
           {/* Main navigation - SEO optimized with semantic markup */}
-          <nav aria-label="Main navigation" className="hidden md:flex space-x-8">
+          <nav aria-label="Main navigation" className="flex space-x-8">
             <Link href="/services" className="text-gray-700 hover:text-gray-900">
               Services
             </Link>
@@ -25,11 +24,6 @@ const Header: React.FC = () => {
               About
             </Link>
           </nav>
-
-          {/* Search component */}
-          <div className="flex-1 max-w-lg mx-4">
-            <PlacesSearch />
-          </div>
         </div>
       </div>
     </header>

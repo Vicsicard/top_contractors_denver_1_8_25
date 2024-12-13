@@ -1,3 +1,4 @@
+import { connectDB } from './mongodb';
 import { PlaceCache } from '@/models/PlaceCache';
 
 interface GooglePlace {
@@ -9,8 +10,7 @@ interface GooglePlace {
   rating?: number;
   userRatingCount?: number;
   types?: string[];
-  businessStatus?: string;
-  phoneNumber?: string;
+  internationalPhoneNumber?: string;
   websiteUri?: string;
 }
 
@@ -37,7 +37,7 @@ interface PlacesApiError {
   };
 }
 
-const CACHE_DURATION = 180 * 24 * 60 * 60 * 1000; // 180 days in milliseconds
+const CACHE_DURATION = 7 * 24 * 60 * 60 * 1000; // 7 days in milliseconds (as per docs)
 const MAX_RETRIES = 3;
 const RETRY_DELAY = 1000; // 1 second
 
@@ -45,139 +45,110 @@ async function delay(ms: number): Promise<void> {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-export async function searchPlaces(keyword: string, location: string): Promise<PlacesSearchResult[]> {
-  const apiKey = process.env.NEXT_PUBLIC_GOOGLE_PLACES_API_KEY;
-  console.log('Starting Google Places search with:', { keyword, location });
-  
-  if (!apiKey) {
-    console.error('API key missing in environment variables');
-    throw new Error('Google Places API key not found');
-  }
-
-  // Check cache first
+export async function searchPlaces(
+  keyword: string,
+  location: string
+): Promise<PlacesSearchResult[]> {
   try {
-    const cachedResults = await PlaceCache.find({
-      keyword: keyword.toLowerCase(),
-      location: location.toLowerCase(),
-      createdAt: { $gt: new Date(Date.now() - CACHE_DURATION) }
-    }).lean();
+    // Connect to MongoDB
+    await connectDB();
 
+    // Check cache first
+    const cachedResults = await PlaceCache.findByKeywordAndLocation(keyword, location);
     if (cachedResults.length > 0) {
-      console.log('Cache hit! Returning cached results:', cachedResults.length);
+      console.log(' Cache HIT:', {
+        keyword,
+        location,
+        resultCount: cachedResults.length,
+        timestamp: new Date().toISOString()
+      });
       return cachedResults.map(result => result.data);
     }
 
-    console.log('Cache miss. Fetching from Google Places API...');
+    console.log(' Cache MISS:', {
+      keyword,
+      location,
+      timestamp: new Date().toISOString()
+    });
 
     // If not in cache, fetch from Google Places API
-    const searchQuery = `${keyword} in ${location}`;
-    const url = 'https://places.googleapis.com/v1/places:searchText';
-    
-    console.log('Making API request to:', url);
-    console.log('Search query:', searchQuery);
-    
-    const headers = {
-      'Content-Type': 'application/json',
-      'X-Goog-Api-Key': apiKey,
-      'X-Goog-FieldMask': [
-        'places.id',
-        'places.displayName',
-        'places.formattedAddress',
-        'places.rating',
-        'places.userRatingCount',
-        'places.types',
-        'places.businessStatus',
-        'places.phoneNumber',
-        'places.websiteUri'
-      ].join(',')
-    };
-
-    console.log('Request headers:', { ...headers, 'X-Goog-Api-Key': '[REDACTED]' });
-
-    let lastError: Error | null = null;
-    
-    for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
-      try {
-        console.log(`Attempt ${attempt} of ${MAX_RETRIES}`);
-        
-        const response = await fetch(url, {
-          method: 'POST',
-          headers,
-          body: JSON.stringify({
-            textQuery: searchQuery,
-            languageCode: 'en',
-            maxResultCount: 20,
-            locationBias: {
-              circle: {
-                center: {
-                  latitude: 39.7392,  // Denver's latitude
-                  longitude: -104.9903 // Denver's longitude
-                },
-                radius: 30000.0 // 30km radius
-              }
-            }
-          })
-        });
-
-        console.log('Response status:', response.status);
-        
-        if (!response.ok) {
-          const errorText = await response.text();
-          console.error('API Error Response:', errorText);
-          throw new Error(`HTTP error! status: ${response.status}, body: ${errorText}`);
-        }
-
-        const data = await response.json() as PlaceSearchResponse | PlacesApiError;
-        
-        if ('error' in data) {
-          console.error('Google Places API error:', data.error);
-          throw new Error(`Google Places API error: ${data.error.message}`);
-        }
-        
-        console.log('Successfully received', data.places.length, 'results from API');
-        
-        const results = data.places.map(place => ({
-          name: place.displayName.text,
-          formatted_address: place.formattedAddress,
-          place_id: place.id,
-          rating: place.rating,
-          user_ratings_total: place.userRatingCount,
-          categories: place.types?.filter(type => !type.startsWith('gc_')) || [],
-          phone: place.phoneNumber,
-          website: place.websiteUri
-        }));
-
-        // Cache the results
-        console.log('Caching', results.length, 'results');
-        await Promise.all(results.map(result =>
-          PlaceCache.create({
-            placeId: result.place_id,
-            data: result,
-            keyword: keyword.toLowerCase(),
-            location: location.toLowerCase(),
-            createdAt: new Date()
-          })
-        ));
-
-        console.log(`Successfully fetched and cached ${results.length} results`);
-        return results;
-        
-      } catch (error) {
-        lastError = error instanceof Error ? error : new Error('Unknown error occurred');
-        console.error(`Attempt ${attempt} failed:`, lastError.message);
-        
-        if (attempt < MAX_RETRIES) {
-          const delayMs = RETRY_DELAY * Math.pow(2, attempt - 1);
-          console.log(`Retrying in ${delayMs}ms...`);
-          await delay(delayMs);
-        }
-      }
+    const apiKey = process.env.NEXT_PUBLIC_GOOGLE_PLACES_API_KEY;
+    if (!apiKey) {
+      throw new Error('Google Places API key not found');
     }
 
-    console.error('All retry attempts failed');
-    throw lastError || new Error('Failed to fetch places after all retries');
+    const searchQuery = `${keyword} in ${location}`;
+    const endpoint = 'https://places.googleapis.com/v1/places:searchText';
+    
+    const response = await fetch(endpoint, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Goog-Api-Key': apiKey,
+        'X-Goog-FieldMask': 'places.displayName,places.formattedAddress,places.id,places.rating,places.userRatingCount,places.types,places.internationalPhoneNumber,places.websiteUri'
+      },
+      body: JSON.stringify({
+        textQuery: searchQuery,
+        languageCode: 'en',
+        maxResultCount: 20
+      })
+    });
+
+    if (!response.ok) {
+      const error = await response.text();
+      throw new Error(`Google Places API error: ${error}`);
+    }
+
+    const data = await response.json();
+    const places = data.places || [];
+
+    // Transform and cache results
+    const results: PlacesSearchResult[] = places.map((place: any) => ({
+      name: place.displayName?.text || '',
+      formatted_address: place.formattedAddress || '',
+      place_id: place.id || '',
+      rating: place.rating || 0,
+      user_ratings_total: place.userRatingCount || 0,
+      categories: place.types || [],
+      phone: place.internationalPhoneNumber || '',
+      website: place.websiteUri || ''
+    }));
+
+    console.log(' Caching results:', {
+      keyword,
+      location,
+      resultCount: results.length,
+      timestamp: new Date().toISOString()
+    });
+
+    // Cache each result
+    const cachePlaces = async (places: PlacesSearchResult[], keyword: string, location: string) => {
+      for (const place of places) {
+        try {
+          await PlaceCache.findOneAndUpdate(
+            { placeId: place.place_id },
+            {
+              $set: {
+                data: place,
+                keyword: keyword.toLowerCase().trim(),
+                location: location.toLowerCase().trim(),
+                createdAt: new Date()
+              }
+            },
+            { upsert: true, new: true }
+          );
+        } catch (error) {
+          // Log the error but don't throw it - we want to continue caching other places
+          console.error('Server', 'Error caching place:', error);
+        }
+      }
+    };
+
+    await cachePlaces(results, keyword, location);
+
+    return results;
   } catch (error) {
-    console.error('Fatal error in searchPlaces:', error);
+    console.error('Error in searchPlaces:', error);
     throw error;
   }
 }

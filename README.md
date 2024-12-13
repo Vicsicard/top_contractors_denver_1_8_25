@@ -4,21 +4,24 @@ A Next.js-based web application for finding and connecting with contractors in t
 
 ## Features
 
-- 🔍 Contractor search powered by Google Places API (in progress)
-- 📍 Location-based filtering for Denver area
-- 📱 Responsive design for all devices
+- 🔍 Smart contractor search with Google Places API integration
+- 📍 Location-based filtering for Denver metro area
+- 🏢 Featured locations across Denver suburbs
+- 🛠️ Popular trades quick-access
+- 📱 Responsive, modern design
 - ⚡ Fast, server-side rendered pages
-- 🎨 Modern UI with TailwindCSS
-- 💾 MongoDB-based caching system
-- 🔄 Automatic data refresh for outdated cache entries
+- 💾 Efficient MongoDB caching system
+- 🔄 Automatic data refresh for outdated entries
+- 🎨 Clean, modern UI with Tailwind CSS
 
 ## Tech Stack
 
 - **Framework**: Next.js 15.1.0
 - **Language**: TypeScript
-- **Styling**: TailwindCSS
+- **Styling**: Tailwind CSS
 - **Database**: MongoDB 6.11.0
-- **API**: Google Places API v2
+- **API**: Google Places API
+- **Icons**: React Icons
 - **Deployment**: Vercel
 - **Caching**: MongoDB with TTL indexes
 
@@ -41,7 +44,6 @@ Create a `.env.local` file in the root directory and add:
 MONGODB_URI=your_mongodb_uri
 MONGODB_DB=top_contractors_denver
 NEXT_PUBLIC_GOOGLE_PLACES_API_KEY=your_google_places_api_key
-NEXT_PUBLIC_BASE_URL=http://localhost:3000
 ```
 
 4. Run the development server:
@@ -49,77 +51,67 @@ NEXT_PUBLIC_BASE_URL=http://localhost:3000
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3004](http://localhost:3004) with your browser to see the result.
 
 ## Project Structure
 
 ```
 /src
   /app             # Next.js app router pages and layouts
-  /components      # Reusable React components
-  /utils           # Utility functions and API handlers
+    /components    # App-specific components
+    /search       # Search-related pages and components
+    /api          # API routes
+  /components      # Shared React components
+  /utils           # Utility functions
     /googlePlaces.ts   # Google Places API integration
     /mongodb.ts        # MongoDB connection and utilities
-  /models          # Data models and MongoDB schemas
-  /types           # TypeScript type definitions
-/docs             # API and implementation documentation
+  /models          # Data models and schemas
+  /types           # TypeScript types
+/docs             # Documentation
 /public           # Static assets
 ```
 
+## Features in Detail
+
+### Home Page
+- Hero section with prominent search
+- Popular trades with icons
+- Featured Denver metro locations
+- Clean, modern design
+
+### Search Functionality
+- Real-time contractor search
+- Location-based filtering
+- Smart caching system
+- Fast response times
+
+### Data Management
+- MongoDB caching layer
+- Automatic cache invalidation
+- Efficient data updates
+- Rate limit protection
+
 ## API Integration
 
-### Google Places API (In Progress)
-- Real-time search for contractors
-- Location-based filtering
-- Business details including ratings and contact info
-- Automatic caching of results
-- Currently debugging integration
+### Google Places API
+- Real-time business search
+- Location-based results
+- Business details and ratings
+- Contact information
+- Automatic caching
 
 ### MongoDB Integration
-- Caching layer for API responses
-- TTL indexes for automatic cache cleanup
-- Connection pooling for better performance
-- Error handling middleware
-
-## Development Status
-
-### Current Focus
-- Debugging Google Places API integration
-- Testing API responses
-- Monitoring rate limits
-- Verifying environment variables
-
-### Known Issues
-- Google Places API integration needs debugging
-- Mock data still showing instead of real results
-- Need to verify environment variables in production
+- Efficient caching system
+- TTL-based cache cleanup
+- Connection pooling
+- Error handling
+- Cache invalidation
 
 ## Available Scripts
 
-- `npm run dev` - Start development server
+- `npm run dev` - Start development server on port 3004
 - `npm run build` - Build for production
 - `npm run start` - Start production server
-- `npm run lint` - Run ESLint
-- `npm run type-check` - Run TypeScript compiler check
-
-## Environment Variables
-
-```env
-MONGODB_URI              # MongoDB connection string
-MONGODB_DB              # Database name
-NEXT_PUBLIC_GOOGLE_PLACES_API_KEY  # Google Places API key
-NEXT_PUBLIC_BASE_URL    # Base URL for the application
-```
-
-## Deployment
-
-The application is deployed on Vercel. Each push to the main branch triggers an automatic deployment.
-
-### Required Setup
-1. Configure environment variables in Vercel
-2. Enable Google Places API and set restrictions
-3. Configure MongoDB Atlas connection
-4. Set up proper CORS and security settings
 
 ## Contributing
 
@@ -132,15 +124,3 @@ The application is deployed on Vercel. Each push to the main branch triggers an 
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Acknowledgments
-
-- Next.js team for the amazing framework
-- Vercel for hosting and deployment
-- MongoDB for database services
-- Google for Places API
-- Contributors and maintainers
-
-## Support
-
-For support, please open an issue in the GitHub repository or contact the maintainers.
