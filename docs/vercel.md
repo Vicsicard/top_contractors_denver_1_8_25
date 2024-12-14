@@ -1484,5 +1484,629 @@ See our Frameworks documentation page to learn about the benefits available to a
 More resources
 Learn more about deploying Next.js projects on Vercel with the following resources:
 
+Troubleshooting Build Errors
+Learn how to resolve common scenarios you may encounter during the Build step, including build errors that cancel a deployment and long build times.
+Table of Contents
+You can troubleshoot build errors that occur during the Build step of your deployment to Vercel. This guide will help you understand how to investigate build failures and long build times.
+
+Troubleshooting views
+You can use the following views on your dashboard to troubleshoot a build:
+
+Build logs - the console output when your deployment is building which can be found under the Deployment Status section of the Project's Deployment page
+Source tab - the output of the build after the deployment is successful. This can also be accessed by appending /_src to the Deployment URL
+Functions tab - the live console output for Serverless Functions at runtime (if your project uses this feature). This can also be accessed by appending /_logs to the Deployment URL
+You can navigate to these views from the Deployment page by clicking on the Source tab, the Functions tab or the Building accordion as shown below.
+
+Access Functions and Building Logs view from the Deployment page.
+Access Functions and Building Logs view from the Deployment page.
+Troubleshoot Build failures
+If your build fails, Vercel will report the error message on the Deployments page so that you can investigate and fix the underlying issue.
+
+In the following we show you how to look up the error message of your failed build.
+
+Investigating Build logs
+Build logs provide you with an insight into what happened during the build of a deployment and can be accessed by:
+
+From your Vercel dashboard, select the project and then the Deployments tab
+
+Select the deployment. When there are build issues you will notice an error status next to deployment name
+
+Error status on the Deployments tab.
+Error status on the Deployments tab.
+On the errored deployment's page, you will see a summary of the error in the preview section. In the Deployment Details section, expand the Building accordion to expand the logs. There are situations where build logs are not available, in this scenario the error will be presented in the UI instead.
+
+Scroll down in the build logs until you find a red section where the keyword "Error" is mentioned. It can be mentioned once or multiple times. In many cases, the last mention is not indicative like in the example below where it says yarn run build exited with 1. If you look a few lines above, you will see an additional error which in this case indicates where the problem is with a link for more details. Sometimes, an error may not be mentioned in the lines above but the output will often help you identify where the problem is.
+
+Error in the logs of the Building accordion.
+Error in the logs of the Building accordion.
+It is recommended to build your project on your local machine first (the build command varies per project) before deploying on Vercel. This will catch issues specific to your code or to your project's dependencies. In the example above, when the command npm run build (that runs next build) is run in the local console for a Next.js project, the error happens after building locally.
+
+Error in local console.
+Error in local console.
+Build Logs not available
+Builds can fail without providing any build logs when Vercel detects a missing precondition that prevents a build from starting. For example:
+
+An invalid vercel.json configuration was committed
+When using Ignored Build Steps
+Commits were made from a contributor that is not a team member
+In this case, you cannot access the Building accordion described above, and instead, Vercel will present an overlay that contains the error message.
+
+Build logs not available for a deployment.
+Build logs not available for a deployment.
+Cancelled Builds due to limits
+Sometimes, your Deployment Build can hit platform limits so that the build will be cancelled and throw a corresponding error that will be shown in the Build logs. Review the limits below in case you run into them.
+
+Build container resources
+Every Build is provided with the following resources:
+
+Hobby	Pro	Enterprise
+Memory	8192 MB	8192 MB	Custom
+Disk space	13 GB	13 GB	Custom
+CPUs	2	4	Custom
+For Hobby and Pro customers, these limits are fixed, but Enterprise customers can purchase enhanced builds with larger memory and storage. Exceeding the memory or disk space allocations limits cancels the build and triggers a system report in your Build logs, identifying memory and disk space issues.
+
+By default, the system generates this report only when it detects a problem. To receive a report for every deployment, set VERCEL_BUILD_SYSTEM_REPORT=1 as an environment variable.
+
+This report helps you detect hidden Out of Memory (OOM) events, and provides insights into disk usage by breaking down the sizes of your source code, node_modules, and output, and flagging files over 100 MB. The input size in the report corresponds to the size of your checked-out repository or files uploaded by CLI. The node_modules size represents the total size of all node_modules folders on disk.
+
+Resource	Allocation	Description
+Memory	8192 MB	Fixed memory allocation. Builds exceeding this limit will be cancelled
+CPUs	4	Number of CPUs allocated for build processing
+Disk Space	13 GB	Fixed disk space allocation. Builds exceeding this limit will be cancelled
+System Report	Conditional	Generated in Build logs when memory or disk space limits are reached. Available by default
+Forced Reporting	Optional	Set VERCEL_BUILD_SYSTEM_REPORT=1 as an environment variable to enable reporting for all builds
+Review the below steps to help navigate this situation:
+
+Review what package the error is related to and explore the package's documentation to see if the memory allocation can be customized with an install or Build command
+If no package is specified, look into reducing the amount of JavaScript that your Project might be using or find a more efficient JavaScript bundler
+Review what you are importing in your code such as third-party services, icons and media files
+Build duration
+The total build duration is shown on the Vercel Dashboard and includes all three steps: building, checking, and assigning domains. Each step also shows the individual duration.
+
+A Build can last for a maximum of 45 minutes. If the build exceeds this time, the deployment will be canceled and the error will be shown on the Deployment's Build logs. If you run into this limit, review this guide that explains how to reduce the Build time with a Next.js Project.
+
+Caching
+The maximum size of the Build's cache is 1 GB. It is retained for one month and it applies at the level of each Build cache key.
+
+It is not possible to manually configure which files are cached at this time.
+
+Other Build errors
+You may come across the following Build-specific errors when deploying your Project. The link for each error provides possible causes of the error that can help you troubleshoot.
+
+Missing Build script
+Recursive invocation of commands
+Pnpm engine unsupported
+A 'module not found' error is a syntax error that will appear at build time. This error appears when the static import statement cannot find the file at the declared path. For more information, see How do I resolve a 'module not found' error?
+
+Troubleshoot Build time
+Understanding Build cache
+The first Build in a Project will take longer as the Build cache is initially empty. Subsequent builds that have the same Build cache key will take less time because elements from your build, such as framework files and node modules, will be reused from the available cache. The next sections will describe the factors that affect the Build cache to help you decrease the Build time
+
+What is cached
+Vercel caches files based on the Framework Preset selected in your Project settings. The following files are cached in addition to node_modules/**, yarn.lock, and package-lock.json.
+
+Framework	Cache Pattern
+Next.js	.next/cache/**
+Nuxt.js	.nuxt/**
+Gatsby.js	{.cache,public}/**
+Eleventy	.cache/**
+Jekyll	{vendor/bin,vendor/cache,vendor/bundle}/**
+Middleman	{vendor/bin,vendor/cache,vendor/bundle}/**
+Note that the framework detection is dependent on the preset selection made in the Build settings. You should make sure that the correct framework is set for your project for optimum build caching.
+
+Caching process
+At the beginning of each build, the previous Build's cache is restored prior to the Install Command or Build command executing. Each deployment is associated with a unique Build cache key that is derived from the combination of the following data:
+
+Personal Account or Team
+Project
+Framework Preset
+Root Directory
+Node.js Version
+Package Manager
+Git branch
+Let's say that under your account MyTeam, you have a project MySite that is connected to your Git repository MyCode on the main branch for the production environment. When you make a commit to the main branch for the first time, you trigger a build that creates a production deployment with a new unique cache key. For any new commits to the main branch of MyCode, the existing Build cache is used as long as MySite is under MyTeam.
+
+If you create a new Git branch in MyCode and make a commit to it, there is no cache for that specific branch. In this case, the last production Deployment cache is used to create a preview deployment and a new branch cache is created for subsequent commits to the new branch.
+
+If you use Serverless Functions to process HTTP requests in your project, each Serverless Function is built separately in the Build step and has its own cache, based on the Runtime used. Therefore, the number and size of Serverless Functions will affect your Build time. For Next.js projects, Serverless Functions are bundled to optimize Build resources as described here.
+
+At the end of each Build step, successful builds will update the cache and failed builds will not modify the existing cache.
+
+Excluding development dependencies
+Since development dependencies (for example, packages such as webpack or Babel) are not needed in production, you may want to prevent them from being installed when deploying to Vercel to reduce the Build time. To skip development dependencies, customize the Install Command to be npm install --only=production or yarn install --production.
+
+Managing Build cache
+Sometimes, you may not want to use the Build cache for a specific deployment. You can invalidate or delete the existing Build cache in the following ways:
+
+Use the Redeploy button for the specific deployment in the Project's Deployments page. In the popup window that follows, leave the checkbox Use existing Build Cache unchecked. See Redeploying a project for more information.
+Use vercel --force with Vercel CLI to build and deploy the project without the Build cache
+Use an Environment Variable VERCEL_FORCE_NO_BUILD_CACHE with a value of 1 on your project to skip the Build cache
+Use an Environment Variable TURBO_FORCE with a value of true on your project to skip Turborepo Remote Cache
+Use the forceNew optional query parameter with a value of 1 when creating a new deployment with the Vercel API to skip the Build cache
+When redeploying without the existing Build Cache, the Remote Cache from Turborepo and Nx are automatically excluded.
+Common mistakes with the Next.js App Router and how to fix them
+Avatar for leerob
+Lee Robinson
+Developer Experience
+6 min read
+
+Jan 8, 2024
+After talking to hundreds of developers and looking at thousands of Next.js repositories, I've noticed ten common mistakes when building with the Next.js App Router.
+
+This post will share why these mistakes can happen, how to fix them, and some tips to help you understand the new App Router model.
+
+Using Route Handlers with Server Components
+Consider the following code for a Server Component:
+
+app/page.tsx
+
+export default async function Page() {
+  let res = await fetch('http://localhost:3000/api/data');
+  let data = await res.json();
+  return <h1>{JSON.stringify(data)}</h1>;
+}
+Fetching JSON data from a Route Handler in a Server Component.
+
+This async component makes a request to a Route Handler to retrieve some JSON data:
+
+app/api/data/route.ts
+
+export async function GET(request: Request) {
+  return Response.json({ data: 'Next.js' });
+}
+A Route Handler that returns static JSON data.
+
+There's two main issues with this approach:
+
+Both Route Handlers and Server Components run securely on the server. You don't need the additional network hop. Instead, you can call whatever logic you intended to place inside the Route Handler directly in the Server Component. This might be an external API or any Promise.
+
+Since this code is running on the server with Node.js, we need to provide the absolute URL for the fetch versus a relative URL. In reality, we wouldn't hardcode localhost here, but instead need to have some conditional check based on the environment we're in. This is unnecessary since you can call the logic directly.
+
+Instead, prefer to do the following:
+
+app/page.tsx
+
+export default async function Page() {
+  // call your async function directly
+  let data = await getData(); // { data: 'Next.js' }
+  // or call an external API directly
+  let data = await fetch('https://api.vercel.app/blog')
+  // ...
+}
+Server Components are able to fetch data directly.
+
+Static or dynamic Route Handlers
+Route Handlers are cached by default when using the GET method. This can often be confusing for existing Next.js developers moving from the Pages Router and API Routes.
+
+For example, the following code will be prerendered during next build:
+
+app/api/data/route.ts
+
+export async function GET(request: Request) {
+  return Response.json({ data: 'Next.js' });
+}
+A Route Handler that returns static JSON data.
+
+This JSON data will not change until another build has completed. Why is that?
+
+You can consider Route Handlers the building blocks of pages. For a given request to a route, you want to handle it. Next.js has further abstractions on top of Route Handlers like pages and layouts. This is why Route Handlers are static by default (like pages) and share the same route segment configuration options.
+
+This functionality unlocks some new features previously not possible with API Routes in the Pages Router. For example, you can have Route Handlers that produce JSON, or txt files, or really any file, which can be computed and prerendered during the build. The statically generated file is then automatically cached, and even periodically updated if desired.
+
+app/api/data/route.ts
+
+export async function GET(request: Request) {
+  let res = await fetch('https://api.vercel.app/blog');
+  let data = await res.json();
+  return Response.json(data);
+}
+Return a list of blog posts as JSON data.
+
+Further, this means the Route Handlers are compatible with Static Exports where you can deploy your Next.js application anywhere that supports static file hosting.
+
+Route Handlers and Client Components
+You might think you need to use Route Handlers with Client Components, since they cannot be marked async and fetch or mutate data. Rather than needing to write a fetch and create a Route Handler, you can instead call Server Actions directly from Client Components.
+
+app/user-form.tsx
+
+'use client';
+
+import { save } from './actions';
+
+export function UserForm() {
+  return (
+    <form action={save}>
+      <input type="text" name="username" />
+      <button>Save</button>
+    </form>
+  );
+}
+A form and input to save a name.
+
+This works with both forms as well as event handlers:
+
+app/user-form.tsx
+
+'use client';
+
+import { save } from './actions';
+
+export function UserForm({ username }) {
+  async function onSave(event) {
+    event.preventDefault();
+    await save(username);
+  }
+
+  return <button onClick={onSave}>Save</button>;
+}
+Server Actions can be called from event handlers.
+
+Using Suspense with Server Components
+Consider the following Server Component. Where should Suspense be placed to define what fallback UI will be shown while the data is being fetched?
+
+app/page.tsx
+
+async function BlogPosts() {
+  let data = await fetch('https://api.vercel.app/blog');
+  let posts = await data.json();
+  return (
+    <ul>
+      {posts.map((post) => (
+        <li key={post.id}>{post.title}</li>
+      ))}
+    </ul>
+  );
+}
+
+export default function Page() {
+  return (
+    <section>
+      <h1>Blog Posts</h1>
+      <BlogPosts />
+    </section>
+  );
+}
+A page which contains an async component with data fetching.
+
+If you guessed inside of the Page component, you were correct. The Suspense boundary needs to be placed higher than the async component doing the data fetching. It will not work if the boundary is inside of the async component.
+
+app/page.tsx
+
+import { Suspense } from 'react';
+
+async function BlogPosts() {
+  let data = await fetch('https://api.vercel.app/blog');
+  let posts = await data.json();
+  return (
+    <ul>
+      {posts.map((post) => (
+        <li key={post.id}>{post.title}</li>
+      ))}
+    </ul>
+  );
+}
+
+export default function Page() {
+  return (
+    <section>
+      <h1>Blog Posts</h1>
+      <Suspense fallback={<p>Loading...</p>}>
+        <BlogPosts />
+      </Suspense>
+    </section>
+  );
+}
+Using Suspense with React Server Components.
+
+In the future with Partial Prerendering, this pattern will start to become more common, including defining which components should be prerendered and which should run on-demand.
+
+
+import { unstable_noStore as noStore } from 'next/cache';
+
+async function BlogPosts() {
+  noStore(); // This component should run dynamically
+  let data = await fetch('https://api.vercel.app/blog');
+  let posts = await data.json();
+  return (
+    <ul>
+      {posts.map((post) => (
+        <li key={post.id}>{post.title}</li>
+      ))}
+    </ul>
+  );
+}
+Opt-into dynamic rendering inside async components.
+
+Using the incoming request
+Since the incoming request object is not able to be accessed from a Server Component, it might not be obvious how to read parts of the incoming request. This could lead to using client hooks like useSearchParams unnecessarily.
+
+There are specific functions and props to the Server Component which allow you to access the incoming request. For example:
+
+cookies()
+
+headers()
+
+params
+
+searchParams
+
+app/blog/[slug]/page.tsx
+
+export default function Page({
+  params,
+  searchParams,
+}: {
+  params: { slug: string }
+  searchParams: { [key: string]: string | string[] | undefined }
+}) {
+  return <h1>My Page</h1>
+}
+Reading parts of the URL and the search parameters.
+
+Using Context providers with App Router
+You might want to use React Context or are using an external dependency which relies on context. Two common mistakes I've seen are trying to use context with Server Components (unsupported) and the placement of the provider in the App Router.
+
+To allow for your Server and Client Components to interleave, it's important to make your provider (or multiple providers) be a separate Client Component which takes children as a prop and renders them. For example:
+
+app/theme-provider.tsx
+
+'use client';
+
+import { createContext } from 'react';
+
+export const ThemeContext = createContext({});
+
+export default function ThemeProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return <ThemeContext.Provider value="dark">{children}</ThemeContext.Provider>;
+}
+A Client Component that uses React Context.
+
+Then, with your provider in a separate file as a Client Component, you can import and use this component inside of your layout:
+
+app/layout.tsx
+
+import ThemeProvider from './theme-provider';
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html>
+      <body>
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
+    </html>
+  );
+}
+A root layout that weaves a client context provider and Server Component children.
+
+With the provider rendered at the root, all other Client Components throughout your app will be able to consume this context. And notably, this configuration still allows for other Server Components (including the page) lower in the tree.
+
+Using Server and Client Components together
+Many React and Next.js developers are learning how to use Server and Client Components for the first time. It's expected there might be some mistakes and opportunities to learn this new model!
+
+For example, consider the following page:
+
+app/page.tsx
+
+export default function Page() {
+  return (
+    <section>
+      <h1>My Page</h1>
+    </section>
+  );
+}
+A Server Component page.
+
+This is a Server Component. While that comes with new functionality like being able to fetch data directly in the component, it also means certain client-side React functionalities aren't available.
+
+For example, consider creating a button that is a counter. This would need to be a new Client Component file marked with the "use client" directive at the top:
+
+app/counter.tsx
+
+'use client';
+
+import { useState } from 'react';
+
+export function Counter() {
+  const [count, setCount] = useState(0);
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+    </div>
+  );
+}
+A Client Component button that increments a count.
+
+You can then import and use this component in your page:
+
+app/page.tsx
+
+import { Counter } from './counter';
+
+export default function Page() {
+  return (
+    <section>
+      <h1>My Page</h1>
+      <Counter />
+    </section>
+  );
+}
+Using a Client Component from a Server Component.
+
+The page is a Server Component and the <Counter> is a Client Component. Great! What about components lower in the tree than the counter? Can those be Server Components? Yes, through composition:
+
+app/page.tsx
+
+import { Counter } from './counter';
+
+function Message() {
+  return <p>This is a Server Component</p>;
+}
+
+export default function Page() {
+  return (
+    <section>
+      <h1>My Page</h1>
+      <Counter>
+        <Message />
+      </Counter>
+    </section>
+  );
+}
+Children of a Client Component can be Server Components.
+
+Children of a Client Component can be a Server Component! Here's the updated counter:
+
+app/counter.tsx
+
+'use client';
+
+import { useState } from 'react';
+
+export function Counter({ children }: { children: React.ReactNode }) {
+  const [count, setCount] = useState(0);
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+      {children}
+    </div>
+  );
+}
+The counter now accepts children and displays them.
+
+Adding “use client” unnecessarily
+Building off the previous example, does that mean that we need to add the "use client" directive everywhere?
+
+When the "use client" directive is added, you pass into the "client boundary" giving you the ability to run client-side JavaScript (i.e. using React hooks or state). Client Components are still prerendered on the server, similar to components in the Next.js Pages Router.
+
+Since you're already in the client boundary, siblings of the <Counter> would become Client Components. You don't need to add "use client" to every file. This might be an approach taken for incremental adoption of the App Router, where a component high up the tree becomes a Client Component and it becomes weave child Server Components further down.
+
+Not revalidating data after mutations
+The Next.js App Router includes a complete model for fetching, caching, and revalidating data. As developers are still learning this new model, and we're continuing to make improvements based on their feedback, one common mistake I've seen is forgetting to revalidate data after a mutation.
+
+For example, consider the following Server Component. It displays a form, which uses a Server Action to handle the submission and create a new entry in a Postgres database.
+
+app/page.tsx
+
+export default function Page() {
+  async function create(formData: FormData) {
+    'use server';
+
+    let name = formData.get('name');
+    await sql`INSERT INTO users (name) VALUES (${name})`;
+  }
+
+  return (
+    <form action={create}>
+      <input name="name" type="text" />
+      <button type="submit">Create</button>
+    </form>
+  );
+}
+A Server Action that inserts the name into a Postgres database.
+
+After the form is submitted and the insertion happens successfully, would the data displaying the list of names automatically update? No, not unless we tell Next.js to. For example:
+
+app/page.tsx
+
+import { revalidatePath } from 'next/cache';
+
+export default async function Page() {
+  let names = await sql`SELECT * FROM users`;
+
+  async function create(formData: FormData) {
+    'use server';
+
+    let name = formData.get('name');
+    await sql`INSERT INTO users (name) VALUES (${name})`;
+
+    revalidatePath('/');
+  }
+
+  return (
+    <section>
+      <form action={create}>
+        <input name="name" type="text" />
+        <button type="submit">Create</button>
+      </form>
+      <ul>
+        {names.map((name) => (
+          <li>{name}</li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+Revalidating data inside of a Server Action.
+
+Redirects inside of try/catch blocks
+When running server-side code, like a Server Component or a Server Action, you might want to redirect if a resource is not available or after a successful mutation.
+
+The redirect() function does not require you to use return redirect() as it uses the TypeScript never type. Further, internally this function throws a Next.js specific error. This means you should handle redirecting outside of try/catch blocks.
+
+For example, if you are trying to redirect inside of a Server Component, it might look like this:
+
+app/page.tsx
+
+import { redirect } from 'next/navigation';
+
+async function fetchTeam(id) {
+  const res = await fetch('https://...');
+  if (!res.ok) return undefined;
+  return res.json();
+}
+
+export default async function Profile({ params }) {
+  const team = await fetchTeam(params.id);
+  if (!team) {
+    redirect('/login');
+  }
+
+  // ...
+}
+Redirecting from a Server Component.
+
+Alternatively, if you're trying to redirect from a Client Component, this should happen inside of a Server Action and not in an event handler:
+
+app/client-redirect.tsx
+
+'use client';
+
+import { navigate } from './actions';
+
+export function ClientRedirect() {
+  return (
+    <form action={navigate}>
+      <input type="text" name="id" />
+      <button>Submit</button>
+    </form>
+  );
+}
+Redirecting in a Client Component through a Server Action.
+
+app/actions.ts
+
+'use server';
+
+import { redirect } from 'next/navigation';
+
+export async function navigate(data: FormData) {
+  redirect('/posts');
+}
+A Server Action that redirects to a new route.
+
+Conclusion
+The Next.js App Router is a new approach for building React applications and there's a handful of new concepts to learn. If you've made any of these mistakes, don't feel discouraged. I've made them as well learning how the model works.
+
+If you want to keep learning more and apply this knowledge, check out our Next.js Learn course to build a real dashboard application with the App Router.
 
 

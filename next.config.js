@@ -2,9 +2,8 @@
 const nextConfig = {
   experimental: {
     serverActions: {
-      allowedOrigins: ["*"],
-      bodySizeLimit: "2mb"
-    },
+      allowedOrigins: ["localhost:3000", "*.vercel.app"]
+    }
   },
   webpack: (config) => {
     // Handle MongoDB driver issue

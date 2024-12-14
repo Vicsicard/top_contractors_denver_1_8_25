@@ -16,12 +16,12 @@ export async function GET(request: Request): Promise<NextResponse> {
 
     console.log('API: Searching for:', { keyword, location });
     const results = await searchPlaces(keyword, location);
-    console.log('API: Found results:', { count: results.length });
+    console.log('API: Found results:', { count: results.results?.length ?? 0 });
 
     return NextResponse.json({
-      results,
+      results: results.results,
       metadata: {
-        count: results.length,
+        count: results.results?.length ?? 0,
         query: { keyword, location }
       }
     });

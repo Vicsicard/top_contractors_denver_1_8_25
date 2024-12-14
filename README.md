@@ -1,36 +1,25 @@
 # Denver Contractors
 
-A Next.js-based web application for finding and connecting with contractors in the Denver area. Built with TypeScript and deployed on Vercel.
-
-## Overview
-This project is a web application built with Next.js, TypeScript, and MongoDB, aimed at helping users find contractors in Denver using the Google Places API.
+A Next.js application for finding and reviewing contractors in the Denver area.
 
 ## Features
 
-- 🔍 Smart contractor search with Google Places API integration
-- 📍 Location-based filtering for Denver metro area
-- 🏢 Featured locations across Denver suburbs
-- 🛠️ Popular trades quick-access
-- 📱 Responsive, modern design
-- ⚡ Fast, server-side rendered pages
-- 💾 Efficient MongoDB caching system
-- 🔄 Automatic data refresh for outdated entries
-- 🎨 Clean, modern UI with Tailwind CSS
-- Search for contractors based on user input.
-- Display detailed information about contractors, including ratings and reviews.
+- Search contractors by keyword and location
+- View contractor details including ratings and reviews
+- Responsive design with Tailwind CSS
+- MongoDB caching for improved performance
+- Google Places API integration
 
-## Tech Stack
+## Getting Started
 
-- **Framework**: Next.js 15.1.0
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS
-- **Database**: MongoDB 6.11.0
-- **API**: Google Places API
-- **Icons**: React Icons
-- **Deployment**: Vercel
-- **Caching**: MongoDB with TTL indexes
+### Prerequisites
 
-## Installation
+- Node.js 18 or later
+- npm or yarn
+- MongoDB database
+- Google Places API key
+
+### Installation
 
 1. Clone the repository:
 ```bash
@@ -38,109 +27,71 @@ git clone https://github.com/yourusername/denver_contractors.git
 cd denver_contractors
 ```
 
-2. Run `npm install` to install dependencies.
+2. Install dependencies:
+```bash
+npm install
+```
 
-3. Create a `.env.local` file with the following environment variables:
-   - `GOOGLE_PLACES_API_KEY`
-   - `MONGODB_URI`
-   - `MONGODB_DB`
-   - `NEXT_PUBLIC_BASE_URL`
+3. Create a `.env` file in the root directory with the following variables:
+```env
+MONGODB_URI=your_mongodb_uri
+GOOGLE_PLACES_API_KEY=your_google_places_api_key
+NEXT_PUBLIC_BASE_URL=your_base_url
+```
 
-## Usage
+4. Run the development server:
+```bash
+npm run dev
+```
 
-- Run `npm run dev` to start the development server.
-- Access the application at `http://localhost:3000`.
+5. Build for production:
+```bash
+npm run build
+```
 
-## Deployment
+## Known Issues
 
-- The application is deployed on Vercel. Monitor the deployment for any errors or warnings.
+1. TypeScript errors in the search results page:
+   - Currently working on resolving type compatibility with Next.js App Router
+   - Build fails due to incorrect type definitions
 
-## Project Status
+## Documentation
 
-### Recent Updates
-- Implemented route groups in the Next.js application to organize API routes without affecting the URL structure.
-- Addressed build errors by focusing on file permissions and clearing the `.next` directory.
-
-### Current Work
-- Testing the build process and ensuring all dependencies and configurations are correct.
-- Documenting the steps taken to resolve issues and improve the project structure.
-
-### Future Plans
-- Complete the build process and verify application functionality.
-- Continue refining the codebase and documentation for better maintainability and clarity.
-
-## Next Steps
-
-- Continue to optimize the application and address any remaining issues.
+- [Next.js API Routes](./docs/nextjs-api-routes.md)
+- [Next.js Conflicting Files](./docs/nextjs-conflicting-files.md)
+- [Google Places API Integration](./docs/google-places-api.md)
+- [Next.js Route Handlers](./docs/nextjs-route-handlers.md)
 
 ## Project Structure
 
 ```
-/src
-  /app             # Next.js app router pages and layouts
-    /components    # App-specific components
-    /search       # Search-related pages and components
-    /api          # API routes
-  /components      # Shared React components
-  /utils           # Utility functions
-    /googlePlaces.ts   # Google Places API integration
-    /mongodb.ts        # MongoDB connection and utilities
-  /models          # Data models and schemas
-  /types           # TypeScript types
-/docs             # Documentation
-/public           # Static assets
+denver_contractors/
+├── src/
+│   ├── app/
+│   │   ├── (pages)/
+│   │   │   └── search/
+│   │   │       └── results/
+│   │   │           └── page.tsx
+│   │   └── (api)/
+│   │       └── places/
+│   │           └── search/
+│   │               └── route.ts
+│   ├── components/
+│   ├── models/
+│   └── utils/
+├── docs/
+├── public/
+└── package.json
 ```
-
-## Features in Detail
-
-### Home Page
-- Hero section with prominent search
-- Popular trades with icons
-- Featured Denver metro locations
-- Clean, modern design
-
-### Search Functionality
-- Real-time contractor search
-- Location-based filtering
-- Smart caching system
-- Fast response times
-
-### Data Management
-- MongoDB caching layer
-- Automatic cache invalidation
-- Efficient data updates
-- Rate limit protection
-
-## API Integration
-
-### Google Places API
-- Real-time business search
-- Location-based results
-- Business details and ratings
-- Contact information
-- Automatic caching
-
-### MongoDB Integration
-- Efficient caching system
-- TTL-based cache cleanup
-- Connection pooling
-- Error handling
-- Cache invalidation
-
-## Available Scripts
-
-- `npm run dev` - Start development server on port 3004
-- `npm run build` - Build for production
-- `npm run start` - Start production server
 
 ## Contributing
 
 1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
