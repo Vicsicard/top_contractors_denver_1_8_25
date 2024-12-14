@@ -1,7 +1,3 @@
-// Move this file into a route group
-// Create a new directory named (api) to group API routes
-// The new path will be: src/app/(api)/places/search/route.ts
-
 import { NextResponse } from 'next/server';
 import { loadLocations } from '@/utils/searchData';
 import { PaginatedResponse } from '@/types/pagination';

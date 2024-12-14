@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { connectDB } from '@/utils/mongodb';
 import { PlaceCache } from '@/models/PlaceCache';
 
-export async function GET() {
+export async function GET(): Promise<NextResponse> {
   try {
     console.log('Starting database test...');
     

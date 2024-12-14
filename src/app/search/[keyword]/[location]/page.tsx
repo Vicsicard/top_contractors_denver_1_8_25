@@ -1,17 +1,27 @@
 import { searchPlaces } from '@/utils/googlePlaces';
 import SearchBox from '@/components/SearchBox';
 import { Suspense } from 'react';
+import { PageProps } from '@/types/routes';
 
 export const dynamic = 'force-dynamic';
 
-interface SearchPageProps {
-  params: {
-    keyword: string;
-    location: string;
-  };
+interface Place {
+  place_id: string;
+  name: string;
+  formatted_address: string;
+  rating?: number;
+  user_ratings_total?: number;
+  categories?: string[];
+  phone?: string;
+  website?: string;
 }
 
-function LoadingState() {
+async function getResults(keyword: string, location: string): Promise<Place[]> {
+  const response = await searchPlaces(keyword, location);
+  return response.results;
+}
+
+function LoadingState(): JSX.Element {
   return (
     <div className="animate-pulse space-y-4">
       <div className="h-4 bg-gray-200 rounded w-3/4"></div>
@@ -27,8 +37,8 @@ function LoadingState() {
   );
 }
 
-export default async function SearchPage({ params }: SearchPageProps) {
-  const { keyword, location } = params;
+export default async function SearchPage({ params }: PageProps): Promise<JSX.Element> {
+  const { keyword, location } = await params;
   console.log('Search page params:', { keyword, location });
   
   const decodedKeyword = decodeURIComponent(keyword);
@@ -36,7 +46,7 @@ export default async function SearchPage({ params }: SearchPageProps) {
   console.log('Decoded params:', { decodedKeyword, decodedLocation });
 
   try {
-    const results = await searchPlaces(decodedKeyword, decodedLocation);
+    const results = await getResults(decodedKeyword, decodedLocation);
     console.log('Search results:', { count: results.length });
 
     return (
