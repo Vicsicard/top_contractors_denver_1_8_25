@@ -1,10 +1,5 @@
 import { NextResponse } from 'next/server';
-import { loadLocations } from '@/utils/searchData';
-import { PaginatedResponse } from '@/types/pagination';
-import { Business } from '@/types/business';
 import { searchPlaces } from '@/utils/googlePlaces';
-
-const DEFAULT_PAGE_SIZE = 10;
 
 export async function GET(request: Request): Promise<NextResponse> {
   try {
