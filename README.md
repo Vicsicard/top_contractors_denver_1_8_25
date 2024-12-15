@@ -1,97 +1,101 @@
 # Denver Contractors
 
-A Next.js application for finding and reviewing contractors in the Denver area.
+A Next.js application to help users find and connect with contractors in the Denver area.
 
 ## Features
-
-- Search contractors by keyword and location
-- View contractor details including ratings and reviews
-- Responsive design with Tailwind CSS
-- MongoDB caching for improved performance
-- Google Places API integration
+- 🔍 Search contractors by service type and location
+- 📍 Integration with Google Places API
+- 💾 MongoDB Atlas for data persistence
+- 🚀 Server-side rendering with Next.js
+- 📱 Responsive design with Tailwind CSS
+- 🔒 Type-safe with TypeScript
 
 ## Getting Started
 
 ### Prerequisites
-
 - Node.js 18 or later
-- npm or yarn
-- MongoDB database
+- MongoDB Atlas account
 - Google Places API key
 
-### Installation
-
-1. Clone the repository:
-```bash
-git clone https://github.com/yourusername/denver_contractors.git
-cd denver_contractors
+### Environment Setup
+1. Clone the repository
+2. Create a `.env.local` file in the root directory with the following variables:
 ```
-
-2. Install dependencies:
-```bash
-npm install
-```
-
-3. Create a `.env` file in the root directory with the following variables:
-```env
-MONGODB_URI=your_mongodb_uri
+MONGODB_URI=your_mongodb_atlas_uri
+MONGODB_DB=denver_contractors
 GOOGLE_PLACES_API_KEY=your_google_places_api_key
-NEXT_PUBLIC_BASE_URL=your_base_url
 ```
 
-4. Run the development server:
+### Installation
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-```
 
-5. Build for production:
-```bash
+# Build for production
 npm run build
+
+# Start production server
+npm start
 ```
 
-## Known Issues
-
-1. TypeScript errors in the search results page:
-   - Currently working on resolving type compatibility with Next.js App Router
-   - Build fails due to incorrect type definitions
-
-## Documentation
-
-- [Next.js API Routes](./docs/nextjs-api-routes.md)
-- [Next.js Conflicting Files](./docs/nextjs-conflicting-files.md)
-- [Google Places API Integration](./docs/google-places-api.md)
-- [Next.js Route Handlers](./docs/nextjs-route-handlers.md)
+### Database Setup
+The application uses MongoDB Atlas for data storage. Make sure to:
+1. Create a MongoDB Atlas account
+2. Create a new cluster
+3. Configure network access
+4. Create a database user
+5. Add the connection string to `.env.local`
 
 ## Project Structure
-
 ```
 denver_contractors/
 ├── src/
-│   ├── app/
-│   │   ├── (pages)/
-│   │   │   └── search/
-│   │   │       └── results/
-│   │   │           └── page.tsx
-│   │   └── (api)/
-│   │       └── places/
-│   │           └── search/
-│   │               └── route.ts
-│   ├── components/
-│   ├── models/
-│   └── utils/
-├── docs/
-├── public/
-└── package.json
+│   ├── app/           # Next.js app router pages
+│   ├── components/    # React components
+│   ├── models/        # MongoDB models
+│   ├── types/         # TypeScript types
+│   └── utils/         # Utility functions
+├── docs/             # Documentation
+├── public/           # Static assets
+└── tests/           # Test files
 ```
 
-## Contributing
+## Documentation
+- [TypeScript Setup](./docs/typescript-eslint-setup.md)
+- [MongoDB Integration](./docs/mongodb-typescript.md)
+- [Testing Guide](./docs/mongodb-typescript-testing.md)
+- [Next.js Components](./docs/nextjs-server-components-typescript.md)
 
+## Contributing
 1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
 5. Open a Pull Request
 
-## License
+## Testing
+```bash
+# Run tests
+npm test
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+# Run tests with coverage
+npm run test:coverage
+```
+
+## Built With
+- [Next.js](https://nextjs.org/) - React framework
+- [TypeScript](https://www.typescriptlang.org/) - Type safety
+- [MongoDB](https://www.mongodb.com/) - Database
+- [Tailwind CSS](https://tailwindcss.com/) - Styling
+- [Google Places API](https://developers.google.com/maps/documentation/places/web-service/overview) - Location data
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+
+## Acknowledgments
+- Next.js team for the amazing framework
+- MongoDB team for the database solution
+- Google Maps Platform for the Places API

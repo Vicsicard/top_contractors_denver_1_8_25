@@ -6,7 +6,7 @@ interface MongooseCache {
 }
 
 declare global {
-  var mongoose: MongooseCache | undefined;
+  let mongoose: MongooseCache | undefined;
 }
 
 const MONGODB_URI = process.env.MONGODB_URI;
@@ -20,11 +20,10 @@ if (!MONGODB_DB) {
     throw new Error('Please define the MONGODB_DB environment variable inside .env.local');
 }
 
-let cached = (globalThis as unknown as { mongoose?: MongooseCache }).mongoose;
-
-if (!cached) {
-    cached = (globalThis as unknown as { mongoose?: MongooseCache }).mongoose = { conn: null, promise: null };
-}
+const cached: MongooseCache = {
+  conn: null,
+  promise: null
+};
 
 export async function connectDB(): Promise<typeof mongoose> {
     if (cached.conn) {

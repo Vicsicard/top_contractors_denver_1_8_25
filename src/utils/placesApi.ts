@@ -46,7 +46,11 @@ export async function getPlacesData(options: PlacesApiOptions): Promise<PlacesAp
       // Check if cache is still valid
       const cacheAge = (Date.now() - cachedData.createdAt.getTime()) / (1000 * 60 * 60 * 24); // age in days
       if (cacheAge < CACHE_EXPIRY_DAYS) {
-        return cachedData.data;
+        return {
+          results: cachedData.data.results,
+          status: cachedData.data.status,
+          error_message: cachedData.data.error_message
+        };
       }
       console.log('Cache expired, fetching fresh data');
       await PlaceCache.deleteOne({ _id: cachedData._id });

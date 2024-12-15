@@ -1,45 +1,15 @@
-import mongoose, { Model } from 'mongoose';
+import mongoose from 'mongoose';
+import { PlacesApiResponse } from '../utils/placesApi';
 
 // Define the cache schema
-export interface PlacesSearchResult {
-  name: string;
-  formatted_address: string;
-  place_id: string;
-  rating?: number;
-  user_ratings_total?: number;
-  categories?: string[];
-  phone?: string;
-  website?: string;
-}
-
 export interface IPlaceCache {
-  placeId: string;
-  data: PlacesSearchResult;
   keyword: string;
   location: string;
+  data: PlacesApiResponse;
   createdAt: Date;
 }
 
 const PlaceCacheSchema = new mongoose.Schema<IPlaceCache>({
-  placeId: {
-    type: String,
-    required: true,
-    unique: true,
-    index: true
-  },
-  data: {
-    type: {
-      name: { type: String, required: true },
-      formatted_address: { type: String, required: true },
-      place_id: { type: String, required: true },
-      rating: { type: Number, required: false },
-      user_ratings_total: { type: Number, required: false },
-      categories: [{ type: String }],
-      phone: { type: String, required: false },
-      website: { type: String, required: false }
-    },
-    required: true,
-  },
   keyword: {
     type: String,
     required: true,
@@ -54,10 +24,32 @@ const PlaceCacheSchema = new mongoose.Schema<IPlaceCache>({
     lowercase: true,
     trim: true
   },
+  data: {
+    type: {
+      results: [{
+        place_id: String,
+        name: String,
+        formatted_address: String,
+        geometry: {
+          location: {
+            lat: Number,
+            lng: Number
+          }
+        },
+        rating: Number,
+        user_ratings_total: Number,
+        formatted_phone_number: String,
+        website: String
+      }],
+      status: String,
+      error_message: String
+    },
+    required: true
+  },
   createdAt: {
     type: Date,
     default: Date.now,
-    expires: 7 * 24 * 60 * 60 // 7 days TTL index
+    expires: 180 * 24 * 60 * 60 // 180 days in seconds
   }
 }, {
   timestamps: true,
@@ -67,7 +59,7 @@ const PlaceCacheSchema = new mongoose.Schema<IPlaceCache>({
 });
 
 // Create compound index for keyword and location
-PlaceCacheSchema.index({ keyword: 1, location: 1 });
+PlaceCacheSchema.index({ keyword: 1, location: 1 }, { unique: true });
 
 // Add error handling middleware
 PlaceCacheSchema.post('save', function(
@@ -84,7 +76,7 @@ PlaceCacheSchema.post('save', function(
 
 // Add pre-save middleware for data validation
 PlaceCacheSchema.pre('save', function(next) {
-  if (!this.data || !this.data.name || !this.data.formatted_address) {
+  if (!this.data || !this.data.results || this.data.results.length === 0) {
     next(new Error('Invalid place data'));
     return;
   }
@@ -108,7 +100,7 @@ PlaceCacheSchema.statics.findByKeywordAndLocation = async function(
   const results = await this.find({
     keyword: normalizedKeyword,
     location: normalizedLocation,
-    createdAt: { $gt: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000) } // Only return results less than 7 days old
+    createdAt: { $gt: new Date(Date.now() - 180 * 24 * 60 * 60 * 1000) } // Only return results less than 180 days old
   }).exec();
 
   console.log('📊 Cache stats:', {
@@ -121,14 +113,4 @@ PlaceCacheSchema.statics.findByKeywordAndLocation = async function(
 };
 
 // Create and export the model
-let PlaceCache: Model<IPlaceCache>;
-
-try {
-  // Try to get the existing model
-  PlaceCache = mongoose.model<IPlaceCache>('PlaceCache');
-} catch {
-  // Model doesn't exist, create it
-  PlaceCache = mongoose.model<IPlaceCache>('PlaceCache', PlaceCacheSchema);
-}
-
-export { PlaceCache };
+export const PlaceCache = mongoose.models.PlaceCache || mongoose.model<IPlaceCache>('PlaceCache', PlaceCacheSchema);

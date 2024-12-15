@@ -659,250 +659,252 @@ Example: Below is the code example of how to post data in mongodb using node js
 7
     <title>Home Page</title>
 8
-    <style>
+    <link rel="icon" href="/favicon.ico" />
 9
-        body {
+    <style>
 10
-            font-family: Arial, sans-serif;
+        body {
 11
-            background-color: #f9f9f9;
+            font-family: Arial, sans-serif;
 12
-            margin: 0;
+            background-color: #f9f9f9;
 13
-            padding: 0;
+            margin: 0;
 14
-            display: flex;
+            padding: 0;
 15
-            justify-content: center;
+            display: flex;
 16
-            align-items: center;
+            justify-content: center;
 17
-            height: 100vh;
+            align-items: center;
 18
-        }
+            height: 100vh;
 19
-​
+        }
 20
-        .container {
+​
 21
-            max-width: 400px;
+        .container {
 22
-            padding: 20px;
+            max-width: 400px;
 23
-            background-color: #fff;
+            padding: 20px;
 24
-            border-radius: 8px;
+            background-color: #fff;
 25
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
 26
-        }
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 27
-​
+        }
 28
-        h1 {
+​
 29
-            color: #333;
+        h1 {
 30
-            text-align: center;
-31
-            margin-bottom: 20px;
-32
-        }
-33
-​
-34
-        p {
-35
-            color: #666;
-36
-            text-align: center;
-37
-            margin-bottom: 20px;
-38
-        }
-39
-​
-40
-        form {
-41
-            text-align: center;
-42
-        }
-43
-​
-44
-        label {
-45
-            display: block;
-46
-            margin-bottom: 10px;
-47
             color: #333;
+31
+            text-align: center;
+32
+            margin-bottom: 20px;
+33
+        }
+34
+​
+35
+        p {
+36
+            color: #666;
+37
+            text-align: center;
+38
+            margin-bottom: 20px;
+39
+        }
+40
+​
+41
+        form {
+42
+            text-align: center;
+43
+        }
+44
+​
+45
+        label {
+46
+            display: block;
+47
+            margin-bottom: 10px;
 48
-        }
+            color: #333;
 49
-​
+        }
 50
-        input[type="text"],
+​
 51
-        input[type="email"],
+        input[type="text"],
 52
-        input[type="tel"],
+        input[type="email"],
 53
-        input[type="number"],
+        input[type="tel"],
 54
-        button {
+        input[type="number"],
 55
-            width: 100%;
-56
-            padding: 10px;
-57
-            margin-bottom: 15px;
-58
-            border: 1px solid #ccc;
-59
-            border-radius: 5px;
-60
-            box-sizing: border-box;
-61
-        }
-62
-​
-63
         button {
+56
+            width: 100%;
+57
+            padding: 10px;
+58
+            margin-bottom: 15px;
+59
+            border: 1px solid #ccc;
+60
+            border-radius: 5px;
+61
+            box-sizing: border-box;
+62
+        }
+63
+​
 64
-            background-color: #007bff;
+        button {
 65
-            color: #fff;
+            background-color: #007bff;
 66
-            cursor: pointer;
+            color: #fff;
 67
-        }
+            cursor: pointer;
 68
-​
+        }
 69
-        button:hover {
+​
 70
-            background-color: #0056b3;
+        button:hover {
 71
-        }
+            background-color: #0056b3;
 72
-​
+        }
 73
-        .message {
+​
 74
-            color: green;
+        .message {
 75
-            text-align: center;
+            color: green;
 76
-            margin-bottom: 20px;
-77
-        }
-78
-​
-79
-        .error {
-80
-            color: red;
-81
             text-align: center;
-82
+77
             margin-bottom: 20px;
+78
+        }
+79
+​
+80
+        .error {
+81
+            color: red;
+82
+            text-align: center;
 83
-        }
+            margin-bottom: 20px;
 84
-    </style>
-85
-</head>
-86
-<body>
-87
-    <div class="container">
-88
-        <h1>Welcome to our website!</h1>
-89
-        <p>This is a simple form to save user data to the database.</p>
-90
-        <form id="userForm" action="/user" method="post" 
-91
-              onsubmit="return validateForm()">
-92
-            <label for="name">Name:</label>
-93
-            <input type="text" id="name" name="name" >
-94
-            <label for="email">Email Id:</label>
-95
-            <input type="email" id="email" name="email" >
-96
-            <label for="mobile">Mobile No:</label>
-97
-            <input type="tel" id="mobile" name="mobile" pattern="[0-9]{10}">
-98
-            <label for="age">Age:</label>
-99
-            <input type="number" id="age" name="age" >
-100
-            <button type="submit">Submit</button>
-101
-        </form>
-102
-        <% if (message) { %>
-103
-            <p class="message"><%= message %></p>
-104
-        <% } else if (error) { %>
-105
-            <p class="error"><%= error %></p>
-106
-        <% } %>
-107
-    </div>
-108
-​
-109
-    <script>
-110
-        function validateForm() {
-111
-            var name = document.getElementById("name").value;
-112
-            var email = document.getElementById("email").value;
-113
-            var mobile = document.getElementById("mobile").value;
-114
-            var age = document.getElementById("age").value;
-115
-​
-116
-            if (name === "" || email === "" || mobile === "" || age === "") {
-117
-                alert("Please fill out all fields.");
-118
-                return false;
-119
-            }
-120
-​
-121
-            if (!/^[0-9]{10}$/.test(mobile)) {
-122
-                alert("Please enter a valid 10-digit mobile number.");
-123
-                return false;
-124
-            }
-125
-​
-126
-            return true;
-127
         }
+85
+    </style>
+86
+</head>
+87
+<body>
+88
+    <div class="container">
+89
+        <h1>Welcome to our website!</h1>
+90
+        <p>This is a simple form to save user data to the database.</p>
+91
+        <form id="userForm" action="/user" method="post" 
+92
+              onsubmit="return validateForm()">
+93
+            <label for="name">Name:</label>
+94
+            <input type="text" id="name" name="name" >
+95
+            <label for="email">Email Id:</label>
+96
+            <input type="email" id="email" name="email" >
+97
+            <label for="mobile">Mobile No:</label>
+98
+            <input type="tel" id="mobile" name="mobile" pattern="[0-9]{10}">
+99
+            <label for="age">Age:</label>
+100
+            <input type="number" id="age" name="age" >
+101
+            <button type="submit">Submit</button>
+102
+        </form>
+103
+        <% if (message) { %>
+104
+            <p class="message"><%= message %></p>
+105
+        <% } else if (error) { %>
+106
+            <p class="error"><%= error %></p>
+107
+        <% } %>
+108
+    </div>
+109
+​
+110
+    <script>
+111
+        function validateForm() {
+112
+            var name = document.getElementById("name").value;
+113
+            var email = document.getElementById("email").value;
+114
+            var mobile = document.getElementById("mobile").value;
+115
+            var age = document.getElementById("age").value;
+116
+​
+117
+            if (name === "" || email === "" || mobile === "" || age === "") {
+118
+                alert("Please fill out all fields.");
+119
+                return false;
+120
+            }
+121
+​
+122
+            if (!/^[0-9]{10}$/.test(mobile)) {
+123
+                alert("Please enter a valid 10-digit mobile number.");
+124
+                return false;
+125
+            }
+126
+​
+127
+            return true;
 128
-    </script>
+        }
 129
-</body>
+    </script>
 130
+</body>
+131
 </html>
 To run the code write in the command prompt.
 
@@ -1471,8 +1473,7 @@ const EmployeeSchema = new Mongoose.Schema({
     gender: String, 
     department: String, 
   
-    // All other required attributes 
-    // should be given here 
+    // All other required attributes should be given here 
 }); 
   
 export default EmployeeSchema;
@@ -2131,3 +2132,5 @@ In this tutorial, you have learned how to use TypeScript with MongoDB Atlas to a
 We also used Express to create a Web API to allow for communicating with our database via RESTful calls.
 
 We then added schema validation to our collection at database level, to apply a model across all applications that use our database, not just our own. A database being used by multiple projects is common at the enterprise level, so having this schema applied to your collection could save a lot of bugs and code updates, should anyone try to change something.
+
+```

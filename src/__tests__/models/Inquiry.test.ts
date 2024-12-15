@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-import { MongoMemoryServer } from 'mongodb-memory-server';
 import { Inquiry, IInquiry } from '../../models/Inquiry';
 
 // Use the imported model
@@ -16,6 +15,14 @@ describe('Inquiry Model Test Suite', () => {
     preferredContactMethod: 'email',
     urgency: 'medium',
   };
+
+  beforeAll(async () => {
+    await mongoose.connect(process.env.MONGODB_URI as string);
+  });
+
+  afterAll(async () => {
+    await mongoose.connection.close();
+  });
 
   describe('Validation Tests', () => {
     test('should validate a valid inquiry', async () => {
@@ -35,37 +42,59 @@ describe('Inquiry Model Test Suite', () => {
         // missing required fields
       });
 
-      let err: mongoose.Error.ValidationError | null = null;
+      let validationError: mongoose.Error.ValidationError | null = null;
+      
       try {
-        await inquiryWithoutRequired.save();
+        await inquiryWithoutRequired.validate();
       } catch (error) {
         if (error instanceof mongoose.Error.ValidationError) {
-          err = error;
+          validationError = error;
         }
       }
 
-      expect(err).toBeInstanceOf(mongoose.Error.ValidationError);
-      expect(err?.errors.email).toBeDefined();
-      expect(err?.errors.phone).toBeDefined();
+      expect(validationError).toBeInstanceOf(mongoose.Error.ValidationError);
+      expect(validationError?.errors.email).toBeDefined();
+      expect(validationError?.errors.phone).toBeDefined();
     });
 
     test('should fail validation with invalid preferredContactMethod', async () => {
-      const inquiryWithInvalidContact = new inquiryModel({
+      const inquiryWithInvalidContact = new Inquiry({
         ...validInquiryData,
-        preferredContactMethod: 'invalid',
+        preferredContactMethod: 'invalid' as IInquiry['preferredContactMethod'],
       });
 
-      let err: mongoose.Error.ValidationError | null = null;
+      let validationError: mongoose.Error.ValidationError | null = null;
+      
       try {
-        await inquiryWithInvalidContact.save();
+        await inquiryWithInvalidContact.validate();
       } catch (error) {
         if (error instanceof mongoose.Error.ValidationError) {
-          err = error;
+          validationError = error;
         }
       }
 
-      expect(err).toBeInstanceOf(mongoose.Error.ValidationError);
-      expect(err?.errors.preferredContactMethod).toBeDefined();
+      expect(validationError).toBeInstanceOf(mongoose.Error.ValidationError);
+      expect(validationError?.errors.preferredContactMethod).toBeDefined();
+    });
+
+    test('should fail validation with invalid urgency', async () => {
+      const inquiryWithInvalidUrgency = new Inquiry({
+        ...validInquiryData,
+        urgency: 'invalid' as IInquiry['urgency'],
+      });
+
+      let validationError: mongoose.Error.ValidationError | null = null;
+      
+      try {
+        await inquiryWithInvalidUrgency.validate();
+      } catch (error) {
+        if (error instanceof mongoose.Error.ValidationError) {
+          validationError = error;
+        }
+      }
+
+      expect(validationError).toBeInstanceOf(mongoose.Error.ValidationError);
+      expect(validationError?.errors.urgency).toBeDefined();
     });
   });
 
@@ -79,7 +108,11 @@ describe('Inquiry Model Test Suite', () => {
       const indexes = await inquiryModel.collection.indexes();
       
       // Convert indexes to a more easily testable format
-      const indexMap = indexes.reduce((acc: { [key: string]: any }, index) => {
+      interface IndexMap {
+        [key: string]: number;
+      }
+      
+      const indexMap = indexes.reduce((acc: IndexMap, index) => {
         const key = Object.keys(index.key)[0];
         acc[key] = index.key[key];
         return acc;
@@ -91,6 +124,25 @@ describe('Inquiry Model Test Suite', () => {
         status: 1,
         createdAt: -1
       });
+    });
+
+    test('should enforce unique email index', async () => {
+      const inquiry1 = new Inquiry(validInquiryData);
+      await inquiry1.save();
+
+      const inquiry2 = new Inquiry(validInquiryData);
+      let mongoError: mongoose.mongo.MongoServerError | null = null;
+
+      try {
+        await inquiry2.save();
+      } catch (error) {
+        if (error instanceof mongoose.mongo.MongoServerError) {
+          mongoError = error;
+        }
+      }
+
+      expect(mongoError).toBeDefined();
+      expect(mongoError?.code).toBe(11000); // Duplicate key error code
     });
   });
 
