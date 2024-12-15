@@ -1,6 +1,7 @@
 import SearchBox from '@/components/SearchBox';
+import { FC } from 'react';
 
-export default function SearchPage(): JSX.Element {
+const SearchPage: FC = () => {
   return (
     <main className="min-h-screen bg-gray-100 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -14,3 +15,5 @@ export default function SearchPage(): JSX.Element {
     </main>
   );
 }
+
+export default SearchPage;
