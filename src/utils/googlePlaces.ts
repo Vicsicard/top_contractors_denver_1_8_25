@@ -17,8 +17,14 @@ export interface PlaceResult {
   geometry: PlaceGeometry;
   rating?: number;
   user_ratings_total?: number;
+  formatted_phone_number?: string;
   international_phone_number?: string;
   website?: string;
+  email?: string;
+  opening_hours?: {
+    open_now?: boolean;
+    weekday_text?: string[];
+  };
   types?: string[];
 }
 
@@ -76,44 +82,44 @@ async function makeRequestWithRetry(
 }
 
 async function fetchFromGooglePlaces(options: PlacesApiOptions): Promise<PlacesApiResponse> {
-  const apiKey = process.env.GOOGLE_PLACES_API_KEY;
-  if (!apiKey) {
+  const GOOGLE_PLACES_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_PLACES_API_KEY;
+  const GOOGLE_PLACES_API_URL = 'https://maps.googleapis.com/maps/api/place';
+
+  if (!GOOGLE_PLACES_API_KEY) {
     throw new Error('Google Places API key not configured');
   }
 
-  const url = new URL('https://maps.googleapis.com/maps/api/place/textsearch/json');
-  url.searchParams.set('key', apiKey);
-  url.searchParams.set('query', `${options.keyword} near ${options.location}`);
+  const query = `${options.keyword} in ${options.location}`;
+  const searchUrl = `${GOOGLE_PLACES_API_URL}/textsearch/json?query=${encodeURIComponent(query)}&key=${GOOGLE_PLACES_API_KEY}`;
 
-  const requestOptions = {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json'
-    }
+  const searchResponse = await makeRequestWithRetry(searchUrl, {});
+  
+  // Fetch additional details for each place
+  const detailedResults = await Promise.all(
+    searchResponse.results.map(async (place) => {
+      const detailsUrl = `${GOOGLE_PLACES_API_URL}/details/json?place_id=${place.place_id}&fields=formatted_phone_number,international_phone_number,website,opening_hours&key=${GOOGLE_PLACES_API_KEY}`;
+      try {
+        const detailsResponse = await makeRequestWithRetry(detailsUrl, {});
+        const details = detailsResponse.result;
+        
+        return {
+          ...place,
+          formatted_phone_number: details.formatted_phone_number,
+          international_phone_number: details.international_phone_number,
+          website: details.website,
+          opening_hours: details.opening_hours
+        };
+      } catch (error) {
+        console.error(`Error fetching details for place ${place.place_id}:`, error);
+        return place;
+      }
+    })
+  );
+
+  return {
+    ...searchResponse,
+    results: detailedResults
   };
-
-  const data = await makeRequestWithRetry(url.toString(), requestOptions);
-  const results: PlacesApiResponse = {
-    results: data.results.map((place) => ({
-      place_id: place.place_id,
-      name: place.name,
-      formatted_address: place.formatted_address,
-      geometry: {
-        location: {
-          lat: place.geometry.location.lat,
-          lng: place.geometry.location.lng
-        }
-      },
-      rating: place.rating,
-      user_ratings_total: place.user_ratings_total,
-      international_phone_number: place.international_phone_number,
-      website: place.website,
-      types: place.types
-    })),
-    status: data.status
-  };
-
-  return results;
 }
 
 export async function searchPlaces(

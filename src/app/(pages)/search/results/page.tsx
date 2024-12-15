@@ -9,6 +9,8 @@ interface Place {
   rating?: number;
   user_ratings_total?: number;
   opening_hours?: { open_now: boolean };
+  formatted_phone_number?: string;
+  website?: string;
 }
 
 async function getResults(keyword: string, location: string): Promise<Place[]> {
@@ -145,7 +147,7 @@ interface ResultsListProps {
   results: Place[];
 }
 
-async function ResultsList(props: ResultsListProps): Promise<ReactElement> {
+function ResultsList(props: ResultsListProps): React.ReactElement {
   if (!props.results || props.results.length === 0) {
     return (
       <div className="text-center">
@@ -191,6 +193,24 @@ async function ResultsList(props: ResultsListProps): Promise<ReactElement> {
               <p className="mt-2 text-sm text-gray-500">
                 {place.opening_hours.open_now ? 'Open now' : 'Closed'}
               </p>
+            )}
+            {place.formatted_phone_number && (
+              <p className="mt-2 text-sm text-gray-500">
+                <span className="font-medium">Phone: </span>
+                <a href={`tel:${place.formatted_phone_number}`} className="text-blue-600 hover:underline">
+                  {place.formatted_phone_number}
+                </a>
+              </p>
+            )}
+            {place.website && (
+              <a
+                href={place.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2 inline-block text-sm text-blue-600 hover:underline"
+              >
+                Visit Website
+              </a>
             )}
           </div>
         ))}
