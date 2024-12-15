@@ -4,8 +4,14 @@ A Next.js application to help users find and connect with contractors in the Den
 
 ## Features
 - 🔍 Search contractors by service type and location
-- 📍 Integration with Google Places API
-- 💾 MongoDB Atlas for data persistence
+- 📍 Integration with Google Places API for accurate business information
+- 📱 Detailed contractor information:
+  - Business hours with open/closed status
+  - Clickable phone numbers
+  - Website links
+  - Star ratings and reviews
+  - Business type categorization
+- 💾 MongoDB Atlas for efficient data caching
 - 🚀 Server-side rendering with Next.js
 - 📱 Responsive design with Tailwind CSS
 - 🔒 Type-safe with TypeScript

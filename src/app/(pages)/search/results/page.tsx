@@ -8,9 +8,14 @@ interface Place {
   formatted_address: string;
   rating?: number;
   user_ratings_total?: number;
-  opening_hours?: { open_now: boolean };
+  opening_hours?: {
+    open_now?: boolean;
+    weekday_text?: string[];
+  };
   formatted_phone_number?: string;
+  international_phone_number?: string;
   website?: string;
+  types?: string[];
 }
 
 async function getResults(keyword: string, location: string): Promise<Place[]> {
@@ -178,21 +183,56 @@ function ResultsList(props: ResultsListProps): React.ReactElement {
               {place.formatted_address}
             </p>
             {place.rating && (
-              <div className="mt-2">
-                <span className="text-sm font-medium text-gray-900">
-                  Rating: {place.rating}
+              <div className="mt-2 flex items-center">
+                <div className="flex items-center">
+                  {[...Array(5)].map((_, i) => (
+                    <svg
+                      key={i}
+                      className={`h-4 w-4 ${
+                        i < Math.floor(place.rating || 0)
+                          ? 'text-yellow-400'
+                          : 'text-gray-300'
+                      }`}
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+                <span className="ml-1 text-sm text-gray-500">
+                  {place.rating.toFixed(1)}
+                  {place.user_ratings_total && (
+                    <span className="ml-1">
+                      ({place.user_ratings_total} reviews)
+                    </span>
+                  )}
                 </span>
-                {place.user_ratings_total && (
-                  <span className="ml-1 text-sm text-gray-500">
-                    ({place.user_ratings_total} reviews)
-                  </span>
-                )}
               </div>
             )}
             {place.opening_hours && (
-              <p className="mt-2 text-sm text-gray-500">
-                {place.opening_hours.open_now ? 'Open now' : 'Closed'}
-              </p>
+              <div className="mt-2">
+                <p className="text-sm text-gray-500">
+                  <span className="font-medium">Status: </span>
+                  <span className={place.opening_hours.open_now ? 'text-green-600' : 'text-red-600'}>
+                    {place.opening_hours.open_now ? 'Open now' : 'Closed'}
+                  </span>
+                </p>
+                {place.opening_hours.weekday_text && (
+                  <div className="mt-1">
+                    <details className="text-sm">
+                      <summary className="text-blue-600 hover:underline cursor-pointer">
+                        View hours
+                      </summary>
+                      <ul className="mt-1 space-y-1 pl-4">
+                        {place.opening_hours.weekday_text.map((hours, idx) => (
+                          <li key={idx} className="text-gray-500">{hours}</li>
+                        ))}
+                      </ul>
+                    </details>
+                  </div>
+                )}
+              </div>
             )}
             {place.formatted_phone_number && (
               <p className="mt-2 text-sm text-gray-500">
@@ -207,10 +247,27 @@ function ResultsList(props: ResultsListProps): React.ReactElement {
                 href={place.website}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-2 inline-block text-sm text-blue-600 hover:underline"
+                className="mt-2 inline-flex items-center text-sm text-blue-600 hover:underline"
               >
                 Visit Website
+                <svg className="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
               </a>
+            )}
+            {place.types && place.types.length > 0 && (
+              <div className="mt-3">
+                <div className="flex flex-wrap gap-2">
+                  {place.types.map((type, idx) => (
+                    <span
+                      key={idx}
+                      className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-800"
+                    >
+                      {type.replace(/_/g, ' ')}
+                    </span>
+                  ))}
+                </div>
+              </div>
             )}
           </div>
         ))}

@@ -28,6 +28,20 @@ export interface PlaceResult {
   types?: string[];
 }
 
+export interface PlaceDetailsResponse {
+  result: {
+    formatted_phone_number?: string;
+    international_phone_number?: string;
+    website?: string;
+    opening_hours?: {
+      open_now?: boolean;
+      weekday_text?: string[];
+    };
+  };
+  status: string;
+  error_message?: string;
+}
+
 export interface PlacesApiResponse {
   results: PlaceResult[];
   status: string;
@@ -47,7 +61,7 @@ async function makeRequestWithRetry(
   url: string,
   options: RequestInit,
   retryCount = 0
-): Promise<PlacesApiResponse> {
+): Promise<PlacesApiResponse | PlaceDetailsResponse> {
   try {
     const response = await fetch(url, options);
     
@@ -92,14 +106,16 @@ async function fetchFromGooglePlaces(options: PlacesApiOptions): Promise<PlacesA
   const query = `${options.keyword} in ${options.location}`;
   const searchUrl = `${GOOGLE_PLACES_API_URL}/textsearch/json?query=${encodeURIComponent(query)}&key=${GOOGLE_PLACES_API_KEY}`;
 
-  const searchResponse = await makeRequestWithRetry(searchUrl, {});
+  const searchResponse = await makeRequestWithRetry(searchUrl, {}) as PlacesApiResponse;
   
   // Fetch additional details for each place
   const detailedResults = await Promise.all(
     searchResponse.results.map(async (place) => {
-      const detailsUrl = `${GOOGLE_PLACES_API_URL}/details/json?place_id=${place.place_id}&fields=formatted_phone_number,international_phone_number,website,opening_hours&key=${GOOGLE_PLACES_API_KEY}`;
+      const fields = ['formatted_phone_number', 'international_phone_number', 'website', 'opening_hours'].join(',');
+      const detailsUrl = `${GOOGLE_PLACES_API_URL}/details/json?place_id=${place.place_id}&fields=${fields}&key=${GOOGLE_PLACES_API_KEY}`;
+      
       try {
-        const detailsResponse = await makeRequestWithRetry(detailsUrl, {});
+        const detailsResponse = await makeRequestWithRetry(detailsUrl, {}) as PlaceDetailsResponse;
         const details = detailsResponse.result;
         
         return {
