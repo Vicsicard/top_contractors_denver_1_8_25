@@ -14,7 +14,10 @@ interface Place {
   rating?: number;
   user_ratings_total?: number;
   photos?: { photo_reference: string }[];
-  geometry: {
+  categories?: string[];
+  phone?: string;
+  website?: string;
+  geometry?: {
     location: {
       lat: number;
       lng: number;
@@ -50,7 +53,7 @@ export async function searchPlaces(
     if (cachedResult) {
       console.log('Cache hit:', cacheKey);
       return {
-        results: cachedResult.places,
+        results: [cachedResult.data],
         status: 'OK'
       };
     }
@@ -133,7 +136,7 @@ async function cachePlaces(response: GooglePlacesResponse, cacheKey: string): Pr
       { cacheKey },
       {
         $set: {
-          places: response.results,
+          data: response.results,
           timestamp: new Date()
         }
       },

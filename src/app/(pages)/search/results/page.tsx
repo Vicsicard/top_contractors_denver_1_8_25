@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import Link from 'next/link';
-import { type NextPage } from 'next';
+import type { Metadata } from 'next';
 
 interface Place {
   place_id: string;
@@ -21,9 +21,24 @@ async function getResults(keyword: string, location: string): Promise<Place[]> {
   return data.results;
 }
 
-const ResultsPage: NextPage = async ({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) => {
-  const keyword = typeof searchParams.keyword === 'string' ? searchParams.keyword : '';
-  const location = typeof searchParams.location === 'string' ? searchParams.location : '';
+export const metadata: Metadata = {
+  title: 'Search Results - Denver Contractors',
+  description: 'Find the best contractors in Denver for your project',
+};
+
+interface PageProps {
+  params: Promise<Record<string, never>>;
+  searchParams: Promise<{
+    keyword?: string;
+    location?: string;
+    [key: string]: string | undefined;
+  }>;
+}
+
+export default async function ResultsPage({ searchParams }: PageProps): Promise<JSX.Element> {
+  const params = await searchParams;
+  const keyword = typeof params.keyword === 'string' ? params.keyword : '';
+  const location = typeof params.location === 'string' ? params.location : '';
 
   if (!keyword || !location) {
     return (
@@ -50,54 +65,78 @@ const ResultsPage: NextPage = async ({ searchParams }: { searchParams: { [key: s
     );
   }
 
-  return (
-    <div className="min-h-screen bg-gray-100">
-      <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h1 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
-            Search Results
-          </h1>
-          <p className="mt-3 text-xl text-gray-500">
-            Showing results for &quot;{keyword}&quot; in {location}
-          </p>
-          <Link
-            href="/"
-            className="mt-4 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200"
-          >
-            New Search
-          </Link>
-        </div>
+  try {
+    const results = await getResults(keyword, location);
 
-        <Suspense
-          fallback={
-            <div className="text-center">
-              <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]">
-                <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
-                  Loading...
-                </span>
+    return (
+      <div className="min-h-screen bg-gray-100">
+        <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h1 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+              Search Results
+            </h1>
+            <p className="mt-3 text-xl text-gray-500">
+              Showing results for &quot;{keyword}&quot; in {location}
+            </p>
+            <Link
+              href="/"
+              className="mt-4 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200"
+            >
+              New Search
+            </Link>
+          </div>
+
+          <Suspense
+            fallback={
+              <div className="text-center">
+                <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]">
+                  <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
+                    Loading...
+                  </span>
+                </div>
               </div>
-            </div>
-          }
-        >
-          <ResultsList keyword={keyword} location={location} />
-        </Suspense>
+            }
+          >
+            <ResultsList keyword={keyword} location={location} results={results} />
+          </Suspense>
+        </div>
       </div>
-    </div>
-  );
+    );
+  } catch (error) {
+    console.error(error);
+    return (
+      <div className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center">
+            <h1 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+              Error
+            </h1>
+            <p className="mt-3 text-xl text-gray-500 sm:mt-4">
+              An error occurred while fetching search results.
+            </p>
+            <div className="mt-5">
+              <Link
+                href="/"
+                className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700"
+              >
+                Back to Search
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 };
 
-export default ResultsPage;
-
-async function ResultsList({
-  keyword,
-  location,
-}: {
+interface ResultsListProps {
   keyword: string;
   location: string;
-}): Promise<JSX.Element> {
-  const results = await getResults(keyword, location);
+  results: Place[];
+}
 
-  if (!results || results.length === 0) {
+async function ResultsList(props: ResultsListProps): Promise<JSX.Element> {
+  if (!props.results || props.results.length === 0) {
     return (
       <div className="text-center">
         <h2 className="text-lg font-medium text-gray-900">No Results Found</h2>
@@ -112,12 +151,12 @@ async function ResultsList({
     <div>
       <div className="mb-6">
         <h2 className="text-lg font-medium text-gray-900">
-          Found {results.length} contractors
+          Found {props.results.length} contractors
         </h2>
       </div>
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {results.map((place: Place) => (
+        {props.results.map((place: Place) => (
           <div
             key={place.place_id}
             className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow"

@@ -1,4 +1,5 @@
 import { Business } from '@/types/business';
+import { Contractor } from '@/types/routes';
 import { searchPlaces, PlacesSearchResult } from './googlePlaces';
 
 interface SearchOptions {
@@ -20,6 +21,19 @@ function locationToBusiness(place: PlacesSearchResult): Business {
     categories: place.categories || [],
     phone: place.phone || '',
     website: place.website || ''
+  };
+}
+
+function businessToContractor(business: Business): Contractor {
+  return {
+    id: business.name.toLowerCase().replace(/\s+/g, '-'),
+    name: business.name,
+    rating: business.rating,
+    reviewCount: business.reviewCount,
+    address: business.address,
+    phone: business.phone,
+    website: business.website,
+    services: business.categories
   };
 }
 
@@ -58,9 +72,10 @@ export async function loadLocations(query: string, options?: SearchOptions): Pro
   }
 }
 
-export async function loadContractors(_keyword: string, _location: string): Promise<Business[]> {
-  // In a real app, this would fetch from an API or database
-  return [];
+export async function loadContractors(keyword: string, location: string): Promise<Contractor[]> {
+  const places = await searchPlaces(keyword, location);
+  const businesses = places.map(locationToBusiness);
+  return businesses.map(businessToContractor);
 }
 
 export function loadSearchData(): { keywords: string[]; locations: string[] } {

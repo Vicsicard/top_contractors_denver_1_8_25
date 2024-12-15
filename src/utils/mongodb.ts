@@ -1,5 +1,14 @@
 import mongoose from 'mongoose';
 
+interface MongooseCache {
+  conn: typeof mongoose | null;
+  promise: Promise<typeof mongoose> | null;
+}
+
+declare global {
+  var mongoose: MongooseCache | undefined;
+}
+
 const MONGODB_URI = process.env.MONGODB_URI;
 const MONGODB_DB = process.env.MONGODB_DB;
 
@@ -11,10 +20,10 @@ if (!MONGODB_DB) {
     throw new Error('Please define the MONGODB_DB environment variable inside .env.local');
 }
 
-let cached = global.mongoose;
+let cached = (globalThis as unknown as { mongoose?: MongooseCache }).mongoose;
 
 if (!cached) {
-    cached = global.mongoose = { conn: null, promise: null };
+    cached = (globalThis as unknown as { mongoose?: MongooseCache }).mongoose = { conn: null, promise: null };
 }
 
 export async function connectDB(): Promise<typeof mongoose> {

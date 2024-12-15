@@ -28,7 +28,7 @@ export async function generateSitemap(domain: string): Promise<string> {
 
     // Add location pages for each keyword
     for (const location of searchData.locations) {
-      const formattedLocation = formatLocationForUrl(location.location);
+      const formattedLocation = formatLocationForUrl(location);
       sitemap += `  <url>
     <loc>${domain}/${formattedKeyword}/${formattedLocation}</loc>
     <lastmod>${currentDate}</lastmod>
