@@ -1,4 +1,4 @@
-import { Suspense } from 'react';
+import { Suspense, ReactElement } from 'react';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 
@@ -35,7 +35,7 @@ interface PageProps {
   }>;
 }
 
-export default async function ResultsPage({ searchParams }: PageProps): Promise<JSX.Element> {
+export default async function ResultsPage({ searchParams }: PageProps): Promise<ReactElement> {
   const params = await searchParams;
   const keyword = typeof params.keyword === 'string' ? params.keyword : '';
   const location = typeof params.location === 'string' ? params.location : '';
@@ -135,7 +135,7 @@ interface ResultsListProps {
   results: Place[];
 }
 
-async function ResultsList(props: ResultsListProps): Promise<JSX.Element> {
+async function ResultsList(props: ResultsListProps): Promise<ReactElement> {
   if (!props.results || props.results.length === 0) {
     return (
       <div className="text-center">
