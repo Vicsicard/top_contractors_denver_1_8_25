@@ -21,6 +21,10 @@ async function getPlaceDetails(placeId: string) {
       throw new Error('Failed to fetch place details');
     }
     const data = await response.json();
+    if (data.status !== 'OK') {
+      console.error('Place Details API Error:', data);
+      return null;
+    }
     return data.result;
   } catch (error) {
     console.error(`Error fetching details for place ${placeId}:`, error);
@@ -32,11 +36,11 @@ export async function GET(request: Request): Promise<NextResponse> {
   try {
     const { searchParams } = new URL(request.url);
     const keyword = searchParams.get('keyword');
-    const location = searchParams.get('location');
+    const location = searchParams.get('location') || 'Denver, CO';
 
-    if (!keyword || !location) {
+    if (!keyword) {
       return NextResponse.json(
-        { error: 'Missing required parameters' },
+        { error: 'Search term is required' },
         { status: 400 }
       );
     }
@@ -59,6 +63,13 @@ export async function GET(request: Request): Promise<NextResponse> {
     }
 
     const data = await response.json();
+    if (data.status !== 'OK') {
+      console.error('Text Search API Error:', data);
+      return NextResponse.json(
+        { error: data.error_message || 'No results found' },
+        { status: data.status === 'ZERO_RESULTS' ? 404 : 500 }
+      );
+    }
     
     // Fetch additional details for each place
     const detailedResults = await Promise.all(
@@ -71,11 +82,29 @@ export async function GET(request: Request): Promise<NextResponse> {
       })
     );
 
-    return NextResponse.json({ results: detailedResults });
+    // Filter out any null results
+    const validResults = detailedResults.filter(result => result !== null);
+
+    if (validResults.length === 0) {
+      return NextResponse.json(
+        { error: 'No results found for your search' },
+        { status: 404 }
+      );
+    }
+
+    return NextResponse.json({ 
+      results: validResults,
+      status: 'OK'
+    }, {
+      headers: {
+        'Cache-Control': 'no-store, must-revalidate',
+        'Expires': '0',
+      }
+    });
   } catch (error) {
     console.error('Places API Error:', error);
     return NextResponse.json(
-      { error: 'Failed to fetch results' },
+      { error: error instanceof Error ? error.message : 'Failed to fetch results' },
       { status: 500 }
     );
   }

@@ -14,12 +14,6 @@ const Header: React.FC = () => {
           
           {/* Main navigation - SEO optimized with semantic markup */}
           <nav aria-label="Main navigation" className="flex space-x-8">
-            <Link href="/services" className="text-gray-700 hover:text-gray-900">
-              Services
-            </Link>
-            <Link href="/contractors" className="text-gray-700 hover:text-gray-900">
-              Find Contractors
-            </Link>
             <Link href="/about" className="text-gray-700 hover:text-gray-900">
               About
             </Link>

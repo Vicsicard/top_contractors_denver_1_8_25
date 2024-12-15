@@ -23,7 +23,10 @@ async function getResults(keyword: string, location: string): Promise<Place[]> {
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3004';
     const url = `${baseUrl}/api/search/places?keyword=${encodeURIComponent(keyword)}&location=${encodeURIComponent(location)}`;
     console.log(`Fetching results from: ${url}`);
-    const res = await fetch(url, { cache: 'no-store' });
+    const res = await fetch(url, { 
+      cache: 'no-store',
+      next: { revalidate: 0 }
+    });
     
     if (!res.ok) {
       const errorData = await res.json();
@@ -31,10 +34,13 @@ async function getResults(keyword: string, location: string): Promise<Place[]> {
     }
     
     const data = await res.json();
-    return data.results || [];
+    if (!data.results) {
+      throw new Error('No results found');
+    }
+    return data.results;
   } catch (error) {
     console.error('Search error:', error);
-    return [];
+    throw error;
   }
 }
 
@@ -55,9 +61,9 @@ interface PageProps {
 export default async function ResultsPage({ searchParams }: PageProps): Promise<ReactElement> {
   const params = await searchParams;
   const keyword = typeof params.keyword === 'string' ? params.keyword : '';
-  const location = typeof params.location === 'string' ? params.location : '';
+  const location = typeof params.location === 'string' ? params.location : 'Denver, CO';
 
-  if (!keyword || !location) {
+  if (!keyword) {
     return (
       <div className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
@@ -66,7 +72,7 @@ export default async function ResultsPage({ searchParams }: PageProps): Promise<
               Search Parameters Required
             </h1>
             <p className="mt-3 text-xl text-gray-500 sm:mt-4">
-              Please provide both a keyword and location to search for contractors.
+              Please provide a search term to find contractors.
             </p>
             <div className="mt-5">
               <Link
@@ -103,24 +109,18 @@ export default async function ResultsPage({ searchParams }: PageProps): Promise<
             </Link>
           </div>
 
-          <Suspense
-            fallback={
-              <div className="text-center">
-                <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]">
-                  <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
-                    Loading...
-                  </span>
-                </div>
-              </div>
-            }
-          >
+          <Suspense fallback={
+            <div className="text-center">
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600 mx-auto"></div>
+              <p className="mt-4 text-gray-600">Loading results...</p>
+            </div>
+          }>
             <ResultsList keyword={keyword} location={location} results={results} />
           </Suspense>
         </div>
       </div>
     );
   } catch (error) {
-    console.error(error);
     return (
       <div className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
@@ -128,15 +128,15 @@ export default async function ResultsPage({ searchParams }: PageProps): Promise<
             <h1 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
               Error
             </h1>
-            <p className="mt-3 text-xl text-gray-500 sm:mt-4">
-              An error occurred while fetching search results.
+            <p className="mt-3 text-xl text-red-500 sm:mt-4">
+              {error instanceof Error ? error.message : 'An error occurred while fetching results'}
             </p>
             <div className="mt-5">
               <Link
                 href="/"
                 className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700"
               >
-                Back to Search
+                Try Another Search
               </Link>
             </div>
           </div>
