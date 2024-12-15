@@ -8,10 +8,16 @@
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
-      "headers": {
-        "Access-Control-Allow-Origin": "*"
-      }
+      "src": "/api/search/places",
+      "dest": "/api/search/places"
+    },
+    {
+      "src": "/api/inquiries",
+      "dest": "/api/inquiries"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
     }
   ]
 }
