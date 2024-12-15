@@ -40,6 +40,11 @@ interface PlaceDetailsResponse {
   error_message?: string;
 }
 
+interface SearchResult {
+  results: (Place & PlaceDetails)[];
+  status: string;
+}
+
 async function getPlaceDetails(placeId: string): Promise<PlaceDetails | null> {
   const fields = [
     'formatted_phone_number',
@@ -132,7 +137,7 @@ export async function GET(request: Request): Promise<NextResponse> {
     return NextResponse.json({ 
       results: validResults,
       status: 'OK'
-    }, {
+    } as SearchResult, {
       headers: {
         'Cache-Control': 'no-store, must-revalidate',
         'Expires': '0',
