@@ -3,7 +3,44 @@ import { NextResponse } from 'next/server';
 const GOOGLE_PLACES_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_PLACES_API_KEY;
 const GOOGLE_PLACES_API_URL = 'https://maps.googleapis.com/maps/api/place';
 
-async function getPlaceDetails(placeId: string) {
+interface PlaceDetails {
+  formatted_phone_number?: string;
+  international_phone_number?: string;
+  website?: string;
+  opening_hours?: {
+    open_now?: boolean;
+    weekday_text?: string[];
+  };
+  rating?: number;
+  user_ratings_total?: number;
+}
+
+interface Place {
+  place_id: string;
+  name: string;
+  formatted_address: string;
+  geometry: {
+    location: {
+      lat: number;
+      lng: number;
+    };
+  };
+  types?: string[];
+}
+
+interface PlaceSearchResponse {
+  results: Place[];
+  status: string;
+  error_message?: string;
+}
+
+interface PlaceDetailsResponse {
+  result: PlaceDetails;
+  status: string;
+  error_message?: string;
+}
+
+async function getPlaceDetails(placeId: string): Promise<PlaceDetails | null> {
   const fields = [
     'formatted_phone_number',
     'international_phone_number',
@@ -20,7 +57,7 @@ async function getPlaceDetails(placeId: string) {
     if (!response.ok) {
       throw new Error('Failed to fetch place details');
     }
-    const data = await response.json();
+    const data = await response.json() as PlaceDetailsResponse;
     if (data.status !== 'OK') {
       console.error('Place Details API Error:', data);
       return null;
@@ -62,7 +99,7 @@ export async function GET(request: Request): Promise<NextResponse> {
       throw new Error('Failed to fetch from Google Places API');
     }
 
-    const data = await response.json();
+    const data = await response.json() as PlaceSearchResponse;
     if (data.status !== 'OK') {
       console.error('Text Search API Error:', data);
       return NextResponse.json(
@@ -73,7 +110,7 @@ export async function GET(request: Request): Promise<NextResponse> {
     
     // Fetch additional details for each place
     const detailedResults = await Promise.all(
-      data.results.map(async (place: any) => {
+      data.results.map(async (place: Place) => {
         const details = await getPlaceDetails(place.place_id);
         return {
           ...place,
