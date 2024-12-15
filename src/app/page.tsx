@@ -67,7 +67,7 @@ export default function Home(): React.ReactElement {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {PopularTrades.map((trade, index) => (
               <Link 
-                href={`/search/results?keyword=${trade.name}&location=Denver`} 
+                href={`/trade/${encodeURIComponent(trade.name)}`}
                 key={index}
                 className="bg-emerald-50 hover:bg-emerald-100 p-6 rounded-lg text-center transition-colors duration-200"
               >
@@ -88,7 +88,12 @@ export default function Home(): React.ReactElement {
           <div className="grid md:grid-cols-3 gap-8">
             {FeaturedLocations.map((location, index) => (
               <div key={index} className="bg-white p-6 rounded-lg shadow-sm">
-                <h3 className="text-2xl font-bold mb-4">{location.name}</h3>
+                <Link 
+                  href={`/location/${encodeURIComponent(location.name)}`}
+                  className="block"
+                >
+                  <h3 className="text-2xl font-bold mb-4 hover:text-emerald-600 transition-colors">{location.name}</h3>
+                </Link>
                 <ul className="space-y-2">
                   {location.areas.map((area, areaIndex) => (
                     <li key={areaIndex} className="flex items-center space-x-2">
@@ -101,10 +106,10 @@ export default function Home(): React.ReactElement {
                   ))}
                 </ul>
                 <Link 
-                  href={`/search/results?location=${location.name},CO`}
+                  href={`/location/${encodeURIComponent(location.name)}`}
                   className="text-emerald-600 hover:text-emerald-700 mt-4 inline-block"
                 >
-                  View all in {location.name}
+                  View contractors in {location.name} →
                 </Link>
               </div>
             ))}

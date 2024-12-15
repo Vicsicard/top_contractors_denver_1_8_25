@@ -12,13 +12,23 @@ interface Place {
 }
 
 async function getResults(keyword: string, location: string): Promise<Place[]> {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
-  const url = `${baseUrl}/api/search/places?keyword=${encodeURIComponent(keyword)}&location=${encodeURIComponent(location)}`;
-  console.log(`Fetching results from: ${url}`);
-  const res = await fetch(url, { cache: 'no-store' });
-  if (!res.ok) throw new Error('Failed to fetch results');
-  const data = await res.json();
-  return data.results;
+  try {
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3004';
+    const url = `${baseUrl}/api/search/places?keyword=${encodeURIComponent(keyword)}&location=${encodeURIComponent(location)}`;
+    console.log(`Fetching results from: ${url}`);
+    const res = await fetch(url, { cache: 'no-store' });
+    
+    if (!res.ok) {
+      const errorData = await res.json();
+      throw new Error(errorData.error || 'Failed to fetch results');
+    }
+    
+    const data = await res.json();
+    return data.results || [];
+  } catch (error) {
+    console.error('Search error:', error);
+    return [];
+  }
 }
 
 export const metadata: Metadata = {

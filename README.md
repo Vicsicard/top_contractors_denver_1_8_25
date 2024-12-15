@@ -53,14 +53,56 @@ The application uses MongoDB Atlas for data storage. Make sure to:
 ```
 denver_contractors/
 ├── src/
-│   ├── app/           # Next.js app router pages
-│   ├── components/    # React components
-│   ├── models/        # MongoDB models
-│   ├── types/         # TypeScript types
-│   └── utils/         # Utility functions
-├── docs/             # Documentation
-├── public/           # Static assets
-└── tests/           # Test files
+│   ├── app/
+│   │   ├── (api)/
+│   │   │   └── search/
+│   │   │       └── places/
+│   │   ├── location/
+│   │   │   └── [location]/
+│   │   ├── trade/
+│   │   │   └── [trade]/
+│   │   └── search/
+│   │       └── results/
+│   ├── components/
+│   ├── lib/
+│   └── utils/
+├── public/
+├── docs/
+└── tests/
+```
+
+## Development
+
+### Running the Development Server
+```bash
+npm run dev
+```
+The development server will start on http://localhost:3004
+
+### Building for Production
+```bash
+npm run build
+```
+
+### Type Safety
+The project uses TypeScript for type safety. Key type definitions include:
+- Dynamic route parameters (location, trade)
+- API response types
+- MongoDB document interfaces
+- Google Places API types
+
+### API Routes
+- `/api/search/places`: Search contractors using Google Places API
+- `/location/[location]`: View contractors by location
+- `/trade/[trade]`: View contractors by trade
+- `/search/results`: Search results page
+
+### Environment Variables
+Required environment variables:
+```env
+MONGODB_URI=your_mongodb_connection_string
+MONGODB_DB=your_database_name
+NEXT_PUBLIC_GOOGLE_PLACES_API_KEY=your_google_places_api_key
 ```
 
 ## Documentation
@@ -93,7 +135,7 @@ npm run test:coverage
 - [Google Places API](https://developers.google.com/maps/documentation/places/web-service/overview) - Location data
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+This project is licensed under the MIT License - see the LICENSE file for details
 
 ## Acknowledgments
 - Next.js team for the amazing framework
