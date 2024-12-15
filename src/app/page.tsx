@@ -89,7 +89,7 @@ export default function Home(): React.ReactElement {
             {FeaturedLocations.map((location, index) => (
               <div key={index} className="bg-white p-6 rounded-lg shadow-sm">
                 <Link 
-                  href={`/location/${encodeURIComponent(location.name)}`}
+                  href={`/search/results?location=${encodeURIComponent(location.name)}`}
                   className="block"
                 >
                   <h3 className="text-2xl font-bold mb-4 hover:text-emerald-600 transition-colors">{location.name}</h3>
@@ -106,7 +106,7 @@ export default function Home(): React.ReactElement {
                   ))}
                 </ul>
                 <Link 
-                  href={`/location/${encodeURIComponent(location.name)}`}
+                  href={`/search/results?location=${encodeURIComponent(location.name)}`}
                   className="text-emerald-600 hover:text-emerald-700 mt-4 inline-block"
                 >
                   View contractors in {location.name} →

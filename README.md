@@ -1,149 +1,126 @@
-# Denver Contractors
+# Denver Contractors Search
 
 A Next.js application to help users find and connect with contractors in the Denver area.
 
 ## Features
-- 🔍 Search contractors by service type and location
+
+- 🔍 Search for contractors by trade or location
 - 📍 Integration with Google Places API for accurate business information
-- 📱 Detailed contractor information:
-  - Business hours with open/closed status
-  - Clickable phone numbers
-  - Website links
-  - Star ratings and reviews
-  - Business type categorization
-- 💾 MongoDB Atlas for efficient data caching
-- 🚀 Server-side rendering with Next.js
-- 📱 Responsive design with Tailwind CSS
-- 🔒 Type-safe with TypeScript
+- 📱 Responsive design for mobile and desktop
+- ⚡ Fast server-side rendering with Next.js
+- 🎨 Modern UI with Tailwind CSS
+- 🔒 Secure API key handling
+- 🔄 Real-time search results
+- 📊 Loading states and error handling
+
+## Tech Stack
+
+- **Framework**: Next.js 15.1.0
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **API**: Google Places API
+- **Database**: MongoDB (planned)
+- **Deployment**: Vercel (planned)
 
 ## Getting Started
 
 ### Prerequisites
-- Node.js 18 or later
-- MongoDB Atlas account
-- Google Places API key
 
-### Environment Setup
-1. Clone the repository
-2. Create a `.env.local` file in the root directory with the following variables:
-```
-MONGODB_URI=your_mongodb_atlas_uri
-MONGODB_DB=denver_contractors
-GOOGLE_PLACES_API_KEY=your_google_places_api_key
-```
+- Node.js (v18 or higher)
+- npm
+- Google Places API key
+- MongoDB connection (for future features)
 
 ### Installation
-```bash
-# Install dependencies
-npm install
 
-# Run development server
-npm run dev
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/denver_contractors.git
+   cd denver_contractors
+   ```
 
-# Build for production
-npm run build
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-# Start production server
-npm start
-```
+3. Create a `.env.local` file in the root directory and add your environment variables:
+   ```env
+   GOOGLE_PLACES_API_KEY=your_api_key_here
+   MONGODB_URI=your_mongodb_uri
+   MONGODB_DB=your_database_name
+   ```
 
-### Database Setup
-The application uses MongoDB Atlas for data storage. Make sure to:
-1. Create a MongoDB Atlas account
-2. Create a new cluster
-3. Configure network access
-4. Create a database user
-5. Add the connection string to `.env.local`
+4. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+5. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+### Production Build
+
+1. Build the application:
+   ```bash
+   npm run build
+   ```
+
+2. Start the production server:
+   ```bash
+   npm run start
+   ```
 
 ## Project Structure
+
 ```
 denver_contractors/
 ├── src/
 │   ├── app/
-│   │   ├── (api)/
+│   │   ├── (pages)/
+│   │   │   ├── search/
+│   │   │   ├── trade/
+│   │   │   └── location/
+│   │   ├── api/
 │   │   │   └── search/
-│   │   │       └── places/
-│   │   ├── location/
-│   │   │   └── [location]/
-│   │   ├── trade/
-│   │   │   └── [trade]/
-│   │   └── search/
-│   │       └── results/
-│   ├── components/
+│   │   └── components/
 │   ├── lib/
-│   └── utils/
+│   └── types/
 ├── public/
-├── docs/
-└── tests/
+└── docs/
 ```
 
-## Development
+## API Routes
 
-### Running the Development Server
-```bash
-npm run dev
-```
-The development server will start on http://localhost:3004
-
-### Building for Production
-```bash
-npm run build
-```
-
-### Type Safety
-The project uses TypeScript for type safety. Key type definitions include:
-- Dynamic route parameters (location, trade)
-- API response types
-- MongoDB document interfaces
-- Google Places API types
-
-### API Routes
 - `/api/search/places`: Search contractors using Google Places API
-- `/location/[location]`: View contractors by location
-- `/trade/[trade]`: View contractors by trade
-- `/search/results`: Search results page
+- `/api/inquiries`: Handle contact form submissions (planned)
 
-### Environment Variables
-Required environment variables:
-```env
-MONGODB_URI=your_mongodb_connection_string
-MONGODB_DB=your_database_name
-NEXT_PUBLIC_GOOGLE_PLACES_API_KEY=your_google_places_api_key
-```
+## Components
 
-## Documentation
-- [TypeScript Setup](./docs/typescript-eslint-setup.md)
-- [MongoDB Integration](./docs/mongodb-typescript.md)
-- [Testing Guide](./docs/mongodb-typescript-testing.md)
-- [Next.js Components](./docs/nextjs-server-components-typescript.md)
+- `SearchResults`: Main component for displaying search results
+- `ClientResultsList`: Client-side component for handling search result interactions
+- `SearchForm`: Form component for search inputs
+- `LoadingState`: Loading indicator component
+- `ErrorDisplay`: Error message component
 
 ## Contributing
+
 1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## Testing
-```bash
-# Run tests
-npm test
-
-# Run tests with coverage
-npm run test:coverage
-```
-
-## Built With
-- [Next.js](https://nextjs.org/) - React framework
-- [TypeScript](https://www.typescriptlang.org/) - Type safety
-- [MongoDB](https://www.mongodb.com/) - Database
-- [Tailwind CSS](https://tailwindcss.com/) - Styling
-- [Google Places API](https://developers.google.com/maps/documentation/places/web-service/overview) - Location data
-
 ## License
-This project is licensed under the MIT License - see the LICENSE file for details
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
+
 - Next.js team for the amazing framework
-- MongoDB team for the database solution
-- Google Maps Platform for the Places API
+- Google Places API for business data
+- Tailwind CSS for the styling system
+
+## Contact
+
+Your Name - your.email@example.com
+Project Link: [https://github.com/yourusername/denver_contractors](https://github.com/yourusername/denver_contractors)
