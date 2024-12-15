@@ -16,8 +16,8 @@ const PlacesSearch: React.FC = () => {
     const encodedKeyword = encodeURIComponent(keyword.trim());
     const encodedLocation = encodeURIComponent(location.trim());
     
-    // Use the correct API route for search
-    router.push(`/api/places/search/${encodedKeyword}/${encodedLocation}`);
+    // Use the correct route for search results page
+    router.push(`/search/results?keyword=${encodedKeyword}&location=${encodedLocation}`);
   };
 
   return (
