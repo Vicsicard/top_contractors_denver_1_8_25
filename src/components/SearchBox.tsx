@@ -3,7 +3,7 @@
 import React, { useState, FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
 
-export default function SearchBox(): JSX.Element {
+const SearchBox = (): React.ReactElement => {
   const [keyword, setKeyword] = useState('');
   const [location, setLocation] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -61,4 +61,6 @@ export default function SearchBox(): JSX.Element {
       </form>
     </div>
   );
-}
+};
+
+export default SearchBox;
