@@ -1708,3 +1708,4 @@ Typed rules come with a catch. By using typed linting in your config, you incur 
 Most of our users do not mind this cost as the power and safety of type-aware static analysis rules is worth the tradeoff. Additionally, most users primarily consume lint errors via IDE plugins which, through caching, do not suffer the same penalties. This means that generally they usually only run a complete lint before a push, or via their CI, where the extra time often doesn't matter.
 
 We strongly recommend you do use type-aware linting, but the above information is included so that you can make your own, informed decision.
+console.log(`Searching for places with keyword: "${keyword}" in location: "${location}"`);

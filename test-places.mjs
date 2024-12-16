@@ -1,4 +1,4 @@
-import { loadLocations } from './src/utils/searchData.js';
+import { loadLocations } from './src/utils/searchData.ts';
 
 async function testPlacesApi() {
   try {

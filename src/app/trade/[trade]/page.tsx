@@ -11,7 +11,15 @@ const validTrades = [
   "Carpenter",
   "Painter",
   "Landscaper",
-  "Handyman"
+  "Home Remodeling",
+  "Bathroom Remodeling",
+  "Kitchen Remodeling",
+  "Siding & Gutters",
+  "Masonry",
+  "Decks",
+  "Flooring",
+  "Windows",
+  "Fencing"
 ];
 
 export async function generateMetadata({ params }: { params: { trade: string } }): Promise<Metadata> {
@@ -45,7 +53,17 @@ export default async function TradePage({
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <Suspense fallback={<div>Loading...</div>}>
-        <ClientResultsList keyword={trade} location="Denver" />
+        <ClientResultsList 
+          keyword={trade} 
+          location="Denver" 
+          includeDetails={{
+            businessName: true,
+            address: true,
+            reviews: true,
+            telephoneNumber: true,
+            website: true
+          }} 
+        />
       </Suspense>
     </div>
   );

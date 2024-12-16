@@ -55,6 +55,9 @@
   - Improved card layout for search results
   - Added interactive elements (collapsible hours, clickable links)
   - Enhanced visual hierarchy with better typography and spacing
+- Added "Handy Man" and "Landscaper" categories back to the application.
+- Integrated Bottleneck for rate limiting in Google Places API requests.
+- Updated icons for new categories in the UI.
 
 ### Current Focus
 - ✅ All TypeScript errors have been resolved
@@ -94,16 +97,19 @@
 - Explore adding a map view for search results
 - Implement favorite contractors feature
 - Add contact forms or direct messaging
+- Resolve permission issues and test build.
+- Verify that new categories retrieve correct data from Google Places API.
 
 ## Project Status: Denver Contractors
 
 ## Current Status: 🟢 Active Development
 
-### Latest Updates (December 15, 2024)
-- Fixed Google Places API integration
-- Improved error handling and user feedback
-- Enhanced search functionality reliability
-- Added better logging for debugging
+### Latest Updates (December 16, 2024)
+- Added "Handy Man" and "Landscaper" categories back to the application.
+- Integrated Bottleneck for rate limiting in Google Places API requests.
+- Updated icons for new categories in the UI.
+- Build process encountered permission issues with the `.next` directory.
+- Port 3004 was in use, switched to 3005 for development server.
 
 ### Completed Features
 - ✅ Basic project setup with Next.js 15.1.0
@@ -129,7 +135,7 @@
 
 ## Project Status
 
-## Current Status (As of December 15, 2024)
+## Current Status (As of December 16, 2024)
 
 ### Completed Features
 - Basic project structure with Next.js 13+ and TypeScript

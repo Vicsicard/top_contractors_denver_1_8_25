@@ -4,28 +4,34 @@ A modern Next.js application designed to help users find and connect with contra
 
 ## Features
 
-- 🔍 Intuitive contractor search functionality
-- 📍 Detailed contractor information including:
+- 🔍 Advanced contractor search with trade-specific filters
+- 📍 Comprehensive contractor information including:
   - Business name and rating
   - Complete address with location icon
   - Phone number with click-to-call
   - Website links with direct access
   - Star ratings and reviews
+- 🎯 Specialized trade categories including:
+  - Home Remodeling
+  - Bathroom Remodeling
+  - Kitchen Remodeling
+  - Siding & Gutters
+  - And many more!
 - 🌐 Powered by Google Places API for accurate data
-- 📱 Responsive design for all devices
-- ⚡ Fast and efficient with Next.js
-- 🎨 Clean, modern UI using Tailwind CSS
-- 🔄 Smooth page transitions with loading indicators
+- 📱 Fully responsive design for all devices
+- ⚡ Lightning-fast performance with Next.js
+- 🎨 Modern UI with beautiful blue gradients
+- 🔄 Smooth transitions and loading states
 - 🔒 Secure API handling
 
 ## UI Components
 
-- **Header**: Minimalist design showing only "Denver Contractors"
-- **Footer**: Streamlined footer with essential information:
-  - Company name and description
-  - Location
-  - Contact email
-- **Loading Spinner**: Elegant loading animation during:
+- **Header**: Modern design with blue gradient background
+- **Search Box**: Glass-morphism effect with smooth animations
+- **Trade Cards**: Interactive cards with hover effects
+- **Location Cards**: Clean design with subtle animations
+- **Footer**: Rich blue gradient with essential information
+- **Loading States**: Elegant loading animations during:
   - Page transitions
   - Search operations
   - Data fetching
@@ -93,14 +99,23 @@ denver_contractors/
 ├── public/
 ```
 
-## Recent Updates
+## Project Updates
 
-- Simplified header to only show "Denver Contractors"
-- Streamlined footer with essential contact information
-- Added loading spinner for better user experience
-- Enhanced contractor cards with detailed information
-- Improved responsive design
-- Integrated Google Places Details API
+### Recent Changes
+- Added "Handy Man" and "Landscaper" categories back to the application.
+- Integrated Bottleneck for rate limiting in Google Places API requests.
+- Updated icons for new categories in the UI.
+
+### Known Issues
+- Build process encountered permission issues with the `.next` directory.
+- Port 3004 was in use, switched to 3005 for development server.
+
+### Next Steps
+- Resolve permission issues and test build.
+- Verify that new categories retrieve correct data from Google Places API.
+
+### Current Time
+- The current local time is: 2024-12-16T08:56:20-07:00.
 
 ## Contributing
 
