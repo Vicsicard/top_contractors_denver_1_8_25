@@ -123,52 +123,45 @@ export async function GET(request: NextRequest): Promise<Response> {
         data
       });
       return Response.json(
-        { error: `Failed to fetch results. Status: ${response.status}, Error: ${data.error_message || response.statusText}` },
+        { error: 'Failed to fetch places from Google API' },
         { status: response.status }
       );
     }
 
-    if (data.status !== 'OK' && data.status !== 'ZERO_RESULTS') {
-      console.error('Places API Error:', {
-        status: data.status,
-        message: data.error_message
-      });
-      
+    if (data.status !== 'OK') {
+      console.error('Google Places API Error:', data.error_message);
       return Response.json(
-        { 
-          error: data.error_message || 'Failed to fetch results',
-          status: data.status
-        },
+        { error: data.error_message || 'Failed to fetch places' },
         { status: 400 }
       );
     }
 
-    const results = data.results || [];
-    
     // Fetch additional details for each place
-    const enhancedResults = await Promise.all(
-      results.map(async (place) => {
-        const details = await getPlaceDetails(place.place_id);
-        return {
-          id: place.place_id,
-          name: place.name,
-          address: place.formatted_address,
-          location: place.geometry?.location,
-          rating: place.rating,
-          types: place.types,
-          phone: details?.result.formatted_phone_number,
-          website: details?.result.website,
-          openNow: details?.result.opening_hours?.open_now,
-          hours: details?.result.opening_hours?.weekday_text
-        };
+    const placesWithDetails = await Promise.all(
+      data.results.map(async (place) => {
+        try {
+          const detailsUrl = new URL(GOOGLE_PLACES_DETAILS_URL);
+          detailsUrl.searchParams.append('place_id', place.place_id);
+          detailsUrl.searchParams.append('key', GOOGLE_PLACES_API_KEY);
+          detailsUrl.searchParams.append('fields', 'formatted_phone_number,website,opening_hours');
+
+          const detailsResponse = await fetch(detailsUrl.toString());
+          const detailsData = await detailsResponse.json() as PlaceDetails;
+
+          return {
+            ...place,
+            phone_number: detailsData.result?.formatted_phone_number,
+            website: detailsData.result?.website,
+            opening_hours: detailsData.result?.opening_hours
+          };
+        } catch (error) {
+          console.error('Error fetching place details:', error);
+          return place;
+        }
       })
     );
-    
-    return Response.json({
-      results: enhancedResults,
-      status: data.status,
-      count: results.length
-    });
+
+    return Response.json({ results: placesWithDetails });
     
   } catch (error) {
     console.error('Unexpected error:', error);
