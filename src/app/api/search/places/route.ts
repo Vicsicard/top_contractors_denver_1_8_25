@@ -49,26 +49,6 @@ interface GooglePlacesResponse {
   error_message?: string;
 }
 
-async function getPlaceDetails(placeId: string): Promise<PlaceDetails | null> {
-  try {
-    const url = new URL(GOOGLE_PLACES_DETAILS_URL);
-    url.searchParams.append('place_id', placeId);
-    url.searchParams.append('key', GOOGLE_PLACES_API_KEY!);
-    url.searchParams.append('fields', 'formatted_phone_number,website,opening_hours');
-
-    const response = await fetch(url.toString());
-    if (!response.ok) {
-      console.error(`Failed to fetch details for place ${placeId}:`, response.statusText);
-      return null;
-    }
-
-    return await response.json();
-  } catch (error) {
-    console.error(`Error fetching details for place ${placeId}:`, error);
-    return null;
-  }
-}
-
 export async function GET(request: NextRequest): Promise<Response> {
   try {
     const searchParams = request.nextUrl.searchParams;
