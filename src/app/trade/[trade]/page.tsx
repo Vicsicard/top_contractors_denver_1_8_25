@@ -23,7 +23,7 @@ const validTrades = [
 ];
 
 export async function generateMetadata({ params }: { params: { trade: string } }): Promise<Metadata> {
-  const tradeName = params.trade
+  const tradeName = (await params).trade
     .split('-')
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
@@ -39,9 +39,10 @@ export default async function TradePage({
 }: {
   params: { trade: string };
 }): Promise<React.ReactNode> {
-  const trade = decodeURIComponent(params.trade);
+  const trade = (await params).trade;
+  const decodedTrade = decodeURIComponent(trade);
   
-  if (!validTrades.includes(trade)) {
+  if (!validTrades.includes(decodedTrade)) {
     return (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <h1 className="text-3xl font-bold text-gray-900 mb-4">Invalid Trade</h1>
@@ -54,7 +55,7 @@ export default async function TradePage({
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <Suspense fallback={<div>Loading...</div>}>
         <ClientResultsList 
-          keyword={trade} 
+          keyword={decodedTrade} 
           location="Denver" 
           includeDetails={{
             businessName: true,
