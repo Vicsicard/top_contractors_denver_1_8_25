@@ -19,7 +19,6 @@ const nextConfig = {
       'mongodb-client-encryption': false,
       'aws4': false,
       'kerberos': false,
-      'snappy': false,
     }
     return config
   },
@@ -41,8 +40,29 @@ const nextConfig = {
       },
     ]
   },
-  redirects() {
+  async rewrites() {
+    return {
+      beforeFiles: [
+        {
+          source: '/:path*',
+          has: [
+            {
+              type: 'host',
+              value: 'topcontractorsdenver.com',
+            },
+          ],
+          destination: 'https://www.topcontractorsdenver.com/:path*',
+        },
+      ],
+    }
+  },
+  async redirects() {
     return [
+      {
+        source: '/search',
+        destination: '/search/results',
+        permanent: true,
+      },
       {
         source: '/:path*',
         has: [
@@ -54,21 +74,8 @@ const nextConfig = {
         destination: 'https://www.topcontractorsdenver.com/:path*',
         permanent: true,
       },
-      {
-        source: '/search',
-        destination: '/search/results',
-        permanent: true,
-      },
-    ];
-  },
-  rewrites() {
-    return [
-      {
-        source: '/search/:keyword/:location',
-        destination: '/search/[keyword]/[location]'
-      }
     ]
-  }
+  },
 }
 
 module.exports = nextConfig

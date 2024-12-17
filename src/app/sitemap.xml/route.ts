@@ -3,11 +3,19 @@ import prisma from '@/lib/prisma';
 
 const BASE_URL = 'https://www.topcontractorsdenver.com';
 
-export async function GET() {
+export async function GET(request: Request) {
+  console.log('Starting sitemap generation...');
+  console.log('Request URL:', request.url);
+  console.log('Request headers:', Object.fromEntries(request.headers));
+
   const currentDate = new Date().toISOString();
   let contractors = [];
 
   try {
+    console.log('Connecting to database...');
+    console.log('Database URL exists:', !!process.env.MONGODB_URI);
+    console.log('Database name:', process.env.MONGODB_DB);
+
     console.log('Fetching contractors...');
     const dbContractors = await prisma.contractor.findMany({
       select: {
@@ -19,6 +27,11 @@ export async function GET() {
     contractors = dbContractors;
   } catch (error) {
     console.error('Database error:', error);
+    console.error('Error details:', {
+      name: error instanceof Error ? error.name : 'Unknown',
+      message: error instanceof Error ? error.message : String(error),
+      stack: error instanceof Error ? error.stack : undefined
+    });
   }
 
   // Initialize pages array
@@ -112,11 +125,17 @@ ${pages.map(page => `  <url>
   </url>`).join('\n')}
 </urlset>`;
 
+  console.log('Generated XML length:', xml.length);
+  console.log('First 500 characters of XML:', xml.substring(0, 500));
+
   // Return with proper headers
-  return new NextResponse(xml, {
+  const response = new NextResponse(xml, {
     headers: {
       'Content-Type': 'application/xml',
       'Cache-Control': 'no-cache, no-store, must-revalidate',
     },
   });
+
+  console.log('Response headers:', Object.fromEntries(response.headers));
+  return response;
 }
