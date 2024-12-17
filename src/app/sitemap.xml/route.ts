@@ -5,15 +5,13 @@ export async function GET() {
   const baseUrl = 'https://www.topcontractorsdenver.com';
   const currentDate = new Date().toISOString();
 
-  let pages: Array<{
+  const pages: Array<{
     loc: string;
     lastmod: string;
     changefreq: string;
     priority: string;
-  }> = [];
-
-  // Core pages
-  pages.push(
+  }> = [
+    // Core pages
     {
       loc: baseUrl,
       lastmod: currentDate,
@@ -26,7 +24,7 @@ export async function GET() {
       changefreq: 'daily',
       priority: '0.8'
     }
-  );
+  ];
 
   try {
     // Add contractor pages

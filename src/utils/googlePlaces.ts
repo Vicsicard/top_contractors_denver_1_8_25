@@ -25,7 +25,7 @@ setInterval(() => {
 
 // Track rate limit state
 let isRateLimited = false;
-const RATE_LIMIT_RESET_TIME = 60 * 1000; // 1 minute cooldown
+const _RATE_LIMIT_RESET_TIME = 60 * 1000; // 1 minute cooldown
 
 async function makeRequestWithRetry(
   url: string,
@@ -33,7 +33,7 @@ async function makeRequestWithRetry(
   estimatedTokens: number = 1000, // Default token estimation
   retryCount = 0
 ): Promise<PlacesApiResponse | PlaceDetailsResponse> {
-  const maxRetries = 5;
+  const _maxRetries = 5;
 
   return limiter.schedule(async () => {
     // Check token usage
@@ -47,7 +47,7 @@ async function makeRequestWithRetry(
       // Check rate limit status
       if (isRateLimited) {
         console.warn('Rate limit active. Waiting for cooldown...');
-        await new Promise(resolve => setTimeout(resolve, RATE_LIMIT_RESET_TIME));
+        await new Promise(resolve => setTimeout(resolve, _RATE_LIMIT_RESET_TIME));
         isRateLimited = false;
       }
 
@@ -63,7 +63,7 @@ async function makeRequestWithRetry(
         console.warn(`Rate limit exceeded. Waiting ${retryAfter} seconds...`);
         await new Promise(resolve => setTimeout(resolve, retryAfter * 1000));
         
-        if (retryCount < maxRetries) {
+        if (retryCount < _maxRetries) {
           return makeRequestWithRetry(url, options, estimatedTokens, retryCount + 1);
         }
         throw new Error('Max retries reached for rate limit');
@@ -82,7 +82,7 @@ async function makeRequestWithRetry(
       return data;
     } catch (error) {
       console.error('Request error:', error);
-      if (retryCount < maxRetries) {
+      if (retryCount < _maxRetries) {
         const delay = Math.min(1000 * Math.pow(2, retryCount), 60000);
         console.warn(`Request failed. Retrying in ${delay}ms...`);
         await new Promise(resolve => setTimeout(resolve, delay));
@@ -120,8 +120,10 @@ export interface PlaceResult {
   types?: string[];
 }
 
-export interface PlaceDetailsResponse {
+type PlaceDetailsResponse = {
   result: {
+    name: string;
+    formatted_address: string;
     formatted_phone_number?: string;
     international_phone_number?: string;
     website?: string;
@@ -136,7 +138,7 @@ export interface PlaceDetailsResponse {
   };
   status: string;
   error_message?: string;
-}
+};
 
 export interface PlacesApiResponse {
   results: PlaceResult[];
@@ -150,9 +152,9 @@ export interface PlacesApiOptions {
 }
 
 const CACHE_EXPIRY_DAYS = 180; // 180 days
-const MAX_RETRIES = 5; // Increased from 3 to 5
-const BASE_DELAY = 2000; // Increased from 1000 to 2000ms
-const MAX_DELAY = 60000; // 60 seconds maximum delay
+const _MAX_RETRIES = 5; // Increased from 3 to 5
+const _BASE_DELAY = 2000; // Increased from 1000 to 2000ms
+const _MAX_DELAY = 60000; // 60 seconds maximum delay
 
 async function fetchFromGooglePlaces(options: PlacesApiOptions): Promise<PlacesApiResponse> {
   const GOOGLE_PLACES_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_PLACES_API_KEY;
