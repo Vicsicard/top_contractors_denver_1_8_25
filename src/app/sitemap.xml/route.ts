@@ -5,13 +5,16 @@ export async function GET() {
   const baseUrl = 'https://www.topcontractorsdenver.com';
   const currentDate = new Date().toISOString();
 
+  // Initialize pages array with correct types
   const pages: Array<{
     loc: string;
     lastmod: string;
     changefreq: string;
     priority: string;
-  }> = [
-    // Core pages
+  }> = [];
+
+  // Add core pages
+  pages.push(
     {
       loc: baseUrl,
       lastmod: currentDate,
@@ -24,7 +27,7 @@ export async function GET() {
       changefreq: 'daily',
       priority: '0.8'
     }
-  ];
+  );
 
   try {
     // Add contractor pages
@@ -35,6 +38,7 @@ export async function GET() {
         updatedAt: true,
       }
     });
+
     console.log('Database query completed. Found contractors:', JSON.stringify(contractors, null, 2));
 
     // Add contractor pages first
@@ -106,15 +110,15 @@ export async function GET() {
   // Log final URLs for debugging
   console.log('Final sitemap URLs:', pages.map(p => p.loc).join('\n'));
 
-  // Generate XML
+  // Generate XML with proper indentation
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${pages.map(page => `
-  <url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${pages.map(page => `  <url>
     <loc>${page.loc}</loc>
     <lastmod>${page.lastmod}</lastmod>
     <changefreq>${page.changefreq}</changefreq>
     <priority>${page.priority}</priority>
-  </url>`).join('')}
+  </url>`).join('\n')}
 </urlset>`;
 
   // Return with no-cache headers to help with debugging

@@ -3,10 +3,6 @@ import prisma from '@/lib/prisma';
 
 export async function GET() {
   try {
-    // Test database connection
-    const dbTest = await prisma.$queryRaw`SELECT 1 as connected`;
-    console.log('Database connection test:', dbTest);
-
     // Try to fetch contractors
     const contractors = await prisma.contractor.findMany({
       select: {
@@ -17,11 +13,15 @@ export async function GET() {
       }
     });
 
+    // Try to fetch a count
+    const count = await prisma.contractor.count();
+
     return NextResponse.json({
       success: true,
-      dbConnectionTest: dbTest,
       contractorsFound: contractors.length,
+      count,
       contractors: contractors,
+      prismaVersion: prisma._engineConfig?.version || 'unknown',
     });
   } catch (error) {
     console.error('Error in test-sitemap-db:', error);
