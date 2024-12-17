@@ -9,6 +9,7 @@
     "start": "next start -p 3004",
     "lint": "next lint",
     "generate": "prisma generate",
+    "postinstall": "prisma generate",
     "generate-sitemap": "ts-node scripts/generate-sitemap.ts",
     "test": "jest",
     "test:watch": "jest --watch",
