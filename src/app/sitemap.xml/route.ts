@@ -30,19 +30,23 @@ export async function GET() {
       }
     });
 
-    contractors.forEach(contractor => {
+    console.log('Found contractors:', contractors);
+
+    for (const contractor of contractors) {
+      const contractorUrl = `${baseUrl}/contractor/${contractor.slug}`;
+      console.log('Adding contractor URL:', contractorUrl);
+      
       pages.push({
-        loc: `${baseUrl}/contractor/${contractor.slug}`,
+        loc: contractorUrl,
         lastmod: contractor.updatedAt.toISOString(),
         changefreq: 'weekly',
         priority: '0.7'
       });
-    });
+    }
 
     console.log(`Added ${contractors.length} contractor URLs to sitemap`);
   } catch (error) {
     console.error('Error fetching contractors for sitemap:', error);
-    // Continue with static pages if database fails
   }
 
   // Categories
@@ -95,6 +99,9 @@ export async function GET() {
     });
   });
 
+  console.log('Total pages in sitemap:', pages.length);
+  console.log('Sample URLs:', pages.slice(0, 3).map(p => p.loc));
+
   // Generate XML
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -110,7 +117,7 @@ export async function GET() {
   return new NextResponse(xml, {
     headers: {
       'Content-Type': 'application/xml',
-      'Cache-Control': 'public, max-age=3600, s-maxage=3600',
+      'Cache-Control': 'no-cache, no-store, must-revalidate',
     },
   });
 }
