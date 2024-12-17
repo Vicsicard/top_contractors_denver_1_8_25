@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
 export async function GET() {
-  const baseUrl = 'https://topcontractorsdenver.com';
+  const baseUrl = 'https://www.topcontractorsdenver.com';
   const currentDate = new Date().toISOString();
 
   // Core pages
