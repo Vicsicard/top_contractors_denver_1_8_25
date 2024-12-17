@@ -8,6 +8,13 @@ interface Contractor {
 
 export async function GET(request: Request): Promise<NextResponse> {
   console.log('Starting sitemap generation...');
+  
+  // Get domain from request
+  const host = request.headers.get('host') || 'www.topcontractorsdenver.com';
+  const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http';
+  const domain = `${protocol}://${host.startsWith('www.') ? host : `www.${host}`}`;
+  
+  console.log('Using domain:', domain);
 
   const currentDate = new Date().toISOString();
   const contractors: Contractor[] = [];
@@ -36,7 +43,7 @@ export async function GET(request: Request): Promise<NextResponse> {
 
   // Add homepage
   xmlParts.push(`  <url>
-    <loc>https://www.topcontractorsdenver.com/</loc>
+    <loc>${domain}/</loc>
     <lastmod>${currentDate}</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -44,7 +51,7 @@ export async function GET(request: Request): Promise<NextResponse> {
 
   // Add search page
   xmlParts.push(`  <url>
-    <loc>https://www.topcontractorsdenver.com/search/</loc>
+    <loc>${domain}/search/</loc>
     <lastmod>${currentDate}</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -53,7 +60,7 @@ export async function GET(request: Request): Promise<NextResponse> {
   // Add contractor pages
   contractors.forEach(contractor => {
     xmlParts.push(`  <url>
-    <loc>https://www.topcontractorsdenver.com/contractor/${contractor.slug}/</loc>
+    <loc>${domain}/contractor/${contractor.slug}/</loc>
     <lastmod>${contractor.updatedAt.toISOString()}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -79,7 +86,7 @@ export async function GET(request: Request): Promise<NextResponse> {
   // Add category pages
   categories.forEach(category => {
     xmlParts.push(`  <url>
-    <loc>https://www.topcontractorsdenver.com/search/${category}/</loc>
+    <loc>${domain}/search/${category}/</loc>
     <lastmod>${currentDate}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -103,7 +110,7 @@ export async function GET(request: Request): Promise<NextResponse> {
   // Add location pages
   locations.forEach(location => {
     xmlParts.push(`  <url>
-    <loc>https://www.topcontractorsdenver.com/search/${location}/</loc>
+    <loc>${domain}/search/${location}/</loc>
     <lastmod>${currentDate}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -117,8 +124,7 @@ export async function GET(request: Request): Promise<NextResponse> {
   const xml = xmlParts.join('\n');
 
   console.log('XML Length:', xml.length);
-  console.log('First 500 chars:', xml.substring(0, 500));
-  console.log('Last 500 chars:', xml.substring(xml.length - 500));
+  console.log('First URL:', xml.match(/<loc>(.*?)<\/loc>/)?.[1]);
 
   // Return with proper headers
   const response = new NextResponse(xml, {
