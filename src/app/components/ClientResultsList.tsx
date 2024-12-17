@@ -23,27 +23,52 @@ interface ResultsListProps {
 }
 
 async function searchPlaces(keyword: string, location: string): Promise<Place[]> {
-  const response = await fetch(
-    `/api/search/places?keyword=${encodeURIComponent(
+  console.log('searchPlaces called with:', { keyword, location });
+  
+  try {
+    const url = `/api/search/places?keyword=${encodeURIComponent(
       keyword
-    )}&location=${encodeURIComponent(location)}`,
-    { cache: 'no-store' }
-  );
+    )}&location=${encodeURIComponent(location)}`;
+    
+    console.log('Fetching from URL:', url);
+    const response = await fetch(url, { cache: 'no-store' });
+    console.log('Response received:', {
+      status: response.status,
+      ok: response.ok,
+      statusText: response.statusText
+    });
 
-  if (!response.ok) {
-    throw new Error('Failed to fetch places');
+    if (!response.ok) {
+      const errorData = await response.json();
+      console.error('API Error:', errorData);
+      throw new Error(errorData.message || 'Failed to fetch places');
+    }
+
+    const data = await response.json();
+    console.log('Data received:', {
+      status: data.status,
+      resultsCount: data.results?.length
+    });
+    
+    if (!data.results) {
+      throw new Error('No results found in response');
+    }
+
+    return data.results;
+  } catch (error) {
+    console.error('Error in searchPlaces:', error);
+    throw error;
   }
-
-  const data = await response.json();
-  return data.results;
 }
 
 export function ClientResultsList({ keyword, location }: ResultsListProps): JSX.Element {
+  console.log('Rendering ClientResultsList component');
   const [places, setPlaces] = useState<Place[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    console.log('useEffect triggered');
     const fetchPlaces = async () => {
       try {
         setLoading(true);

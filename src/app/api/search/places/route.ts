@@ -1,4 +1,5 @@
-import { NextRequest } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
+import { makeRequestWithBackoff } from '@/utils/apiUtils';
 
 const GOOGLE_PLACES_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_PLACES_API_KEY;
 const GOOGLE_PLACES_API_URL = 'https://maps.googleapis.com/maps/api/place/textsearch/json';
@@ -8,6 +9,8 @@ const GOOGLE_PLACES_DETAILS_URL = 'https://maps.googleapis.com/maps/api/place/de
 console.log('Environment check:', {
   hasApiKey: !!GOOGLE_PLACES_API_KEY,
   apiKeyLength: GOOGLE_PLACES_API_KEY?.length,
+  apiKeyValue: GOOGLE_PLACES_API_KEY?.substring(0, 5) + '...',  // Only show first 5 chars
+  allEnvVars: Object.keys(process.env),  // Only log the keys, not the values
   apiUrl: GOOGLE_PLACES_API_URL
 });
 
@@ -49,110 +52,98 @@ interface GooglePlacesResponse {
   error_message?: string;
 }
 
-export async function GET(request: NextRequest): Promise<Response> {
+export async function GET(request: NextRequest): Promise<NextResponse> {
+  console.log('API Route: Received request');
   try {
     const searchParams = request.nextUrl.searchParams;
     const keyword = searchParams.get('keyword') || 'contractor';
     const location = searchParams.get('location') || 'Denver, CO';
     
-    console.log('Search request:', { keyword, location });
+    console.log('Search parameters:', { keyword, location, apiKeyExists: !!GOOGLE_PLACES_API_KEY });
     
     if (!GOOGLE_PLACES_API_KEY) {
       console.error('API Error: Google Places API key not configured');
-      return Response.json(
+      return NextResponse.json(
         { 
           error: 'API configuration error', 
           message: 'Google Places API key is not configured'
         },
-        { status: 500 }
+        { 
+          status: 500,
+          headers: { 'Content-Type': 'application/json' }
+        }
       );
     }
 
     // Construct the search query
     const query = `${keyword} in ${location}`.trim();
-    
-    // Build URL with parameters
-    const url = new URL(GOOGLE_PLACES_API_URL);
-    url.searchParams.append('query', query);
-    url.searchParams.append('key', GOOGLE_PLACES_API_KEY);
-    url.searchParams.append('type', 'business');
-    
-    // Log the request URL (without API key)
-    const logUrl = url.toString().replace(GOOGLE_PLACES_API_KEY, '[REDACTED]');
-    console.log('Fetching from Google Places API:', logUrl);
-    
-    // Make the request
-    const response = await fetch(url.toString());
+    console.log('Constructed query:', query);
 
-    // Log response status
-    console.log('Google Places API response:', {
-      status: response.status,
-      ok: response.ok,
-      statusText: response.statusText
+    const placesUrl = `${GOOGLE_PLACES_API_URL}?query=${encodeURIComponent(query)}&key=${GOOGLE_PLACES_API_KEY}&type=business`;
+    
+    const data = await makeRequestWithBackoff(
+      placesUrl,
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      }
+    );
+
+    const googlePlacesResponse = data as GooglePlacesResponse;
+    console.log('Response data:', {
+      status: googlePlacesResponse.status,
+      resultsCount: googlePlacesResponse.results?.length,
+      errorMessage: googlePlacesResponse.error_message
     });
 
-    const data = await response.json() as GooglePlacesResponse;
-    console.log('API Response data:', {
-      status: data.status,
-      hasResults: !!data.results,
-      resultsCount: data.results?.length,
-      errorMessage: data.error_message
-    });
-
-    if (!response.ok) {
-      console.error('API Error:', {
-        status: response.status,
-        statusText: response.statusText,
-        data
-      });
-      return Response.json(
+    if (googlePlacesResponse.status !== 'OK') {
+      console.error('Google Places API Error:', googlePlacesResponse.error_message);
+      return NextResponse.json(
         { 
-          error: 'Google Places API Error',
-          message: data.error_message || 'Failed to fetch places from Google API',
-          status: response.status 
+          error: 'Google Places API Error', 
+          message: googlePlacesResponse.error_message 
         },
-        { status: response.status }
-      );
-    }
-
-    if (data.status !== 'OK') {
-      console.error('Google Places API Error:', data.error_message);
-      return Response.json(
         { 
-          error: 'Google Places API Error',
-          message: data.error_message || 'Failed to fetch places',
-          status: data.status
-        },
-        { status: 400 }
+          status: 400,
+          headers: { 'Content-Type': 'application/json' }
+        }
       );
     }
 
     // Fetch additional details for each place
     const placesWithDetails = await Promise.all(
-      data.results.map(async (place) => {
+      googlePlacesResponse.results.map(async (place) => {
         try {
-          const detailsUrl = new URL(GOOGLE_PLACES_DETAILS_URL);
-          detailsUrl.searchParams.append('place_id', place.place_id);
-          detailsUrl.searchParams.append('key', GOOGLE_PLACES_API_KEY);
-          detailsUrl.searchParams.append('fields', 'formatted_phone_number,website,opening_hours');
+          const detailsUrl = `${GOOGLE_PLACES_DETAILS_URL}?place_id=${place.place_id}&key=${GOOGLE_PLACES_API_KEY}&fields=formatted_phone_number,website,opening_hours`;
+          
+          const detailsData = await makeRequestWithBackoff(
+            detailsUrl,
+            {
+              method: 'GET',
+              headers: {
+                'Content-Type': 'application/json',
+              }
+            }
+          );
 
-          const detailsResponse = await fetch(detailsUrl.toString());
-          const detailsData = await detailsResponse.json() as PlaceDetails;
+          const placeDetails = detailsData as PlaceDetails;
 
-          if (!detailsResponse.ok) {
+          if (placeDetails.status !== 'OK') {
             console.error('Error fetching place details:', {
               placeId: place.place_id,
-              status: detailsResponse.status,
-              error: detailsData.error_message
+              status: placeDetails.status,
+              error: placeDetails.error_message
             });
             return place;
           }
 
           return {
             ...place,
-            phone_number: detailsData.result?.formatted_phone_number,
-            website: detailsData.result?.website,
-            opening_hours: detailsData.result?.opening_hours
+            phone_number: placeDetails.result?.formatted_phone_number,
+            website: placeDetails.result?.website,
+            opening_hours: placeDetails.result?.opening_hours
           };
         } catch (error) {
           console.error('Error fetching place details:', error);
@@ -161,20 +152,28 @@ export async function GET(request: NextRequest): Promise<Response> {
       })
     );
 
-    return Response.json({ 
-      results: placesWithDetails,
-      status: 'success'
-    });
-    
+    return NextResponse.json(
+      { 
+        results: placesWithDetails,
+        status: 'success'
+      },
+      { 
+        status: 200,
+        headers: { 'Content-Type': 'application/json' }
+      }
+    );
+
   } catch (error) {
     console.error('Unexpected error:', error);
-    return Response.json(
+    return NextResponse.json(
       { 
-        error: 'Internal Server Error',
-        message: 'An unexpected error occurred while fetching results',
-        details: error instanceof Error ? error.message : 'Unknown error'
+        error: 'Internal server error', 
+        message: error instanceof Error ? error.message : 'Unknown error'
       },
-      { status: 500 }
+      { 
+        status: 500,
+        headers: { 'Content-Type': 'application/json' }
+      }
     );
   }
 }

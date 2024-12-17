@@ -1,15 +1,44 @@
-import { NextResponse } from 'next/server';
-import prisma from '@/lib/prisma';
+import { NextRequest, NextResponse } from 'next/server';
+import { PrismaClient } from '@prisma/client';
 
-export async function GET() {
-  const diagnostics = {
+interface Diagnostics {
+  environment: string;
+  databaseUrlExists: boolean;
+  databaseNameExists: boolean;
+  prismaInitialized: boolean;
+  connectionTest: string | null;
+  contractorCount: number | null;
+  error: {
+    message: string;
+    name: string;
+    stack: string | undefined;
+  } | null;
+}
+
+interface SampleContractor {
+  id: string;
+  name: string;
+  slug: string;
+  updatedAt: Date;
+}
+
+interface Response {
+  success: boolean;
+  diagnostics: Diagnostics;
+  sampleContractor?: SampleContractor;
+}
+
+export async function GET(_request: NextRequest): Promise<NextResponse> {
+  const prisma = new PrismaClient();
+  
+  const diagnostics: Diagnostics = {
     environment: process.env.NODE_ENV,
     databaseUrlExists: !!process.env.MONGODB_URI,
     databaseNameExists: !!process.env.MONGODB_DB,
     prismaInitialized: !!prisma,
-    connectionTest: null as any,
-    contractorCount: null as any,
-    error: null as any
+    connectionTest: null,
+    contractorCount: null,
+    error: null
   };
 
   try {
@@ -26,7 +55,7 @@ export async function GET() {
     console.log('Contractor count:', count);
 
     // Get a sample contractor
-    const sampleContractor = await prisma.contractor.findFirst({
+    const sampleContractor: SampleContractor = await prisma.contractor.findFirst({
       select: {
         id: true,
         name: true,
@@ -35,11 +64,13 @@ export async function GET() {
       }
     });
 
-    return NextResponse.json({
+    const response: Response = {
       success: true,
       diagnostics,
       sampleContractor
-    });
+    };
+
+    return NextResponse.json(response);
   } catch (error) {
     console.error('Database connection error:', error);
     diagnostics.error = {
@@ -47,12 +78,11 @@ export async function GET() {
       name: error instanceof Error ? error.name : 'Unknown',
       stack: error instanceof Error ? error.stack : undefined
     };
-    return NextResponse.json({ 
-      success: false, 
+    const response: Response = {
+      success: false,
       diagnostics
-    }, { 
-      status: 500 
-    });
+    };
+    return NextResponse.json(response, { status: 500 });
   } finally {
     try {
       await prisma.$disconnect();

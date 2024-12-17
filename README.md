@@ -28,6 +28,12 @@ A modern Next.js application designed to help users find and connect with contra
   - Meta tags and OpenGraph data
   - SEO-friendly URLs
   - Structured data (JSON-LD)
+- 🏗️ Consistent contractor pages with:
+  - Unified layout and design
+  - Emergency service information
+  - Clear service descriptions
+  - Customized CTA buttons
+  - Trade-specific content
 
 ## Tech Stack
 

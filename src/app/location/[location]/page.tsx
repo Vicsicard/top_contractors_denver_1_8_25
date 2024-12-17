@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import { ClientResultsList } from '@/app/components/ClientResultsList';
 
 const validLocations = [
+  "Denver",
   "Downtown Denver",
   "Aurora",
   "Lakewood",
