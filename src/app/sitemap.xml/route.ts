@@ -38,6 +38,8 @@ export async function GET() {
         priority: '0.7'
       });
     });
+
+    console.log(`Added ${contractors.length} contractor URLs to sitemap`);
   } catch (error) {
     console.error('Error fetching contractors for sitemap:', error);
     // Continue with static pages if database fails
@@ -96,17 +98,13 @@ export async function GET() {
   // Generate XML
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  ${pages.map(page => {
-    // Ensure all URLs use www subdomain
-    const loc = page.loc.replace('https://topcontractorsdenver.com', 'https://www.topcontractorsdenver.com');
-    return `
+  ${pages.map(page => `
   <url>
-    <loc>${loc}</loc>
+    <loc>${page.loc}</loc>
     <lastmod>${page.lastmod}</lastmod>
     <changefreq>${page.changefreq}</changefreq>
     <priority>${page.priority}</priority>
-  </url>`;
-  }).join('')}
+  </url>`).join('')}
 </urlset>`;
 
   return new NextResponse(xml, {

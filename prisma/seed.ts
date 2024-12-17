@@ -1,6 +1,13 @@
-import { PrismaClient } from '@prisma/client';
+const { PrismaClient } = require('@prisma/client');
 
-const prisma = new PrismaClient();
+// Use the same MongoDB URI as in .env.local
+const prisma = new PrismaClient({
+  datasources: {
+    db: {
+      url: "mongodb+srv://vicsicard:Jerrygarcia1993!@cluster0.bbnj8.mongodb.net/topcontractorsdenver?retryWrites=true&w=majority&appName=Cluster0"
+    }
+  }
+});
 
 const contractors = [
   {
