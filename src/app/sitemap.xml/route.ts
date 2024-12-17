@@ -114,9 +114,13 @@ export async function GET(request: Request) {
   console.log('Total pages:', pages.length);
   console.log('Sample URLs:', pages.slice(0, 5).map(p => p.loc));
 
-  // Generate XML
+  // Generate XML with proper XML declaration and encoding
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 ${pages.map(page => `  <url>
     <loc>${page.loc}</loc>
     <lastmod>${page.lastmod}</lastmod>
@@ -131,8 +135,9 @@ ${pages.map(page => `  <url>
   // Return with proper headers
   const response = new NextResponse(xml, {
     headers: {
-      'Content-Type': 'application/xml',
+      'Content-Type': 'application/xml; charset=utf-8',
       'Cache-Control': 'no-cache, no-store, must-revalidate',
+      'X-Robots-Tag': 'all',
     },
   });
 
