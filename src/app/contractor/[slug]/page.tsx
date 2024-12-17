@@ -1,98 +1,113 @@
 import { Metadata } from 'next';
 import { PrismaClient } from '@prisma/client';
-import { generateMetadata, generateSlug } from '@/utils/seoUtils';
 import { notFound } from 'next/navigation';
 
 const prisma = new PrismaClient();
 
-interface PageProps {
-  params: {
-    slug: string;
-  };
+// Function to safely get contractors
+async function getContractors() {
+  try {
+    return await prisma.business.findMany();
+  } catch (error) {
+    console.error('Error fetching contractors:', error);
+    return [];
+  } finally {
+    await prisma.$disconnect();
+  }
 }
 
-// Generate static metadata for the page
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const business = await prisma.business.findFirst({
-    where: {
-      name: {
-        contains: params.slug.replace(/-/g, ' '),
-        mode: 'insensitive'
-      }
-    }
-  });
+export async function generateStaticParams() {
+  const contractors = await getContractors();
+  
+  return contractors.map((contractor) => ({
+    slug: contractor.placeId,
+  }));
+}
 
-  if (!business) {
+async function getContractorBySlug(slug: string) {
+  try {
+    const contractor = await prisma.business.findUnique({
+      where: { placeId: slug },
+    });
+    return contractor;
+  } catch (error) {
+    console.error('Error fetching contractor:', error);
+    return null;
+  } finally {
+    await prisma.$disconnect();
+  }
+}
+
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const contractor = await getContractorBySlug(params.slug);
+
+  if (!contractor) {
     return {
-      title: 'Contractor Not Found - Denver Contractors',
-      description: 'The requested contractor page could not be found.'
+      title: 'Contractor Not Found',
+      description: 'The requested contractor page could not be found.',
     };
   }
 
-  return generateMetadata(business);
+  return {
+    title: `${contractor.name} - Top Denver Contractor`,
+    description: `Learn more about ${contractor.name}, a top-rated contractor in Denver. View contact information, services, and reviews.`,
+    openGraph: {
+      title: `${contractor.name} - Denver Contractor`,
+      description: `${contractor.name} is a professional contractor in Denver. Contact information, services, and reviews available.`,
+      url: `https://topcontractorsdenver.com/contractor/${params.slug}`,
+      siteName: 'Top Contractors Denver',
+      locale: 'en_US',
+      type: 'website',
+    },
+  };
 }
 
-// The main page component
-export default async function ContractorPage({ params }: PageProps) {
-  const business = await prisma.business.findFirst({
-    where: {
-      name: {
-        contains: params.slug.replace(/-/g, ' '),
-        mode: 'insensitive'
-      }
-    }
-  });
+export default async function ContractorPage({ params }: { params: { slug: string } }) {
+  const contractor = await getContractorBySlug(params.slug);
 
-  if (!business) {
+  if (!contractor) {
     notFound();
   }
 
   return (
-    <main className="container mx-auto px-4 py-8">
-      <article className="max-w-4xl mx-auto">
-        <header className="mb-8">
-          <h1 className="text-4xl font-bold mb-4">{business.name}</h1>
-          <div className="flex items-center mb-4">
-            <span className="text-yellow-400 mr-2">★</span>
-            <span>{business.rating} ({business.reviewCount} reviews)</span>
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="text-3xl font-bold mb-4">{contractor.name}</h1>
+      <div className="bg-white shadow-lg rounded-lg p-6">
+        <div className="mb-4">
+          <h2 className="text-xl font-semibold mb-2">Contact Information</h2>
+          <p>{contractor.address}</p>
+          <p>Phone: {contractor.phone}</p>
+          {contractor.website && (
+            <p>
+              <a 
+                href={contractor.website} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-800"
+              >
+                Visit Website
+              </a>
+            </p>
+          )}
+        </div>
+        
+        <div className="mb-4">
+          <h2 className="text-xl font-semibold mb-2">Business Details</h2>
+          <p>Rating: {contractor.rating} ⭐</p>
+          <p>Reviews: {contractor.reviewCount}</p>
+        </div>
+
+        {contractor.businessStatus && (
+          <div className="mb-4">
+            <h2 className="text-xl font-semibold mb-2">Status</h2>
+            <p className={`font-semibold ${
+              contractor.businessStatus === 'OPERATIONAL' ? 'text-green-600' : 'text-red-600'
+            }`}>
+              {contractor.businessStatus === 'OPERATIONAL' ? 'Open' : 'Closed'}
+            </p>
           </div>
-        </header>
-
-        <section className="mb-8">
-          <h2 className="text-2xl font-semibold mb-4">About Us</h2>
-          <p className="mb-4">
-            {business.name} is a trusted contractor serving the Denver area. 
-            We specialize in {business.categories?.join(', ')}.
-          </p>
-        </section>
-
-        <section className="mb-8">
-          <h2 className="text-2xl font-semibold mb-4">Contact Information</h2>
-          <div className="space-y-2">
-            <p><strong>Address:</strong> {business.address}</p>
-            {business.phone && <p><strong>Phone:</strong> <a href={`tel:${business.phone}`} className="text-blue-600 hover:underline">{business.phone}</a></p>}
-            {business.website && <p><strong>Website:</strong> <a href={business.website} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">{business.website}</a></p>}
-          </div>
-        </section>
-
-        <section className="mb-8">
-          <h2 className="text-2xl font-semibold mb-4">Services</h2>
-          <ul className="list-disc list-inside space-y-2">
-            {business.categories?.map((category) => (
-              <li key={category}>{category}</li>
-            ))}
-          </ul>
-        </section>
-      </article>
-    </main>
+        )}
+      </div>
+    </div>
   );
-}
-
-// Generate static paths for all contractors
-export async function generateStaticParams() {
-  const businesses = await prisma.business.findMany();
-  
-  return businesses.map((business) => ({
-    slug: generateSlug(business),
-  }));
 }
