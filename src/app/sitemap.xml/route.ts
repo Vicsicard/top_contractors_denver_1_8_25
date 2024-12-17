@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import prisma from '@/lib/prisma';
 
 export async function GET() {
   const baseUrl = 'https://www.topcontractorsdenver.com';
@@ -19,6 +20,28 @@ export async function GET() {
       priority: '0.8'
     }
   ];
+
+  try {
+    // Add contractor pages
+    const contractors = await prisma.contractor.findMany({
+      select: {
+        slug: true,
+        updatedAt: true,
+      }
+    });
+
+    contractors.forEach(contractor => {
+      pages.push({
+        loc: `${baseUrl}/contractor/${contractor.slug}`,
+        lastmod: contractor.updatedAt.toISOString(),
+        changefreq: 'weekly',
+        priority: '0.7'
+      });
+    });
+  } catch (error) {
+    console.error('Error fetching contractors for sitemap:', error);
+    // Continue with static pages if database fails
+  }
 
   // Categories
   const categories = [
