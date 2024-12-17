@@ -96,13 +96,17 @@ export async function GET() {
   // Generate XML
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  ${pages.map(page => `
+  ${pages.map(page => {
+    // Ensure all URLs use www subdomain
+    const loc = page.loc.replace('https://topcontractorsdenver.com', 'https://www.topcontractorsdenver.com');
+    return `
   <url>
-    <loc>${page.loc}</loc>
+    <loc>${loc}</loc>
     <lastmod>${page.lastmod}</lastmod>
     <changefreq>${page.changefreq}</changefreq>
     <priority>${page.priority}</priority>
-  </url>`).join('')}
+  </url>`;
+  }).join('')}
 </urlset>`;
 
   return new NextResponse(xml, {
