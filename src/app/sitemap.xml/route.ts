@@ -13,6 +13,34 @@ export async function GET() {
     priority: string;
   }> = [];
 
+  try {
+    // Add contractor pages first
+    console.log('Fetching contractors from database...');
+    const contractors = await prisma.contractor.findMany({
+      select: {
+        slug: true,
+        updatedAt: true,
+      }
+    });
+
+    console.log('Database query completed. Found contractors:', JSON.stringify(contractors, null, 2));
+
+    // Add contractor pages first (higher priority)
+    contractors.forEach(contractor => {
+      const contractorUrl = `${baseUrl}/contractor/${contractor.slug}`;
+      console.log('Adding contractor URL:', contractorUrl);
+      pages.push({
+        loc: contractorUrl,
+        lastmod: contractor.updatedAt.toISOString(),
+        changefreq: 'weekly',
+        priority: '0.9'
+      });
+    });
+  } catch (error) {
+    console.error('Error fetching contractors:', error instanceof Error ? error.message : 'Unknown error');
+    console.error('Error details:', error);
+  }
+
   // Add core pages
   pages.push(
     {
@@ -28,34 +56,6 @@ export async function GET() {
       priority: '0.8'
     }
   );
-
-  try {
-    // Add contractor pages
-    console.log('Fetching contractors from database...');
-    const contractors = await prisma.contractor.findMany({
-      select: {
-        slug: true,
-        updatedAt: true,
-      }
-    });
-
-    console.log('Database query completed. Found contractors:', JSON.stringify(contractors, null, 2));
-
-    // Add contractor pages first
-    contractors.forEach(contractor => {
-      const contractorUrl = `${baseUrl}/contractor/${contractor.slug}`;
-      console.log('Adding contractor URL:', contractorUrl);
-      pages.push({
-        loc: contractorUrl,
-        lastmod: contractor.updatedAt.toISOString(),
-        changefreq: 'weekly',
-        priority: '0.7'
-      });
-    });
-  } catch (error) {
-    console.error('Error fetching contractors:', error instanceof Error ? error.message : 'Unknown error');
-    console.error('Error details:', error);
-  }
 
   // Categories
   const categories = [
