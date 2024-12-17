@@ -1,6 +1,11 @@
 import { NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
 
+// Force www subdomain
+function ensureWWW(url: string): string {
+  return url.replace('https://topcontractorsdenver.com', 'https://www.topcontractorsdenver.com');
+}
+
 const BASE_URL = 'https://www.topcontractorsdenver.com';
 
 export async function GET(request: Request) {
@@ -44,7 +49,7 @@ export async function GET(request: Request) {
 
   // Add contractor pages first (higher priority)
   contractors.forEach(contractor => {
-    const url = `${BASE_URL}/contractor/${contractor.slug}/`;
+    const url = ensureWWW(`${BASE_URL}/contractor/${contractor.slug}/`);
     console.log('Adding contractor URL:', url);
     pages.push({
       loc: url,
@@ -56,7 +61,7 @@ export async function GET(request: Request) {
 
   // Add main pages
   const addPage = (path: string, changefreq: string, priority: string) => {
-    const url = path === '' ? BASE_URL : `${BASE_URL}${path}/`;
+    const url = ensureWWW(path === '' ? BASE_URL : `${BASE_URL}${path}/`);
     console.log('Adding URL:', url);
     pages.push({
       loc: url,
@@ -122,7 +127,7 @@ export async function GET(request: Request) {
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 ${pages.map(page => `  <url>
-    <loc>${page.loc}</loc>
+    <loc>${ensureWWW(page.loc)}</loc>
     <lastmod>${page.lastmod}</lastmod>
     <changefreq>${page.changefreq}</changefreq>
     <priority>${page.priority}</priority>
