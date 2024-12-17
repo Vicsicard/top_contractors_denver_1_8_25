@@ -6,6 +6,11 @@ export function middleware(request: NextRequest) {
   const hostname = request.headers.get('host') || '';
   const wwwHostname = 'www.topcontractorsdenver.com';
 
+  // Always redirect sitemap.xml to www version
+  if (url.pathname === '/sitemap.xml' && !hostname.startsWith('www.')) {
+    return NextResponse.redirect(`https://www.topcontractorsdenver.com/sitemap.xml`, 301);
+  }
+
   // If we're not on the www subdomain and not on localhost, redirect
   if (!hostname.startsWith('www.') && !hostname.includes('localhost')) {
     url.host = wwwHostname;

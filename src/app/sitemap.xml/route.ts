@@ -1,26 +1,18 @@
 import { NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
 
-// Force www subdomain
-function ensureWWW(url: string): string {
-  return url.replace('https://topcontractorsdenver.com', 'https://www.topcontractorsdenver.com');
+interface Contractor {
+  slug: string;
+  updatedAt: Date;
 }
 
-const BASE_URL = 'https://www.topcontractorsdenver.com';
-
-export async function GET(request: Request) {
+export async function GET(request: Request): Promise<NextResponse> {
   console.log('Starting sitemap generation...');
-  console.log('Request URL:', request.url);
-  console.log('Request headers:', Object.fromEntries(request.headers));
 
   const currentDate = new Date().toISOString();
-  let contractors = [];
+  const contractors: Contractor[] = [];
 
   try {
-    console.log('Connecting to database...');
-    console.log('Database URL exists:', !!process.env.MONGODB_URI);
-    console.log('Database name:', process.env.MONGODB_DB);
-
     console.log('Fetching contractors...');
     const dbContractors = await prisma.contractor.findMany({
       select: {
@@ -29,18 +21,13 @@ export async function GET(request: Request) {
       }
     });
     console.log('Found contractors:', JSON.stringify(dbContractors, null, 2));
-    contractors = dbContractors;
+    contractors.push(...dbContractors);
   } catch (error) {
-    console.error('Database error:', error);
-    console.error('Error details:', {
-      name: error instanceof Error ? error.name : 'Unknown',
-      message: error instanceof Error ? error.message : String(error),
-      stack: error instanceof Error ? error.stack : undefined
-    });
+    console.error('Database error:', error instanceof Error ? error.message : String(error));
   }
 
   // Build XML parts
-  let xmlParts = [];
+  const xmlParts: string[] = [];
 
   // XML declaration
   xmlParts.push('<?xml version="1.0" encoding="UTF-8"?>');
@@ -87,7 +74,7 @@ export async function GET(request: Request) {
     'Plumbing',
     'Electrical',
     'HVAC'
-  ];
+  ] as const;
 
   // Add category pages
   categories.forEach(category => {
@@ -111,7 +98,7 @@ export async function GET(request: Request) {
     'Highlands-Ranch',
     'Boulder',
     'Littleton'
-  ];
+  ] as const;
 
   // Add location pages
   locations.forEach(location => {
@@ -142,6 +129,5 @@ export async function GET(request: Request) {
     },
   });
 
-  console.log('Response headers:', Object.fromEntries(response.headers));
   return response;
 }

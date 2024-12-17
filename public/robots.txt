@@ -1,5 +1,6 @@
+# Allow all crawlers
 User-agent: *
 Allow: /
 
-# Sitemaps
+# Specify canonical sitemap URL
 Sitemap: https://www.topcontractorsdenver.com/sitemap.xml

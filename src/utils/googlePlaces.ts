@@ -120,22 +120,31 @@ export interface PlaceResult {
   types?: string[];
 }
 
-type PlaceDetailsResponse = {
-  result: {
-    name: string;
-    formatted_address: string;
-    formatted_phone_number?: string;
-    international_phone_number?: string;
-    website?: string;
-    opening_hours?: {
-      open_now?: boolean;
-      weekday_text?: string[];
-    };
-    rating?: number;
-    user_ratings_total?: number;
-    reviews?: any[];
-    formatted_address?: string;
+type PlaceDetails = {
+  name: string;
+  formatted_address: string;
+  formatted_phone_number?: string;
+  website?: string;
+  rating?: number;
+  user_ratings_total?: number;
+  photos?: Array<{
+    photo_reference: string;
+    width: number;
+    height: number;
+  }>;
+  opening_hours?: {
+    weekday_text?: string[];
   };
+  reviews?: Array<{
+    author_name: string;
+    rating: number;
+    text: string;
+    time: number;
+  }>;
+};
+
+type PlaceDetailsResponse = {
+  result: PlaceDetails;
   status: string;
   error_message?: string;
 };
