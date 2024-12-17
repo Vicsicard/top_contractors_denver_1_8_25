@@ -3,91 +3,47 @@ import { connectDB } from './mongodb';
 import Bottleneck from 'bottleneck';
 
 // Track API usage
-let tokenUsage = 0;
-const TOKEN_LIMIT = 100000; // Google Places API daily quota
-const REQUEST_LIMIT = 100; // Requests per hour limit
-const HOURLY_RESET = 60 * 60 * 1000; // 1 hour in milliseconds
+let tokenUsage = 0; // Track tokens used
+const tokenLimit = 100000; // Set max tokens per hour
+const requestLimit = 100; // Set max requests per hour
 
-// Configure rate limiter with token and request tracking
 const limiter = new Bottleneck({
-  maxConcurrent: 1, // Process one request at a time
-  reservoir: REQUEST_LIMIT, // Hourly request limit
-  reservoirRefreshAmount: REQUEST_LIMIT,
-  reservoirRefreshInterval: HOURLY_RESET, // Reset hourly
-  minTime: 200 // Minimum time between requests
+  maxConcurrent: 1, // Ensure one request at a time
+  reservoir: requestLimit, // Max requests allowed before pause
+  reservoirRefreshAmount: requestLimit,
+  reservoirRefreshInterval: 60 * 60 * 1000, // Reset hourly
 });
 
-// Reset token usage counter hourly
 setInterval(() => {
-  tokenUsage = 0;
-  console.log('Token usage reset');
-}, HOURLY_RESET);
+  tokenUsage = 0; // Reset token usage counter hourly
+}, 60 * 60 * 1000);
 
-// Track rate limit state
-let isRateLimited = false;
-const _RATE_LIMIT_RESET_TIME = 60 * 1000; // 1 minute cooldown
-
-async function makeRequestWithRetry(
-  url: string,
-  options: RequestInit,
-  estimatedTokens: number = 1000, // Default token estimation
-  retryCount = 0
-): Promise<PlacesApiResponse | PlaceDetailsResponse> {
-  const _maxRetries = 5;
-
+async function makeRequest(apiUrl, options, estimatedTokens) {
   return limiter.schedule(async () => {
-    // Check token usage
-    if (tokenUsage + estimatedTokens > TOKEN_LIMIT) {
-      console.warn('Token limit reached. Waiting for reset...');
-      await new Promise(resolve => setTimeout(resolve, HOURLY_RESET));
+    if (tokenUsage + estimatedTokens > tokenLimit) {
+      console.log("Token limit reached. Waiting for reset.");
+      await new Promise(resolve => setTimeout(resolve, 60 * 60 * 1000)); // Wait for reset
       tokenUsage = 0;
     }
 
     try {
-      // Check rate limit status
-      if (isRateLimited) {
-        console.warn('Rate limit active. Waiting for cooldown...');
-        await new Promise(resolve => setTimeout(resolve, _RATE_LIMIT_RESET_TIME));
-        isRateLimited = false;
-      }
+      const response = await fetch(apiUrl, options);
 
-      console.log(`Making request to: ${url}`);
-      console.log(`Current token usage: ${tokenUsage}/${TOKEN_LIMIT}`);
-      
-      const response = await fetch(url, options);
-      
-      // Handle rate limiting
       if (response.status === 429) {
-        isRateLimited = true;
-        const retryAfter = parseInt(response.headers.get("Retry-After") || "60", 10);
-        console.warn(`Rate limit exceeded. Waiting ${retryAfter} seconds...`);
+        const retryAfter = parseInt(response.headers.get("Retry-After"), 10) || 60;
+        console.log(`Rate limit exceeded. Retrying after ${retryAfter} seconds.`);
         await new Promise(resolve => setTimeout(resolve, retryAfter * 1000));
-        
-        if (retryCount < _maxRetries) {
-          return makeRequestWithRetry(url, options, estimatedTokens, retryCount + 1);
-        }
-        throw new Error('Max retries reached for rate limit');
+        return makeRequest(apiUrl, options, estimatedTokens); // Retry
       }
 
       if (!response.ok) {
         throw new Error(`HTTP Error: ${response.status}`);
       }
 
-      const data = await response.json();
-      
-      // Update token usage
-      tokenUsage += estimatedTokens;
-      console.log(`Updated token usage: ${tokenUsage}/${TOKEN_LIMIT}`);
-      
-      return data;
+      tokenUsage += estimatedTokens; // Increment token usage
+      return await response.json();
     } catch (error) {
-      console.error('Request error:', error);
-      if (retryCount < _maxRetries) {
-        const delay = Math.min(1000 * Math.pow(2, retryCount), 60000);
-        console.warn(`Request failed. Retrying in ${delay}ms...`);
-        await new Promise(resolve => setTimeout(resolve, delay));
-        return makeRequestWithRetry(url, options, estimatedTokens, retryCount + 1);
-      }
+      console.error("Request error:", error.message);
       throw error;
     }
   });
@@ -170,7 +126,7 @@ async function fetchFromGooglePlaces(options: PlacesApiOptions): Promise<PlacesA
   const GOOGLE_PLACES_API_URL = 'https://maps.googleapis.com/maps/api/place';
 
   if (!GOOGLE_PLACES_API_KEY) {
-    throw new Error('Google Places API key not configured');
+    console.warn('Google Places API key not configured. Some features may not work properly.');
   }
 
   const searchTermMap: { [key: string]: string } = {
@@ -196,7 +152,7 @@ async function fetchFromGooglePlaces(options: PlacesApiOptions): Promise<PlacesA
     timestamp: new Date().toISOString()
   });
 
-  const searchResponse = await makeRequestWithRetry(searchUrl, {}, 10) as PlacesApiResponse;
+  const searchResponse = await makeRequest(searchUrl, {}, 10) as PlacesApiResponse;
   
   console.log('API Response:', {
     status: searchResponse.status,
@@ -218,7 +174,7 @@ async function fetchFromGooglePlaces(options: PlacesApiOptions): Promise<PlacesA
       timestamp: new Date().toISOString()
     });
 
-    const alternativeResponse = await makeRequestWithRetry(alternativeUrl, {}, 10) as PlacesApiResponse;
+    const alternativeResponse = await makeRequest(alternativeUrl, {}, 10) as PlacesApiResponse;
     
     console.log('Alternative API Response:', {
       status: alternativeResponse.status,
@@ -248,7 +204,7 @@ async function fetchFromGooglePlaces(options: PlacesApiOptions): Promise<PlacesA
       const detailsUrl = `${GOOGLE_PLACES_API_URL}/details/json?place_id=${place.place_id}&fields=${fields}&key=${GOOGLE_PLACES_API_KEY}`;
       
       try {
-        const detailsResponse = await makeRequestWithRetry(detailsUrl, {}, 10) as PlaceDetailsResponse;
+        const detailsResponse = await makeRequest(detailsUrl, {}, 10) as PlaceDetailsResponse;
         const details = detailsResponse.result;
         
         return {

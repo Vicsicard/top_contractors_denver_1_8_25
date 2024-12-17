@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server';
 
-const GOOGLE_PLACES_API_KEY = process.env.GOOGLE_PLACES_API_KEY;
+const GOOGLE_PLACES_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_PLACES_API_KEY;
 const GOOGLE_PLACES_API_URL = 'https://maps.googleapis.com/maps/api/place/textsearch/json';
 const GOOGLE_PLACES_DETAILS_URL = 'https://maps.googleapis.com/maps/api/place/details/json';
 
@@ -60,7 +60,10 @@ export async function GET(request: NextRequest): Promise<Response> {
     if (!GOOGLE_PLACES_API_KEY) {
       console.error('API Error: Google Places API key not configured');
       return Response.json(
-        { error: 'Internal server error: API key missing' },
+        { 
+          error: 'API configuration error', 
+          message: 'Google Places API key is not configured'
+        },
         { status: 500 }
       );
     }
@@ -103,7 +106,11 @@ export async function GET(request: NextRequest): Promise<Response> {
         data
       });
       return Response.json(
-        { error: 'Failed to fetch places from Google API' },
+        { 
+          error: 'Google Places API Error',
+          message: data.error_message || 'Failed to fetch places from Google API',
+          status: response.status 
+        },
         { status: response.status }
       );
     }
@@ -111,7 +118,11 @@ export async function GET(request: NextRequest): Promise<Response> {
     if (data.status !== 'OK') {
       console.error('Google Places API Error:', data.error_message);
       return Response.json(
-        { error: data.error_message || 'Failed to fetch places' },
+        { 
+          error: 'Google Places API Error',
+          message: data.error_message || 'Failed to fetch places',
+          status: data.status
+        },
         { status: 400 }
       );
     }
@@ -128,6 +139,15 @@ export async function GET(request: NextRequest): Promise<Response> {
           const detailsResponse = await fetch(detailsUrl.toString());
           const detailsData = await detailsResponse.json() as PlaceDetails;
 
+          if (!detailsResponse.ok) {
+            console.error('Error fetching place details:', {
+              placeId: place.place_id,
+              status: detailsResponse.status,
+              error: detailsData.error_message
+            });
+            return place;
+          }
+
           return {
             ...place,
             phone_number: detailsData.result?.formatted_phone_number,
@@ -141,12 +161,19 @@ export async function GET(request: NextRequest): Promise<Response> {
       })
     );
 
-    return Response.json({ results: placesWithDetails });
+    return Response.json({ 
+      results: placesWithDetails,
+      status: 'success'
+    });
     
   } catch (error) {
     console.error('Unexpected error:', error);
     return Response.json(
-      { error: 'An unexpected error occurred while fetching results' },
+      { 
+        error: 'Internal Server Error',
+        message: 'An unexpected error occurred while fetching results',
+        details: error instanceof Error ? error.message : 'Unknown error'
+      },
       { status: 500 }
     );
   }

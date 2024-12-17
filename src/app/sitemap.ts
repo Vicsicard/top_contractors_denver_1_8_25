@@ -31,7 +31,7 @@ const locations = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://topcontractorsdenver.com';
+  const baseUrl = 'https://www.topcontractorsdenver.com';
   const currentDate = new Date().toISOString();
 
   // Core pages

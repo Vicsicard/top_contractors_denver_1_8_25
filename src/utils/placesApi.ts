@@ -100,12 +100,12 @@ async function fetchFromGooglePlaces(options: PlacesApiOptions): Promise<PlacesA
   });
   
   if (!apiKey) {
-    throw new Error('Google Places API key is not configured');
+    console.warn('Google Places API key not configured. Some features may not work properly.');
   }
 
   try {
     const searchQuery = encodeURIComponent(`${keyword} in ${location}`);
-    const url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${searchQuery}&key=${apiKey}`;
+    const url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${searchQuery}&key=${process.env.NEXT_PUBLIC_GOOGLE_PLACES_API_KEY}`;
 
     console.log('Fetching data from Google Places API...');
     const response = await fetch(url);

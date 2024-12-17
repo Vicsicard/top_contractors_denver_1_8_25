@@ -29,7 +29,7 @@ export function generateMetadata(business: Business) {
       title: `${business.name} - Top Denver Contractor`,
       description: `Trusted Denver contractor with ${rating} ${reviews}. Specializing in ${categories}.`,
       type: 'website',
-      url: `https://topcontractorsdenver.com/contractor/${generateSlug(business)}`,
+      url: `https://www.topcontractorsdenver.com/contractor/${generateSlug(business)}`,
     },
   };
 }

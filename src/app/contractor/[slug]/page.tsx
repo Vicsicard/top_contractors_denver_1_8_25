@@ -54,7 +54,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     openGraph: {
       title: `${contractor.name} - Denver Contractor`,
       description: `${contractor.name} is a professional contractor in Denver. Contact information, services, and reviews available.`,
-      url: `https://topcontractorsdenver.com/contractor/${params.slug}`,
+      url: `https://www.topcontractorsdenver.com/contractor/${params.slug}`,
       siteName: 'Top Contractors Denver',
       locale: 'en_US',
       type: 'website',

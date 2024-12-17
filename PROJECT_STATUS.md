@@ -299,6 +299,116 @@ Currently debugging:
   - TTL for cache entries set
   - Cache invalidation working
 
+## Sitemap Issues (December 16, 2024)
+
+### Current Status
+- The sitemap is successfully generating and being read by Google Search Console
+- Google Search Console shows two sitemaps:
+  1. `https://www.topcontractorsdenver.com/sitemap.xml` (24 pages)
+  2. `https://topcontractorsdenver.com/sitemap.xml` (24 pages)
+- The sitemap URLs are currently using the non-www domain (`https://topcontractorsdenver.com`) instead of the www domain
+
+### Attempted Solutions
+1. **Middleware Redirect**
+   - Implemented middleware to redirect non-www to www
+   - Added specific sitemap.xml redirect
+   - Updated robots.txt to specify canonical www sitemap
+
+2. **URL Generation**
+   - Tried hardcoding www URLs in sitemap generation
+   - Attempted to use BASE_URL constant
+   - Tried using ensureWWW helper function
+   - Currently attempting to use request host headers
+
+3. **XML Formatting**
+   - Added proper XML declaration
+   - Added XML schema and stylesheet references
+   - Added trailing slashes to all URLs
+   - Fixed TypeScript errors and improved type safety
+
+### Failed Approaches
+1. **BASE_URL Constant**
+   ```typescript
+   const BASE_URL = 'https://www.topcontractorsdenver.com';
+   // Result: URLs still showed as non-www
+   ```
+
+2. **ensureWWW Helper Function**
+   ```typescript
+   function ensureWWW(url: string): string {
+     return url.replace('https://topcontractorsdenver.com', 'https://www.topcontractorsdenver.com');
+   }
+   // Result: Function wasn't called on final URLs
+   ```
+
+3. **Direct URL Construction**
+   ```typescript
+   const url = `https://www.topcontractorsdenver.com/${path}/`;
+   // Result: URLs remained non-www in output
+   ```
+
+4. **Request Host Headers**
+   ```typescript
+   const host = request.headers.get('host') || 'www.topcontractorsdenver.com';
+   const domain = `https://${host.startsWith('www.') ? host : `www.${host}`}`;
+   // Result: Host header not providing expected value
+   ```
+
+5. **Next.js Middleware**
+   ```typescript
+   if (!hostname.startsWith('www.')) {
+     return NextResponse.redirect(`https://www.topcontractorsdenver.com${pathname}`);
+   }
+   // Result: Redirects work for browsing but not sitemap generation
+   ```
+
+6. **XML Template Literal**
+   ```typescript
+   const xml = `<?xml version="1.0" encoding="UTF-8"?>
+   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+     ${urls.map(url => `<url><loc>${url}</loc></url>`).join('\n')}
+   </urlset>`;
+   // Result: XML formatting correct but URLs still non-www
+   ```
+
+### Insights from Failed Approaches
+1. The issue seems to be at the infrastructure level rather than code level
+2. Next.js might be handling the request before our middleware
+3. The host header might be modified by Vercel's edge network
+4. String replacement and URL construction don't affect the final output
+5. The problem persists across different XML generation methods
+
+These failed attempts suggest we might need to:
+1. Look into Vercel's edge configuration
+2. Consider using Next.js's built-in canonical URL handling
+3. Investigate if there's a Vercel-specific way to handle domains
+4. Consider using a reverse proxy to force www
+5. Look into DNS-level www handling
+
+### Next Steps
+1. **Critical Actions**
+   - Update MongoDB password (exposed in logs)
+   - Update Google Places API key (exposed in logs)
+   - Remove non-www sitemap from Google Search Console
+
+2. **Technical Tasks**
+   - Debug why request host headers aren't forcing www domain
+   - Consider using Next.js config for canonical domain
+   - Add more logging to track URL generation
+   - Test sitemap in different environments (local, preview, production)
+
+3. **SEO Impact**
+   - Monitor Google Search Console for indexing issues
+   - Ensure all pages are being discovered
+   - Track any duplicate content warnings
+   - Verify proper handling of www vs non-www URLs
+
+### Notes
+- The sitemap is functioning and being read by Google, but the URL format needs to be fixed
+- Both www and non-www sitemaps are showing the same number of pages (24)
+- The core issue appears to be in the domain determination during sitemap generation
+- All other functionality (redirects, content serving) is working correctly
+
 ## Dependencies
 - Next.js: 15.1.0
 - React: Latest stable
