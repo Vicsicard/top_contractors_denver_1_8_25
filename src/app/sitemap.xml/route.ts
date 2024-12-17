@@ -8,12 +8,14 @@ export async function GET() {
 
   try {
     // Simple database query like in test-db endpoint
+    console.log('Fetching contractors...');
     const dbContractors = await prisma.contractor.findMany({
       select: {
         slug: true,
         updatedAt: true,
       }
     });
+    console.log('Found contractors:', JSON.stringify(dbContractors, null, 2));
     contractors = dbContractors;
   } catch (error) {
     console.error('Database error:', error);
@@ -29,8 +31,10 @@ export async function GET() {
 
   // Add contractor pages first (higher priority)
   contractors.forEach(contractor => {
+    const url = `${baseUrl}/contractor/${contractor.slug}`;
+    console.log('Adding contractor URL:', url);
     pages.push({
-      loc: `${baseUrl}/contractor/${contractor.slug}`,
+      loc: url,
       lastmod: contractor.updatedAt.toISOString(),
       changefreq: 'weekly',
       priority: '0.9'
@@ -38,20 +42,19 @@ export async function GET() {
   });
 
   // Add main pages
-  pages.push(
-    {
-      loc: baseUrl,
+  const addPage = (path: string, changefreq: string, priority: string) => {
+    const url = path === '' ? baseUrl : `${baseUrl}${path}`;
+    pages.push({
+      loc: url,
       lastmod: currentDate,
-      changefreq: 'daily',
-      priority: '1.0'
-    },
-    {
-      loc: `${baseUrl}/search`,
-      lastmod: currentDate,
-      changefreq: 'daily',
-      priority: '0.8'
-    }
-  );
+      changefreq,
+      priority
+    });
+  };
+
+  // Add core pages
+  addPage('', 'daily', '1.0');
+  addPage('/search', 'daily', '0.8');
 
   // Categories
   const categories = [
@@ -71,12 +74,7 @@ export async function GET() {
 
   // Add category pages
   categories.forEach(category => {
-    pages.push({
-      loc: `${baseUrl}/search/${category}`,
-      lastmod: currentDate,
-      changefreq: 'weekly',
-      priority: '0.7'
-    });
+    addPage(`/search/${category}`, 'weekly', '0.7');
   });
 
   // Locations
@@ -95,13 +93,12 @@ export async function GET() {
 
   // Add location pages
   locations.forEach(location => {
-    pages.push({
-      loc: `${baseUrl}/search/${location}`,
-      lastmod: currentDate,
-      changefreq: 'weekly',
-      priority: '0.7'
-    });
+    addPage(`/search/${location}`, 'weekly', '0.7');
   });
+
+  // Log final URLs for debugging
+  console.log('Total pages:', pages.length);
+  console.log('Sample URLs:', pages.slice(0, 5).map(p => p.loc));
 
   // Generate XML
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
