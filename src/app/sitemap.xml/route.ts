@@ -39,41 +39,39 @@ export async function GET(request: Request) {
     });
   }
 
-  // Initialize pages array
-  const pages: Array<{
-    loc: string;
-    lastmod: string;
-    changefreq: string;
-    priority: string;
-  }> = [];
+  // Build XML parts
+  let xmlParts = [];
 
-  // Add contractor pages first (higher priority)
+  // XML declaration
+  xmlParts.push('<?xml version="1.0" encoding="UTF-8"?>');
+  xmlParts.push('<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>');
+  xmlParts.push('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">');
+
+  // Add homepage
+  xmlParts.push(`  <url>
+    <loc>https://www.topcontractorsdenver.com/</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>`);
+
+  // Add search page
+  xmlParts.push(`  <url>
+    <loc>https://www.topcontractorsdenver.com/search/</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>`);
+
+  // Add contractor pages
   contractors.forEach(contractor => {
-    const url = ensureWWW(`${BASE_URL}/contractor/${contractor.slug}/`);
-    console.log('Adding contractor URL:', url);
-    pages.push({
-      loc: url,
-      lastmod: contractor.updatedAt.toISOString(),
-      changefreq: 'weekly',
-      priority: '0.9'
-    });
+    xmlParts.push(`  <url>
+    <loc>https://www.topcontractorsdenver.com/contractor/${contractor.slug}/</loc>
+    <lastmod>${contractor.updatedAt.toISOString()}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>`);
   });
-
-  // Add main pages
-  const addPage = (path: string, changefreq: string, priority: string) => {
-    const url = ensureWWW(path === '' ? BASE_URL : `${BASE_URL}${path}/`);
-    console.log('Adding URL:', url);
-    pages.push({
-      loc: url,
-      lastmod: currentDate,
-      changefreq,
-      priority
-    });
-  };
-
-  // Add core pages
-  addPage('', 'daily', '1.0');
-  addPage('/search', 'daily', '0.8');
 
   // Categories
   const categories = [
@@ -93,7 +91,12 @@ export async function GET(request: Request) {
 
   // Add category pages
   categories.forEach(category => {
-    addPage(`/search/${category}`, 'weekly', '0.7');
+    xmlParts.push(`  <url>
+    <loc>https://www.topcontractorsdenver.com/search/${category}/</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>`);
   });
 
   // Locations
@@ -112,30 +115,23 @@ export async function GET(request: Request) {
 
   // Add location pages
   locations.forEach(location => {
-    addPage(`/search/${location}`, 'weekly', '0.7');
+    xmlParts.push(`  <url>
+    <loc>https://www.topcontractorsdenver.com/search/${location}/</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>`);
   });
 
-  // Log final URLs for debugging
-  console.log('Total pages:', pages.length);
-  console.log('Sample URLs:', pages.slice(0, 5).map(p => p.loc));
+  // Close urlset tag
+  xmlParts.push('</urlset>');
 
-  // Generate XML with proper XML declaration and encoding
-  const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-${pages.map(page => `  <url>
-    <loc>${ensureWWW(page.loc)}</loc>
-    <lastmod>${page.lastmod}</lastmod>
-    <changefreq>${page.changefreq}</changefreq>
-    <priority>${page.priority}</priority>
-  </url>`).join('\n')}
-</urlset>`;
+  // Join all parts with newlines
+  const xml = xmlParts.join('\n');
 
-  console.log('Generated XML length:', xml.length);
-  console.log('First 500 characters of XML:', xml.substring(0, 500));
+  console.log('XML Length:', xml.length);
+  console.log('First 500 chars:', xml.substring(0, 500));
+  console.log('Last 500 chars:', xml.substring(xml.length - 500));
 
   // Return with proper headers
   const response = new NextResponse(xml, {
