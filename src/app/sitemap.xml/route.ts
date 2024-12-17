@@ -1,6 +1,11 @@
 import { NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
 
+// Helper to ensure www subdomain
+function ensureWWW(url: string): string {
+  return url.replace('https://topcontractorsdenver.com', 'https://www.topcontractorsdenver.com');
+}
+
 export async function GET() {
   const baseUrl = 'https://www.topcontractorsdenver.com';
   const currentDate = new Date().toISOString();
@@ -100,11 +105,11 @@ export async function GET() {
   console.log('Total pages:', pages.length);
   console.log('Sample URLs:', pages.slice(0, 5).map(p => p.loc));
 
-  // Generate XML
+  // Generate XML, ensuring www subdomain
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${pages.map(page => `  <url>
-    <loc>${page.loc}</loc>
+    <loc>${ensureWWW(page.loc)}</loc>
     <lastmod>${page.lastmod}</lastmod>
     <changefreq>${page.changefreq}</changefreq>
     <priority>${page.priority}</priority>
