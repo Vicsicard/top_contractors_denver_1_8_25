@@ -14,8 +14,16 @@ export async function GET() {
   }> = [];
 
   try {
+    // Log database connection info (without exposing sensitive data)
+    console.log('Database connection attempt starting...');
+    console.log('Database provider:', prisma._engineConfig?.activeProvider);
+    console.log('Database connection URL exists:', !!process.env.MONGODB_URI);
+
     // Test database connection first
     console.log('Testing database connection...');
+    await prisma.$connect();
+    console.log('Database connection established successfully');
+
     const count = await prisma.contractor.count();
     console.log('Database connection successful. Contractor count:', count);
 
@@ -32,7 +40,7 @@ export async function GET() {
     console.log('Database query completed. Found contractors:', JSON.stringify(contractors, null, 2));
 
     if (contractors.length === 0) {
-      console.warn('No contractors found in database');
+      console.warn('No contractors found in database. This might indicate a connection or data issue.');
     }
 
     // Add contractor pages first (higher priority)
@@ -49,9 +57,23 @@ export async function GET() {
 
     console.log(`Successfully added ${contractors.length} contractor URLs`);
   } catch (error) {
-    console.error('Error in sitemap generation:', error instanceof Error ? error.message : 'Unknown error');
-    console.error('Full error details:', JSON.stringify(error, null, 2));
-    console.error('Error stack:', error instanceof Error ? error.stack : 'No stack trace');
+    console.error('Error in sitemap generation:');
+    console.error('Message:', error instanceof Error ? error.message : 'Unknown error');
+    console.error('Name:', error instanceof Error ? error.name : 'Unknown');
+    console.error('Stack:', error instanceof Error ? error.stack : 'No stack trace');
+    
+    // Log environment info for debugging
+    console.log('Environment:', process.env.NODE_ENV);
+    console.log('MONGODB_URI exists:', !!process.env.MONGODB_URI);
+    console.log('MONGODB_DB exists:', !!process.env.MONGODB_DB);
+  } finally {
+    // Always disconnect from the database
+    try {
+      await prisma.$disconnect();
+      console.log('Database disconnected successfully');
+    } catch (disconnectError) {
+      console.error('Error disconnecting from database:', disconnectError);
+    }
   }
 
   // Add core pages
