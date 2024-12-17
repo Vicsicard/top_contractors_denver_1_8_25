@@ -25,8 +25,35 @@ const nextConfig = {
   },
   // Add trailingSlash configuration
   trailingSlash: true,
-  async redirects() {
+  // Add hostname configuration
+  assetPrefix: process.env.NODE_ENV === 'production' ? 'https://www.topcontractorsdenver.com' : '',
+  // Force www in production
+  async headers() {
     return [
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'all',
+          },
+        ],
+      },
+    ]
+  },
+  redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'topcontractorsdenver.com',
+          },
+        ],
+        destination: 'https://www.topcontractorsdenver.com/:path*',
+        permanent: true,
+      },
       {
         source: '/search',
         destination: '/search/results',
@@ -34,7 +61,7 @@ const nextConfig = {
       },
     ];
   },
-  async rewrites() {
+  rewrites() {
     return [
       {
         source: '/search/:keyword/:location',

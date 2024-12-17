@@ -1,25 +1,13 @@
 import { NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
 
-const DOMAIN = process.env.NEXT_PUBLIC_DOMAIN || 'www.topcontractorsdenver.com';
-const PROTOCOL = process.env.NODE_ENV === 'production' ? 'https' : 'http';
-
-// Helper to ensure www subdomain
-function ensureWWW(url: string): string {
-  return url.replace('https://topcontractorsdenver.com', 'https://www.topcontractorsdenver.com');
-}
-
 export async function GET() {
-  const baseUrl = `${PROTOCOL}://${DOMAIN}`;
+  const baseUrl = 'https://www.topcontractorsdenver.com';
   const currentDate = new Date().toISOString();
   let contractors = [];
 
   try {
-    // Simple database query like in test-db endpoint
     console.log('Fetching contractors...');
-    console.log('Database URL exists:', !!process.env.MONGODB_URI);
-    console.log('Base URL:', baseUrl);
-
     const dbContractors = await prisma.contractor.findMany({
       select: {
         slug: true,
@@ -30,11 +18,6 @@ export async function GET() {
     contractors = dbContractors;
   } catch (error) {
     console.error('Database error:', error);
-    console.error('Error details:', {
-      name: error instanceof Error ? error.name : 'Unknown',
-      message: error instanceof Error ? error.message : String(error),
-      stack: error instanceof Error ? error.stack : undefined
-    });
   }
 
   // Initialize pages array
@@ -60,6 +43,7 @@ export async function GET() {
   // Add main pages
   const addPage = (path: string, changefreq: string, priority: string) => {
     const url = path === '' ? baseUrl : `${baseUrl}${path}`;
+    console.log('Adding URL:', url);
     pages.push({
       loc: url,
       lastmod: currentDate,
@@ -116,11 +100,11 @@ export async function GET() {
   console.log('Total pages:', pages.length);
   console.log('Sample URLs:', pages.slice(0, 5).map(p => p.loc));
 
-  // Generate XML, ensuring www subdomain
+  // Generate XML
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${pages.map(page => `  <url>
-    <loc>${ensureWWW(page.loc)}</loc>
+    <loc>${page.loc}</loc>
     <lastmod>${page.lastmod}</lastmod>
     <changefreq>${page.changefreq}</changefreq>
     <priority>${page.priority}</priority>
