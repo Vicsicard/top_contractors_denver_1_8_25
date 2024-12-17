@@ -1,82 +1,91 @@
-import { MetadataRoute } from 'next';
 import { NextResponse } from 'next/server';
-import { PrismaClient } from '@prisma/client';
-import { generateSlug } from '@/utils/seoUtils';
-
-const prisma = new PrismaClient();
-
-async function generateSitemapXml() {
-  // Always use the custom domain
-  const baseUrl = 'https://topcontractorsdenver.com';
-  let contractors = [];
-
-  try {
-    // Get all contractors
-    contractors = await prisma.business.findMany();
-  } catch (error) {
-    console.error('Error fetching contractors:', error);
-    // Continue with empty contractors array rather than failing
-  }
-
-  // Create XML content
-  const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>${baseUrl}</loc>
-    <lastmod>${new Date().toISOString()}</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>${baseUrl}/search</loc>
-    <lastmod>${new Date().toISOString()}</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  ${contractors.map(contractor => `
-  <url>
-    <loc>${baseUrl}/contractor/${generateSlug(contractor)}</loc>
-    <lastmod>${contractor.updatedAt.toISOString()}</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
-  `).join('')}
-</urlset>`;
-
-  return xml;
-}
 
 export async function GET() {
-  try {
-    const xml = await generateSitemapXml();
-    
-    return new NextResponse(xml, {
-      headers: {
-        'Content-Type': 'application/xml',
-        'Cache-Control': 'public, max-age=3600, s-maxage=3600',
-      },
+  const baseUrl = 'https://topcontractorsdenver.com';
+  const currentDate = new Date().toISOString();
+
+  // Core pages
+  const pages = [
+    {
+      loc: baseUrl,
+      lastmod: currentDate,
+      changefreq: 'daily',
+      priority: '1.0'
+    },
+    {
+      loc: `${baseUrl}/search`,
+      lastmod: currentDate,
+      changefreq: 'daily',
+      priority: '0.8'
+    }
+  ];
+
+  // Categories
+  const categories = [
+    'Home-Remodeling',
+    'Kitchen-Remodeling',
+    'Bathroom-Remodeling',
+    'General-Contractor',
+    'Custom-Homes',
+    'Handyman',
+    'Landscaping',
+    'Roofing',
+    'Painting',
+    'Plumbing',
+    'Electrical',
+    'HVAC'
+  ];
+
+  // Add category pages
+  categories.forEach(category => {
+    pages.push({
+      loc: `${baseUrl}/search/${category}`,
+      lastmod: currentDate,
+      changefreq: 'weekly',
+      priority: '0.7'
     });
-  } catch (error) {
-    console.error('Error generating sitemap:', error);
-    // Return a basic sitemap with just the homepage in case of errors
-    const baseUrl = 'https://topcontractorsdenver.com';
-    const fallbackXml = `<?xml version="1.0" encoding="UTF-8"?>
+  });
+
+  // Locations
+  const locations = [
+    'Denver',
+    'Aurora',
+    'Lakewood',
+    'Arvada',
+    'Westminster',
+    'Thornton',
+    'Centennial',
+    'Highlands-Ranch',
+    'Boulder',
+    'Littleton'
+  ];
+
+  // Add location pages
+  locations.forEach(location => {
+    pages.push({
+      loc: `${baseUrl}/search/${location}`,
+      lastmod: currentDate,
+      changefreq: 'weekly',
+      priority: '0.7'
+    });
+  });
+
+  // Generate XML
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  ${pages.map(page => `
   <url>
-    <loc>${baseUrl}</loc>
-    <lastmod>${new Date().toISOString()}</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-  </url>
+    <loc>${page.loc}</loc>
+    <lastmod>${page.lastmod}</lastmod>
+    <changefreq>${page.changefreq}</changefreq>
+    <priority>${page.priority}</priority>
+  </url>`).join('')}
 </urlset>`;
-    
-    return new NextResponse(fallbackXml, {
-      headers: {
-        'Content-Type': 'application/xml',
-        'Cache-Control': 'public, max-age=3600, s-maxage=3600',
-      },
-    });
-  } finally {
-    await prisma.$disconnect();
-  }
+
+  return new NextResponse(xml, {
+    headers: {
+      'Content-Type': 'application/xml',
+      'Cache-Control': 'public, max-age=3600, s-maxage=3600',
+    },
+  });
 }

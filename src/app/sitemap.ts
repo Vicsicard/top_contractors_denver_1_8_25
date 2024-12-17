@@ -1,62 +1,75 @@
 import { MetadataRoute } from 'next';
-import { PrismaClient } from '@prisma/client';
-import { generateSlug } from '@/utils/seoUtils';
 
-const prisma = new PrismaClient();
+// Static categories for initial sitemap
+const categories = [
+  'Home-Remodeling',
+  'Kitchen-Remodeling',
+  'Bathroom-Remodeling',
+  'General-Contractor',
+  'Custom-Homes',
+  'Handyman',
+  'Landscaping',
+  'Roofing',
+  'Painting',
+  'Plumbing',
+  'Electrical',
+  'HVAC'
+];
 
-// Get all contractors from the database
-async function getAllContractors() {
-  return await prisma.business.findMany();
-}
+// Static locations
+const locations = [
+  'Denver',
+  'Aurora',
+  'Lakewood',
+  'Arvada',
+  'Westminster',
+  'Thornton',
+  'Centennial',
+  'Highlands-Ranch',
+  'Boulder',
+  'Littleton'
+];
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  // Always use the custom domain
+export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://topcontractorsdenver.com';
-  
-  // Get all contractors
-  const contractors = await getAllContractors();
-  
-  // Generate sitemap entries for contractor pages
-  const contractorRoutes = contractors.map((contractor) => ({
-    url: `${baseUrl}/contractor/${generateSlug(contractor)}`,
-    lastModified: contractor.updatedAt,
-    changeFrequency: 'daily' as const,
-    priority: 0.9,
-  }));
+  const currentDate = new Date().toISOString();
 
   // Core pages
   const coreRoutes = [
     {
       url: baseUrl,
-      lastModified: new Date(),
+      lastModified: currentDate,
       changeFrequency: 'daily' as const,
       priority: 1,
     },
     {
       url: `${baseUrl}/search`,
-      lastModified: new Date(),
+      lastModified: currentDate,
       changeFrequency: 'daily' as const,
       priority: 0.8,
     }
   ];
 
-  // Common contractor categories
-  const categoryRoutes = [
-    'Home-Remodeling',
-    'Kitchen-Remodeling',
-    'Bathroom-Remodeling',
-    'General-Contractor',
-    'Custom-Homes'
-  ].map(category => ({
+  // Category pages
+  const categoryRoutes = categories.map(category => ({
     url: `${baseUrl}/search/${category}`,
-    lastModified: new Date(),
+    lastModified: currentDate,
     changeFrequency: 'weekly' as const,
     priority: 0.7,
   }));
 
+  // Location pages
+  const locationRoutes = locations.map(location => ({
+    url: `${baseUrl}/search/${location}`,
+    lastModified: currentDate,
+    changeFrequency: 'weekly' as const,
+    priority: 0.7,
+  }));
+
+  // Combine all routes
   return [
     ...coreRoutes,
     ...categoryRoutes,
-    ...contractorRoutes,
+    ...locationRoutes,
   ];
 }
