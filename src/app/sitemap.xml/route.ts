@@ -28,14 +28,14 @@ export async function GET() {
 
   try {
     // Add contractor pages
-    console.log('Fetching contractors...');
+    console.log('Fetching contractors from database...');
     const contractors = await prisma.contractor.findMany({
       select: {
         slug: true,
         updatedAt: true,
       }
     });
-    console.log(`Found ${contractors.length} contractors`);
+    console.log('Database query completed. Found contractors:', JSON.stringify(contractors, null, 2));
 
     // Add contractor pages first
     contractors.forEach(contractor => {
@@ -49,7 +49,8 @@ export async function GET() {
       });
     });
   } catch (error) {
-    console.error('Error fetching contractors:', error);
+    console.error('Error fetching contractors:', error instanceof Error ? error.message : 'Unknown error');
+    console.error('Error details:', error);
   }
 
   // Categories
@@ -102,9 +103,8 @@ export async function GET() {
     });
   });
 
-  // Log the first few URLs for debugging
-  console.log('First 5 URLs in sitemap:');
-  pages.slice(0, 5).forEach(page => console.log(page.loc));
+  // Log final URLs for debugging
+  console.log('Final sitemap URLs:', pages.map(p => p.loc).join('\n'));
 
   // Generate XML
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
