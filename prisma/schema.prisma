@@ -14,6 +14,24 @@ type Location {
   lng Float
 }
 
+model Contractor {
+  id             String    @id @default(auto()) @map("_id") @db.ObjectId
+  name           String
+  slug           String    @unique
+  rating         Float?
+  reviewCount    Int?
+  address        String?
+  location       Location?
+  categories     String[]
+  phone          String?
+  website        String?
+  businessStatus String?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  @@map("contractors")
+}
+
 model Business {
   id             String    @id @default(auto()) @map("_id") @db.ObjectId
   name           String
