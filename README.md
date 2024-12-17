@@ -17,34 +17,32 @@ A modern Next.js application designed to help users find and connect with contra
   - Kitchen Remodeling
   - Siding & Gutters
   - And many more!
-- 🌐 Powered by Google Places API for accurate data
+- 🌐 Powered by Google Places API with MongoDB caching
 - 📱 Fully responsive design for all devices
 - ⚡ Lightning-fast performance with Next.js
 - 🎨 Modern UI with beautiful blue gradients
 - 🔄 Smooth transitions and loading states
 - 🔒 Secure API handling
-
-## UI Components
-
-- **Header**: Modern design with blue gradient background
-- **Search Box**: Glass-morphism effect with smooth animations
-- **Trade Cards**: Interactive cards with hover effects
-- **Location Cards**: Clean design with subtle animations
-- **Footer**: Rich blue gradient with essential information
-- **Loading States**: Elegant loading animations during:
-  - Page transitions
-  - Search operations
-  - Data fetching
+- 🔎 SEO optimized with:
+  - Dynamic sitemap generation
+  - Meta tags and OpenGraph data
+  - SEO-friendly URLs
+  - Structured data (JSON-LD)
 
 ## Tech Stack
 
 - **Framework**: Next.js 15.1.0
 - **Language**: TypeScript
+- **Database**: MongoDB with Prisma ORM
 - **Styling**: Tailwind CSS
 - **APIs**: 
   - Google Places API
   - Google Places Details API
-- **Deployment**: Vercel (planned)
+- **Deployment**: Vercel with custom domain (topcontractorsdenver.com)
+- **SEO Tools**:
+  - Dynamic sitemap generation
+  - Robots.txt configuration
+  - Google Search Console integration
 
 ## Getting Started
 
@@ -52,6 +50,7 @@ A modern Next.js application designed to help users find and connect with contra
 
 - Node.js (v18 or higher)
 - npm
+- MongoDB Atlas account
 - Google Places API key
 
 ### Installation
@@ -69,69 +68,79 @@ A modern Next.js application designed to help users find and connect with contra
 
 3. Create a `.env.local` file in the root directory:
    ```env
+   MONGODB_URI=your_mongodb_connection_string
+   MONGODB_DB=topcontractorsdenver
    GOOGLE_PLACES_API_KEY=your_api_key_here
    ```
 
-4. Run the development server:
+4. Generate Prisma client:
+   ```bash
+   npm run generate
+   ```
+
+5. Run the development server:
    ```bash
    npm run dev
    ```
 
-5. Open [http://localhost:3000](http://localhost:3000) in your browser.
+6. Open [http://localhost:3004](http://localhost:3004) in your browser.
 
 ## Project Structure
 
 ```
 denver_contractors/
+├── prisma/
+│   └── schema.prisma      # Database schema
 ├── src/
 │   ├── app/
 │   │   ├── (pages)/
 │   │   │   └── search/
 │   │   ├── api/
 │   │   │   └── search/
+│   │   ├── contractor/
+│   │   │   └── [slug]/   # Dynamic contractor pages
 │   │   └── components/
-│   │       ├── Header.tsx
-│   │       ├── Footer.tsx
-│   │       ├── LoadingSpinner.tsx
-│   │       └── ClientResultsList.tsx
-│   ├── lib/
+│   ├── utils/
+│   │   ├── dataRefresh.ts # Google Places data refresh
+│   │   └── seoUtils.ts    # SEO utilities
+│   ├── hooks/
+│   │   └── useBusinessData.ts
 │   └── types/
+├── scripts/
+│   ├── seed-data.ts      # Database seeding
+│   └── test-db.ts        # Database testing
 ├── public/
+│   └── robots.txt        # Search engine configuration
 ```
 
-## Project Status
+## Database Management
 
-- The project is currently in development.
-- Recent changes have been made to the header color and the trade route handling.
+The application uses MongoDB with Prisma ORM for data management:
+- Automatic data refresh from Google Places API
+- Caching to reduce API calls
+- Efficient querying with Prisma
 
-## Recent Changes
+## SEO Configuration
 
-1. **Header Component**: Updated the title color to match the main blue color in the UI.
-2. **Trade Route**: Fixed the parameter handling in the `trade` route to await the `params` object before accessing its properties.
-3. **Error Handling**: Improved error handling for invalid trade types in the `TradePage` component.
+The application is optimized for search engines:
+1. Dynamic sitemap generation at `/sitemap.xml`
+2. SEO-friendly URLs for contractor pages
+3. Meta tags and OpenGraph data
+4. Structured data for rich snippets
+5. Integration with Google Search Console
 
-## Project Updates
+## Deployment
 
-### Recent Changes
-- Added "Handy Man" and "Landscaper" categories back to the application.
-- Integrated Bottleneck for rate limiting in Google Places API requests.
-- Updated icons for new categories in the UI.
-
-### Known Issues
-- Build process encountered permission issues with the `.next` directory.
-- Port 3004 was in use, switched to 3005 for development server.
-
-### Next Steps
-- Resolve permission issues and test build.
-- Verify that new categories retrieve correct data from Google Places API.
-
-### Current Time
-- The current local time is: 2024-12-16T08:56:20-07:00.
+The application is deployed on Vercel with a custom domain:
+- Production URL: https://topcontractorsdenver.com
+- Automatic SSL/TLS
+- Edge network distribution
+- Continuous deployment from main branch
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request

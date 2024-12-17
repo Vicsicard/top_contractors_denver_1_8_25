@@ -1,0 +1,32 @@
+// This is your Prisma schema file
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("MONGODB_URI")
+}
+
+type Location {
+  lat Float
+  lng Float
+}
+
+model Business {
+  id             String    @id @default(auto()) @map("_id") @db.ObjectId
+  name           String
+  rating         Float
+  reviewCount    Int
+  address        String
+  location       Location
+  categories     String[]
+  phone          String?
+  website        String?
+  businessStatus String?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  @@map("businesses")
+}

@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://www.topcontractorsdenver.com/sitemap.xml
+Sitemap: https://topcontractorsdenver.com/sitemap.xml

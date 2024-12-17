@@ -1,44 +1,62 @@
 import { MetadataRoute } from 'next';
+import { PrismaClient } from '@prisma/client';
+import { generateSlug } from '@/utils/seoUtils';
 
-interface KeywordLocationPair {
-  keyword: string;
-  location: string;
-}
+const prisma = new PrismaClient();
 
-// You'll need to implement this function to get your keyword-location combinations
-async function getAllKeywordLocationPairs(): Promise<KeywordLocationPair[]> {
-  // This is a placeholder - implement your own logic to get all combinations
-  return [
-    { keyword: 'Career coaching', location: 'Los Angeles County-California' },
-    // Add more combinations
-  ];
+// Get all contractors from the database
+async function getAllContractors() {
+  return await prisma.business.findMany();
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  // Use Vercel URL from environment or fallback to localhost for development
-  const baseUrl = process.env.VERCEL_URL 
-    ? `https://${process.env.VERCEL_URL}`
-    : 'http://localhost:3000';
+  // Always use the custom domain
+  const baseUrl = 'https://topcontractorsdenver.com';
   
-  // Get all keyword-location pairs
-  const pairs = await getAllKeywordLocationPairs();
+  // Get all contractors
+  const contractors = await getAllContractors();
   
-  // Generate sitemap entries
-  const routes = pairs.map(({ keyword, location }) => ({
-    url: `${baseUrl}/${encodeURIComponent(keyword)}/${encodeURIComponent(location)}`,
-    lastModified: new Date().toISOString(),
-    changeFrequency: 'weekly' as const,
-    priority: 0.8,
+  // Generate sitemap entries for contractor pages
+  const contractorRoutes = contractors.map((contractor) => ({
+    url: `${baseUrl}/contractor/${generateSlug(contractor)}`,
+    lastModified: contractor.updatedAt,
+    changeFrequency: 'daily' as const,
+    priority: 0.9,
   }));
 
-  // Add static routes
-  return [
+  // Core pages
+  const coreRoutes = [
     {
       url: baseUrl,
-      lastModified: new Date().toISOString(),
-      changeFrequency: 'daily',
+      lastModified: new Date(),
+      changeFrequency: 'daily' as const,
       priority: 1,
     },
-    ...routes,
+    {
+      url: `${baseUrl}/search`,
+      lastModified: new Date(),
+      changeFrequency: 'daily' as const,
+      priority: 0.8,
+    }
   ];
-} 
+
+  // Common contractor categories
+  const categoryRoutes = [
+    'Home-Remodeling',
+    'Kitchen-Remodeling',
+    'Bathroom-Remodeling',
+    'General-Contractor',
+    'Custom-Homes'
+  ].map(category => ({
+    url: `${baseUrl}/search/${category}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.7,
+  }));
+
+  return [
+    ...coreRoutes,
+    ...categoryRoutes,
+    ...contractorRoutes,
+  ];
+}
