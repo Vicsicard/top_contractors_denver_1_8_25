@@ -1,19 +1,25 @@
 import { NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
 
+const DOMAIN = process.env.NEXT_PUBLIC_DOMAIN || 'www.topcontractorsdenver.com';
+const PROTOCOL = process.env.NODE_ENV === 'production' ? 'https' : 'http';
+
 // Helper to ensure www subdomain
 function ensureWWW(url: string): string {
   return url.replace('https://topcontractorsdenver.com', 'https://www.topcontractorsdenver.com');
 }
 
 export async function GET() {
-  const baseUrl = 'https://www.topcontractorsdenver.com';
+  const baseUrl = `${PROTOCOL}://${DOMAIN}`;
   const currentDate = new Date().toISOString();
   let contractors = [];
 
   try {
     // Simple database query like in test-db endpoint
     console.log('Fetching contractors...');
+    console.log('Database URL exists:', !!process.env.MONGODB_URI);
+    console.log('Base URL:', baseUrl);
+
     const dbContractors = await prisma.contractor.findMany({
       select: {
         slug: true,
@@ -24,6 +30,11 @@ export async function GET() {
     contractors = dbContractors;
   } catch (error) {
     console.error('Database error:', error);
+    console.error('Error details:', {
+      name: error instanceof Error ? error.name : 'Unknown',
+      message: error instanceof Error ? error.message : String(error),
+      stack: error instanceof Error ? error.stack : undefined
+    });
   }
 
   // Initialize pages array
