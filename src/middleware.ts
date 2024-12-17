@@ -12,19 +12,21 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(url);
   }
 
-  return NextResponse.next();
+  // Rewrite URLs in the response
+  const response = NextResponse.next();
+  
+  // Add security headers
+  response.headers.set('X-Robots-Tag', 'all');
+  response.headers.set('X-Content-Type-Options', 'nosniff');
+  response.headers.set('X-Frame-Options', 'DENY');
+  response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
+
+  return response;
 }
 
 export const config = {
   matcher: [
-    /*
-     * Match all paths except for:
-     * 1. /api routes
-     * 2. /_next (Next.js internals)
-     * 3. /_static (inside /public)
-     * 4. /_vercel (Vercel internals)
-     * 5. Static files (e.g. /favicon.ico, /sitemap.xml)
-    */
-    '/((?!api|_next|_static|_vercel|[\\w-]+\\.\\w+).*)',
+    // Match all paths
+    '/:path*',
   ],
 };

@@ -1,8 +1,9 @@
 import { NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
 
+const BASE_URL = 'https://www.topcontractorsdenver.com';
+
 export async function GET() {
-  const baseUrl = 'https://www.topcontractorsdenver.com';
   const currentDate = new Date().toISOString();
   let contractors = [];
 
@@ -30,7 +31,7 @@ export async function GET() {
 
   // Add contractor pages first (higher priority)
   contractors.forEach(contractor => {
-    const url = `${baseUrl}/contractor/${contractor.slug}`;
+    const url = `${BASE_URL}/contractor/${contractor.slug}/`;
     console.log('Adding contractor URL:', url);
     pages.push({
       loc: url,
@@ -42,7 +43,7 @@ export async function GET() {
 
   // Add main pages
   const addPage = (path: string, changefreq: string, priority: string) => {
-    const url = path === '' ? baseUrl : `${baseUrl}${path}`;
+    const url = path === '' ? BASE_URL : `${BASE_URL}${path}/`;
     console.log('Adding URL:', url);
     pages.push({
       loc: url,
