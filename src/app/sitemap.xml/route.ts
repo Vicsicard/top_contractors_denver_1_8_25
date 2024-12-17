@@ -14,16 +14,26 @@ export async function GET() {
   }> = [];
 
   try {
+    // Test database connection first
+    console.log('Testing database connection...');
+    const count = await prisma.contractor.count();
+    console.log('Database connection successful. Contractor count:', count);
+
     // Add contractor pages first
     console.log('Fetching contractors from database...');
     const contractors = await prisma.contractor.findMany({
       select: {
         slug: true,
         updatedAt: true,
+        name: true,
       }
     });
 
     console.log('Database query completed. Found contractors:', JSON.stringify(contractors, null, 2));
+
+    if (contractors.length === 0) {
+      console.warn('No contractors found in database');
+    }
 
     // Add contractor pages first (higher priority)
     contractors.forEach(contractor => {
@@ -36,26 +46,28 @@ export async function GET() {
         priority: '0.9'
       });
     });
+
+    console.log(`Successfully added ${contractors.length} contractor URLs`);
   } catch (error) {
-    console.error('Error fetching contractors:', error instanceof Error ? error.message : 'Unknown error');
-    console.error('Error details:', error);
+    console.error('Error in sitemap generation:', error instanceof Error ? error.message : 'Unknown error');
+    console.error('Full error details:', JSON.stringify(error, null, 2));
+    console.error('Error stack:', error instanceof Error ? error.stack : 'No stack trace');
   }
 
   // Add core pages
-  pages.push(
-    {
-      loc: baseUrl,
+  const addPage = (path: string, changefreq: string, priority: string) => {
+    const url = path === '' ? baseUrl : `${baseUrl}${path}`;
+    pages.push({
+      loc: url,
       lastmod: currentDate,
-      changefreq: 'daily',
-      priority: '1.0'
-    },
-    {
-      loc: `${baseUrl}/search`,
-      lastmod: currentDate,
-      changefreq: 'daily',
-      priority: '0.8'
-    }
-  );
+      changefreq,
+      priority
+    });
+  };
+
+  // Add main pages
+  addPage('', 'daily', '1.0');
+  addPage('/search', 'daily', '0.8');
 
   // Categories
   const categories = [
@@ -75,12 +87,7 @@ export async function GET() {
 
   // Add category pages
   categories.forEach(category => {
-    pages.push({
-      loc: `${baseUrl}/search/${category}`,
-      lastmod: currentDate,
-      changefreq: 'weekly',
-      priority: '0.7'
-    });
+    addPage(`/search/${category}`, 'weekly', '0.7');
   });
 
   // Locations
@@ -99,16 +106,13 @@ export async function GET() {
 
   // Add location pages
   locations.forEach(location => {
-    pages.push({
-      loc: `${baseUrl}/search/${location}`,
-      lastmod: currentDate,
-      changefreq: 'weekly',
-      priority: '0.7'
-    });
+    addPage(`/search/${location}`, 'weekly', '0.7');
   });
 
-  // Log final URLs for debugging
-  console.log('Final sitemap URLs:', pages.map(p => p.loc).join('\n'));
+  // Log final sitemap stats
+  console.log('Sitemap generation complete');
+  console.log('Total URLs:', pages.length);
+  console.log('Sample URLs:', pages.slice(0, 5).map(p => p.loc));
 
   // Generate XML with proper indentation
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
