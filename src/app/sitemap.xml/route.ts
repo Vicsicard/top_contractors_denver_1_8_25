@@ -5,8 +5,15 @@ export async function GET() {
   const baseUrl = 'https://www.topcontractorsdenver.com';
   const currentDate = new Date().toISOString();
 
+  let pages: Array<{
+    loc: string;
+    lastmod: string;
+    changefreq: string;
+    priority: string;
+  }> = [];
+
   // Core pages
-  const pages = [
+  pages.push(
     {
       loc: baseUrl,
       lastmod: currentDate,
@@ -19,34 +26,32 @@ export async function GET() {
       changefreq: 'daily',
       priority: '0.8'
     }
-  ];
+  );
 
   try {
     // Add contractor pages
+    console.log('Fetching contractors...');
     const contractors = await prisma.contractor.findMany({
       select: {
         slug: true,
         updatedAt: true,
       }
     });
+    console.log(`Found ${contractors.length} contractors`);
 
-    console.log('Found contractors:', contractors);
-
-    for (const contractor of contractors) {
+    // Add contractor pages first
+    contractors.forEach(contractor => {
       const contractorUrl = `${baseUrl}/contractor/${contractor.slug}`;
       console.log('Adding contractor URL:', contractorUrl);
-      
       pages.push({
         loc: contractorUrl,
         lastmod: contractor.updatedAt.toISOString(),
         changefreq: 'weekly',
         priority: '0.7'
       });
-    }
-
-    console.log(`Added ${contractors.length} contractor URLs to sitemap`);
+    });
   } catch (error) {
-    console.error('Error fetching contractors for sitemap:', error);
+    console.error('Error fetching contractors:', error);
   }
 
   // Categories
@@ -99,13 +104,13 @@ export async function GET() {
     });
   });
 
-  console.log('Total pages in sitemap:', pages.length);
-  console.log('Sample URLs:', pages.slice(0, 3).map(p => p.loc));
+  // Log the first few URLs for debugging
+  console.log('First 5 URLs in sitemap:');
+  pages.slice(0, 5).forEach(page => console.log(page.loc));
 
   // Generate XML
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  ${pages.map(page => `
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${pages.map(page => `
   <url>
     <loc>${page.loc}</loc>
     <lastmod>${page.lastmod}</lastmod>
@@ -114,10 +119,13 @@ export async function GET() {
   </url>`).join('')}
 </urlset>`;
 
+  // Return with no-cache headers to help with debugging
   return new NextResponse(xml, {
     headers: {
       'Content-Type': 'application/xml',
       'Cache-Control': 'no-cache, no-store, must-revalidate',
+      'Pragma': 'no-cache',
+      'Expires': '0'
     },
   });
 }
