@@ -141,8 +141,18 @@ async function fetchFromGooglePlaces(options: PlacesApiOptions): Promise<PlacesA
     'fencing': 'fence contractor'
   };
 
+  const locationMap: { [key: string]: string } = {
+    'aurora': 'Aurora, Colorado',
+    'lakewood': 'Lakewood, Colorado',
+    'arvada': 'Arvada, Colorado',
+    'westminster': 'Westminster, Colorado',
+    'thornton': 'Thornton, Colorado',
+    'centennial': 'Centennial, Colorado',
+    'denver': 'Denver, Colorado'
+  };
+
   const enhancedKeyword = searchTermMap[options.keyword.toLowerCase()] || options.keyword;
-  const query = `${enhancedKeyword} ${options.location}`;
+  const query = `${enhancedKeyword} near ${locationMap[options.location.toLowerCase()] || `${options.location}, Colorado`}`;
   const searchUrl = `${GOOGLE_PLACES_API_URL}/textsearch/json?query=${encodeURIComponent(query)}&key=${GOOGLE_PLACES_API_KEY}`;
 
   console.log('API Request:', {

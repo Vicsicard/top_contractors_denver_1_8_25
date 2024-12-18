@@ -12,10 +12,10 @@ export const popularTrades = [
 ];
 
 export const featuredLocations = [
-  { name: 'Downtown Denver', slug: 'downtown-denver' },
   { name: 'Aurora', slug: 'aurora' },
   { name: 'Lakewood', slug: 'lakewood' },
-  { name: 'Littleton', slug: 'littleton' },
   { name: 'Arvada', slug: 'arvada' },
-  { name: 'Westminster', slug: 'westminster' }
+  { name: 'Westminster', slug: 'westminster' },
+  { name: 'Thornton', slug: 'thornton' },
+  { name: 'Centennial', slug: 'centennial' }
 ];

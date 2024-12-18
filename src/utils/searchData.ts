@@ -7,6 +7,7 @@ interface SearchOptions {
   limit?: number;
   sort?: string;
   order?: 'asc' | 'desc';
+  location?: string;
 }
 
 interface SearchResult {
@@ -56,8 +57,10 @@ export async function loadLocations(query: string, options?: SearchOptions): Pro
   }
 
   try {
-    const placesResponse = await searchPlaces(query, 'Denver, Colorado');
-    console.log(`Received ${placesResponse.results.length} places from Google Places API`);
+    // Ensure location is in Colorado and specific to the city
+    const location = options?.location ? `${options.location}, Colorado` : 'Denver, Colorado';
+    const placesResponse = await searchPlaces(query, location);
+    console.log(`Received ${placesResponse.results.length} places from Google Places API for ${location}`);
     
     const businesses = placesResponse.results.map(locationToBusiness);
     console.log(`Transformed ${businesses.length} places to businesses`);
@@ -80,7 +83,10 @@ export async function loadLocations(query: string, options?: SearchOptions): Pro
 }
 
 export async function loadContractors(keyword: string, location: string): Promise<Contractor[]> {
-  const placesResponse = await searchPlaces(keyword, location);
+  // Ensure location is in Colorado
+  const fullLocation = `${location}, Colorado`;
+  console.log(`Searching contractors in ${fullLocation}`);
+  const placesResponse = await searchPlaces(keyword, fullLocation);
   const businesses = placesResponse.results.map(locationToBusiness);
   return businesses.map(businessToContractor);
 }
@@ -91,7 +97,10 @@ export async function searchBusinesses(
   options: SearchOptions = {}
 ): Promise<{ businesses: Business[]; total: number }> {
   try {
-    const placesResponse = await searchPlaces(keyword, location);
+    // Ensure location is in Colorado
+    const fullLocation = `${location}, Colorado`;
+    console.log(`Searching businesses in ${fullLocation}`);
+    const placesResponse = await searchPlaces(keyword, fullLocation);
     const places = placesResponse.results;
 
     const businesses: Business[] = places.map((place: PlaceResult) => ({
