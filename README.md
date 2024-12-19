@@ -4,20 +4,64 @@
 A comprehensive web application for finding contractors in the Greater Denver area, with precise location-based searching across multiple Colorado cities.
 
 ## Features
-- 🌆 Location-Specific Searches
-  - Supports searching in:
-    - Aurora
-    - Lakewood
-    - Arvada
-    - Westminster
-    - Thornton
-    - Centennial
-    - Denver
 
-- 🔍 Precise Contractor Matching
-  - Powered by Google Places API
-  - Colorado-specific search results
-  - Enhanced location query precision
+### Trade Categories
+- Plumbing
+- Electrical
+- HVAC
+- Roofing
+- Carpentry
+- Painting
+- Landscaping
+- Home Remodeling
+- Bathroom Remodeling
+- Kitchen Remodeling
+- Siding & Gutters
+- Masonry
+- Decks
+- Flooring
+- Windows
+- Fencing
+- Epoxy Garage
+
+### Location-Based Search
+- Browse contractors by specific Denver neighborhoods and surrounding areas
+- Main location categories:
+  - Central Denver Neighborhoods
+  - East Denver Neighborhoods
+  - Denver Suburbs
+  - Boulder & Surrounding Areas
+  - Outer Surrounding Cities
+- Interactive location cards with hover effects
+- Gradient styling for visual hierarchy
+
+### Contractor Information
+- Business name and contact details
+- Customer reviews and ratings
+- Service areas
+- Business hours
+- Website links
+- Specific services offered
+- Photos (when available)
+
+### User Interface
+- Responsive design optimized for all devices
+- Modern gradient styling
+- Interactive hover effects
+- Easy-to-use navigation
+- Clean and professional layout
+- Optimized grid layouts for different screen sizes
+
+### Technical Features
+- Next.js 13+ with App Router
+- TypeScript for type safety
+- Google Places API integration
+- MongoDB caching system
+- Rate limiting with Bottleneck
+- SEO optimization
+- Dynamic sitemap generation
+- Custom domain integration
+- Structured data for rich snippets
 
 ## Technology Stack
 - Next.js 13+

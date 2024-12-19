@@ -114,12 +114,22 @@ export interface PlacesApiResponse {
 export interface PlacesApiOptions {
   keyword: string;
   location: string;
+  locationBias?: {
+    southwest: { lat: number; lng: number };
+    northeast: { lat: number; lng: number };
+  };
 }
 
 const CACHE_EXPIRY_DAYS = 180; // 180 days
 const _MAX_RETRIES = 5; // Increased from 3 to 5
 const _BASE_DELAY = 2000; // Increased from 1000 to 2000ms
 const _MAX_DELAY = 60000; // 60 seconds maximum delay
+
+// Define Denver metro area boundaries
+const DENVER_BOUNDS = {
+  southwest: { lat: 39.614431, lng: -105.109927 }, // Southwest corner of Denver metro
+  northeast: { lat: 39.891651, lng: -104.600296 }  // Northeast corner of Denver metro
+};
 
 async function fetchFromGooglePlaces(options: PlacesApiOptions): Promise<PlacesApiResponse> {
   const GOOGLE_PLACES_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_PLACES_API_KEY;
@@ -154,6 +164,10 @@ async function fetchFromGooglePlaces(options: PlacesApiOptions): Promise<PlacesA
   const enhancedKeyword = searchTermMap[options.keyword.toLowerCase()] || options.keyword;
   const query = `${enhancedKeyword} near ${locationMap[options.location.toLowerCase()] || `${options.location}, Colorado`}`;
   const searchUrl = `${GOOGLE_PLACES_API_URL}/textsearch/json?query=${encodeURIComponent(query)}&key=${GOOGLE_PLACES_API_KEY}`;
+
+  if (options.locationBias) {
+    searchUrl += `&locationbias=ipbias&location=${options.locationBias.southwest.lat},${options.locationBias.southwest.lng}&radius=100000`;
+  }
 
   console.log('API Request:', {
     originalKeyword: options.keyword,
@@ -273,8 +287,25 @@ export async function searchPlaces(
     }
 
     // If not in cache or expired, fetch from Google Places API
-    const response = await fetchFromGooglePlaces({ keyword, location });
+    const searchQuery = `${keyword} in ${location}`;
+    const options: PlacesApiOptions = {
+      keyword: searchQuery,
+      location,
+      locationBias: DENVER_BOUNDS // Add location bias to Denver metro area
+    };
+
+    const response = await fetchFromGooglePlaces(options);
     
+    // Filter results to ensure they're within Denver metro area
+    response.results = response.results.filter(place => {
+      const lat = place.geometry.location.lat;
+      const lng = place.geometry.location.lng;
+      return lat >= DENVER_BOUNDS.southwest.lat &&
+             lat <= DENVER_BOUNDS.northeast.lat &&
+             lng >= DENVER_BOUNDS.southwest.lng &&
+             lng <= DENVER_BOUNDS.northeast.lng;
+    });
+
     // Cache the results
     try {
       const newCache = new PlaceCache({

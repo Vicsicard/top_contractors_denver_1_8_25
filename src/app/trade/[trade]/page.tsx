@@ -1,71 +1,65 @@
 import React from 'react';
 import { Suspense } from 'react';
 import type { Metadata } from 'next';
-import { ClientResultsList } from '@/app/components/ClientResultsList';
+import ContractorLayout from '@/components/ContractorLayout';
+import { generateContractorData, contractorServices, serviceAreas } from '@/utils/contractorPageUtils';
 
-const validTrades = [
-  "Plumber",
-  "Electrician",
-  "HVAC",
-  "Roofer",
-  "Carpenter",
-  "Painter",
-  "Landscaper",
-  "Home Remodeling",
-  "Bathroom Remodeling",
-  "Kitchen Remodeling",
-  "Siding & Gutters",
-  "Masonry",
-  "Decks",
-  "Flooring",
-  "Windows",
-  "Fencing"
-];
+type Props = {
+  params: {
+    trade: string;
+  };
+};
 
-export async function generateMetadata({ params }: { params: { trade: string } }): Promise<Metadata> {
-  const tradeName = (await params).trade
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const tradeName = params.trade
     .split('-')
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
 
+  const contractorData = generateContractorData(
+    tradeName,
+    params.trade,
+    params.trade === 'epoxy-garage' 
+      ? ['Epoxy Floor Installation', 'Garage Floor Coating', 'Floor Preparation', 'Concrete Repair', 'Custom Designs']
+      : contractorServices[params.trade]?.map(service => service.name) || []
+  );
+
   return {
-    title: `${tradeName} Contractors in Denver | Find Local ${tradeName}s`,
-    description: `Find trusted ${tradeName.toLowerCase()} contractors in Denver. Get quotes, read reviews, and hire the best ${tradeName.toLowerCase()} for your project.`
+    title: `${contractorData.title} | Denver Contractors`,
+    description: contractorData.description,
+    openGraph: {
+      title: `${contractorData.title} | Denver Contractors`,
+      description: contractorData.description,
+      url: `https://www.topcontractorsdenver.com/${params.trade}`,
+      siteName: 'Denver Contractors',
+      locale: 'en_US',
+      type: 'website',
+    },
   };
 }
 
-export default async function TradePage({
-  params,
-}: {
-  params: { trade: string };
-}): Promise<React.ReactNode> {
-  const trade = (await params).trade;
-  const decodedTrade = decodeURIComponent(trade);
-  
-  if (!validTrades.includes(decodedTrade)) {
-    return (
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <h1 className="text-3xl font-bold text-gray-900 mb-4">Invalid Trade</h1>
-        <p className="text-gray-600">The requested trade category does not exist.</p>
-      </div>
-    );
-  }
+export default function TradePage({ params }: Props) {
+  const tradeName = params.trade
+    .split('-')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+
+  const contractorData = generateContractorData(
+    tradeName,
+    params.trade,
+    params.trade === 'epoxy-garage'
+      ? ['Epoxy Floor Installation', 'Garage Floor Coating', 'Floor Preparation', 'Concrete Repair', 'Custom Designs']
+      : contractorServices[params.trade]?.map(service => service.name) || []
+  );
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <Suspense fallback={<div>Loading...</div>}>
-        <ClientResultsList 
-          keyword={decodedTrade} 
-          location="Denver" 
-          includeDetails={{
-            businessName: true,
-            address: true,
-            reviews: true,
-            telephoneNumber: true,
-            website: true
-          }} 
-        />
-      </Suspense>
-    </div>
+    <ContractorLayout
+      title={contractorData.title}
+      description={contractorData.description}
+      services={contractorData.services}
+      searchQuery={`${tradeName} contractors`}
+      location="Denver, CO"
+      areas={serviceAreas}
+    />
   );
 }

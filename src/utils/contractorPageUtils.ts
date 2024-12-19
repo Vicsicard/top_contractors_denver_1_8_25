@@ -37,6 +37,13 @@ export const serviceAreas: ServiceArea[] = [
 ];
 
 export const contractorServices = {
+  'epoxy-garage': [
+    { name: 'Epoxy Floor Installation', description: 'Professional installation of epoxy coating systems for garage floors' },
+    { name: 'Garage Floor Coating', description: 'High-quality epoxy and polyaspartic floor coatings' },
+    { name: 'Floor Preparation', description: 'Surface grinding, cleaning, and repair before coating application' },
+    { name: 'Concrete Repair', description: 'Fixing cracks, spalls, and other concrete damage' },
+    { name: 'Custom Designs', description: 'Decorative flake systems, metallic epoxy, and custom color options' }
+  ],
   plumber: [
     "Emergency Repairs",
     "Leak Detection",
