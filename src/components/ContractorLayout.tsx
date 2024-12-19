@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 import Link from 'next/link';
 import SchemaMarkup from './SchemaMarkup';
+import InquiryForm from './InquiryForm';
 import { ContractorPageData } from '@/utils/contractorPageUtils';
 
 interface ContractorLayoutProps {
@@ -102,6 +103,11 @@ const ContractorLayout = ({ data, children, ctaText, ctaButtonText, emergencyTex
             </div>
           </div>
         </div>
+      </div>
+
+      <div id="contact-form" className="mt-16">
+        <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Request a Free Estimate</h2>
+        <InquiryForm />
       </div>
     </div>
   );

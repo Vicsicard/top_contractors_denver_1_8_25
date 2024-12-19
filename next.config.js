@@ -5,6 +5,14 @@ const nextConfig = {
       allowedOrigins: ["localhost:3000", "*.vercel.app"]
     }
   },
+  images: {
+    domains: [
+      'maps.googleapis.com',
+      'maps.gstatic.com',
+      'top-contractors-denver.ghost.io',
+      '6be7e0906f1487fecf0b9cbd301defd6.cdn.bubble.io'
+    ],
+  },
   typescript: {
     // !! WARN !!
     // Dangerously allow production builds to successfully complete even if
@@ -41,20 +49,22 @@ const nextConfig = {
     ]
   },
   async rewrites() {
-    return {
-      beforeFiles: [
-        {
-          source: '/:path*',
-          has: [
-            {
-              type: 'host',
-              value: 'topcontractorsdenver.com',
-            },
-          ],
-          destination: 'https://www.topcontractorsdenver.com/:path*',
-        },
-      ],
-    }
+    return [
+      {
+        source: '/sitemap.xml',
+        destination: '/api/sitemap',
+      },
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'topcontractorsdenver.com',
+          },
+        ],
+        destination: 'https://www.topcontractorsdenver.com/:path*',
+      },
+    ]
   },
   async redirects() {
     return [

@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import SearchBox from '@/components/SearchBox';
+import InquiryForm from '@/components/InquiryForm';
 import { 
   FaWrench,
   FaBolt,
@@ -17,7 +18,8 @@ import {
   FaWindowMaximize,
   FaTree,
   FaGripLines,
-  FaWarehouse
+  FaWarehouse,
+  FaPhone
 } from 'react-icons/fa';
 
 const PopularTrades = [
@@ -40,15 +42,30 @@ const PopularTrades = [
   { name: 'Epoxy Garage', Icon: FaWarehouse }
 ];
 
-const FeaturedLocations = [
-  'Denver',
-  'Aurora',
-  'Lakewood',
-  'Arvada',
-  'Westminster',
-  'Thornton',
-  'Centennial'
-];
+const LocationCategories = {
+  'Central Denver Neighborhoods': {
+    'Downtown Area': ['Downtown Denver', 'Capitol Hill', 'Union Station', 'Five Points'],
+    'Central Parks': ['City Park', 'City Park West', 'Cheesman Park', 'Congress Park'],
+    'Central Shopping': ['Cherry Creek', 'Lincoln Park', 'North Capitol Hill']
+  },
+  'East Denver Neighborhoods': {
+    'Park Hill Area': ['Park Hill', 'North Park Hill', 'Northeast Park Hill', 'South Park Hill'],
+    'Northeast Area': ['Stapleton (Central Park)', 'Montbello', 'Green Valley Ranch', 'Gateway – Green Valley Ranch'],
+    'East Colfax Area': ['East Colfax', 'Skyland']
+  },
+  'Denver Suburbs': {
+    'Northwest Suburbs': ['Westminster', 'Arvada', 'Wheat Ridge', 'Edgewater', 'Golden'],
+    'Northeast Suburbs': ['Thornton', 'Northglenn', 'Brighton', 'Commerce City'],
+    'Southeast Suburbs': ['Centennial', 'Highlands Ranch', 'Parker', 'Lone Tree', 'Greenwood Village'],
+    'Southwest Suburbs': ['Littleton', 'Englewood']
+  },
+  'Boulder & Surrounding Areas': {
+    'Boulder Area': ['Boulder', 'Lafayette', 'Louisville', 'Superior']
+  },
+  'Outer Surrounding Cities': {
+    'Extended Service Area': ['Aurora', 'Castle Rock', 'Loveland']
+  }
+};
 
 export default function Home() {
   return (
@@ -92,18 +109,30 @@ export default function Home() {
 
       <section className="bg-gradient-to-br from-gray-50 to-blue-50 py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold mb-12 text-blue-900">Featured Locations</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {FeaturedLocations.map((location, index) => (
-              <Link
-                href={`/location/${encodeURIComponent(location)}`}
-                key={index}
-                className="text-center p-6 bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:scale-[1.02] border border-gray-100"
-              >
-                <span className="text-lg font-medium text-gray-800">{location}</span>
-              </Link>
-            ))}
-          </div>
+          {Object.entries(LocationCategories).map(([regionName, neighborhoods]) => (
+            <div key={regionName} className="mb-24 last:mb-0">
+              <h2 className="text-4xl font-bold mb-12 text-gray-800 border-b pb-4">{regionName}</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                {Object.entries(neighborhoods).map(([areaName, locations]) => (
+                  <div key={areaName} className="bg-white rounded-xl shadow-md p-6 border border-gray-100 hover:shadow-lg transition-shadow duration-300">
+                    <h3 className="text-xl font-semibold mb-4 text-gray-800 pb-2 border-b">{areaName}</h3>
+                    <ul className="space-y-2">
+                      {locations.map((location) => (
+                        <li key={location}>
+                          <Link
+                            href={`/location/${encodeURIComponent(location.toLowerCase().replace(/[^a-zA-Z0-9]+/g, '-'))}`}
+                            className="text-blue-600 hover:text-blue-800 hover:underline block py-1"
+                          >
+                            {location}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -120,25 +149,45 @@ export default function Home() {
               <h3 className="text-xl font-semibold mb-4">Verified Contractors</h3>
               <p className="text-blue-100">All contractors are thoroughly vetted and verified for your peace of mind</p>
             </div>
+
             <div className="text-center">
               <div className="bg-blue-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold mb-4">Free to Use</h3>
-              <p className="text-blue-100">No fees or charges to find and contact quality contractors</p>
+              <h3 className="text-xl font-semibold mb-4">Fast Response</h3>
+              <p className="text-blue-100">Get quick responses from available contractors in your area</p>
             </div>
+
             <div className="text-center">
               <div className="bg-blue-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold mb-4">Local Experts</h3>
-              <p className="text-blue-100">Connect with experienced contractors right in your neighborhood</p>
+              <h3 className="text-xl font-semibold mb-4">Free Consultation</h3>
+              <p className="text-blue-100">Get expert advice and estimates at no cost to you</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact-form" className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold mb-4 text-center text-gray-900">Get a Free Estimate</h2>
+          <div className="text-center mb-12">
+            <p className="text-lg text-gray-600 mb-4">Fill out the form below or call us directly:</p>
+            <a 
+              href="tel:+17205555555" 
+              className="inline-flex items-center text-2xl font-semibold text-green-600 hover:text-green-800 transition-colors"
+            >
+              <FaPhone className="h-6 w-6 mr-2" />
+              (720) 555-5555
+            </a>
+          </div>
+          <div className="max-w-3xl mx-auto">
+            <InquiryForm />
           </div>
         </div>
       </section>
