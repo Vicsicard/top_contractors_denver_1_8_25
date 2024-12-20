@@ -1,10 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { makeRequestWithBackoff } from '@/utils/apiUtils';
 
-// Mark this route as server-side only
-export const runtime = 'edge';
-export const dynamic = 'force-dynamic';
-export const fetchCache = 'force-no-store';
+// Skip API calls during build time
+const isBuildTime = process.env.NEXT_PHASE === 'phase-production-build';
 
 interface Place {
   place_id: string;
@@ -46,10 +44,17 @@ interface PlaceDetailsApiResponse {
   status: string;
 }
 
+// This ensures the route is handled at runtime
+export const dynamic = 'force-dynamic';
+
 export async function GET(request: NextRequest) {
-  // During build time, return empty results
-  if (process.env.NODE_ENV === 'development') {
-    return NextResponse.json({ results: [], status: 'success' });
+  // Return mock data during build time
+  if (isBuildTime) {
+    return NextResponse.json({
+      results: [],
+      status: 'success',
+      _info: 'Build time response'
+    });
   }
 
   try {
@@ -58,8 +63,9 @@ export async function GET(request: NextRequest) {
     const GOOGLE_PLACES_DETAILS_URL = 'https://maps.googleapis.com/maps/api/place/details/json';
 
     if (!GOOGLE_PLACES_API_KEY) {
+      console.warn('API key not configured');
       return NextResponse.json(
-        { error: 'API configuration error' },
+        { error: 'Service temporarily unavailable' },
         { status: 503 }
       );
     }
