@@ -1,8 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { makeRequestWithBackoff } from '@/utils/apiUtils';
 
-// Skip API calls during build time
-const isBuildTime = process.env.NEXT_PHASE === 'phase-production-build';
+// Use build-time key during build phase
+const GOOGLE_PLACES_API_KEY = process.env.NEXT_PHASE === 'phase-production-build'
+  ? process.env.NEXT_PUBLIC_BUILD_TIME_KEY
+  : process.env.GOOGLE_PLACES_API_KEY;
 
 interface Place {
   place_id: string;
@@ -49,7 +51,7 @@ export const dynamic = 'force-dynamic';
 
 export async function GET(request: NextRequest) {
   // Return mock data during build time
-  if (isBuildTime) {
+  if (process.env.NEXT_PHASE === 'phase-production-build') {
     return NextResponse.json({
       results: [],
       status: 'success',
@@ -58,7 +60,6 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    const GOOGLE_PLACES_API_KEY = process.env.GOOGLE_PLACES_API_KEY;
     const GOOGLE_PLACES_API_URL = 'https://maps.googleapis.com/maps/api/place/textsearch/json';
     const GOOGLE_PLACES_DETAILS_URL = 'https://maps.googleapis.com/maps/api/place/details/json';
 

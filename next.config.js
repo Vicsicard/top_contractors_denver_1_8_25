@@ -48,6 +48,9 @@ const nextConfig = {
       },
     ]
   },
+  env: {
+    NEXT_PUBLIC_BUILD_TIME_KEY: 'dummy-key-for-build',
+  },
   async rewrites() {
     return [
       {
