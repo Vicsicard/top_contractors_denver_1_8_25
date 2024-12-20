@@ -5,8 +5,9 @@ const GOOGLE_PLACES_API_KEY = process.env.GOOGLE_PLACES_API_KEY;
 const GOOGLE_PLACES_API_URL = 'https://maps.googleapis.com/maps/api/place/textsearch/json';
 const GOOGLE_PLACES_DETAILS_URL = 'https://maps.googleapis.com/maps/api/place/details/json';
 
-if (!GOOGLE_PLACES_API_KEY) {
-  throw new Error('Google Places API key is missing');
+// Only throw the error during runtime, not during build time
+if (process.env.NODE_ENV !== 'production' && !GOOGLE_PLACES_API_KEY) {
+  console.warn('Google Places API key is missing in development environment');
 }
 
 interface Place {
@@ -51,6 +52,13 @@ interface PlaceDetailsApiResponse {
 
 export async function GET(request: NextRequest): Promise<NextResponse> {
   try {
+    if (!GOOGLE_PLACES_API_KEY) {
+      return NextResponse.json(
+        { error: 'Google Places API key is not configured' },
+        { status: 503 }
+      );
+    }
+
     const { searchParams } = new URL(request.url);
     const query = searchParams.get('query');
     const location = searchParams.get('location') || 'Denver, CO';
