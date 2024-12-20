@@ -1,14 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { makeRequestWithBackoff } from '@/utils/apiUtils';
 
-const GOOGLE_PLACES_API_KEY = process.env.GOOGLE_PLACES_API_KEY;
+// Move API key check inside the GET function to avoid build-time errors
 const GOOGLE_PLACES_API_URL = 'https://maps.googleapis.com/maps/api/place/textsearch/json';
 const GOOGLE_PLACES_DETAILS_URL = 'https://maps.googleapis.com/maps/api/place/details/json';
-
-// Only throw the error during runtime, not during build time
-if (process.env.NODE_ENV !== 'production' && !GOOGLE_PLACES_API_KEY) {
-  console.warn('Google Places API key is missing in development environment');
-}
 
 interface Place {
   place_id: string;
@@ -52,7 +47,17 @@ interface PlaceDetailsApiResponse {
 
 export async function GET(request: NextRequest): Promise<NextResponse> {
   try {
-    if (!GOOGLE_PLACES_API_KEY) {
+    // Check API key only during runtime
+    const GOOGLE_PLACES_API_KEY = process.env.GOOGLE_PLACES_API_KEY;
+    
+    // During build time, return empty results
+    if (process.env.NODE_ENV === 'production' && !GOOGLE_PLACES_API_KEY) {
+      console.warn('Building without Google Places API key');
+      return NextResponse.json({ results: [], status: 'success' }, { status: 200 });
+    }
+
+    // During runtime, require API key
+    if (process.env.NODE_ENV !== 'production' && !GOOGLE_PLACES_API_KEY) {
       return NextResponse.json(
         { error: 'Google Places API key is not configured' },
         { status: 503 }
@@ -70,7 +75,7 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
     const searchQuery = `${query} in ${location}`;
     const url = new URL(GOOGLE_PLACES_API_URL);
     url.searchParams.append('query', searchQuery);
-    url.searchParams.append('key', GOOGLE_PLACES_API_KEY);
+    url.searchParams.append('key', GOOGLE_PLACES_API_KEY as string);
     url.searchParams.append('type', 'business');
 
     const response = await makeRequestWithBackoff(() => fetch(url));
@@ -91,7 +96,7 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
         try {
           const detailsUrl = new URL(GOOGLE_PLACES_DETAILS_URL);
           detailsUrl.searchParams.append('place_id', place.place_id);
-          detailsUrl.searchParams.append('key', GOOGLE_PLACES_API_KEY);
+          detailsUrl.searchParams.append('key', GOOGLE_PLACES_API_KEY as string);
           detailsUrl.searchParams.append('fields', 'formatted_phone_number,website,opening_hours');
           
           const detailsResponse = await makeRequestWithBackoff(() => fetch(detailsUrl));
