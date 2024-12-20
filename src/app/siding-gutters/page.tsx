@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Top Siding & Gutter Contractors in Denver',
     description: 'Find professional siding and gutter contractors in Denver for installation, repair, and maintenance services.',
-    url: 'https://www.topcontractorsdenver.com/siding-and-gutters',
+    url: 'https://www.topcontractorsdenver.com/siding-gutters',
     siteName: 'Denver Contractors',
     locale: 'en_US',
     type: 'website',
@@ -25,7 +25,7 @@ async function getSidingGutterContractors() {
     return response.results;
   } catch (error) {
     console.error('Error fetching siding & gutter contractors:', error);
-    return [];
+    throw error;
   }
 }
 
@@ -81,6 +81,7 @@ export default async function SidingGuttersPage() {
     );
   } catch (error) {
     console.error('Error rendering SidingGuttersPage:', error);
+    // You can also return a custom error page or message here
     return <div>Error loading page</div>;
   }
 }

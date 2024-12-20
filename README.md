@@ -1,125 +1,98 @@
-# Denver Contractors
+# Denver Contractors Search Platform
 
-A Next.js-based platform connecting Denver residents with trusted local contractors. The platform features location-based search, contractor profiles, and an easy-to-use inquiry system.
+A modern, type-safe Next.js application for finding and connecting with contractors in the Greater Denver Area. Built with performance and user experience in mind.
 
 ## Features
 
-- 🔍 Location-based contractor search
-- 📱 Mobile-responsive design
-- 📝 Easy contact system with phone and form options
-- 🗺️ Google Places API integration
-- 📊 Dynamic trade and location pages
-- 📱 Responsive design
-- 🔒 SSL security
-- 📰 Blog integration
-- 🗺️ Dynamic sitemap generation
+- 🔍 Advanced contractor search with location-based filtering
+- 📍 Browse by location (Denver neighborhoods and surrounding areas)
+- 🏠 Popular trades categories with specialized contractor listings
+- 💾 Efficient caching system for API responses
+- 📱 Responsive design optimized for all devices
+- 🎨 Modern UI with Material-UI components
+- 🚀 Server-side rendering for optimal performance
+- 🔒 Type-safe implementation with TypeScript
 
 ## Tech Stack
 
 - **Framework**: Next.js 15.1.0
+- **UI Library**: Material-UI
+- **Database**: MongoDB (for caching)
+- **API**: Google Places API
 - **Language**: TypeScript
-- **Database**: MongoDB
 - **Styling**: Tailwind CSS
-- **APIs**: 
-  - Google Places API
-  - Ghost CMS
 - **Deployment**: Vercel
 
 ## Getting Started
 
 1. Clone the repository:
-```bash
-git clone https://github.com/yourusername/denver_contractors.git
-```
+   ```bash
+   git clone https://github.com/yourusername/denver_contractors.git
+   ```
 
 2. Install dependencies:
-```bash
-npm install
-```
+   ```bash
+   npm install
+   ```
 
 3. Set up environment variables:
-Create a `.env.local` file with:
-```env
-NEXT_PUBLIC_GOOGLE_PLACES_API_KEY=your_api_key
-MONGODB_URI=your_mongodb_uri
-MONGODB_DB=your_database_name
-NEXT_PUBLIC_DOMAIN=your_domain
-```
+   - Copy `.env.example` to `.env.local`
+   - Add your API keys and configuration
 
 4. Run the development server:
-```bash
-npm run dev
-```
+   ```bash
+   npm run dev
+   ```
 
-5. Build for production:
-```bash
-npm run build
-```
+5. Open [http://localhost:3000](http://localhost:3000) in your browser
+
+## Environment Variables
+
+Required environment variables:
+- `MONGODB_URI`: MongoDB connection string
+- `GOOGLE_PLACES_API_KEY`: Google Places API key
 
 ## Project Structure
 
 ```
 denver_contractors/
 ├── src/
-│   ├── app/                 # Next.js 13+ app directory
-│   ├── components/          # Reusable components
-│   ├── utils/              # Utility functions
-│   └── types/              # TypeScript type definitions
-├── public/                 # Static files
-├── prisma/                # Database schema
-└── package.json           # Project dependencies
+│   ├── app/                 # Next.js app directory
+│   ├── components/          # Reusable React components
+│   ├── models/             # MongoDB models
+│   ├── types/              # TypeScript type definitions
+│   └── utils/              # Utility functions
+├── public/                 # Static assets
+└── prisma/                # Prisma schema and migrations
 ```
 
-## Key Components
+## Available Scripts
 
-- `InquiryForm`: Handles user inquiries with both form submission and direct call options
-- `Header`: Navigation and contact options
-- `ContractorLayout`: Template for contractor service pages
-- `SearchBox`: Location-based contractor search
-- `LocationPages`: Dynamic location-based routing
-
-## API Routes
-
-- `/api/inquiries`: Handles form submissions
-- `/api/search/places`: Google Places API integration
-- `/api/test-db`: Database connection testing
-- `/sitemap.xml`: Dynamic sitemap generation
-
-## Contact Options
-
-Users can contact contractors through:
-1. Direct phone call: (720) 555-5555
-2. Online inquiry form with fields for:
-   - Name
-   - Email
-   - Phone
-   - Service type
-   - Project description
-   - Budget range
-   - Preferred contact method
-
-## Development Guidelines
-
-1. Follow TypeScript best practices
-2. Use ESLint for code quality
-3. Implement proper error handling
-4. Add loading states for async operations
-5. Keep components modular and reusable
-6. Maintain mobile-first approach
-7. Optimize for SEO
+- `npm run dev`: Start development server
+- `npm run build`: Build production application
+- `npm run start`: Start production server
+- `npm run lint`: Run ESLint
+- `npm run test`: Run tests
 
 ## Contributing
 
 1. Fork the repository
-2. Create a feature branch
-3. Commit changes
-4. Push to the branch
-5. Open a pull request
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ## License
 
-This project is private and proprietary. All rights reserved.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Support
+## Acknowledgments
 
-For support, email support@topcontractorsdenver.com
+- Next.js team for the amazing framework
+- Google Places API for contractor data
+- Material-UI team for the component library
+- All contributors who have helped with the project
+
+## Contact
+
+For questions or feedback, please open an issue in the repository.

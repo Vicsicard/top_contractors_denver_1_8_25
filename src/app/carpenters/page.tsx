@@ -1,15 +1,14 @@
 import { Metadata } from 'next';
-import ContractorLayout from '@/components/ContractorLayout';
-import { generateContractorData, contractorServices, serviceAreas } from '@/utils/contractorPageUtils';
-
-const contractorData = generateContractorData('Carpenter', 'carpenters', contractorServices.carpenter.map(service => service.name));
+import { searchPlaces } from '@/utils/googlePlaces';
+import ContractorListings from '@/components/ContractorListings';
+import InquiryForm from '@/components/InquiryForm';
 
 export const metadata: Metadata = {
-  title: `${contractorData.title} | Denver Contractors`,
-  description: contractorData.description,
+  title: 'Top Carpenters in Denver - Professional Carpentry Services',
+  description: 'Find the best carpenters in Denver. Professional carpentry services for residential and commercial projects.',
   openGraph: {
-    title: `${contractorData.title} | Denver Contractors`,
-    description: contractorData.description,
+    title: 'Top Carpenters in Denver - Professional Carpentry Services',
+    description: 'Find the best carpenters in Denver. Professional carpentry services for residential and commercial projects.',
     url: 'https://www.topcontractorsdenver.com/carpenters',
     siteName: 'Denver Contractors',
     locale: 'en_US',
@@ -17,52 +16,59 @@ export const metadata: Metadata = {
   },
 };
 
-export default function CarpentersPage() {
+async function getCarpenters() {
+  try {
+    const response = await searchPlaces('carpenters', 'Denver, CO');
+    return response.results;
+  } catch (error) {
+    console.error('Error fetching carpenters:', error);
+    return [];
+  }
+}
+
+export default async function CarpentersPage() {
+  const carpenters = await getCarpenters();
+
   return (
-    <ContractorLayout
-      data={{
-        ...contractorData,
-        serviceAreas
-      }}
-      ctaText="Free Carpentry Consultation"
-      ctaButtonText="Schedule Consultation"
-      emergencyText="Professional carpentry services for residential and commercial projects."
-    >
-      <div className="bg-gray-50 p-6 rounded-lg my-8">
-        <h3 className="text-xl font-semibold text-gray-900 mb-3">Custom Woodworking</h3>
-        <p className="text-gray-700">
-          Transform your space with our custom woodworking services. From built-in
-          cabinets to custom furniture, our skilled carpenters create beautiful,
-          functional pieces that perfectly match your style and needs.
-        </p>
-      </div>
-      
-      <div className="bg-blue-50 p-6 rounded-lg my-8">
-        <h3 className="text-xl font-semibold text-blue-900 mb-3">Home Renovations</h3>
-        <p className="text-blue-800">
-          Our carpentry expertise brings your renovation dreams to life. We handle
-          everything from structural modifications to finish carpentry, ensuring
-          high-quality craftsmanship throughout your project.
-        </p>
+    <div className="min-h-screen bg-gray-50">
+      {/* Hero Section */}
+      <div className="bg-gradient-to-br from-blue-600 via-blue-700 to-blue-900 text-white">
+        <div className="container mx-auto px-4 py-16">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-center">
+            Top-Rated Carpenters in Denver
+          </h1>
+          <p className="text-xl text-center text-blue-100 max-w-3xl mx-auto">
+            Find skilled and professional carpenters in Denver for all your woodworking and construction needs.
+          </p>
+        </div>
       </div>
 
-      <div className="bg-green-50 p-6 rounded-lg my-8">
-        <h3 className="text-xl font-semibold text-green-900 mb-3">Commercial Carpentry</h3>
-        <p className="text-green-800">
-          Support your business with our commercial carpentry services. We provide
-          expert installation of store fixtures, office furniture, and custom
-          woodwork that enhances your commercial space.
-        </p>
-      </div>
+      {/* Main Content */}
+      <div className="container mx-auto px-4 py-12">
+        {/* Carpenter Listings */}
+        <div className="mb-16">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8">Featured Carpenters in Denver</h2>
+          <ContractorListings contractors={carpenters} />
+        </div>
 
-      <div className="bg-yellow-50 p-6 rounded-lg my-8">
-        <h3 className="text-xl font-semibold text-yellow-900 mb-3">Repair & Restoration</h3>
-        <p className="text-yellow-800">
-          Preserve the beauty and functionality of your wooden elements with our
-          repair and restoration services. We fix damaged woodwork and restore
-          antique pieces to their former glory.
-        </p>
+        {/* Contact Section */}
+        <div className="bg-white rounded-lg shadow-lg p-8 max-w-2xl mx-auto">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Get a Free Carpentry Consultation</h2>
+            <p className="text-lg text-gray-600 mb-4">
+              Connect with top carpenters in Denver for your project
+            </p>
+            <a
+              href="tel:+17204632319"
+              className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors mb-6"
+            >
+              Call (720) 463-2319
+            </a>
+            <p className="text-gray-600">or submit your details online:</p>
+          </div>
+          <InquiryForm buttonText="Get Free Quotes" service="Carpentry" />
+        </div>
       </div>
-    </ContractorLayout>
+    </div>
   );
 }

@@ -1,15 +1,14 @@
 import { Metadata } from 'next';
-import ContractorLayout from '@/components/ContractorLayout';
-import { generateContractorData, contractorServices, serviceAreas } from '@/utils/contractorPageUtils';
-
-const contractorData = generateContractorData('Landscaper', 'landscapers', contractorServices.landscaper.map(service => service.name));
+import { searchPlaces } from '@/utils/googlePlaces';
+import ContractorListings from '@/components/ContractorListings';
+import InquiryForm from '@/components/InquiryForm';
 
 export const metadata: Metadata = {
-  title: `${contractorData.title} | Denver Contractors`,
-  description: contractorData.description,
+  title: 'Top Landscapers in Denver - Professional Landscaping Services',
+  description: 'Find the best landscapers in Denver. Professional landscaping services for residential and commercial properties.',
   openGraph: {
-    title: `${contractorData.title} | Denver Contractors`,
-    description: contractorData.description,
+    title: 'Top Landscapers in Denver - Professional Landscaping Services',
+    description: 'Find the best landscapers in Denver. Professional landscaping services for residential and commercial properties.',
     url: 'https://www.topcontractorsdenver.com/landscapers',
     siteName: 'Denver Contractors',
     locale: 'en_US',
@@ -17,52 +16,59 @@ export const metadata: Metadata = {
   },
 };
 
-export default function LandscapersPage() {
+async function getLandscapers() {
+  try {
+    const response = await searchPlaces('landscapers', 'Denver, CO');
+    return response.results;
+  } catch (error) {
+    console.error('Error fetching landscapers:', error);
+    return [];
+  }
+}
+
+export default async function LandscapersPage() {
+  const landscapers = await getLandscapers();
+
   return (
-    <ContractorLayout
-      data={{
-        ...contractorData,
-        serviceAreas
-      }}
-      ctaText="Free Landscape Design Consultation"
-      ctaButtonText="Schedule Consultation"
-      emergencyText="Professional landscaping services for residential and commercial properties."
-    >
-      <div className="bg-gray-50 p-6 rounded-lg my-8">
-        <h3 className="text-xl font-semibold text-gray-900 mb-3">Landscape Design</h3>
-        <p className="text-gray-700">
-          Transform your outdoor space with our professional landscape design services.
-          Our experienced designers create beautiful, sustainable landscapes that enhance
-          your property's value and your enjoyment of the outdoors.
-        </p>
-      </div>
-      
-      <div className="bg-blue-50 p-6 rounded-lg my-8">
-        <h3 className="text-xl font-semibold text-blue-900 mb-3">Lawn Care & Maintenance</h3>
-        <p className="text-blue-800">
-          Keep your lawn looking its best with our comprehensive maintenance services.
-          From regular mowing and fertilization to aeration and weed control, we provide
-          everything your lawn needs to stay healthy and beautiful.
-        </p>
+    <div className="min-h-screen bg-gray-50">
+      {/* Hero Section */}
+      <div className="bg-gradient-to-br from-blue-600 via-blue-700 to-blue-900 text-white">
+        <div className="container mx-auto px-4 py-16">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-center">
+            Top-Rated Landscapers in Denver
+          </h1>
+          <p className="text-xl text-center text-blue-100 max-w-3xl mx-auto">
+            Find skilled and professional landscapers in Denver for all your outdoor space needs.
+          </p>
+        </div>
       </div>
 
-      <div className="bg-green-50 p-6 rounded-lg my-8">
-        <h3 className="text-xl font-semibold text-green-900 mb-3">Hardscaping</h3>
-        <p className="text-green-800">
-          Enhance your outdoor living space with our professional hardscaping services.
-          We design and install patios, walkways, retaining walls, and other hardscape
-          features that complement your landscape design.
-        </p>
-      </div>
+      {/* Main Content */}
+      <div className="container mx-auto px-4 py-12">
+        {/* Landscaper Listings */}
+        <div className="mb-16">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8">Featured Landscapers in Denver</h2>
+          <ContractorListings contractors={landscapers} />
+        </div>
 
-      <div className="bg-yellow-50 p-6 rounded-lg my-8">
-        <h3 className="text-xl font-semibold text-yellow-900 mb-3">Irrigation Systems</h3>
-        <p className="text-yellow-800">
-          Ensure your landscape stays healthy with our irrigation system services.
-          We design, install, and maintain efficient irrigation systems that provide
-          proper watering while conserving water resources.
-        </p>
+        {/* Contact Section */}
+        <div className="bg-white rounded-lg shadow-lg p-8 max-w-2xl mx-auto">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Get a Free Landscaping Consultation</h2>
+            <p className="text-lg text-gray-600 mb-4">
+              Connect with top landscapers in Denver for your project
+            </p>
+            <a
+              href="tel:+17204632319"
+              className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors mb-6"
+            >
+              Call (720) 463-2319
+            </a>
+            <p className="text-gray-600">or submit your details online:</p>
+          </div>
+          <InquiryForm buttonText="Get Free Quotes" service="Landscaping" />
+        </div>
       </div>
-    </ContractorLayout>
+    </div>
   );
 }

@@ -1,15 +1,14 @@
 import { Metadata } from 'next';
-import ContractorLayout from '@/components/ContractorLayout';
-import { generateContractorData, contractorServices, serviceAreas } from '@/utils/contractorPageUtils';
-
-const contractorData = generateContractorData('HVAC', 'hvac', contractorServices.hvac.map(service => service.name));
+import { searchPlaces } from '@/utils/googlePlaces';
+import ContractorListings from '@/components/ContractorListings';
+import InquiryForm from '@/components/InquiryForm';
 
 export const metadata: Metadata = {
-  title: `${contractorData.title} | Denver Contractors`,
-  description: contractorData.description,
+  title: 'Top HVAC Contractors in Denver - Professional Heating & Cooling Services',
+  description: 'Find the best HVAC contractors in Denver. Professional heating, cooling, and ventilation services for residential and commercial needs.',
   openGraph: {
-    title: `${contractorData.title} | Denver Contractors`,
-    description: contractorData.description,
+    title: 'Top HVAC Contractors in Denver - Professional Heating & Cooling Services',
+    description: 'Find the best HVAC contractors in Denver. Professional heating, cooling, and ventilation services for residential and commercial needs.',
     url: 'https://www.topcontractorsdenver.com/hvac',
     siteName: 'Denver Contractors',
     locale: 'en_US',
@@ -17,52 +16,59 @@ export const metadata: Metadata = {
   },
 };
 
-export default function HVACPage() {
+async function getHVACContractors() {
+  try {
+    const response = await searchPlaces('hvac contractors', 'Denver, CO');
+    return response.results;
+  } catch (error) {
+    console.error('Error fetching HVAC contractors:', error);
+    return [];
+  }
+}
+
+export default async function HVACPage() {
+  const hvacContractors = await getHVACContractors();
+
   return (
-    <ContractorLayout
-      data={{
-        ...contractorData,
-        serviceAreas
-      }}
-      ctaText="Free HVAC Consultation"
-      ctaButtonText="Schedule Service"
-      emergencyText="24/7 Emergency HVAC services available for heating and cooling emergencies."
-    >
-      <div className="bg-gray-50 p-6 rounded-lg my-8">
-        <h3 className="text-xl font-semibold text-gray-900 mb-3">Emergency HVAC Services</h3>
-        <p className="text-gray-700">
-          Our team of certified HVAC technicians is available 24/7 for emergency repairs.
-          Whether it's a broken furnace in winter or a failed AC in summer, we're here to
-          help restore your comfort quickly.
-        </p>
-      </div>
-      
-      <div className="bg-blue-50 p-6 rounded-lg my-8">
-        <h3 className="text-xl font-semibold text-blue-900 mb-3">Heating Services</h3>
-        <p className="text-blue-800">
-          Keep your home warm and comfortable with our comprehensive heating services.
-          We handle furnace repairs, maintenance, and installations for all major brands.
-          Regular maintenance can prevent breakdowns and extend system life.
-        </p>
+    <div className="min-h-screen bg-gray-50">
+      {/* Hero Section */}
+      <div className="bg-gradient-to-br from-blue-600 via-blue-700 to-blue-900 text-white">
+        <div className="container mx-auto px-4 py-16">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-center">
+            Top-Rated HVAC Contractors in Denver
+          </h1>
+          <p className="text-xl text-center text-blue-100 max-w-3xl mx-auto">
+            Find licensed and professional HVAC contractors in Denver for all your heating, cooling, and ventilation needs.
+          </p>
+        </div>
       </div>
 
-      <div className="bg-green-50 p-6 rounded-lg my-8">
-        <h3 className="text-xl font-semibold text-green-900 mb-3">Cooling Services</h3>
-        <p className="text-green-800">
-          Stay cool during Denver's hot summers with our expert AC services. From routine
-          maintenance to emergency repairs and new system installations, we ensure your
-          cooling system runs efficiently and reliably.
-        </p>
-      </div>
+      {/* Main Content */}
+      <div className="container mx-auto px-4 py-12">
+        {/* HVAC Listings */}
+        <div className="mb-16">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8">Featured HVAC Contractors in Denver</h2>
+          <ContractorListings contractors={hvacContractors} />
+        </div>
 
-      <div className="bg-yellow-50 p-6 rounded-lg my-8">
-        <h3 className="text-xl font-semibold text-yellow-900 mb-3">Indoor Air Quality</h3>
-        <p className="text-yellow-800">
-          Breathe easier with our indoor air quality solutions. We offer air purification
-          systems, humidifiers, and ventilation improvements to ensure your home's air is
-          clean and healthy.
-        </p>
+        {/* Contact Section */}
+        <div className="bg-white rounded-lg shadow-lg p-8 max-w-2xl mx-auto">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Get a Free HVAC Consultation</h2>
+            <p className="text-lg text-gray-600 mb-4">
+              Connect with top HVAC contractors in Denver for your project
+            </p>
+            <a
+              href="tel:+17204632319"
+              className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors mb-6"
+            >
+              Call (720) 463-2319
+            </a>
+            <p className="text-gray-600">or submit your details online:</p>
+          </div>
+          <InquiryForm buttonText="Get Free Quotes" service="HVAC" />
+        </div>
       </div>
-    </ContractorLayout>
+    </div>
   );
 }

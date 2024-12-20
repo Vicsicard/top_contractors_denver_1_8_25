@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import { FC } from 'react';
-import { generateLocalBusinessSchema, generateServiceSchema, generateBreadcrumbSchema } from '../utils/schema';
 
 interface SchemaData {
   '@context': string;

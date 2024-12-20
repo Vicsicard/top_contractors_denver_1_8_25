@@ -1,15 +1,14 @@
 import { Metadata } from 'next';
-import ContractorLayout from '@/components/ContractorLayout';
-import { generateContractorData, contractorServices, serviceAreas } from '@/utils/contractorPageUtils';
-
-const contractorData = generateContractorData('Mason', 'masonry', contractorServices.masonry.map(service => service.name));
+import { searchPlaces } from '@/utils/googlePlaces';
+import ContractorListings from '@/components/ContractorListings';
+import InquiryForm from '@/components/InquiryForm';
 
 export const metadata: Metadata = {
-  title: `${contractorData.title} | Denver Contractors`,
-  description: contractorData.description,
+  title: 'Top Masonry Contractors in Denver - Professional Masonry Services',
+  description: 'Find the best masonry contractors in Denver. Professional masonry services for residential and commercial projects.',
   openGraph: {
-    title: `${contractorData.title} | Denver Contractors`,
-    description: contractorData.description,
+    title: 'Top Masonry Contractors in Denver - Professional Masonry Services',
+    description: 'Find the best masonry contractors in Denver. Professional masonry services for residential and commercial projects.',
     url: 'https://www.topcontractorsdenver.com/masonry',
     siteName: 'Denver Contractors',
     locale: 'en_US',
@@ -17,52 +16,59 @@ export const metadata: Metadata = {
   },
 };
 
-export default function MasonryPage() {
+async function getMasons() {
+  try {
+    const response = await searchPlaces('masonry contractors', 'Denver, CO');
+    return response.results;
+  } catch (error) {
+    console.error('Error fetching masonry contractors:', error);
+    return [];
+  }
+}
+
+export default async function MasonryPage() {
+  const masons = await getMasons();
+
   return (
-    <ContractorLayout
-      data={{
-        ...contractorData,
-        serviceAreas
-      }}
-      ctaText="Free Masonry Consultation"
-      ctaButtonText="Schedule Consultation"
-      emergencyText="Professional masonry services for residential and commercial properties."
-    >
-      <div className="bg-gray-50 p-6 rounded-lg my-8">
-        <h3 className="text-xl font-semibold text-gray-900 mb-3">Brick & Stone Work</h3>
-        <p className="text-gray-700">
-          Transform your property with our expert brick and stone masonry services.
-          From elegant stone facades to classic brick walls, we create lasting
-          structures that enhance your property's beauty and value.
-        </p>
-      </div>
-      
-      <div className="bg-blue-50 p-6 rounded-lg my-8">
-        <h3 className="text-xl font-semibold text-blue-900 mb-3">Retaining Walls</h3>
-        <p className="text-blue-800">
-          Protect your property and add functional beauty with our retaining wall
-          services. We design and build sturdy walls that prevent soil erosion
-          while complementing your landscape design.
-        </p>
+    <div className="min-h-screen bg-gray-50">
+      {/* Hero Section */}
+      <div className="bg-gradient-to-br from-blue-600 via-blue-700 to-blue-900 text-white">
+        <div className="container mx-auto px-4 py-16">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-center">
+            Top-Rated Masonry Contractors in Denver
+          </h1>
+          <p className="text-xl text-center text-blue-100 max-w-3xl mx-auto">
+            Find skilled and professional masonry contractors in Denver for all your brick, stone, and concrete needs.
+          </p>
+        </div>
       </div>
 
-      <div className="bg-green-50 p-6 rounded-lg my-8">
-        <h3 className="text-xl font-semibold text-green-900 mb-3">Outdoor Living Spaces</h3>
-        <p className="text-green-800">
-          Create stunning outdoor living areas with our masonry expertise. From
-          fire pits and outdoor kitchens to patios and walkways, we build
-          beautiful spaces for outdoor enjoyment.
-        </p>
-      </div>
+      {/* Main Content */}
+      <div className="container mx-auto px-4 py-12">
+        {/* Masonry Listings */}
+        <div className="mb-16">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8">Featured Masonry Contractors in Denver</h2>
+          <ContractorListings contractors={masons} />
+        </div>
 
-      <div className="bg-yellow-50 p-6 rounded-lg my-8">
-        <h3 className="text-xl font-semibold text-yellow-900 mb-3">Restoration & Repair</h3>
-        <p className="text-yellow-800">
-          Preserve the integrity of your masonry with our restoration and repair
-          services. We fix cracks, replace damaged bricks, and restore historic
-          masonry to its original beauty.
-        </p>
+        {/* Contact Section */}
+        <div className="bg-white rounded-lg shadow-lg p-8 max-w-2xl mx-auto">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Get a Free Masonry Consultation</h2>
+            <p className="text-lg text-gray-600 mb-4">
+              Connect with top masonry contractors in Denver for your project
+            </p>
+            <a
+              href="tel:+17204632319"
+              className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors mb-6"
+            >
+              Call (720) 463-2319
+            </a>
+            <p className="text-gray-600">or submit your details online:</p>
+          </div>
+          <InquiryForm buttonText="Get Free Quotes" service="Masonry" />
+        </div>
       </div>
-    </ContractorLayout>
+    </div>
   );
 }

@@ -4,30 +4,30 @@ import ContractorListings from '@/components/ContractorListings';
 import InquiryForm from '@/components/InquiryForm';
 
 export const metadata: Metadata = {
-  title: 'Top Kitchen Remodeling Contractors in Denver - Professional Renovation Services',
-  description: 'Find the best kitchen remodeling contractors in Denver. Professional renovation services for your kitchen.',
+  title: 'Top Siding & Gutter Contractors in Denver',
+  description: 'Find professional siding and gutter contractors in Denver for installation, repair, and maintenance services.',
   openGraph: {
-    title: 'Top Kitchen Remodeling Contractors in Denver - Professional Renovation Services',
-    description: 'Find the best kitchen remodeling contractors in Denver. Professional renovation services for your kitchen.',
-    url: 'https://www.topcontractorsdenver.com/kitchen-remodeling',
+    title: 'Top Siding & Gutter Contractors in Denver',
+    description: 'Find professional siding and gutter contractors in Denver for installation, repair, and maintenance services.',
+    url: 'https://www.topcontractorsdenver.com/siding-gutters',
     siteName: 'Denver Contractors',
     locale: 'en_US',
     type: 'website',
   },
 };
 
-async function getKitchenRemodelers() {
+async function getSidingGutterContractors() {
   try {
-    const response = await searchPlaces('kitchen remodeling contractors', 'Denver, CO');
+    const response = await searchPlaces('siding and gutter contractors', 'Denver, CO');
     return response.results;
   } catch (error) {
-    console.error('Error fetching kitchen remodeling contractors:', error);
+    console.error('Error fetching siding & gutter contractors:', error);
     return [];
   }
 }
 
-export default async function KitchenRemodelingPage() {
-  const remodelers = await getKitchenRemodelers();
+export default async function SidingGuttersPage() {
+  const contractors = await getSidingGutterContractors();
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -35,28 +35,32 @@ export default async function KitchenRemodelingPage() {
       <div className="bg-gradient-to-br from-blue-600 via-blue-700 to-blue-900 text-white">
         <div className="container mx-auto px-4 py-16">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-center">
-            Top-Rated Kitchen Remodeling Contractors in Denver
+            Denver Siding & Gutter Contractors
           </h1>
           <p className="text-xl text-center text-blue-100 max-w-3xl mx-auto">
-            Find skilled and professional contractors in Denver for your kitchen renovation project.
+            Professional siding installation and gutter services for your home
           </p>
         </div>
       </div>
 
       {/* Main Content */}
       <div className="container mx-auto px-4 py-12">
-        {/* Remodeler Listings */}
+        {/* Contractor Listings */}
         <div className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">Featured Kitchen Remodeling Contractors in Denver</h2>
-          <ContractorListings contractors={remodelers} />
+          <h2 className="text-3xl font-bold text-gray-900 mb-8">
+            Featured Siding & Gutter Contractors in Denver
+          </h2>
+          <ContractorListings contractors={contractors} />
         </div>
 
         {/* Contact Section */}
         <div className="bg-white rounded-lg shadow-lg p-8 max-w-2xl mx-auto">
           <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Get a Free Kitchen Remodeling Consultation</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Get a Free Consultation
+            </h2>
             <p className="text-lg text-gray-600 mb-4">
-              Connect with top kitchen remodeling contractors in Denver for your project
+              Connect with top siding and gutter contractors in Denver
             </p>
             <a
               href="tel:+17204632319"
@@ -66,7 +70,7 @@ export default async function KitchenRemodelingPage() {
             </a>
             <p className="text-gray-600">or submit your details online:</p>
           </div>
-          <InquiryForm buttonText="Get Free Quotes" service="Kitchen Remodeling" />
+          <InquiryForm buttonText="Get Free Quotes" service="Siding & Gutters" />
         </div>
       </div>
     </div>

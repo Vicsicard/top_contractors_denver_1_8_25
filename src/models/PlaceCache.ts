@@ -1,116 +1,142 @@
 import mongoose from 'mongoose';
-import { PlacesApiResponse } from '../utils/placesApi';
+import { connectDB } from '@/utils/db';
 
-// Define the cache schema
-export interface IPlaceCache {
-  keyword: string;
-  location: string;
-  data: PlacesApiResponse;
-  createdAt: Date;
+// Define interfaces for Google Places result types
+interface PlaceLocation {
+  lat: number;
+  lng: number;
 }
 
-const PlaceCacheSchema = new mongoose.Schema<IPlaceCache>({
-  keyword: {
-    type: String,
+interface PlaceGeometry {
+  location: PlaceLocation;
+  viewport?: {
+    northeast: PlaceLocation;
+    southwest: PlaceLocation;
+  };
+}
+
+interface PlaceResult {
+  place_id: string;
+  name: string;
+  formatted_address: string;
+  geometry: PlaceGeometry;
+  rating?: number;
+  user_ratings_total?: number;
+  business_status?: string;
+  types?: string[];
+  photos?: Array<{
+    photo_reference: string;
+    height: number;
+    width: number;
+  }>;
+}
+
+// Define the interface for cached places
+interface IPlaceCache {
+  query: string;
+  results: PlaceResult[];
+  lastUpdated: Date;
+  expiresAt: Date;
+}
+
+// Define the schema
+const placeCacheSchema = new mongoose.Schema<IPlaceCache>({
+  query: { 
+    type: String, 
+    required: true, 
+    unique: true,
+    index: true 
+  },
+  results: [{ 
+    type: mongoose.Schema.Types.Mixed,
+    required: true 
+  }],
+  lastUpdated: { 
+    type: Date, 
+    default: Date.now 
+  },
+  expiresAt: { 
+    type: Date, 
     required: true,
-    index: true,
-    lowercase: true,
-    trim: true
-  },
-  location: {
-    type: String,
-    required: true,
-    index: true,
-    lowercase: true,
-    trim: true
-  },
-  data: {
-    type: {
-      results: [{
-        place_id: String,
-        name: String,
-        formatted_address: String,
-        geometry: {
-          location: {
-            lat: Number,
-            lng: Number
-          }
-        },
-        rating: Number,
-        user_ratings_total: Number,
-        formatted_phone_number: String,
-        website: String
-      }],
-      status: String,
-      error_message: String
-    },
-    required: true
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-    expires: 180 * 24 * 60 * 60 // 180 days in seconds
+    index: true 
   }
-}, {
-  timestamps: true,
-  collection: 'placeCache',
-  strict: true,
-  strictQuery: true
 });
 
-// Create compound index for keyword and location
-PlaceCacheSchema.index({ keyword: 1, location: 1 }, { unique: true });
+// Ensure connection before operations
+placeCacheSchema.pre('save', async function() {
+  await connectDB();
+});
 
-// Add error handling middleware
-PlaceCacheSchema.post('save', function(
-  error: Error & { code?: number },
-  doc: IPlaceCache,
-  next: (err?: Error) => void
+placeCacheSchema.pre('findOne', async function() {
+  await connectDB();
+});
+
+placeCacheSchema.pre('find', async function() {
+  await connectDB();
+});
+
+// Define static methods interface
+interface PlaceCacheModel extends mongoose.Model<IPlaceCache> {
+  findByQuery(query: string): Promise<IPlaceCache | null>;
+  createOrUpdateCache(query: string, results: PlaceResult[], expirationHours?: number): Promise<IPlaceCache>;
+}
+
+// Static method to find by query
+placeCacheSchema.statics.findByQuery = async function(this: PlaceCacheModel, query: string) {
+  await connectDB();
+  return this.findOne({ 
+    query,
+    expiresAt: { $gt: new Date() }
+  });
+};
+
+// Static method to create or update cache
+placeCacheSchema.statics.createOrUpdateCache = async function(
+  this: PlaceCacheModel,
+  query: string,
+  results: PlaceResult[],
+  expirationHours = 24
 ) {
-  if (error.name === 'MongoServerError' && error.code === 11000) {
-    next(new Error('Place already exists in cache'));
-  } else {
-    next(error);
+  await connectDB();
+  const expiresAt = new Date();
+  expiresAt.setHours(expiresAt.getHours() + expirationHours);
+
+  try {
+    // Try to update existing cache first
+    const updated = await this.findOneAndUpdate(
+      { query },
+      {
+        results,
+        lastUpdated: new Date(),
+        expiresAt
+      },
+      {
+        new: true,
+        upsert: true,
+        runValidators: true,
+        setDefaultsOnInsert: true
+      }
+    );
+
+    return updated;
+  } catch (error) {
+    if (error instanceof Error && 'code' in error && error.code === 11000) {
+      // If duplicate key error, wait a bit and try to update again
+      await new Promise(resolve => setTimeout(resolve, 100));
+      return this.findOneAndUpdate(
+        { query },
+        {
+          results,
+          lastUpdated: new Date(),
+          expiresAt
+        },
+        { new: true }
+      );
+    }
+    throw error;
   }
-});
-
-// Add pre-save middleware for data validation
-PlaceCacheSchema.pre('save', function(next) {
-  if (!this.data || !this.data.results || this.data.results.length === 0) {
-    next(new Error('Invalid place data'));
-    return;
-  }
-  next();
-});
-
-// Add static methods
-PlaceCacheSchema.statics.findByKeywordAndLocation = async function(
-  keyword: string,
-  location: string
-): Promise<IPlaceCache[]> {
-  const normalizedKeyword = keyword.toLowerCase().trim();
-  const normalizedLocation = location.toLowerCase().trim();
-  
-  console.log('🔍 Searching cache:', {
-    keyword: normalizedKeyword,
-    location: normalizedLocation,
-    timestamp: new Date().toISOString()
-  });
-
-  const results = await this.find({
-    keyword: normalizedKeyword,
-    location: normalizedLocation,
-    createdAt: { $gt: new Date(Date.now() - 180 * 24 * 60 * 60 * 1000) } // Only return results less than 180 days old
-  }).exec();
-
-  console.log('📊 Cache stats:', {
-    found: results.length > 0,
-    resultCount: results.length,
-    timestamp: new Date().toISOString()
-  });
-
-  return results;
 };
 
 // Create and export the model
-export const PlaceCache = mongoose.models.PlaceCache || mongoose.model<IPlaceCache>('PlaceCache', PlaceCacheSchema);
+export const PlaceCache = (mongoose.models.PlaceCache as PlaceCacheModel) || 
+  mongoose.model<IPlaceCache, PlaceCacheModel>('PlaceCache', placeCacheSchema);

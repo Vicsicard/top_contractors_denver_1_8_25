@@ -1,49 +1,73 @@
-import React from 'react';
 import { Metadata } from 'next';
-import { FaWarehouse } from 'react-icons/fa';
-import SearchResults from '@/app/components/SearchResults';
+import { searchPlaces } from '@/utils/googlePlaces';
+import ContractorListings from '@/components/ContractorListings';
+import InquiryForm from '@/components/InquiryForm';
 
 export const metadata: Metadata = {
-  title: 'Epoxy Garage Contractors in Denver | Professional Garage Floor Solutions',
-  description: 'Find top-rated epoxy garage floor contractors in Denver. Get durable, attractive, and long-lasting garage flooring solutions from local professionals.',
+  title: 'Top Epoxy Garage Floor Contractors in Denver - Professional Installation',
+  description: 'Find the best epoxy garage floor contractors in Denver. Professional installation services for your garage.',
+  openGraph: {
+    title: 'Top Epoxy Garage Floor Contractors in Denver - Professional Installation',
+    description: 'Find the best epoxy garage floor contractors in Denver. Professional installation services for your garage.',
+    url: 'https://www.topcontractorsdenver.com/epoxy-garage',
+    siteName: 'Denver Contractors',
+    locale: 'en_US',
+    type: 'website',
+  },
 };
 
-export default function EpoxyGaragePage() {
+async function getEpoxyContractors() {
+  try {
+    const response = await searchPlaces('epoxy garage floor contractors', 'Denver, CO');
+    return response.results;
+  } catch (error) {
+    console.error('Error fetching epoxy garage floor contractors:', error);
+    return [];
+  }
+}
+
+export default async function EpoxyGaragePage() {
+  const contractors = await getEpoxyContractors();
+
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gray-50">
+      {/* Hero Section */}
       <div className="bg-gradient-to-br from-blue-600 via-blue-700 to-blue-900 text-white">
-        <div className="container mx-auto px-4 py-24">
-          <div className="flex items-center justify-center mb-6">
-            <FaWarehouse className="w-16 h-16 text-blue-100" />
-          </div>
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 text-center">
-            Epoxy Garage Contractors
+        <div className="container mx-auto px-4 py-16">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-center">
+            Top-Rated Epoxy Garage Floor Contractors in Denver
           </h1>
-          <p className="text-xl mb-8 text-center text-blue-100 max-w-3xl mx-auto">
-            Transform your garage with professional epoxy flooring. Our verified contractors provide durable, 
-            attractive, and long-lasting garage floor solutions.
+          <p className="text-xl text-center text-blue-100 max-w-3xl mx-auto">
+            Find skilled and professional contractors in Denver for your garage floor coating project.
           </p>
-          <div className="max-w-2xl mx-auto bg-white/10 backdrop-blur-sm rounded-lg p-6">
-            <div className="space-y-4 text-center text-blue-100">
-              <h2 className="text-2xl font-semibold">Why Choose Professional Epoxy Flooring?</h2>
-              <ul className="text-lg space-y-2">
-                <li>✓ Durable and long-lasting finish</li>
-                <li>✓ Chemical and stain resistant</li>
-                <li>✓ Easy to clean and maintain</li>
-                <li>✓ Enhances garage appearance</li>
-                <li>✓ Increases property value</li>
-              </ul>
-            </div>
-          </div>
         </div>
       </div>
 
+      {/* Main Content */}
       <div className="container mx-auto px-4 py-12">
-        <SearchResults 
-          searchQuery="epoxy garage contractors"
-          location="Denver, CO"
-          showSearchBox={true}
-        />
+        {/* Contractor Listings */}
+        <div className="mb-16">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8">Featured Epoxy Floor Contractors in Denver</h2>
+          <ContractorListings contractors={contractors} />
+        </div>
+
+        {/* Contact Section */}
+        <div className="bg-white rounded-lg shadow-lg p-8 max-w-2xl mx-auto">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Get a Free Epoxy Floor Consultation</h2>
+            <p className="text-lg text-gray-600 mb-4">
+              Connect with top epoxy floor contractors in Denver for your garage project
+            </p>
+            <a
+              href="tel:+17204632319"
+              className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors mb-6"
+            >
+              Call (720) 463-2319
+            </a>
+            <p className="text-gray-600">or submit your details online:</p>
+          </div>
+          <InquiryForm buttonText="Get Free Quotes" service="Epoxy Garage Floor" />
+        </div>
       </div>
     </div>
   );

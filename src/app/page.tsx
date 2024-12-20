@@ -23,23 +23,23 @@ import {
 } from 'react-icons/fa';
 
 const PopularTrades = [
-  { name: 'Plumber', Icon: FaWrench },
-  { name: 'Electrician', Icon: FaBolt },
-  { name: 'HVAC', Icon: FaFan },
-  { name: 'Roofer', Icon: FaHome },
-  { name: 'Carpenter', Icon: FaHammer },
-  { name: 'Painter', Icon: FaPaintRoller },
-  { name: 'Landscaper', Icon: FaTree },
-  { name: 'Home Remodeling', Icon: FaTools },
-  { name: 'Bathroom Remodeling', Icon: FaBath },
-  { name: 'Kitchen Remodeling', Icon: FaUtensils },
-  { name: 'Siding & Gutters', Icon: FaHome },
-  { name: 'Masonry', Icon: FaLayerGroup },
-  { name: 'Decks', Icon: FaSquare },
-  { name: 'Flooring', Icon: FaBorderAll },
-  { name: 'Windows', Icon: FaWindowMaximize },
-  { name: 'Fencing', Icon: FaGripLines },
-  { name: 'Epoxy Garage', Icon: FaWarehouse }
+  { name: 'Plumber', Icon: FaWrench, route: 'plumbers' },
+  { name: 'Electrician', Icon: FaBolt, route: 'electricians' },
+  { name: 'HVAC', Icon: FaFan, route: 'hvac' },
+  { name: 'Roofer', Icon: FaHome, route: 'roofers' },
+  { name: 'Carpenter', Icon: FaHammer, route: 'carpenters' },
+  { name: 'Painter', Icon: FaPaintRoller, route: 'painters' },
+  { name: 'Landscaper', Icon: FaTree, route: 'landscapers' },
+  { name: 'Home Remodeling', Icon: FaTools, route: 'home-remodeling' },
+  { name: 'Bathroom Remodeling', Icon: FaBath, route: 'bathroom-remodeling' },
+  { name: 'Kitchen Remodeling', Icon: FaUtensils, route: 'kitchen-remodeling' },
+  { name: 'Siding & Gutters', Icon: FaHome, route: 'siding-and-gutters' },
+  { name: 'Masonry', Icon: FaLayerGroup, route: 'masonry' },
+  { name: 'Decks', Icon: FaSquare, route: 'decks' },
+  { name: 'Flooring', Icon: FaBorderAll, route: 'flooring' },
+  { name: 'Windows', Icon: FaWindowMaximize, route: 'windows' },
+  { name: 'Fencing', Icon: FaGripLines, route: 'fencing' },
+  { name: 'Epoxy Garage', Icon: FaWarehouse, route: 'epoxy-garage' }
 ];
 
 const LocationCategories = {
@@ -92,7 +92,7 @@ export default function Home() {
               const IconComponent = trade.Icon;
               return (
                 <Link 
-                  href={`/trade/${encodeURIComponent(trade.name.toLowerCase().replace(/\s+&?\s*/g, '-'))}`}
+                  href={`/${trade.route}`}
                   key={index}
                   className="flex items-center p-6 bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:scale-[1.02] border border-gray-100"
                 >
@@ -136,9 +136,20 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 text-white">
+      <section className="py-20 bg-white">
+        {/* 
+          ⚠️ IMPORTANT - DO NOT MODIFY ⚠️
+          Popular Trades Section is finalized and locked.
+          This section has been optimized for:
+          - UI/UX consistency
+          - Google Places API integration
+          - Performance and SEO
+          - User conversion
+          DO NOT change the format, layout, or styling of this section.
+          Any modifications must be approved by the project owner.
+        */}
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold mb-12 text-center">Why Choose Our Platform?</h2>
+          <h2 className="text-4xl font-bold mb-12 text-blue-900">Why Choose Our Platform?</h2>
           <div className="grid md:grid-cols-3 gap-12">
             <div className="text-center">
               <div className="bg-blue-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">

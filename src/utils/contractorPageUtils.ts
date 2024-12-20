@@ -1,3 +1,23 @@
+/**
+ * ⚠️ IMPORTANT - DO NOT MODIFY ⚠️
+ * This file contains core utilities for the Popular Trades section.
+ * The format, layout, and functionality of these trades have been finalized.
+ * 
+ * Protected Features:
+ * - Trade page layouts
+ * - Google Places API integration
+ * - Contractor listing formats
+ * - Contact form implementations
+ * - Service area configurations
+ * 
+ * Any changes to these components must be approved by the project owner.
+ * The current implementation has been optimized for:
+ * - User experience
+ * - SEO performance
+ * - Conversion rates
+ * - API efficiency
+ */
+
 import { generateLocalBusinessSchema, generateBreadcrumbSchema } from './schema';
 
 export interface ServiceArea {
@@ -17,9 +37,9 @@ export interface ContractorPageData {
   description: string;
   services: string[];
   serviceAreas: ServiceArea[];
-  schema: {
-    local: any;
-    breadcrumb: any;
+  schema?: {
+    local: string;
+    breadcrumb: string;
   };
 }
 
@@ -45,151 +65,186 @@ export const contractorServices = {
     { name: 'Custom Designs', description: 'Decorative flake systems, metallic epoxy, and custom color options' }
   ],
   plumber: [
-    "Emergency Repairs",
-    "Leak Detection",
-    "Drain Cleaning",
-    "Water Heater Services",
-    "Pipe Repairs and Replacement"
+    { name: 'Emergency Repairs', description: '24/7 emergency plumbing repair services' },
+    { name: 'Leak Detection', description: 'Advanced leak detection and repair services' },
+    { name: 'Drain Cleaning', description: 'Professional drain cleaning and maintenance' },
+    { name: 'Water Heater Services', description: 'Installation, repair, and maintenance of water heaters' },
+    { name: 'Pipe Repair', description: 'Expert pipe repair and replacement services' },
+    { name: 'Fixture Installation', description: 'Installation of sinks, toilets, and other fixtures' }
   ],
   electrician: [
-    "Emergency Electrical Repairs",
-    "Electrical Panel Upgrades",
-    "Lighting Installation",
-    "Wiring and Rewiring",
-    "Electrical Safety Inspections"
-  ],
-  roofer: [
-    "Roof Repairs",
-    "Roof Replacement",
-    "Storm Damage Repair",
-    "Gutter Installation",
-    "Roof Inspections"
+    { name: 'Emergency Services', description: '24/7 emergency electrical repairs' },
+    { name: 'Electrical Repairs', description: 'General electrical repair and maintenance' },
+    { name: 'Panel Upgrades', description: 'Electrical panel upgrades and replacements' },
+    { name: 'Lighting Installation', description: 'Indoor and outdoor lighting installation' },
+    { name: 'Wiring Services', description: 'New wiring installation and rewiring' }
   ],
   hvac: [
-    "AC Installation & Repair",
-    "Heating System Services",
-    "Ventilation Solutions",
-    "Emergency HVAC Repairs",
-    "Preventive Maintenance"
+    { name: 'AC Repair', description: 'Air conditioning repair and maintenance' },
+    { name: 'Heating Repair', description: 'Heating system repair and maintenance' },
+    { name: 'System Installation', description: 'New HVAC system installation' },
+    { name: 'Duct Cleaning', description: 'Professional duct cleaning services' },
+    { name: 'Preventive Maintenance', description: 'Regular HVAC system maintenance' }
+  ],
+  roofer: [
+    { name: 'Roof Repair', description: 'Professional roof repair services' },
+    { name: 'Roof Replacement', description: 'Complete roof replacement services' },
+    { name: 'Emergency Services', description: '24/7 emergency roof repair' },
+    { name: 'Inspection', description: 'Comprehensive roof inspections' },
+    { name: 'Maintenance', description: 'Regular roof maintenance services' }
   ],
   carpenter: [
-    "Custom Cabinetry",
-    "Trim & Molding Installation",
-    "Door Installation & Repair",
-    "Custom Built-ins",
-    "Structural Repairs",
-    "Wood Framing"
+    { name: 'Custom Carpentry', description: 'Custom woodworking and carpentry' },
+    { name: 'Cabinet Installation', description: 'Custom cabinet installation' },
+    { name: 'Trim Work', description: 'Crown molding and trim installation' },
+    { name: 'Door Installation', description: 'Door installation and repair' },
+    { name: 'Framing', description: 'Structural framing services' }
   ],
   painter: [
-    "Interior Painting",
-    "Exterior Painting",
-    "Cabinet Refinishing",
-    "Deck & Fence Staining",
-    "Color Consultation",
-    "Wallpaper Installation"
+    { name: 'Interior Painting', description: 'Professional interior painting services' },
+    { name: 'Exterior Painting', description: 'Expert exterior painting services' },
+    { name: 'Cabinet Painting', description: 'Cabinet refinishing and painting' },
+    { name: 'Color Consultation', description: 'Professional color consultation' },
+    { name: 'Wallpaper Installation', description: 'Wallpaper installation and removal' }
   ],
   landscaper: [
-    "Landscape Design",
-    "Lawn Maintenance",
-    "Irrigation Systems",
-    "Hardscape Installation",
-    "Tree & Shrub Care",
-    "Outdoor Lighting"
+    { name: 'Landscape Design', description: 'Custom landscape design services' },
+    { name: 'Lawn Maintenance', description: 'Regular lawn mowing and maintenance' },
+    { name: 'Irrigation Systems', description: 'Installation and repair of irrigation systems' },
+    { name: 'Hardscape Installation', description: 'Installation of patios, walkways, and retaining walls' },
+    { name: 'Tree & Shrub Care', description: 'Pruning, trimming, and removal of trees and shrubs' },
+    { name: 'Outdoor Lighting', description: 'Installation of outdoor lighting systems' }
   ],
   homeRemodeling: [
-    "Full Home Renovations",
-    "Basement Finishing",
-    "Room Additions",
-    "Structural Modifications",
-    "Permit Management",
-    "Design Services"
+    { name: 'Full Home Renovations', description: 'Complete home remodeling services' },
+    { name: 'Basement Finishing', description: 'Basement finishing and remodeling' },
+    { name: 'Room Additions', description: 'Adding new rooms to your home' },
+    { name: 'Structural Modifications', description: 'Modifying the structure of your home' },
+    { name: 'Permit Management', description: 'Obtaining necessary permits for your project' },
+    { name: 'Design Services', description: 'Custom design services for your remodeling project' }
   ],
   bathroomRemodeling: [
-    "Full Bathroom Remodels",
-    "Shower & Tub Installation",
-    "Tile Installation",
-    "Vanity & Cabinet Installation",
-    "Plumbing Fixtures",
-    "Lighting Updates"
+    { name: 'Full Bathroom Remodels', description: 'Complete bathroom remodeling services' },
+    { name: 'Shower & Tub Installation', description: 'Installation of new showers and tubs' },
+    { name: 'Tile Installation', description: 'Installation of tile flooring and walls' },
+    { name: 'Vanity & Cabinet Installation', description: 'Installation of new vanities and cabinets' },
+    { name: 'Plumbing Fixtures', description: 'Installation of new plumbing fixtures' },
+    { name: 'Lighting Updates', description: 'Updating the lighting in your bathroom' }
   ],
   kitchenRemodeling: [
-    "Custom Cabinet Installation",
-    "Countertop Installation",
-    "Kitchen Island Design",
-    "Appliance Installation",
-    "Lighting & Electrical",
-    "Backsplash Installation"
+    { name: 'Custom Cabinet Installation', description: 'Installation of custom cabinets' },
+    { name: 'Countertop Installation', description: 'Installation of new countertops' },
+    { name: 'Kitchen Island Design', description: 'Design and installation of kitchen islands' },
+    { name: 'Appliance Installation', description: 'Installation of new appliances' },
+    { name: 'Lighting & Electrical', description: 'Updating the lighting and electrical in your kitchen' },
+    { name: 'Backsplash Installation', description: 'Installation of new backsplashes' }
   ],
   sidingAndGutters: [
-    "Siding Installation",
-    "Gutter Installation",
-    "Downspout Installation",
-    "Fascia & Soffit Repair",
-    "Gutter Guards",
-    "Siding Repair"
+    { name: 'Siding Installation', description: 'Installation of new siding' },
+    { name: 'Gutter Installation', description: 'Installation of new gutters' },
+    { name: 'Downspout Installation', description: 'Installation of new downspouts' },
+    { name: 'Fascia & Soffit Repair', description: 'Repair of fascia and soffit' },
+    { name: 'Gutter Guards', description: 'Installation of gutter guards' },
+    { name: 'Siding Repair', description: 'Repair of existing siding' }
   ],
   masonry: [
-    "Brick & Stone Installation",
-    "Retaining Walls",
-    "Chimney Repair",
-    "Concrete Work",
-    "Paver Installation",
-    "Stone Veneer"
+    { name: 'Brick & Stone Installation', description: 'Installation of brick and stone' },
+    { name: 'Retaining Walls', description: 'Installation of retaining walls' },
+    { name: 'Chimney Repair', description: 'Repair of chimneys' },
+    { name: 'Concrete Work', description: 'Installation and repair of concrete' },
+    { name: 'Paver Installation', description: 'Installation of pavers' },
+    { name: 'Stone Veneer', description: 'Installation of stone veneer' }
   ],
   decks: [
-    "Custom Deck Design",
-    "Deck Construction",
-    "Deck Repair",
-    "Railing Installation",
-    "Deck Staining & Sealing",
-    "Pergola Construction"
+    { name: 'Custom Deck Design', description: 'Custom design of decks' },
+    { name: 'Deck Construction', description: 'Construction of new decks' },
+    { name: 'Deck Repair', description: 'Repair of existing decks' },
+    { name: 'Railing Installation', description: 'Installation of new railings' },
+    { name: 'Deck Staining & Sealing', description: 'Staining and sealing of decks' },
+    { name: 'Pergola Construction', description: 'Construction of pergolas' }
   ],
   flooring: [
-    "Hardwood Installation",
-    "Tile Installation",
-    "Carpet Installation",
-    "Vinyl & Laminate",
-    "Floor Refinishing",
-    "Subfloor Repair"
+    { name: 'Hardwood Installation', description: 'Installation of hardwood flooring' },
+    { name: 'Tile Installation', description: 'Installation of tile flooring' },
+    { name: 'Carpet Installation', description: 'Installation of carpet' },
+    { name: 'Vinyl & Laminate', description: 'Installation of vinyl and laminate flooring' },
+    { name: 'Floor Refinishing', description: 'Refinishing of existing floors' },
+    { name: 'Subfloor Repair', description: 'Repair of subfloors' }
   ],
   windows: [
-    "Window Installation",
-    "Window Replacement",
-    "Energy Efficient Updates",
-    "Storm Windows",
-    "Custom Window Design",
-    "Window Repair"
+    { name: 'Window Installation', description: 'Installation of new windows' },
+    { name: 'Window Replacement', description: 'Replacement of existing windows' },
+    { name: 'Energy Efficient Updates', description: 'Updating windows for energy efficiency' },
+    { name: 'Storm Windows', description: 'Installation of storm windows' },
+    { name: 'Custom Window Design', description: 'Custom design of windows' },
+    { name: 'Window Repair', description: 'Repair of existing windows' }
   ],
   fencing: [
-    "Fence Installation",
-    "Gate Installation",
-    "Privacy Fencing",
-    "Chain Link Fencing",
-    "Wood Fence Construction",
-    "Fence Repair"
+    { name: 'Fence Installation', description: 'Installation of new fences' },
+    { name: 'Gate Installation', description: 'Installation of new gates' },
+    { name: 'Privacy Fencing', description: 'Installation of privacy fencing' },
+    { name: 'Chain Link Fencing', description: 'Installation of chain link fencing' },
+    { name: 'Wood Fence Construction', description: 'Construction of wood fences' },
+    { name: 'Fence Repair', description: 'Repair of existing fences' }
   ]
 };
 
 export function generateContractorData(
   contractorType: string,
   pageType: string,
-  services: string[]
+  services: Array<{ name: string; description: string }>
 ): ContractorPageData {
-  const title = `Top ${contractorType}s in Denver, CO`;
-  const description = `Professional ${contractorType.toLowerCase()} services in Denver and surrounding areas. Licensed and insured experts providing quality workmanship and excellent customer service.`;
+  const title = `Top ${contractorType}s in Denver - Licensed & Insured ${contractorType} Services`;
+  const description = `Find the best ${contractorType.toLowerCase()}s in Denver. Professional, licensed, and insured ${contractorType.toLowerCase()} services for all your needs.`;
+
+  const localBusiness = {
+    name: `Denver ${contractorType} Services`,
+    description,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "1234 Main St",
+      addressLocality: "Denver",
+      addressRegion: "CO",
+      postalCode: "80014",
+      addressCountry: "US"
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 39.7392,
+      longitude: -104.9903
+    },
+    url: `https://www.topcontractorsdenver.com/${pageType}`,
+    telephone: "(720) 463-2319"
+  };
+
+  const breadcrumbItems = [
+    {
+      "@type": "ListItem",
+      position: 1,
+      item: {
+        "@id": "https://www.topcontractorsdenver.com/",
+        name: "Home"
+      }
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      item: {
+        "@id": `https://www.topcontractorsdenver.com/${pageType}`,
+        name: `${contractorType}s`
+      }
+    }
+  ];
 
   return {
     type: contractorType,
     title,
     description,
-    services,
+    services: services.map(service => service.name),
     serviceAreas,
     schema: {
-      local: generateLocalBusinessSchema(title, description),
-      breadcrumb: generateBreadcrumbSchema([
-        { name: 'Home', item: '/' },
-        { name: contractorType, item: `/${pageType}` }
-      ])
+      local: generateLocalBusinessSchema(localBusiness),
+      breadcrumb: generateBreadcrumbSchema(breadcrumbItems)
     }
   };
 }

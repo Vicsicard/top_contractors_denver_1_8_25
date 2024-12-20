@@ -1,5 +1,4 @@
 import React from 'react';
-import { Suspense } from 'react';
 import type { Metadata } from 'next';
 import ContractorLayout from '@/components/ContractorLayout';
 import { generateContractorData, contractorServices, serviceAreas } from '@/utils/contractorPageUtils';
