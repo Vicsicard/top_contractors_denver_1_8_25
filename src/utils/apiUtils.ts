@@ -50,7 +50,7 @@ export async function makeRateLimitedRequest(
 export async function makeRequestWithBackoff(requestFn: RequestFunction) {
   try {
     const response = await makeRateLimitedRequest(requestFn);
-    return await response.json();
+    return response;
   } catch (error) {
     console.error("Request failed after retries:", error instanceof Error ? error.message : "Unknown error");
     throw error;

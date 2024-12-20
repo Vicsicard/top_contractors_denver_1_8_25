@@ -116,19 +116,108 @@ export async function GET(request: NextRequest) {
       }
     };
 
-    let searchResponse;
+    let response;
     try {
-      searchResponse = await makeRequestWithBackoff(() => 
+      response = await makeRequestWithBackoff(() => 
         fetch(GOOGLE_PLACES_API_URL, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
             'X-Goog-Api-Key': GOOGLE_PLACES_API_KEY,
-            'X-Goog-FieldMask': 'places.id,places.displayName,places.formattedAddress,places.location,places.rating,places.types'
+            'X-Goog-FieldMask': '*'
           },
           body: JSON.stringify(searchRequest)
         })
       );
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error('Google Places API error:', {
+          status: response.status,
+          statusText: response.statusText,
+          error: errorText
+        });
+        return NextResponse.json(
+          { 
+            error: 'External API error',
+            message: `Google Places API returned status ${response.status}`,
+            code: 'API_ERROR',
+            details: errorText
+          },
+          { status: 502 }
+        );
+      }
+
+      const data = await response.json();
+
+      if (!data.places || !Array.isArray(data.places)) {
+        console.error('Invalid response format:', data);
+        return NextResponse.json(
+          { 
+            error: 'Invalid response',
+            message: 'Received invalid response format from Google Places API',
+            code: 'INVALID_RESPONSE'
+          },
+          { status: 502 }
+        );
+      }
+
+      // Transform the response to match our expected format
+      const transformedResults = data.places.map(place => ({
+        place_id: place.id,
+        name: place.displayName?.text || '',
+        formatted_address: place.formattedAddress || '',
+        geometry: place.location ? {
+          location: {
+            lat: place.location.latitude,
+            lng: place.location.longitude
+          }
+        } : undefined,
+        rating: place.rating,
+        types: place.types || []
+      }));
+
+      // Fetch additional details for each place
+      const placesWithDetails = await Promise.all(
+        transformedResults.map(async (place) => {
+          try {
+            const detailsResponse = await makeRequestWithBackoff(() =>
+              fetch(`${GOOGLE_PLACES_DETAILS_URL}/${place.place_id}`, {
+                headers: {
+                  'X-Goog-Api-Key': GOOGLE_PLACES_API_KEY,
+                  'X-Goog-FieldMask': 'phoneNumber,websiteUri,currentOpeningHours'
+                }
+              })
+            );
+
+            if (!detailsResponse.ok) {
+              console.error('Invalid response status:', detailsResponse.status);
+              return place;
+            }
+
+            const details = await detailsResponse.json();
+
+            return {
+              ...place,
+              phone_number: details.phoneNumber,
+              website: details.websiteUri,
+              opening_hours: details.currentOpeningHours ? {
+                open_now: details.currentOpeningHours.openNow,
+                weekday_text: details.currentOpeningHours.weekdayDescriptions
+              } : undefined
+            };
+          } catch (error) {
+            console.error('Error fetching place details:', error);
+            // Return the place without details if fetching details fails
+            return place;
+          }
+        })
+      );
+
+      return NextResponse.json({
+        results: placesWithDetails,
+        status: 'success'
+      });
     } catch (error) {
       console.error('Failed to fetch from Places API:', error);
       return NextResponse.json(
@@ -140,72 +229,6 @@ export async function GET(request: NextRequest) {
         { status: 502 }
       );
     }
-
-    const data = await searchResponse.json();
-    
-    if (!data.places || !Array.isArray(data.places)) {
-      console.error('Invalid response format:', data);
-      return NextResponse.json(
-        { 
-          error: 'Invalid response',
-          message: 'Received invalid response format from Google Places API',
-          code: 'INVALID_RESPONSE'
-        },
-        { status: 502 }
-      );
-    }
-
-    // Transform the response to match our expected format
-    const transformedResults = data.places.map(place => ({
-      place_id: place.id,
-      name: place.displayName?.text || '',
-      formatted_address: place.formattedAddress || '',
-      geometry: place.location ? {
-        location: {
-          lat: place.location.latitude,
-          lng: place.location.longitude
-        }
-      } : undefined,
-      rating: place.rating,
-      types: place.types || []
-    }));
-
-    // Fetch additional details for each place
-    const placesWithDetails = await Promise.all(
-      transformedResults.map(async (place) => {
-        try {
-          const detailsResponse = await makeRequestWithBackoff(() =>
-            fetch(`${GOOGLE_PLACES_DETAILS_URL}/${place.place_id}`, {
-              headers: {
-                'X-Goog-Api-Key': GOOGLE_PLACES_API_KEY,
-                'X-Goog-FieldMask': 'phoneNumber,websiteUri,currentOpeningHours'
-              }
-            })
-          );
-
-          const details = await detailsResponse.json();
-
-          return {
-            ...place,
-            phone_number: details.phoneNumber,
-            website: details.websiteUri,
-            opening_hours: details.currentOpeningHours ? {
-              open_now: details.currentOpeningHours.openNow,
-              weekday_text: details.currentOpeningHours.weekdayDescriptions
-            } : undefined
-          };
-        } catch (error) {
-          console.error('Error fetching place details:', error);
-          // Return the place without details if fetching details fails
-          return place;
-        }
-      })
-    );
-
-    return NextResponse.json({
-      results: placesWithDetails,
-      status: 'success'
-    });
   } catch (error) {
     console.error('Search places error:', error);
     return NextResponse.json(
