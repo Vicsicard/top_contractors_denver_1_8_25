@@ -1,3 +1,6 @@
+// Load environment variables
+require('dotenv').config();
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
@@ -48,7 +51,12 @@ const nextConfig = {
       },
     ]
   },
+  // Environment variables configuration
   env: {
+    GOOGLE_PLACES_API_KEY: process.env.GOOGLE_PLACES_API_KEY,
+    MONGODB_URI: process.env.MONGODB_URI,
+    MONGODB_DB: process.env.MONGODB_DB,
+    NEXT_PUBLIC_DOMAIN: process.env.NEXT_PUBLIC_DOMAIN,
     NEXT_PUBLIC_BUILD_TIME_KEY: 'dummy-key-for-build',
   },
   async rewrites() {

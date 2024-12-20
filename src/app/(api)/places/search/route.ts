@@ -8,6 +8,11 @@ export const runtime = 'edge';
 // Skip API calls during build time
 const isBuildTime = process.env.NODE_ENV === 'production' && process.env.NEXT_PHASE === 'phase-production-build';
 
+// Validate environment variables at module level
+if (!isBuildTime && !process.env.GOOGLE_PLACES_API_KEY) {
+  console.error('GOOGLE_PLACES_API_KEY is not defined in environment variables');
+}
+
 interface Place {
   place_id: string;
   name: string;
@@ -49,29 +54,34 @@ interface PlaceDetailsApiResponse {
 }
 
 export async function GET(request: NextRequest) {
-  // Return mock data during build time
-  if (isBuildTime) {
-    return NextResponse.json({
-      results: [],
-      status: 'success',
-      _info: 'Build time response'
-    });
-  }
-
-  // Only access API key after build time check
-  const GOOGLE_PLACES_API_KEY = process.env.GOOGLE_PLACES_API_KEY;
-
   try {
-    const GOOGLE_PLACES_API_URL = 'https://places.googleapis.com/v1/places:searchText';
-    const GOOGLE_PLACES_DETAILS_URL = 'https://places.googleapis.com/v1/places';
+    // Return mock data during build time
+    if (isBuildTime) {
+      return NextResponse.json({
+        results: [],
+        status: 'success',
+        _info: 'Build time response'
+      });
+    }
 
+    // Only access API key after build time check
+    const GOOGLE_PLACES_API_KEY = process.env.GOOGLE_PLACES_API_KEY;
+
+    // Enhanced API key validation
     if (!GOOGLE_PLACES_API_KEY) {
-      console.warn('API key not configured');
+      console.error('GOOGLE_PLACES_API_KEY is not defined in environment variables');
       return NextResponse.json(
-        { error: 'Service temporarily unavailable' },
+        { 
+          error: 'Service configuration error',
+          message: 'The service is not properly configured. Please check the environment variables.',
+          code: 'ENV_VAR_MISSING'
+        },
         { status: 503 }
       );
     }
+
+    const GOOGLE_PLACES_API_URL = 'https://places.googleapis.com/v1/places:searchText';
+    const GOOGLE_PLACES_DETAILS_URL = 'https://places.googleapis.com/v1/places';
 
     const { searchParams } = new URL(request.url);
     const query = searchParams.get('query');
@@ -79,7 +89,11 @@ export async function GET(request: NextRequest) {
 
     if (!query) {
       return NextResponse.json(
-        { error: 'Query parameter is required' },
+        { 
+          error: 'Invalid request',
+          message: 'Query parameter is required',
+          code: 'MISSING_QUERY'
+        },
         { status: 400 }
       );
     }
@@ -102,22 +116,43 @@ export async function GET(request: NextRequest) {
       }
     };
 
-    const searchResponse = await makeRequestWithBackoff(() => 
-      fetch(GOOGLE_PLACES_API_URL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-Goog-Api-Key': GOOGLE_PLACES_API_KEY,
-          'X-Goog-FieldMask': 'places.id,places.displayName,places.formattedAddress,places.location,places.rating,places.types'
+    let searchResponse;
+    try {
+      searchResponse = await makeRequestWithBackoff(() => 
+        fetch(GOOGLE_PLACES_API_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Goog-Api-Key': GOOGLE_PLACES_API_KEY,
+            'X-Goog-FieldMask': 'places.id,places.displayName,places.formattedAddress,places.location,places.rating,places.types'
+          },
+          body: JSON.stringify(searchRequest)
+        })
+      );
+    } catch (error) {
+      console.error('Failed to fetch from Places API:', error);
+      return NextResponse.json(
+        { 
+          error: 'External API error',
+          message: 'Failed to fetch data from Google Places API',
+          code: 'API_FETCH_ERROR'
         },
-        body: JSON.stringify(searchRequest)
-      })
-    );
+        { status: 502 }
+      );
+    }
 
     const data = await searchResponse.json();
     
     if (!data.places || !Array.isArray(data.places)) {
-      throw new Error('Invalid response format from Places API');
+      console.error('Invalid response format:', data);
+      return NextResponse.json(
+        { 
+          error: 'Invalid response',
+          message: 'Received invalid response format from Google Places API',
+          code: 'INVALID_RESPONSE'
+        },
+        { status: 502 }
+      );
     }
 
     // Transform the response to match our expected format
@@ -161,6 +196,7 @@ export async function GET(request: NextRequest) {
           };
         } catch (error) {
           console.error('Error fetching place details:', error);
+          // Return the place without details if fetching details fails
           return place;
         }
       })
@@ -174,8 +210,9 @@ export async function GET(request: NextRequest) {
     console.error('Search places error:', error);
     return NextResponse.json(
       { 
-        error: 'Failed to fetch data',
-        message: error instanceof Error ? error.message : 'Unknown error'
+        error: 'Internal server error',
+        message: error instanceof Error ? error.message : 'An unexpected error occurred',
+        code: 'INTERNAL_ERROR'
       },
       { status: 500 }
     );
