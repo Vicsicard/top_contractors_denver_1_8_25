@@ -1,0 +1,1014 @@
+{
+  "trade": "electricians",
+  "lastUpdated": "2024-12-23T17:15:34.472Z",
+  "results": [
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "1615 California St Suite 402, Denver, CO 80202, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.74554730000001,
+          "lng": -104.9919827
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.74685677989272,
+            "lng": -104.9905798201073
+          },
+          "southwest": {
+            "lat": 39.74415712010727,
+            "lng": -104.9932794798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Salzano Electric Denver",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 480,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/105593810832309509883\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27xaEr5ojynWht9BW_QAScS4gYFLHamIh59kJPtyY6TlhtV-iDXUtF3Hw8CShw3GPysxMrfxcuKMKZPoMvdRj9iAkXenkiSANYuenb_JLZ9g5SJUucECegbnf7gFPiPryPIz3B4rrDjTochpKzzahJOOkC2j5DWRCTnRgMDUEZOJ2h9I",
+          "width": 640
+        }
+      ],
+      "place_id": "ChIJJ80hNJ-Fa4cRhLYDRYLyHQo",
+      "plus_code": {
+        "compound_code": "P2W5+66 Denver, Colorado",
+        "global_code": "85FQP2W5+66"
+      },
+      "rating": 5,
+      "reference": "ChIJJ80hNJ-Fa4cRhLYDRYLyHQo",
+      "types": [
+        "electrician",
+        "general_contractor",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 306
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "12860 W Cedar Dr Unit 212, Lakewood, CO 80228, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7116372,
+          "lng": -105.1428023
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.71291792989272,
+            "lng": -105.1416410201073
+          },
+          "southwest": {
+            "lat": 39.71021827010727,
+            "lng": -105.1443406798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Tesla Electric",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 576,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/112031409104294171026\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27znYIdmzBi7O_GdhBq2eod5YlJK4p8T-Ntnx1XkhQSqPBF0XcTy1w3NmrYL0_abToBT9lS6L72Yf1T4RBWmljdeWLV2oOF047gZS26G3_NbqVovOif_MH8J9sZSJ7ozhh2Oowpy3Xk4UG-KPUJeOb2S0rU8Hvkna9HGuZN43GLIu7Hp",
+          "width": 1024
+        }
+      ],
+      "place_id": "ChIJiUgP7PSDa4cR0DzD95oKoWY",
+      "plus_code": {
+        "compound_code": "PV64+MV Lakewood, Colorado",
+        "global_code": "85FPPV64+MV"
+      },
+      "rating": 5,
+      "reference": "ChIJiUgP7PSDa4cR0DzD95oKoWY",
+      "types": [
+        "electrician",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 265
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "1550 N Raleigh St #229, Denver, CO 80204, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7421328,
+          "lng": -105.040861
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.74318177989272,
+            "lng": -105.0396566201073
+          },
+          "southwest": {
+            "lat": 39.74048212010728,
+            "lng": -105.0423562798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Sphere Electric LLC",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3025,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/100519271874822218195\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27zJ-uqXcemLFQHkougLSV8Yv0yshg0-iJVUWrJonPu_AbqgbSxA1-2yAcP5VPPboskD4SzuQqMdljMbLN-JxOsttaZklj9_g6jUEKBl5kPwf2lG13GTALOtvaNmC_yDPXAkvNUJR6hSK9oaSTeMk0fl2Gm7ByZe9pr0zz5tgB0KmU8r",
+          "width": 3024
+        }
+      ],
+      "place_id": "ChIJrd6bzuw53okRBqbCpnBuIXs",
+      "plus_code": {
+        "compound_code": "PXR5+VM Denver, Colorado",
+        "global_code": "85FPPXR5+VM"
+      },
+      "rating": 5,
+      "reference": "ChIJrd6bzuw53okRBqbCpnBuIXs",
+      "types": [
+        "electrician",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 88
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "5650 Washington St unit c-6, Denver, CO 80216, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.8058776,
+          "lng": -104.9782921
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.80722732989272,
+            "lng": -104.9768423701073
+          },
+          "southwest": {
+            "lat": 39.80452767010728,
+            "lng": -104.9795420298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Power Electrical Services",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 720,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/115124160113326890812\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27yWhIjnlHYDlvXRjnATlcmmAlIVVs0sl7-erZk9niohnLjsp1g3z35ztwCts3YGi0ogqzQ3s9cSi7FWLFnAKFKWHVrKu_tMGUU_vejMI2L9LkRFCzhvNpVWbFb5uFlEYIzfsxNsS1-5IzxIv_hgNxvWCwjSQaXzuz_bbp8tr5p9MY4L",
+          "width": 720
+        }
+      ],
+      "place_id": "ChIJG5jnvd-z-IURARoRKyA7o9o",
+      "plus_code": {
+        "compound_code": "R24C+9M Denver, Colorado",
+        "global_code": "85FQR24C+9M"
+      },
+      "rating": 5,
+      "reference": "ChIJG5jnvd-z-IURARoRKyA7o9o",
+      "types": [
+        "electrician",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 83
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "2806 Speer Blvd, Denver, CO 80211, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7576906,
+          "lng": -105.0187112
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.75903292989272,
+            "lng": -105.0172803201073
+          },
+          "southwest": {
+            "lat": 39.75633327010728,
+            "lng": -105.0199799798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "MH Electrical and Solar",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 2048,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/106275199542233929113\">Shawn Stone</a>"
+          ],
+          "photo_reference": "AWYs27zfG2aNU1xMJYRbD-NkTFXdfGKFYUoYonFsI78HJWEUqv4cZf64Hip_lNjMx0lydexDXqCyZNpslf7bj3aZqq3cxgr_6-ZTGAmfmvxMVQY36G0Sp4haZsSYtxGwL5yPCFjxtdcJGM5t1ij4NZjehMhaO69J9SkbzapLsz8Sw0Q-rnA4",
+          "width": 1536
+        }
+      ],
+      "place_id": "ChIJEehAFrqAa4cRQhvLbiRCBAI",
+      "plus_code": {
+        "compound_code": "QX5J+3G Denver, Colorado",
+        "global_code": "85FPQX5J+3G"
+      },
+      "rating": 5,
+      "reference": "ChIJEehAFrqAa4cRQhvLbiRCBAI",
+      "types": [
+        "electrician",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 65
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "1801 California St, Denver, CO 80202, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7475578,
+          "lng": -104.9898437
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.74877867989272,
+            "lng": -104.9886799701073
+          },
+          "southwest": {
+            "lat": 39.74607902010727,
+            "lng": -104.9913796298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "The Speedy Electricians of Denver",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 405,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/113370123096132141672\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27yhoJRZASTXFV4gqc9KodgfwRsD3V0J_tVLEgV3jDYopL8D0n82gGsrcyDYVMRksWOYnVWwmlSq98kX5AUHaL1PqDetYUTyQi-7JOUq7Amw-ei0kEZZiGEvTP3cgZe0rJIl9XGBua91kR8VoLx7--hF6qPuu6EaBR08dNG4EzM7nMna",
+          "width": 540
+        }
+      ],
+      "place_id": "ChIJpx0BzmV5bIcRrNtDfX_j_9s",
+      "plus_code": {
+        "compound_code": "P2X6+22 Denver, Colorado",
+        "global_code": "85FQP2X6+22"
+      },
+      "rating": 5,
+      "reference": "ChIJpx0BzmV5bIcRrNtDfX_j_9s",
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 41
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "6795 E Tennessee Ave #401, Denver, CO 80224, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.6990467,
+          "lng": -104.9097663
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.70036492989272,
+            "lng": -104.9084544701073
+          },
+          "southwest": {
+            "lat": 39.69766527010728,
+            "lng": -104.9111541298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Mr. Electric",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 988,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/115078184063131037483\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27ytD_XmDgyZZOJUrWuPudXpNSPWzg7x4w0BqLFzJH_XRRkM5wnhTAQu13E6KKMMzZC50Ri2OWqttWNPOMOgmMxttKpFRS4-eJL4X9CZQDO2u3SiX7S4BpLcQNO0fo2rwxFzlhBKzX46hpIsK1FTiRBKyMDh2RVzaq0znVDdsbJpPyrr",
+          "width": 1920
+        }
+      ],
+      "place_id": "ChIJ_6sDnuZ9bIcRSflA-tqxZZw",
+      "plus_code": {
+        "compound_code": "M3XR+J3 Denver, Colorado",
+        "global_code": "85FQM3XR+J3"
+      },
+      "rating": 5,
+      "reference": "ChIJ_6sDnuZ9bIcRSflA-tqxZZw",
+      "types": [
+        "electrician",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 27
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "4920 Monaco St, Commerce City, CO 80022, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.785721,
+          "lng": -104.912543
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.78709147989272,
+            "lng": -104.9113716701073
+          },
+          "southwest": {
+            "lat": 39.78439182010727,
+            "lng": -104.9140713298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Absolute Plumbing, Electrical, Heating & Air",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 2048,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/116324195609211182095\">Randy Ellis</a>"
+          ],
+          "photo_reference": "AWYs27wXut5ArqtrtbNt_x5cmOQKoIN4uzn7BCIzI7Y_xIGHRrqVULXFW5zcIKyk-suVhLM-26LDWQuxQC90YtG1RzuwuWHcfXCd3l5C5skl5utYdzcrcGLN6X0U-Dn-LOl03ncGCX8flpXn3cnrshk9bBlNmPAzZdLR_k1sb5megK3ZmqdA",
+          "width": 1367
+        }
+      ],
+      "place_id": "ChIJpykRU_RzbIcR24iynIvN_WU",
+      "plus_code": {
+        "compound_code": "Q3PP+7X Commerce City, Colorado",
+        "global_code": "85FQQ3PP+7X"
+      },
+      "rating": 4.9,
+      "reference": "ChIJpykRU_RzbIcR24iynIvN_WU",
+      "types": [
+        "electrician",
+        "plumber",
+        "general_contractor",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 2492
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "1020 W 124th Ave #700, Westminster, CO 80234, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.9212095,
+          "lng": -104.9993143
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.92247232989273,
+            "lng": -104.9981221701073
+          },
+          "southwest": {
+            "lat": 39.91977267010728,
+            "lng": -105.0008218298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Mister Sparky Of Denver",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1365,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/108333799494954330587\">Mister Sparky</a>"
+          ],
+          "photo_reference": "AWYs27x9-rHPnOkmXY1hi0fa_WBWrZmDyQmyo4MFnuSQRp7xmaetJkt_M2K4Rzx9jYhDhCdO3ucYNC-2v4DsczRARTZ5ljinpP1jJXaK9CDcgVxKtqbAflZMZbB6Ll4ecRpWCv4n5mDMKo34CIqjmSHCqNImf1udzkFG_ZQGLDM7z2gWfC6V",
+          "width": 2048
+        }
+      ],
+      "place_id": "ChIJFRdkhKqBa4cRq_khIdP9zk0",
+      "plus_code": {
+        "compound_code": "W2C2+F7 Westminster, Colorado",
+        "global_code": "85FQW2C2+F7"
+      },
+      "rating": 4.9,
+      "reference": "ChIJFRdkhKqBa4cRq_khIdP9zk0",
+      "types": [
+        "electrician",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 2292
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "2200 E 104th Ave # 205, Thornton, CO 80233, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.8842039,
+          "lng": -104.9599209
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.88561182989272,
+            "lng": -104.9585852201073
+          },
+          "southwest": {
+            "lat": 39.88291217010728,
+            "lng": -104.9612848798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Just In Time Electrical & Plumbing",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4032,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/110503316421044082806\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27y0dNRCJfVj8Qrz91HKrcAjMZ56guu6a1IQzkfFrfQTzJ-6QRnuScfnBK03ffXX8sHFn3QgQRJOBcme4VE7AW-5Ymvs79KHD71GJjC0suhh-cejiHGzOvDr6nRNR6fHNQxDimca4lW07NA6sDDbisEz6evAwHRhMVx2q3QUQamyFpMf",
+          "width": 3024
+        }
+      ],
+      "place_id": "ChIJtyZi0k1zbIcRN2qkYWgEtis",
+      "plus_code": {
+        "compound_code": "V2MR+M2 Thornton, Colorado",
+        "global_code": "85FQV2MR+M2"
+      },
+      "rating": 4.9,
+      "reference": "ChIJtyZi0k1zbIcRN2qkYWgEtis",
+      "types": [
+        "electrician",
+        "plumber",
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 686
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "700 Billings St STE R, Aurora, CO 80011, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.727184,
+          "lng": -104.821657
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.72876327989272,
+            "lng": -104.8204525201073
+          },
+          "southwest": {
+            "lat": 39.72606362010727,
+            "lng": -104.8231521798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "JM Electric Inc.",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1000,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/112214696686547659601\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27xioQn3jwp4--t5TSZci8BTQx71nSSPO1C1ws9eyVpg38M1oGP0WKjqbAePl5Y4N_GJ2pv7vEelGULOt8vTKEfLGvXm_aZ-RbIjPfJFBuf8OhtZcG9mSR_rZxPodjlajLixyZ2dZU9pTuhNTiCOwuV7HK0YVHOMOAl49ziYtKcQk08p",
+          "width": 1499
+        }
+      ],
+      "place_id": "ChIJr-W3fRhjbIcRWKPsgtaYYD8",
+      "plus_code": {
+        "compound_code": "P5GH+V8 Aurora, Colorado",
+        "global_code": "85FQP5GH+V8"
+      },
+      "rating": 4.9,
+      "reference": "ChIJr-W3fRhjbIcRWKPsgtaYYD8",
+      "types": [
+        "electrician",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 637
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "12445 E 39th Ave, Denver, CO 80239, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7729197,
+          "lng": -104.8438045
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.77416482989271,
+            "lng": -104.8424083201073
+          },
+          "southwest": {
+            "lat": 39.77146517010727,
+            "lng": -104.8451079798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "All Electric",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4032,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/106799554489925928094\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27xCEq9PKM_4w4RoC1XcCZOoSEMRRXxjnWCBzWxQZwXbL_7xPgLut2eiZBrYdcHv3WYKdCOnF226EZVfJDR2njqHRdp56liJE62dlRMkazTAcxe-h0lw3FFZ1UMmG8Cazg5J15uyVYL_i2lNzVthAqeImBuaGSS8AG9Bvcd-UFWuOzGY",
+          "width": 3024
+        }
+      ],
+      "place_id": "ChIJfY9yYbdlbIcRtZ_OCPoX3A0",
+      "plus_code": {
+        "compound_code": "Q5F4+5F Denver, Colorado",
+        "global_code": "85FQQ5F4+5F"
+      },
+      "rating": 4.9,
+      "reference": "ChIJfY9yYbdlbIcRtZ_OCPoX3A0",
+      "types": [
+        "electrician",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 322
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "2875 W Oxford Ave, Englewood, CO 80110, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.6425554,
+          "lng": -105.0238248
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.64392132989273,
+            "lng": -105.0225694201073
+          },
+          "southwest": {
+            "lat": 39.64122167010729,
+            "lng": -105.0252690798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Luminous Electric",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1512,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/112181485851516616317\">Luminous Electric</a>"
+          ],
+          "photo_reference": "AWYs27zC-6d8rsV1ATNyePEldQxWlE68IYrWBc717qArIkuP6cC6hgmru411NktFgCieh37kXp8O59s2tD3NcfjWS_j7vNEvaYIM8RKKpnI1It-X6DOEQQ3igEysL8Fe0QxSzUF2YG9Q9G4QOuYsHW2yJGgkQhJ72Q3ciK57gHCr3yoHS7Vo",
+          "width": 2016
+        }
+      ],
+      "place_id": "ChIJucMc5Hs0U64RERDGbCpRU-g",
+      "plus_code": {
+        "compound_code": "JXVG+2F Englewood, Colorado",
+        "global_code": "85FPJXVG+2F"
+      },
+      "rating": 4.9,
+      "reference": "ChIJucMc5Hs0U64RERDGbCpRU-g",
+      "types": [
+        "electrician",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 267
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "5160 Parfet St Unit B5, Wheat Ridge, CO 80033, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7897865,
+          "lng": -105.1201396
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.79087872989272,
+            "lng": -105.1187884701073
+          },
+          "southwest": {
+            "lat": 39.78817907010728,
+            "lng": -105.1214881298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Table Mountain Electric Inc | Denver Electrician",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1206,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/114026657535536840433\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27z6_mrxaeW-qk5eWq7uIx9dtCcPHnR9P9pZERnnoXnnW_ZofewIGTSnXn8k9fU-5CkX8Qhu4KoDjVWJ1ISi1vjfisprcv0TgwMbmjAdrLtb1QBTCtgszJxaP0hyvFlWRV5iQcN2DaKcsxduwkPb9ExDZvGCBrPAQfcWkjPbwQnV4jg",
+          "width": 1600
+        }
+      ],
+      "place_id": "ChIJwZX2jBiBa4cRVOTcScxv4Rw",
+      "plus_code": {
+        "compound_code": "QVQH+WW Wheat Ridge, Colorado",
+        "global_code": "85FPQVQH+WW"
+      },
+      "rating": 4.9,
+      "reference": "ChIJwZX2jBiBa4cRVOTcScxv4Rw",
+      "types": [
+        "electrician",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 227
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "2110 E 126th Way, Thornton, CO 80241, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.9270315,
+          "lng": -104.9617534
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.92847222989273,
+            "lng": -104.9602538201073
+          },
+          "southwest": {
+            "lat": 39.92577257010728,
+            "lng": -104.9629534798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Kratzer Electric",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/104251431176348869091\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27x34rzKgZygxIJNvIbZduRdlGeAJ9NZOZUI2-2tAIMKMdN_8JUoV8goWdLesI5KGBj30I8gNlb6EyT_w038R63ENXDsfYKLmtMO_fA0H112hJ7XuuFMXypyLs-8X5a8__S0rxj3e4pw5fr8Ncok442T43fkSn3tNpJ_rmjRn9DTFXMJ",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJk8N2su11bIcR_DBHmGto_Mk",
+      "plus_code": {
+        "compound_code": "W2GQ+R7 Thornton, Colorado",
+        "global_code": "85FQW2GQ+R7"
+      },
+      "rating": 4.9,
+      "reference": "ChIJk8N2su11bIcR_DBHmGto_Mk",
+      "types": [
+        "electrician",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 92
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "12445 E 39th Ave #211, Denver, CO 80239, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.771883,
+          "lng": -104.844299
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.77329032989272,
+            "lng": -104.8425812701073
+          },
+          "southwest": {
+            "lat": 39.77059067010728,
+            "lng": -104.8452809298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "CT Electrical Services",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 746,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/113342132142141732580\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27wIy6JgMuyZlIu6MFA7hPDZmefr6lTn_RCAAS3VATrwceS_4vW9vYkWrOylbIIBicu-0T1_RbjjWasfhiCBwsZRehN-LrO488MSGf8KUWgcoPta2zHXcFN0N24ekGiSC9ksiH9G91i-AS61QPe0rUI_NJVN6hNS9pe94UuzuN82DvK8",
+          "width": 994
+        }
+      ],
+      "place_id": "ChIJF6aiee59bIcRm9COKA9BzEk",
+      "plus_code": {
+        "compound_code": "Q5C4+Q7 Denver, Colorado",
+        "global_code": "85FQQ5C4+Q7"
+      },
+      "rating": 4.9,
+      "reference": "ChIJF6aiee59bIcRm9COKA9BzEk",
+      "types": [
+        "electrician",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 59
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "3125 W Alabama Pl, Denver, CO 80219, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.694195,
+          "lng": -105.0268612
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.69542682989272,
+            "lng": -105.0255233201073
+          },
+          "southwest": {
+            "lat": 39.69272717010728,
+            "lng": -105.0282229798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Williams and Sons Electric, LLC.",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4000,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/113046631653133693534\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27wygYLs63eiG1nFseDpablanBp-K5Wy76FHOv60rP4Ble5S_jNBfqH31aFgpEELGCheUZwzKpQqIjxUttURzSF237493RdRHaUoKbeuBURF7AWry3glWfSkpJYraG_yjLFdbVJ3r_9S6YP7NqFxNfEpA4zy8WLGJyho00f7D2arLpP_",
+          "width": 3000
+        }
+      ],
+      "place_id": "ChIJ56IHNH9_bIcRyLj27NSMm2s",
+      "plus_code": {
+        "compound_code": "MXVF+M7 Denver, Colorado",
+        "global_code": "85FPMXVF+M7"
+      },
+      "rating": 4.9,
+      "reference": "ChIJ56IHNH9_bIcRyLj27NSMm2s",
+      "types": [
+        "electrician",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 58
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "5000 W 29th Ave, Denver, CO 80212, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7583004,
+          "lng": -105.0512657
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.75973902989271,
+            "lng": -105.0499122701073
+          },
+          "southwest": {
+            "lat": 39.75703937010727,
+            "lng": -105.0526119298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Applewood Plumbing Heating & Electric",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 955,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/103963415616979885206\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27xcOm-6sYTB8UHqkvtaN91Nysa4euPneWVWhbG0KKq5yU85JbLgPPTXjWnvZWxFpulySkvi1gomubjvn8ivAYN30K6V-iUO5mXgHMXO3xLE7Db3LKoMz1lcOA5Q0AysKAqiz7ItO5fe-xq5xkbJm6mSjD-TFUV0q_MApkcllYfCE4QR",
+          "width": 1432
+        }
+      ],
+      "place_id": "ChIJkWUJx22Ha4cRVVLq4AJk7Ng",
+      "plus_code": {
+        "compound_code": "QW5X+8F Denver, Colorado",
+        "global_code": "85FPQW5X+8F"
+      },
+      "rating": 4.8,
+      "reference": "ChIJkWUJx22Ha4cRVVLq4AJk7Ng",
+      "types": [
+        "plumber",
+        "electrician",
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 13754
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "5550 W 60th Ave, Arvada, CO 80003, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.8052318,
+          "lng": -105.0569293
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.80673782989273,
+            "lng": -105.0555236701073
+          },
+          "southwest": {
+            "lat": 39.80403817010728,
+            "lng": -105.0582233298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Piper Electric Co",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4000,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/102164765159438323332\">Piper Electric Co Inc</a>"
+          ],
+          "photo_reference": "AWYs27xP3cpxvUeYitWlXgAxZZT3-9bBBx1NvEX6XJ3AuESLnbXqchWNjI2JFaiG43Fgi2LhLQE0hAqKHKWhVMijwCndvz_OuDwxX5xS4jPSDaaurdqaZosxLnaTMM-xQpenbKIjHRmSXK3FSsMhZ6lUrf8tnAGRJEUOKz_-2xOBBLgwtsLO",
+          "width": 2250
+        }
+      ],
+      "place_id": "ChIJP-QyodmHa4cRgV22lQVF6dM",
+      "plus_code": {
+        "compound_code": "RW4V+36 Arvada, Colorado",
+        "global_code": "85FPRW4V+36"
+      },
+      "rating": 4.8,
+      "reference": "ChIJP-QyodmHa4cRgV22lQVF6dM",
+      "types": [
+        "electrician",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 136
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "9751 W 44th Ave Suite 106, Wheat Ridge, CO 80033, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7787519,
+          "lng": -105.106088
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.77978577989272,
+            "lng": -105.1047171201073
+          },
+          "southwest": {
+            "lat": 39.77708612010728,
+            "lng": -105.1074167798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Becker Electrical - Denver Electrician | Electrician Denver CO",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/108704793729151365003\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27yNQ4t7Gw5Obgxxmx-aU1tqQOHrEkNEROASYIIB5IteRY9l9TZtyZ_ghTaDSkLcRJ2rxNB7YpEppLkz3tw7bK-xa5IFoOlSlV3Is5A0ao4MCTIzcBct1JCWHXgpiH5WOrL2strTiTVCVlpnJjEDhqxYx8AA7D_bq4wnmhW5lxvniEdZ",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJ1XgiHfiiIowR5ogX1vW7gFs",
+      "plus_code": {
+        "compound_code": "QVHV+GH Wheat Ridge, Colorado",
+        "global_code": "85FPQVHV+GH"
+      },
+      "rating": 4.8,
+      "reference": "ChIJ1XgiHfiiIowR5ogX1vW7gFs",
+      "types": [
+        "electrician",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 32
+    }
+  ]
+}

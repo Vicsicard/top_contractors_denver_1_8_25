@@ -1,0 +1,888 @@
+{
+  "trade": "carpenters",
+  "lastUpdated": "2024-12-23T17:15:44.954Z",
+  "results": [
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "1342 W Cedar Ave, Denver, CO 80223, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7128877,
+          "lng": -105.0046786
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.71431622989272,
+            "lng": -105.0033280701073
+          },
+          "southwest": {
+            "lat": 39.71161657010727,
+            "lng": -105.0060277298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Cabinet Restoration Inc.",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 480,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/117367478081626321444\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27z8rc3bFEIt-wKxnnVfIR4roLkBVd3QmhC4KEcySymiV4wm7rLT07zj4sq1hmZC7I88SeBMyTky6RPvlckvy601RBcH72AaKmipq_ckqsLs8uq7ZdKEIEjoJR_cAV2eGIGj5aGQU8VFo38L9BnTgB4sfZfoSW3Kftzu29vcyMkxlMUE",
+          "width": 640
+        }
+      ],
+      "place_id": "ChIJM9SnI-54bIcRwysGlwYRFUQ",
+      "plus_code": {
+        "compound_code": "PX7W+54 Denver, Colorado",
+        "global_code": "85FPPX7W+54"
+      },
+      "rating": 5,
+      "reference": "ChIJM9SnI-54bIcRwysGlwYRFUQ",
+      "types": [
+        "painter",
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 88
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "2075 S University Blvd #216, Denver, CO 80210, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.6791414,
+          "lng": -104.9598963
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.68048857989272,
+            "lng": -104.9585012701073
+          },
+          "southwest": {
+            "lat": 39.67778892010728,
+            "lng": -104.9612009298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Home Improvements of Colorado Inc.",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3072,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/106190748627736702748\">Serah Davis</a>"
+          ],
+          "photo_reference": "AWYs27xXIOQeyPKXrigRHAY-bbuArqqDSub1ZIP0LGI6ty6jxHaWETYVWk94FvL4JfGsXjHgjB82JJzAdFyiS-p3tyfapNVslBeAIlfITu1UWxQQ8EmnXUrT2t7-uQXA7C3ZE_4gEDYHX1TeTw10Ii_ZWO1iQWmd5Fr5RnoUxQprioE1ZI0R",
+          "width": 4080
+        }
+      ],
+      "place_id": "ChIJWb5cARV-bIcRJmyqaa2GmjE",
+      "plus_code": {
+        "compound_code": "M2HR+M2 Denver, Colorado",
+        "global_code": "85FQM2HR+M2"
+      },
+      "rating": 5,
+      "reference": "ChIJWb5cARV-bIcRJmyqaa2GmjE",
+      "types": [
+        "home_goods_store",
+        "general_contractor",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 60
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "2555 S Santa Fe Dr unit f-2, Denver, CO 80223, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.67050830000001,
+          "lng": -104.9962995
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.67163172989272,
+            "lng": -104.9951288701073
+          },
+          "southwest": {
+            "lat": 39.66893207010727,
+            "lng": -104.9978285298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/school-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/school_pinlet",
+      "name": "Woodworks Studio",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/104828717393997305761\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27xMuaaGqdCCpny9h1WGaUCm2jEiyqxLow-BUY4H4topz_hfcv856bSIu6QldNIhRpnIW3Zhruau4-EAHV3whFluyunxt-AsYtUtkZUqN5WEN6YZqbaGOShzWve2PhtjGc-RrHImBuJEu2V5bgpxzcC7KWhKBiPH2QmYna9bBf06R2f-",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJDSm5XM9_bIcR3SYIaZQntwM",
+      "plus_code": {
+        "compound_code": "M2C3+6F Denver, Colorado",
+        "global_code": "85FQM2C3+6F"
+      },
+      "rating": 5,
+      "reference": "ChIJDSm5XM9_bIcR3SYIaZQntwM",
+      "types": [
+        "home_goods_store",
+        "general_contractor",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 44
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "6351 S Worchester St, Centennial, CO 80111, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.601324,
+          "lng": -104.83374
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.60271707989273,
+            "lng": -104.8323115201073
+          },
+          "southwest": {
+            "lat": 39.60001742010729,
+            "lng": -104.8350111798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Finish Carpenter",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 2268,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/101813636082749527346\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27wUlYVGU0RrnqMWlsdX2Oh1ie3xDxIhn2MUpwa_OH3uZt93X1hrV7L3IHsxTS3kdHnOIFcXrDjh5in47vk1cv1l3V3YeOn7sl7qAzAbv3PHEeLWQBdVhdtCJ-NyeqQT_9j00f1C2CDxIuY9Z3JKqsgI6wdN3YBFKQ1ZWJxzSu64sjsC",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJMTb-rvAfFoQRpfTblAsq1X4",
+      "plus_code": {
+        "compound_code": "J528+GG Centennial, Colorado",
+        "global_code": "85FQJ528+GG"
+      },
+      "rating": 5,
+      "reference": "ChIJMTb-rvAfFoQRpfTblAsq1X4",
+      "types": [
+        "home_goods_store",
+        "general_contractor",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 26
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "1640 S Tennyson St, Denver, CO 80219, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.6872216,
+          "lng": -105.0439835
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.68857107989272,
+            "lng": -105.0427784201073
+          },
+          "southwest": {
+            "lat": 39.68587142010728,
+            "lng": -105.0454780798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+      "icon_background_color": "#4B96F3",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+      "name": "TG Woodworking",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 731,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/101586813790211674926\">TG Woodworking</a>"
+          ],
+          "photo_reference": "AWYs27wpneSaYL5GfnRIfXUJYJHywro77-nmahFCgnxsd7SmTicl8Dd8yTnur2HMYq-ims-h4O6KH2xSr_jCIoBpAC5mGaewJCCgu6FL6qdaz6rvqLMYXOQxaFiDWEU0KeI1FJ8jt6UCEf4IwjzHKoBSY_rIelNI8supLHhhhRdufPKwWQhI",
+          "width": 1064
+        }
+      ],
+      "place_id": "ChIJLZR9nCl_bIcRR1wBPF3_WPs",
+      "plus_code": {
+        "compound_code": "MXP4+VC Denver, Colorado",
+        "global_code": "85FPMXP4+VC"
+      },
+      "rating": 5,
+      "reference": "ChIJLZR9nCl_bIcRR1wBPF3_WPs",
+      "types": [
+        "home_goods_store",
+        "general_contractor",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 18
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "10401 E Idaho Pl, Aurora, CO 80247, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.6921227,
+          "lng": -104.8673303
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.69340172989272,
+            "lng": -104.8658455701073
+          },
+          "southwest": {
+            "lat": 39.69070207010728,
+            "lng": -104.8685452298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Hands of the Carpenter - East",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 2550,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/103456604327383097646\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27zlcUYfOR-nNsP5Np--OkziTi0zyxXhlR5o8U4ah7-VC1-uWvtqU7uftemGRjMmH9yFRZmE1sOUoDVsnmGm7ylCYYVVGs1MTeP1HpA5DauOL1HsgPL3ruWBZpe73ckSqphtO2LV8v2pJPH4b8-h6oWGYJYwuIIPd51BmDZhdp14Dfhd",
+          "width": 3600
+        }
+      ],
+      "place_id": "ChIJmRAJaRaLbIcRDCoiRk3Vm-A",
+      "plus_code": {
+        "compound_code": "M4RM+R3 Aurora, Colorado",
+        "global_code": "85FQM4RM+R3"
+      },
+      "rating": 5,
+      "reference": "ChIJmRAJaRaLbIcRDCoiRk3Vm-A",
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 10
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "2525 18th St Apt. 407, Denver, CO 80211, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7609336,
+          "lng": -105.0071547
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.76235757989272,
+            "lng": -105.0055785701073
+          },
+          "southwest": {
+            "lat": 39.75965792010727,
+            "lng": -105.0082782298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Cut in Two Carpentry LLC",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 640,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/104244002861541577133\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27wHeGSAA022m9u-QHq2tc7MHQM_89iDb5lwun2oTya1QONXOCyD088lmQF6Uq0aPtTwGVAyotxMjKIFG1k21IT3mosiKjvjwkwm6s9_ZRbXmBySoF46QiEMI3VxEsOkDfMwdUnhnYcnQjDRthP3DehpPgHBPL9CFE7ZqzliA-kpWqTe",
+          "width": 480
+        }
+      ],
+      "place_id": "ChIJ-4SNo5DV54kReqpBZMhZ-Nw",
+      "plus_code": {
+        "compound_code": "QX6V+94 Denver, Colorado",
+        "global_code": "85FPQX6V+94"
+      },
+      "rating": 5,
+      "reference": "ChIJ-4SNo5DV54kReqpBZMhZ-Nw",
+      "types": [
+        "painter",
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 9
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "7446 E Princeton Ave, Denver, CO 80237, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.640254,
+          "lng": -104.901719
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.64150147989272,
+            "lng": -104.9003540701073
+          },
+          "southwest": {
+            "lat": 39.63880182010728,
+            "lng": -104.9030537298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "The Ernest Carpenter",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4160,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/101616634109098722783\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27ywbtanyqG-15-Rm39PvP95WsMwtjfR_wMfpnzERNHq8JoYOg5DBQW1FkWROd2cz3f26awK7nrfN16Ff_G-5LFd24W3qQnaeG5owQZUA1VVQz8L2SxfbikwXE0GHXsbVJo0OxJhf0Wd8d822NhF99oON8zKFQgyJxH6Lw0EnCN2-Ebx",
+          "width": 3120
+        }
+      ],
+      "place_id": "ChIJ631p1VF9bIcRwlmNjApaKXs",
+      "plus_code": {
+        "compound_code": "J3RX+48 Denver, Colorado",
+        "global_code": "85FQJ3RX+48"
+      },
+      "rating": 5,
+      "reference": "ChIJ631p1VF9bIcRwlmNjApaKXs",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 5
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "6700 W 44th Ave, Denver, CO 80033, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7764089,
+          "lng": -105.0714567
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.77777982989272,
+            "lng": -105.0701054701073
+          },
+          "southwest": {
+            "lat": 39.77508017010728,
+            "lng": -105.0728051298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Chris Meinert Carpentry",
+      "opening_hours": {
+        "open_now": true
+      },
+      "place_id": "ChIJMbwZP66Ha4cRqAoAEOvildA",
+      "plus_code": {
+        "compound_code": "QWGH+FC Denver, Colorado",
+        "global_code": "85FPQWGH+FC"
+      },
+      "rating": 5,
+      "reference": "ChIJMbwZP66Ha4cRqAoAEOvildA",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 3
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "1935 Logan St, Denver, CO 80203, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7468948,
+          "lng": -104.9826052
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.74820577989272,
+            "lng": -104.9811230201073
+          },
+          "southwest": {
+            "lat": 39.74550612010728,
+            "lng": -104.9838226798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Trim Works Carpentry",
+      "opening_hours": {},
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/107106320100788945201\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27zDGL2TMjY0DGFkqLES06SzfuFzJC2OZyLyO1kNAVYdGjztxavfea217tw8-_DxXkBKAfUw8Maiii1sqTZ7IFynYSm_0za7IJcfGINzrB9pCFZKLVQcz5mfDFtrdAxmhc34ttBk5m9jJS3rxCKvZr_0S5krt2Z0Bz0EqW6b9MWbC140",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJc2IUipl5bIcRHVoOSNyz4Qc",
+      "plus_code": {
+        "compound_code": "P2W8+QX Denver, Colorado",
+        "global_code": "85FQP2W8+QX"
+      },
+      "rating": 4.9,
+      "reference": "ChIJc2IUipl5bIcRHVoOSNyz4Qc",
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 58
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "1390 N Lamar St, Lakewood, CO 80214, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7382514,
+          "lng": -105.0666558
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.73959867989272,
+            "lng": -105.0654695701073
+          },
+          "southwest": {
+            "lat": 39.73689902010727,
+            "lng": -105.0681692298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Adams Custom Cabinetry",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 6000,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/118006397622946180532\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27ygHw26sylIKcPPOy_N8fPd5lRS3hzfpOugQG0a40lS6rgM5FAVqDSnmRsemQT72Xgx_PlYRzki85lsb04TteiP7zVvcD_68p8A3a-yrVczEJPKf7WwLCbQKhaLYsAWcjYwTQBsU0Ojvb1ST8H1iX5iUeql9EyVtIHLd5u6QqIZmyho",
+          "width": 4000
+        }
+      ],
+      "place_id": "ChIJDwahpTqHa4cRMvJPlvNPy1g",
+      "plus_code": {
+        "compound_code": "PWQM+78 Lakewood, Colorado",
+        "global_code": "85FPPWQM+78"
+      },
+      "rating": 4.7,
+      "reference": "ChIJDwahpTqHa4cRMvJPlvNPy1g",
+      "types": [
+        "home_goods_store",
+        "general_contractor",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 51
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "2553 S Colorado Blvd #108, Denver, CO 80222, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.6707986,
+          "lng": -104.9417649
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.67211782989273,
+            "lng": -104.9403309701073
+          },
+          "southwest": {
+            "lat": 39.66941817010728,
+            "lng": -104.9430306298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+      "icon_background_color": "#4B96F3",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+      "name": "Rockler Woodworking and Hardware - Denver",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 450,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/100237022653285340607\">Rockler Woodworking and Hardware - Denver</a>"
+          ],
+          "photo_reference": "AWYs27xAcljwKRq3zxQYaYmoZqjOMMlB4X84rbypETgqOP8if-_T-mnCGQR37MPuEJ4xTgJajtpKnlKaJkMnv-LEZd34U-RAdXlfnCzms6vQWQp4CAnb7vlhWiU9HB4Mr6_HiFQpCzIyIcJsYOigtsaQoK_7G1oFUT-0jgU_3e6t-2Zjy2Vo",
+          "width": 600
+        }
+      ],
+      "place_id": "ChIJ0VulzgB-bIcRSoF9_Tbbq8c",
+      "plus_code": {
+        "compound_code": "M3C5+87 Denver, Colorado",
+        "global_code": "85FQM3C5+87"
+      },
+      "rating": 4.6,
+      "reference": "ChIJ0VulzgB-bIcRSoF9_Tbbq8c",
+      "types": [
+        "hardware_store",
+        "general_contractor",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 363
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "2000 S Colorado Blvd Suite 2000-1057, Denver, CO 80222, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.6808811,
+          "lng": -104.938064
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.68210037989272,
+            "lng": -104.9367237201073
+          },
+          "southwest": {
+            "lat": 39.67940072010727,
+            "lng": -104.9394233798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Ace Handyman Services Cherry Creek/Park Hill",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 653,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/100529719320653681792\">Handyman Matters</a>"
+          ],
+          "photo_reference": "AWYs27xk6TZzUXs3atEhFFsjdH2xuTiGUMut9IOMZVKPKnfHjn6yylIqeDeJDFT6jCma-Fxl2FajlhJyjWVBO6WZJlD15FiySPP1C6JR7NxZ7ORc5hYwAWCOiAekUYeFA1le9bEnKFIPIZvKJQlOXMHbwzWgwZK5L74wMp70x3Rpc9c4_gzc",
+          "width": 490
+        }
+      ],
+      "place_id": "ChIJ46avvbZ9bIcRQl4tIK7euHs",
+      "plus_code": {
+        "compound_code": "M3J6+9Q Denver, Colorado",
+        "global_code": "85FQM3J6+9Q"
+      },
+      "rating": 4.6,
+      "reference": "ChIJ46avvbZ9bIcRQl4tIK7euHs",
+      "types": [
+        "electrician",
+        "home_goods_store",
+        "general_contractor",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 163
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "800 S Jason St, Denver, CO 80223, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.701978,
+          "lng": -104.9983192
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.70305267989272,
+            "lng": -104.9966773701073
+          },
+          "southwest": {
+            "lat": 39.70035302010728,
+            "lng": -104.9993770298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Gabe's Refinishing",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4624,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/114709407172154490994\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27ySGpUVOfU5AoTSTTfryO0sOGe2TtZmiIxt8M4GPDlE0f1xXp03VZ-DlZNANdeimMXNSGmcPQMSX5v6D6fPWpGlvNCYcivu5auzE4gBfm0QVeBe6aC4M-OqN4BAjmCmmBELbmqwE7DGCurQFSAG6wxTsb-_U1rZuptH7wkf0fJWos8z",
+          "width": 3468
+        }
+      ],
+      "place_id": "ChIJ8QKDeOl_bIcR7LOf0kkUttA",
+      "plus_code": {
+        "compound_code": "P222+QM Denver, Colorado",
+        "global_code": "85FQP222+QM"
+      },
+      "rating": 4.5,
+      "reference": "ChIJ8QKDeOl_bIcR7LOf0kkUttA",
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 15
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "4290 Holly St, Denver, CO 80216, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7761117,
+          "lng": -104.9215891
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.77732437989272,
+            "lng": -104.9205953701073
+          },
+          "southwest": {
+            "lat": 39.77462472010728,
+            "lng": -104.9232950298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Colorado Millwrights & Carpenters Union Local 555/1607",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3072,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/100031747865260398801\">Bradley Borders</a>"
+          ],
+          "photo_reference": "AWYs27wFuvK3OVupNVeIDIqVm2rzjyfHPbfU7ipEjT1Ju1tZrwl_39nWBIUuRktB0WxIf7S__kDkb8SdOX1UPJH0kNfcPgTnDrm-6IWoJfJVL5KFnfSVT083Efm4QvS7bkaHXtUzpVa06qMOPHejkpSuhr6FKNjeiAfZFJcqdSemf4BqAs_0",
+          "width": 4080
+        }
+      ],
+      "place_id": "ChIJfX0e4sV7bIcR-yfSQuwt08o",
+      "plus_code": {
+        "compound_code": "Q3GH+C9 Denver, Colorado",
+        "global_code": "85FQQ3GH+C9"
+      },
+      "rating": 4.5,
+      "reference": "ChIJfX0e4sV7bIcR-yfSQuwt08o",
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 10
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "963 Corona St #1, Denver, CO 80218, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.731589,
+          "lng": -104.974421
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.73293942989272,
+            "lng": -104.9732081701073
+          },
+          "southwest": {
+            "lat": 39.73023977010728,
+            "lng": -104.9759078298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Denver's Handyman Services",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1530,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/100348292664510294990\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27yRyWD5NkLiwr_MgZgiQOeotezN8x1Z43PkhCGzTEs4yQXJYROFmxfuMOfpGndDhqbVVb0h8wf-i2qthAOQGK8COzsexVc7ajAyIcIoMB1QqkbT3GXcIbc241lrUXpqTbACdn-u72J5DwMTDG209wS9SjBdhyVjhQ7LO5VGkDv0zAGJ",
+          "width": 2048
+        }
+      ],
+      "place_id": "ChIJ_SeWJdB-bIcR1U0sYQC0OBU",
+      "plus_code": {
+        "compound_code": "P2JG+J6 Denver, Colorado",
+        "global_code": "85FQP2JG+J6"
+      },
+      "rating": 4.2,
+      "reference": "ChIJ_SeWJdB-bIcR1U0sYQC0OBU",
+      "types": [
+        "painter",
+        "home_goods_store",
+        "general_contractor",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 60
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "4231 S Natches Ct suite g, Englewood, CO 80110, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.6401172,
+          "lng": -105.0098164
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.64146662989271,
+            "lng": -105.0084939701073
+          },
+          "southwest": {
+            "lat": 39.63876697010727,
+            "lng": -105.0111936298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "McKee Woodcraft",
+      "opening_hours": {
+        "open_now": true
+      },
+      "place_id": "ChIJw9eLTxOAbIcRxzLtemeML3o",
+      "plus_code": {
+        "compound_code": "JXRR+24 Englewood, Colorado",
+        "global_code": "85FPJXRR+24"
+      },
+      "rating": 3.7,
+      "reference": "ChIJw9eLTxOAbIcRxzLtemeML3o",
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 3
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "4290 Holly St, Denver, CO 80216, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7760484,
+          "lng": -104.9220532
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.77742262989272,
+            "lng": -104.9207029201073
+          },
+          "southwest": {
+            "lat": 39.77472297010728,
+            "lng": -104.9234025798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Colorado Carpenters Statewide",
+      "opening_hours": {
+        "open_now": true
+      },
+      "place_id": "ChIJfX0e4sV7bIcRSQFUW9shhXw",
+      "plus_code": {
+        "compound_code": "Q3GH+95 Denver, Colorado",
+        "global_code": "85FQQ3GH+95"
+      },
+      "rating": 3.5,
+      "reference": "ChIJfX0e4sV7bIcRSQFUW9shhXw",
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 8
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 import { Business } from '@/types/business';
 import { Contractor } from '@/types/routes';
-import { searchPlaces, PlaceResult } from './googlePlaces';
+import { searchPlaces } from './googlePlaces';
+import { PlaceResult } from '@/types/places';
 
 interface SearchOptions {
   skip?: number;
@@ -48,47 +49,82 @@ function businessToContractor(business: Business): Contractor {
 export async function loadLocations(query: string, options?: SearchOptions): Promise<SearchResult> {
   console.log('Loading locations for query:', query);
   
-  if (!query) {
-    console.log('Empty query, returning empty results');
+  // During build time, return mock data
+  if (process.env.NODE_ENV === 'production' && process.env.NEXT_PHASE === 'phase-production-build') {
     return {
       locations: [],
       total: 0
     };
   }
+  
+  const defaultOptions = {
+    skip: 0,
+    limit: 10,
+    sort: 'rating',
+    order: 'desc' as const,
+    location: 'Denver, CO'
+  };
 
+  const mergedOptions = { ...defaultOptions, ...options };
+  
   try {
-    // Ensure location is in Colorado and specific to the city
-    const location = options?.location ? `${options.location}, Colorado` : 'Denver, Colorado';
-    const placesResponse = await searchPlaces(query, location);
-    console.log(`Received ${placesResponse.results.length} places from Google Places API for ${location}`);
+    // Remove any 'contractors' suffix if present
+    const cleanQuery = query.toLowerCase().replace(/\s+contractors?$/, '').trim();
+    console.log('Clean query:', cleanQuery);
+
+    const placesResponse = await searchPlaces(cleanQuery, mergedOptions.location);
     
+    if (!placesResponse.results) {
+      console.log('No results found for query:', cleanQuery);
+      return { locations: [], total: 0 };
+    }
+
     const businesses = placesResponse.results.map(locationToBusiness);
-    console.log(`Transformed ${businesses.length} places to businesses`);
-
-    const skip = options?.skip || 0;
-    const limit = options?.limit || 10;
-    const paginatedResults = businesses.slice(skip, skip + limit);
-
+    
     return {
-      locations: paginatedResults,
+      locations: businesses,
       total: businesses.length
     };
   } catch (error) {
     console.error('Error loading locations:', error);
-    return {
-      locations: [],
-      total: 0
-    };
+    return { locations: [], total: 0 };
   }
 }
 
 export async function loadContractors(keyword: string, location: string): Promise<Contractor[]> {
-  // Ensure location is in Colorado
-  const fullLocation = `${location}, Colorado`;
-  console.log(`Searching contractors in ${fullLocation}`);
-  const placesResponse = await searchPlaces(keyword, fullLocation);
-  const businesses = placesResponse.results.map(locationToBusiness);
-  return businesses.map(businessToContractor);
+  try {
+    console.log('Loading contractors:', { keyword, location });
+
+    // Clean up the keyword to ensure it's contractor-focused
+    const searchKeyword = keyword.toLowerCase().includes('contractor') ? 
+      keyword : 
+      `${keyword} contractor`;
+
+    // Search for contractors
+    console.log('Searching with keyword:', searchKeyword);
+    const placesResponse = await searchPlaces(searchKeyword, location);
+    
+    if (!placesResponse.results || placesResponse.results.length === 0) {
+      console.log('No results found for:', { searchKeyword, location });
+      return [];
+    }
+
+    console.log(`Found ${placesResponse.results.length} results`);
+    
+    // Convert places to businesses then to contractors
+    const businesses = placesResponse.results.map(locationToBusiness);
+    const contractors = businesses.map(businessToContractor);
+
+    console.log('Processed contractors:', {
+      count: contractors.length,
+      firstContractor: contractors[0]?.name
+    });
+
+    return contractors;
+  } catch (error) {
+    console.error('Error loading contractors:', error);
+    throw error;
+  }
 }
 
 export async function searchBusinesses(

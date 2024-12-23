@@ -8,29 +8,108 @@ import StarIcon from '@mui/icons-material/Star';
 import { PlaceResult } from '@/types/google-places';
 
 interface ContractorListingsProps {
-  keyword: string;
-  location: string;
+  keyword?: string;
+  location?: string;
   initialResults?: PlaceResult[];
 }
 
-export default function ContractorListings({ keyword, location, initialResults = [] }: ContractorListingsProps) {
+export default function ContractorListings({ keyword = '', location = '', initialResults = [] }: ContractorListingsProps) {
   const [results, setResults] = useState<PlaceResult[]>(initialResults);
   const [loading, setLoading] = useState(!initialResults.length);
   const [error, setError] = useState<string | null>(null);
 
   const fetchResults = useCallback(async () => {
     try {
+      // Don't fetch if no keyword is provided
+      if (!keyword?.trim()) {
+        setError('Please provide a search term');
+        return;
+      }
+
       setLoading(true);
       setError(null);
-      const response = await fetch(`/api/search/places?keyword=${encodeURIComponent(keyword)}&location=${encodeURIComponent(location)}`);
-      if (!response.ok) {
-        throw new Error('Failed to fetch results');
+      
+      // Format the keyword to ensure it includes "contractor" if not already present
+      const formattedKeyword = keyword.trim().toLowerCase().includes('contractor') ? 
+        keyword.trim() : 
+        `${keyword.trim()} contractor`;
+      
+      // Format the location to ensure it includes Denver if not already present
+      const formattedLocation = (location?.trim() || 'Denver, CO').toLowerCase().includes('denver') ? 
+        (location?.trim() || 'Denver, CO') : 
+        `${location?.trim() || 'Denver'}, Denver, CO`;
+
+      console.log('Fetching results for:', { 
+        keyword: formattedKeyword, 
+        location: formattedLocation 
+      });
+
+      const queryParams = new URLSearchParams({
+        query: formattedKeyword,
+        location: formattedLocation,
+        type: 'contractor'  // Add type parameter for better filtering
+      });
+
+      const response = await fetch(`/api/places/search?${queryParams}`, {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+      
+      let data;
+      try {
+        data = await response.json();
+      } catch (parseError) {
+        console.error('Error parsing response:', parseError);
+        throw new Error('Invalid response from server');
       }
-      const data = await response.json();
-      setResults(data.results || []);
+
+      if (!response.ok) {
+        console.error('API error:', data);
+        throw new Error(data.message || data.error || 'Failed to fetch results');
+      }
+
+      if (data.results && Array.isArray(data.results)) {
+        console.log('Received results:', {
+          count: data.results.length,
+          firstResult: data.results[0]?.name,
+          status: data.status
+        });
+
+        // Filter results to ensure they are actually contractors
+        const filteredResults = data.results.filter(result => {
+          const name = result.name.toLowerCase();
+          const types = result.types?.map(t => t.toLowerCase()) || [];
+          
+          // Check if it's likely a contractor
+          return (
+            name.includes('contractor') ||
+            name.includes('construction') ||
+            name.includes('service') ||
+            name.includes('repair') ||
+            types.some(t => 
+              t.includes('contractor') || 
+              t.includes('service') || 
+              t.includes('repair') ||
+              t.includes('construction')
+            )
+          );
+        });
+
+        console.log('Filtered results:', {
+          original: data.results.length,
+          filtered: filteredResults.length
+        });
+
+        setResults(filteredResults);
+      } else {
+        console.error('Invalid results format:', data);
+        setResults([]);
+      }
     } catch (err) {
-      setError('Failed to load contractors. Please try again later.');
       console.error('Error fetching results:', err);
+      setError(err instanceof Error ? err.message : 'Failed to load contractors. Please try again later.');
     } finally {
       setLoading(false);
     }

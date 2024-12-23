@@ -1,6 +1,6 @@
 import { Suspense, ReactElement } from 'react';
 import type { Metadata } from 'next';
-import { ClientResultsList } from '@/app/components/ClientResultsList';
+import ClientResultsList from '@/app/components/ClientResultsList';
 
 export const metadata: Metadata = {
   title: 'Search Results - Denver Contractors',

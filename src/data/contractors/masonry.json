@@ -1,0 +1,699 @@
+{
+  "trade": "masonry",
+  "lastUpdated": "2024-12-23T17:16:07.890Z",
+  "results": [
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "1415 Hudson St, Denver, CO 80220, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7387475,
+          "lng": -104.923727
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.74009732989271,
+            "lng": -104.9222330701073
+          },
+          "southwest": {
+            "lat": 39.73739767010727,
+            "lng": -104.9249327298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Castle hill masonry",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 605,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/100543741567233292148\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27xntqituaolGh3XUyHRxBIHUOgxajan438U5lLad5XUMRLcB1ElklFYr95zFRm3kTtqRFEFuLwfWSEQX7vnAaesxkkVsj9WFBvTbbLABCTyLKRro97QiH2MAV93KHHIGyX4oLEV1MBm4JqK65DyU4NWgantutRSjiz2YTviL87shLCu",
+          "width": 793
+        }
+      ],
+      "place_id": "ChIJ7fxytzN_bIcRcm-ONei4p0E",
+      "plus_code": {
+        "compound_code": "P3QG+FG Denver, Colorado",
+        "global_code": "85FQP3QG+FG"
+      },
+      "rating": 5,
+      "reference": "ChIJ7fxytzN_bIcRcm-ONei4p0E",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 21
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "7135 W Ellsworth Ave, Lakewood, CO 80226, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7169345,
+          "lng": -105.0760858
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.71818242989272,
+            "lng": -105.0747339701073
+          },
+          "southwest": {
+            "lat": 39.71548277010728,
+            "lng": -105.0774336298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Brick Master Denver",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4608,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/103277272760837890114\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27zHsfOYIEczrM20VbusPFy-DPTQAsA3CVGclhY9QlwdM0Za6pidJpDxWFJfL_14tCCrQrBnd7KIq_iRsZiNz6xuX7oO_xqRr8zyMewwPYiCmL2lqd1snslQAiYJ-ZkZzCV4vkQsPvWNpz5TsYzebPU3AUbUeSqelFhBWofoxPGEwbCW",
+          "width": 3456
+        }
+      ],
+      "place_id": "ChIJqfsRbrR_bIcRybjaHA7HeH0",
+      "plus_code": {
+        "compound_code": "PW8F+QH Lakewood, Colorado",
+        "global_code": "85FPPW8F+QH"
+      },
+      "rating": 5,
+      "reference": "ChIJqfsRbrR_bIcRybjaHA7HeH0",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 19
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "5400 Sheridan Boulevard #357, Arvada, CO 80002, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7927739,
+          "lng": -105.0519058
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.79416102989273,
+            "lng": -105.0507295201073
+          },
+          "southwest": {
+            "lat": 39.79146137010728,
+            "lng": -105.0534291798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Bosco Masonry Restoration and Tuck Pointing",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1000,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/109699858488962926685\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27y7G3B-fSQCL2XQq30qcPI3GixbTSfzOPM7Q_gS5TNl0ydPDKrfp3ZNIQIME7TfcEHUj5u3a8CaTiRcqybwfi_8VP95usIslkj3PnQE9JuBRCMpy3tIVIlenwkWN_gSWp8icrSwBEYQD601b7kSWCCh5Nj2yjdkGDefdV9ghQv8Rio0",
+          "width": 1000
+        }
+      ],
+      "place_id": "ChIJi4iwXtmHa4cRA90RuxptEEA",
+      "plus_code": {
+        "compound_code": "QWVX+46 Arvada, Colorado",
+        "global_code": "85FPQWVX+46"
+      },
+      "rating": 5,
+      "reference": "ChIJi4iwXtmHa4cRA90RuxptEEA",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 8
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "10195 E 29th Dr, Denver, CO 80238, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.75929,
+          "lng": -104.868493
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.76071177989273,
+            "lng": -104.8670777701073
+          },
+          "southwest": {
+            "lat": 39.75801212010729,
+            "lng": -104.8697774298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Masterpiece Masonry",
+      "opening_hours": {
+        "open_now": true
+      },
+      "place_id": "ChIJ-3rIpud5bIcRAKPhSxV2G5g",
+      "plus_code": {
+        "compound_code": "Q45J+PJ Denver, Colorado",
+        "global_code": "85FQQ45J+PJ"
+      },
+      "rating": 5,
+      "reference": "ChIJ-3rIpud5bIcRAKPhSxV2G5g",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 3
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "5310 Ward Rd g07, Arvada, CO 80002, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.792957,
+          "lng": -105.137336
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.79431492989273,
+            "lng": -105.1361425701073
+          },
+          "southwest": {
+            "lat": 39.79161527010728,
+            "lng": -105.1388422298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Premiere Quality Masonry, Inc.",
+      "opening_hours": {
+        "open_now": true
+      },
+      "place_id": "ChIJLYhmCfqFa4cRfbLYama-6LI",
+      "plus_code": {
+        "compound_code": "QVV7+53 Arvada, Colorado",
+        "global_code": "85FPQVV7+53"
+      },
+      "rating": 5,
+      "reference": "ChIJLYhmCfqFa4cRfbLYama-6LI",
+      "types": [
+        "general_contractor",
+        "home_goods_store",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 2
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "7251 W Alaska Dr, Denver, CO 80226, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7095702,
+          "lng": -105.0774754
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.71089027989272,
+            "lng": -105.0762007701073
+          },
+          "southwest": {
+            "lat": 39.70819062010727,
+            "lng": -105.0789004298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Woodys Masonry & Concret",
+      "opening_hours": {
+        "open_now": true
+      },
+      "place_id": "ChIJCQrO_V2Ba4cRlN_JDY7wuyA",
+      "plus_code": {
+        "compound_code": "PW5F+R2 Denver, Colorado",
+        "global_code": "85FPPW5F+R2"
+      },
+      "rating": 5,
+      "reference": "ChIJCQrO_V2Ba4cRlN_JDY7wuyA",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 2
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "484 S Oneida Way, Denver, CO 80224, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7079173,
+          "lng": -104.9073606
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.70926482989272,
+            "lng": -104.9060968701073
+          },
+          "southwest": {
+            "lat": 39.70656517010728,
+            "lng": -104.9087965298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Brick Doctor",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 640,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/114983624834732672179\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27wel2sMgYOareer7zTTogPRgTSLCOgDC71nlGaA_7p7HkC5SB6wIXFWq3p7Hduqe3RC3mkmbaEHXo1CM-Mc8Uzu9iXUzYcIS1q_suyBwgsKQxseHhxbrRvJCsseoirdO3R-yS4sCF3MeCIGxRT1phWVL152tC4TspBOqUPaYEgrAdZR",
+          "width": 480
+        }
+      ],
+      "place_id": "ChIJlXjyLrN9bIcR0RrNf75hAOE",
+      "plus_code": {
+        "compound_code": "P35V+53 Denver, Colorado",
+        "global_code": "85FQP35V+53"
+      },
+      "rating": 5,
+      "reference": "ChIJlXjyLrN9bIcR0RrNf75hAOE",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 2
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "2090 E 104th Ave suite 211, Thornton, CO 80233, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.88426339999999,
+          "lng": -104.9632457
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.88561337989272,
+            "lng": -104.9620015201073
+          },
+          "southwest": {
+            "lat": 39.88291372010727,
+            "lng": -104.9647011798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Thornton Masonry Pros",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 467,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/111221471654101179346\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27yBuLFOZmlOqz2qsxX4OelrRzLf2kOA3U2FaJ5sxW4AX-_Rlo-ajdo1c5MKY-DcD9sbbimAI8oJBFGX5n927vokwf2hK-lOpMZ74JUPOLMuoihArBVsXLixyrH9UhRagB-9NbJzHz0R84cSv6wwCz7n5sBVHksDS1ekSAdhHrvgL5Fo",
+          "width": 700
+        }
+      ],
+      "place_id": "ChIJJUEzaWV3bIcRYgKn57sdtwk",
+      "plus_code": {
+        "compound_code": "V2MP+PP Thornton, Colorado",
+        "global_code": "85FQV2MP+PP"
+      },
+      "rating": 5,
+      "reference": "ChIJJUEzaWV3bIcRYgKn57sdtwk",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 1
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "3720 W 72nd Ave, Westminster, CO 80030, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.8270107,
+          "lng": -105.0366467
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.82849977989272,
+            "lng": -105.0352927701073
+          },
+          "southwest": {
+            "lat": 39.82580012010728,
+            "lng": -105.0379924298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "BrickImaging Masonry Staining",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/100180513445621638300\">Jason Ellis</a>"
+          ],
+          "photo_reference": "AWYs27wan5BjWMLrSz0Q0dm5IzrcZnx7Vgb5QhfG57AN8KuN8qjwXWBCgydQFJVf1IC2nJBh0o1ibKRxom3jwvxConkzlKoAIJVsZZXyoV-42JNB90Gx11SZQtolKBJ8-GkppnB64DYaqQJm2PxqqAWAtK78liWIKtFV5N9x6DzsKRkBh57V",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJzytZkpd2bIcRxJTCWwWakgk",
+      "plus_code": {
+        "compound_code": "RXG7+R8 Westminster, Colorado",
+        "global_code": "85FPRXG7+R8"
+      },
+      "rating": 4.9,
+      "reference": "ChIJzytZkpd2bIcRxJTCWwWakgk",
+      "types": [
+        "painter",
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 62
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "703 S Ivy St, Denver, CO 80224, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7036825,
+          "lng": -104.9209232
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.70503182989272,
+            "lng": -104.9194137201073
+          },
+          "southwest": {
+            "lat": 39.70233217010728,
+            "lng": -104.9221133798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Masonry Restoration LLC",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 2048,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/116093863200621984039\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27wa6_KtVu7XsULoDIlrEjdhjluiCB1zh-yFhEjNviYUWinA3Pu64a3n2pb_YVo6VMTAEnK-cvQtrA_1WRULT4lqvfX2CnDS5wObKmFdAD9GNxG0on5qFAQl0jiuYxtpswnCRaUoY4DWMDdWgkMW2u5Y1tJFj8jhX2EGI3Ky20QOx1E0",
+          "width": 1536
+        }
+      ],
+      "place_id": "ChIJXWtzhMt9bIcRJ_9AQYsbH88",
+      "plus_code": {
+        "compound_code": "P33H+FJ Denver, Colorado",
+        "global_code": "85FQP33H+FJ"
+      },
+      "rating": 4.8,
+      "reference": "ChIJXWtzhMt9bIcRJ_9AQYsbH88",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 26
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "8091 E Kenyon Dr, Denver, CO 80237, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.64894109999999,
+          "lng": -104.8950987
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.65020002989272,
+            "lng": -104.8937481201073
+          },
+          "southwest": {
+            "lat": 39.64750037010727,
+            "lng": -104.8964477798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Denver Masonry LLC",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 2269,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/100456994031517861754\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27wVESwQDN_94PegdbCbROdwwsSbwAYQK61r3egvT2Uq5pE5UFUUpKDc28-dbXBVCfkVQnej7t6wxEz62oQLMzA3NRoYk4vcbVQ-M_xkTQlHqbilcNK8t9DRox8KGyjYpC2PFzrtLdD-w2fbxaBKr-C-fcfjP1M3p5z3rfwLIJaQLHIl",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJBSxMX6N9bIcR5bJekHTh6Mg",
+      "plus_code": {
+        "compound_code": "J4X3+HX Denver, Colorado",
+        "global_code": "85FQJ4X3+HX"
+      },
+      "rating": 4.8,
+      "reference": "ChIJBSxMX6N9bIcR5bJekHTh6Mg",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 19
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "7300 E 29th Ave, Denver, CO 80238, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.757863,
+          "lng": -104.902883
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.75931422989273,
+            "lng": -104.9014939201073
+          },
+          "southwest": {
+            "lat": 39.75661457010729,
+            "lng": -104.9041935798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Red Thum Masonry",
+      "opening_hours": {
+        "open_now": true
+      },
+      "place_id": "ChIJ-WQwmzt5bIcRkKbxptS3P1I",
+      "plus_code": {
+        "compound_code": "Q35W+4R Denver, Colorado",
+        "global_code": "85FQQ35W+4R"
+      },
+      "rating": 4.5,
+      "reference": "ChIJ-WQwmzt5bIcRkKbxptS3P1I",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 8
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "5293 Ward Rd, Arvada, CO 80002, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7928826,
+          "lng": -105.1388722
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.79386582989272,
+            "lng": -105.1371357701073
+          },
+          "southwest": {
+            "lat": 39.79116617010727,
+            "lng": -105.1398354298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Mad Matts Masonry",
+      "opening_hours": {
+        "open_now": true
+      },
+      "place_id": "ChIJVVXFcsR4bIcRh4npJTs1MBg",
+      "plus_code": {
+        "compound_code": "QVV6+5F Arvada, Colorado",
+        "global_code": "85FPQVV6+5F"
+      },
+      "rating": 4.4,
+      "reference": "ChIJVVXFcsR4bIcRh4npJTs1MBg",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 5
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "3119 W Kentucky Ave, Denver, CO 80219, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7006626,
+          "lng": -105.0268088
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.70188092989272,
+            "lng": -105.0254724701073
+          },
+          "southwest": {
+            "lat": 39.69918127010728,
+            "lng": -105.0281721298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Mason Masonry Co",
+      "opening_hours": {
+        "open_now": true
+      },
+      "place_id": "ChIJVVXFcsR4bIcRWi3pMdB1_Jw",
+      "plus_code": {
+        "compound_code": "PX2F+77 Denver, Colorado",
+        "global_code": "85FPPX2F+77"
+      },
+      "rating": 4.2,
+      "reference": "ChIJVVXFcsR4bIcRWi3pMdB1_Jw",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 5
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "7271 S Eagle St, Centennial, CO 80112, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.5844783,
+          "lng": -104.818124
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.58584452989272,
+            "lng": -104.8166147201073
+          },
+          "southwest": {
+            "lat": 39.58314487010727,
+            "lng": -104.8193143798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Total Masonry",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/109583427499744338196\">James Ricciardelli</a>"
+          ],
+          "photo_reference": "AWYs27zA1y4LOuth4o_cV1nlWZU1tiwPabr_QF1jNb_rwbz_8HE2IKnb-uQk4YWp4-l5i431d31rgxd5tVkVMkryWpM831h6VN5l80TQVzPwmhRVurQcnlDPOJEQW1qR-KTQLLWidCDm5JIvYbKUrd60s3tiCgEyuSjorsO5Ha07q1O71VYu",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJzY0uGDmPbIcRepkz3lttcA4",
+      "plus_code": {
+        "compound_code": "H5MJ+QP Centennial, Colorado",
+        "global_code": "85FQH5MJ+QP"
+      },
+      "rating": 4,
+      "reference": "ChIJzY0uGDmPbIcRepkz3lttcA4",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 8
+    }
+  ]
+}

@@ -1,6 +1,4 @@
-interface RequestOptions extends RequestInit {
-  headers?: HeadersInit;
-}
+import { waitForToken } from './rateLimiter';
 
 type RequestFunction = () => Promise<Response>;
 
@@ -13,6 +11,7 @@ export async function makeRateLimitedRequest(
 
   while (retryCount < maxRetries) {
     try {
+      await waitForToken();
       const response = await requestFn();
       
       if (response.status === 429) {
@@ -23,36 +22,20 @@ export async function makeRateLimitedRequest(
         continue;
       }
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
       return response;
     } catch (error) {
-      lastError = error instanceof Error ? error : new Error("Unknown error");
-      console.error("Request error:", lastError.message);
-      
-      if (retryCount < maxRetries - 1) {
-        const backoffTime = Math.min(1000 * Math.pow(2, retryCount), 10000);
-        console.log(`Retry ${retryCount + 1} of ${maxRetries}. Waiting ${backoffTime}ms`);
-        await new Promise(resolve => setTimeout(resolve, backoffTime));
-        retryCount++;
-      } else {
-        throw lastError;
-      }
+      lastError = error as Error;
+      const backoffTime = Math.pow(2, retryCount) * 1000; // exponential backoff
+      console.log(`Request failed. Retrying in ${backoffTime/1000} seconds...`);
+      await new Promise(resolve => setTimeout(resolve, backoffTime));
+      retryCount++;
     }
   }
 
-  throw lastError || new Error("Max retries exceeded");
+  throw lastError || new Error('Max retries exceeded');
 }
 
 // Helper function with exponential backoff
-export async function makeRequestWithBackoff(requestFn: RequestFunction) {
-  try {
-    const response = await makeRateLimitedRequest(requestFn);
-    return response;
-  } catch (error) {
-    console.error("Request failed after retries:", error instanceof Error ? error.message : "Unknown error");
-    throw error;
-  }
+export async function makeRequestWithBackoff(requestFn: RequestFunction): Promise<Response> {
+  return makeRateLimitedRequest(requestFn);
 }

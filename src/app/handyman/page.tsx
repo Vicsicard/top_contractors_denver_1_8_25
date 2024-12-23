@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
-import { searchPlaces } from '@/utils/googlePlaces';
+import { join } from 'path';
+import { readFile } from 'fs/promises';
 import ContractorListings from '@/components/ContractorListings';
 import InquiryForm from '@/components/InquiryForm';
 
@@ -18,10 +19,13 @@ export const metadata: Metadata = {
 
 async function getHandymen() {
   try {
-    const response = await searchPlaces('handyman', 'Denver, CO');
-    return response.results;
+    // Read from static JSON file instead of making API call
+    const filePath = join(process.cwd(), 'src/data/contractors/handyman.json');
+    const data = await readFile(filePath, 'utf-8');
+    const contractorData = JSON.parse(data);
+    return contractorData.results;
   } catch (error) {
-    console.error('Error fetching handymen:', error);
+    console.error('Error reading handyman data:', error);
     return [];
   }
 }

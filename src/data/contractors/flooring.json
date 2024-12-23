@@ -1,0 +1,1030 @@
+{
+  "trade": "flooring",
+  "lastUpdated": "2024-12-23T17:16:00.401Z",
+  "results": [
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "7100 N Broadway Suite 8C, Denver, CO 80221, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.8256508,
+          "lng": -104.9867895
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.82695307989272,
+            "lng": -104.9855468701073
+          },
+          "southwest": {
+            "lat": 39.82425342010728,
+            "lng": -104.9882465298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+      "icon_background_color": "#4B96F3",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+      "name": "The Holder Group Wholesale Flooring",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/115605999040470182369\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27wGC7X-dzIQqFkW7uyI6uD7dGJ5X4lmEyg_c0T-LQE7gd6qbgaBv08XdAT2Q2-1Q9KbZpqrcS5hlEqDYN4yAOfh9m5Ef4lwikVeDcB4ZZHaPbe3YjA6U2eVrRstUjAI5L749qZOol-njFInCwi1vEId1t0qN7m8VnFSsO9mvspGILvP",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJ7U43OTZ5bIcRaxM1vmP2w3c",
+      "plus_code": {
+        "compound_code": "R2G7+77 Denver, Colorado",
+        "global_code": "85FQR2G7+77"
+      },
+      "rating": 5,
+      "reference": "ChIJ7U43OTZ5bIcRaxM1vmP2w3c",
+      "types": [
+        "general_contractor",
+        "furniture_store",
+        "home_goods_store",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 24
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "6500 E 44th Ave Unit G, Denver, CO 80216, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7776894,
+          "lng": -104.9120924
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.77911982989272,
+            "lng": -104.9109802701073
+          },
+          "southwest": {
+            "lat": 39.77642017010728,
+            "lng": -104.9136799298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+      "icon_background_color": "#4B96F3",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+      "name": "Colorado Complete Flooring",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/118169445664387741194\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27xZfzz5rPJ1ciTsbNicW4qtXMnDmdCi8Mf8Uz9HyX4HvC9OxWX4BXcsM8rgVZG_Boe9CagDDgz4-C80x5egnroXI5EXoZyDFNur28bmGuJRoD1qmlECFGUe2E89kzoC4L6Fo9lU3ngGYXFPpQi9mX59XAReBlv7UI9rOg4S46y4SsWn",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJ5dLaSox7bIcRgo6mLMIm-rc",
+      "plus_code": {
+        "compound_code": "Q3HQ+35 Denver, Colorado",
+        "global_code": "85FQQ3HQ+35"
+      },
+      "rating": 5,
+      "reference": "ChIJ5dLaSox7bIcRgo6mLMIm-rc",
+      "types": [
+        "home_goods_store",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 21
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "7178 Washington St, Denver, CO 80229, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.8269309,
+          "lng": -104.9770278
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.82829232989272,
+            "lng": -104.9756779201073
+          },
+          "southwest": {
+            "lat": 39.82559267010727,
+            "lng": -104.9783775798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+      "icon_background_color": "#4B96F3",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+      "name": "Denver Flooring",
+      "opening_hours": {
+        "open_now": true
+      },
+      "place_id": "ChIJhSNTsXt3bIcRzeKRIl4NRow",
+      "plus_code": {
+        "compound_code": "R2GF+Q5 Denver, Colorado",
+        "global_code": "85FQR2GF+Q5"
+      },
+      "rating": 5,
+      "reference": "ChIJhSNTsXt3bIcRzeKRIl4NRow",
+      "types": [
+        "home_goods_store",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 19
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "11809 E 51st Ave, Denver, CO 80239, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7908572,
+          "lng": -104.850752
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.79203032989272,
+            "lng": -104.8497401201073
+          },
+          "southwest": {
+            "lat": 39.78933067010727,
+            "lng": -104.8524397798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+      "icon_background_color": "#4B96F3",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+      "name": "DENVER CARPET & FLOORING",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 890,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/106336005701557692152\">Denver Carpet &amp; Flooring</a>"
+          ],
+          "photo_reference": "AWYs27yB9cA4KttsKJl5agZcV2QcOd7t8mh2JpzAOP1kOFekG2UydfMGgfUZCzZ5NbZ7yew-9fzVygqUWbqKT36dYsZo2CPVolXgIRTMOoRJ-Jn5NsYsxGxnbhsR5mvgpop6aZDaOJgbAfukjxz7_z-ni21yYymXnUOuAJZPrR_g6_o0iyVD",
+          "width": 1187
+        }
+      ],
+      "place_id": "ChIJQzC6HjN8bIcRAPPGhpm-G8w",
+      "plus_code": {
+        "compound_code": "Q4RX+8M Denver, Colorado",
+        "global_code": "85FQQ4RX+8M"
+      },
+      "rating": 4.9,
+      "reference": "ChIJQzC6HjN8bIcRAPPGhpm-G8w",
+      "types": [
+        "general_contractor",
+        "home_goods_store",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 482
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "929 W 1st Ave, Denver, CO 80223, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7187777,
+          "lng": -104.9994437
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.71994397989273,
+            "lng": -104.9981009701073
+          },
+          "southwest": {
+            "lat": 39.71724432010728,
+            "lng": -105.0008006298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+      "icon_background_color": "#4B96F3",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+      "name": "MacDonald Hardwoods - Denver Hardwood Flooring - Solid Wood Floor Showroom",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1370,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/100179333460361367280\">MacDonald Hardwoods</a>"
+          ],
+          "photo_reference": "AWYs27x87ZO7SGIM-76XXB11rAVFihZrZ7m9D126wOhMa8AXeHOSqwGdaNrdyjDRxzCMXNUkRAxwB3r3ffdDU91FOjoUadTlfulcEZosD6VL98BOP4DHCj13iYNQ_N1BglfKvWUBgvt9G1fql2-ZqGuMxO5SgyQGuqlo5DZYoifvlUERBeqo",
+          "width": 2048
+        }
+      ],
+      "place_id": "ChIJ1wL1HD1_bIcRkB6x1fQTIKk",
+      "plus_code": {
+        "compound_code": "P292+G6 Denver, Colorado",
+        "global_code": "85FQP292+G6"
+      },
+      "rating": 4.8,
+      "reference": "ChIJ1wL1HD1_bIcRkB6x1fQTIKk",
+      "types": [
+        "general_contractor",
+        "home_goods_store",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 322
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "5171 Ward Rd Unit 3, Wheat Ridge, CO 80033, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7902318,
+          "lng": -105.1389719
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.79150362989272,
+            "lng": -105.1375550201073
+          },
+          "southwest": {
+            "lat": 39.78880397010728,
+            "lng": -105.1402546798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+      "icon_background_color": "#4B96F3",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+      "name": "Simply Floors Inc.",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4032,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/118358877089214348055\">Jamie Poeling</a>"
+          ],
+          "photo_reference": "AWYs27xfPoUjseqEdsK-1cPw5dnP9mlBx3vdjcvlnPNCZ3GaUCBwfnIJ08yAxquwmP53vJlK5oTkhE8lxe5vnhhEuIH3obsykjfaQonzHER1_gbX2VK9wJHL64Fw-sjdQ_PM2B17YKIDuB8OcvM5s9Myk-On1hTiCjWFVoetTthuDz_DfrVG",
+          "width": 3024
+        }
+      ],
+      "place_id": "ChIJVVVVVbGIa4cRqqOVkfIM-so",
+      "plus_code": {
+        "compound_code": "QVR6+3C Wheat Ridge, Colorado",
+        "global_code": "85FPQVR6+3C"
+      },
+      "rating": 4.8,
+      "reference": "ChIJVVVVVbGIa4cRqqOVkfIM-so",
+      "types": [
+        "general_contractor",
+        "furniture_store",
+        "home_goods_store",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 211
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "90 Rio Grande Blvd, Denver, CO 80223, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.71821,
+          "lng": -105.003054
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.71944312989272,
+            "lng": -105.0016580701073
+          },
+          "southwest": {
+            "lat": 39.71674347010728,
+            "lng": -105.0043577298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+      "icon_background_color": "#4B96F3",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+      "name": "RW Supply and Design",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 2048,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/115414581552834461371\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27zPJSfs6mJmqf8hGvrE69rbPIvLBnRvKoVDrlWWevgLfjCODdD23cEXPZfh4Xuy1_zr_lhZNmn_apo4SewHwF-vmtQR9GYa-B_p6nvzkAA6chEyLnQ1xUn-bQjkmxS59m8pK21S7Gl_Ub74GpFUCBt1-IlF_Y2M7aMvZtfy3W89eR9P",
+          "width": 1536
+        }
+      ],
+      "place_id": "ChIJ__-_1T1_bIcRNpM_wLmaalU",
+      "plus_code": {
+        "compound_code": "PX9W+7Q Denver, Colorado",
+        "global_code": "85FPPX9W+7Q"
+      },
+      "rating": 4.8,
+      "reference": "ChIJ__-_1T1_bIcRNpM_wLmaalU",
+      "types": [
+        "home_goods_store",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 81
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "5125 E Evans Ave, Denver, CO 80222, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.6787221,
+          "lng": -104.9262703
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.67999872989272,
+            "lng": -104.9250304701073
+          },
+          "southwest": {
+            "lat": 39.67729907010727,
+            "lng": -104.9277301298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+      "icon_background_color": "#4B96F3",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+      "name": "Carpet One Floor & Home Denver",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3000,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/117930058297940148275\">Carpet One Floor &amp; Home</a>"
+          ],
+          "photo_reference": "AWYs27xAe8vqkApFvHUvNJRz_0r3RRwAkaKogPFl4rIo_97AEaNzhEP4JID_ifdH1uGgH1EQFL2apmsZ77aO-vp1ZUPu68VJYj-BBRc2XK4mEkbolAhFrct3fEMubNwUFCdTk_UzioWwAAZ9cgR0nmXsuNEA2RKYHEfoHRFtMKirKIddj0HG",
+          "width": 4014
+        }
+      ],
+      "place_id": "ChIJT9gMce99bIcRTGlydcopmV0",
+      "plus_code": {
+        "compound_code": "M3HF+FF Denver, Colorado",
+        "global_code": "85FQM3HF+FF"
+      },
+      "rating": 4.8,
+      "reference": "ChIJT9gMce99bIcRTGlydcopmV0",
+      "types": [
+        "general_contractor",
+        "home_goods_store",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 76
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "590 Quivas St, Denver, CO 80204, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7247046,
+          "lng": -105.0067229
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.72605422989272,
+            "lng": -105.0055814201073
+          },
+          "southwest": {
+            "lat": 39.72335457010728,
+            "lng": -105.0082810798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "T&G Flooring",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/107380331556893946629\">Richard Millett</a>"
+          ],
+          "photo_reference": "AWYs27wG6GaYJjOxA6lyB1nzdXS4_idEpfyvV5m7C6LWbWLmAtzxre2-S1JqIGF39jLNqgPh1ayaWPQSRCHZ-dYQnq-hsj4d2OSMZcZSmKXqS2NH6CNPVfPZEFqZXQQLr6UNc2Nm5caQA1LvJkg2xZQmYQcLZFgroAUtc_p4wgK1EMmPBU-u",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJ0UnWfMp5bIcRO3qmMrv19lM",
+      "plus_code": {
+        "compound_code": "PXFV+V8 Denver, Colorado",
+        "global_code": "85FPPXFV+V8"
+      },
+      "rating": 4.8,
+      "reference": "ChIJ0UnWfMp5bIcRO3qmMrv19lM",
+      "types": [
+        "general_contractor",
+        "home_goods_store",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 74
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "741 S Huron St, Denver, CO 80223, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7025523,
+          "lng": -104.9970707
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.70389762989272,
+            "lng": -104.9956395201073
+          },
+          "southwest": {
+            "lat": 39.70119797010727,
+            "lng": -104.9983391798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+      "icon_background_color": "#4B96F3",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+      "name": "The Floor Club",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1636,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/111836954373474583515\">The Floor Club</a>"
+          ],
+          "photo_reference": "AWYs27z8xEdRD-tmAMiJKiONvQyFOCFllpJt1UGgrgDXcGHWRJUUjieBiY8dsfhRb-z7SDgLEkb0TFGfaHpXt2ClxlSy97No6xi_r-Mdg-NQfFDryoijbT_CI_xAztHcfOEYgZnm4rTdBD8Gz7j1CsKfEdzyJ4i3ZIsqFXmufNlJIvCLKG5M",
+          "width": 2700
+        }
+      ],
+      "place_id": "ChIJkSU49wV_bIcRAku4sElKAz4",
+      "plus_code": {
+        "compound_code": "P233+24 Denver, Colorado",
+        "global_code": "85FQP233+24"
+      },
+      "rating": 4.8,
+      "reference": "ChIJkSU49wV_bIcRAku4sElKAz4",
+      "types": [
+        "general_contractor",
+        "home_goods_store",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 38
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "640 W Tennessee Ave, Denver, CO 80223, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.6984062,
+          "lng": -104.9950162
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.69979712989272,
+            "lng": -104.9935885701073
+          },
+          "southwest": {
+            "lat": 39.69709747010727,
+            "lng": -104.9962882298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+      "icon_background_color": "#4B96F3",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+      "name": "Total Floors",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 768,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/104073317352020454460\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27zyiJ8epkcybiUTYeGyEUhhj6VgT28BYdBcrMbBVM99d0x5JaFt-3caV1QKjM0pul78A6r0RteKDsCTBiGI1jbXU9DWqCP3yO6nCteAp_DN-deM8BqulkRt8IjcEXMuH9vGBCtDlEnL9wvLREeU7TAA3pBFCRhrjcM-h9GZ-UuK2jvv",
+          "width": 1024
+        }
+      ],
+      "place_id": "ChIJX924ogd_bIcR2hWE2zi2GX0",
+      "plus_code": {
+        "compound_code": "M2X3+9X Denver, Colorado",
+        "global_code": "85FQM2X3+9X"
+      },
+      "rating": 4.7,
+      "reference": "ChIJX924ogd_bIcR2hWE2zi2GX0",
+      "types": [
+        "hardware_store",
+        "furniture_store",
+        "home_goods_store",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 229
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "4500 Havana St, Denver, CO 80239, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7796791,
+          "lng": -104.8653021
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.78097372989272,
+            "lng": -104.8639525201073
+          },
+          "southwest": {
+            "lat": 39.77827407010727,
+            "lng": -104.8666521798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+      "icon_background_color": "#4B96F3",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+      "name": "Complete Flooring Source",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3264,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/101618408449427474667\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27ziWxAVvv2BZTgoO2LroaWtcnAcWJ5CFkavGOiMl20a3vgschyVcEe5zjkJ_sp0Cy0labIV4avXdUn3ktuQZwiNYwpKvrAsDRwhMr-flAY7d1KukQ3H-2qMvie95PKd7xdXJH9AkUnKUmlfNOs42C-2xIdCtGRYyqU8kutV98eTU_2f",
+          "width": 2448
+        }
+      ],
+      "place_id": "ChIJg68rgj57bIcRAuabdMTNXRQ",
+      "plus_code": {
+        "compound_code": "Q4HM+QV Denver, Colorado",
+        "global_code": "85FQQ4HM+QV"
+      },
+      "rating": 4.7,
+      "reference": "ChIJg68rgj57bIcRAuabdMTNXRQ",
+      "types": [
+        "home_goods_store",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 172
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "10075 E 40th Ave, Denver, CO 80238, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7749931,
+          "lng": -104.8733737
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.77657062989272,
+            "lng": -104.8726885701073
+          },
+          "southwest": {
+            "lat": 39.77387097010728,
+            "lng": -104.8753882298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+      "icon_background_color": "#4B96F3",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+      "name": "Floor & Decor",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 5344,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/102959098400896493873\">Marla Downer</a>"
+          ],
+          "photo_reference": "AWYs27xOU9iTgoFKfxBXe_3Q2kCSS1ksHdWl3_y6hTGD4f4Yd-CgDXQXTGyXiga2vTHe2pcwrZ0KObaCjeIfFkTNSk0JuLLhmNhci_UKIMXwjA9Hj4yBxFcx3Vy15bmspcTjNcnliNUY6pA_9sIRo0lAfguZ5fj4JZk1iwWxgw84c3jANDTB",
+          "width": 3792
+        }
+      ],
+      "place_id": "ChIJQ4Dse0N7bIcRJMnIODvFHC4",
+      "plus_code": {
+        "compound_code": "Q4FG+XM Denver, Colorado",
+        "global_code": "85FQQ4FG+XM"
+      },
+      "rating": 4.6,
+      "reference": "ChIJQ4Dse0N7bIcRJMnIODvFHC4",
+      "types": [
+        "home_goods_store",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 894
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "5350 Federal Blvd, Denver, CO 80221, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7942866,
+          "lng": -105.0249192
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.79563977989272,
+            "lng": -105.0236185701073
+          },
+          "southwest": {
+            "lat": 39.79294012010727,
+            "lng": -105.0263182298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+      "icon_background_color": "#4B96F3",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+      "name": "Floor Covering Liquidators, LLC",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1920,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/108959557601753225537\">Ethen Salas</a>"
+          ],
+          "photo_reference": "AWYs27zVR_BpRtDm8ffZjA6ZXz2tA4q2g1HQDMXGNOR5idW55sTQKvrYmai5ykqd46HxCyJ5unPVkaceSzrv4cs45WDB5VbgHVTW7LTE3noTUKjPeQ4z-1uKnqfvIOgGLUxpdx1lsyyjuklGnUx9vc2jenD4XAd_D3H5nKcqG-882kul_pw",
+          "width": 1080
+        }
+      ],
+      "place_id": "ChIJMd-KyAx4bIcRfey3pz1xZ_g",
+      "plus_code": {
+        "compound_code": "QXVG+P2 Denver, Colorado",
+        "global_code": "85FPQXVG+P2"
+      },
+      "rating": 4.6,
+      "reference": "ChIJMd-KyAx4bIcRfey3pz1xZ_g",
+      "types": [
+        "home_goods_store",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 40
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "5801 Logan St, Denver, CO 80216, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.8024337,
+          "lng": -104.9832317
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.80374152989272,
+            "lng": -104.9817765701073
+          },
+          "southwest": {
+            "lat": 39.80104187010728,
+            "lng": -104.9844762298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+      "icon_background_color": "#4B96F3",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+      "name": "Denver Flooring & Finishes",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 2048,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/101485853672077373467\">Mike Hillegas</a>"
+          ],
+          "photo_reference": "AWYs27yIJFypjBj4YdbyoWftA31jViDEkXAsD2nA6AjRtTrltyJALDNt5ExBIPfYGTUt3nE-TiEQR1r_Wjgv9nIfrV92z00_gcAm-mNsL6o7OJUQr4eFeJMG08vOUQsNycfwRjRrPDJ7Nuef-Qe_o5D9gtpawI8cgIhWZpSaFXFhtVCsl2wf",
+          "width": 1536
+        }
+      ],
+      "place_id": "ChIJPcUxAeZ2bIcRbjZ8Eg3wrLE",
+      "plus_code": {
+        "compound_code": "R228+XP Denver, Colorado",
+        "global_code": "85FQR228+XP"
+      },
+      "rating": 4.3,
+      "reference": "ChIJPcUxAeZ2bIcRbjZ8Eg3wrLE",
+      "types": [
+        "home_goods_store",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 24
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "1150 E 58th Ave, Denver, CO 80216, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.8013889,
+          "lng": -104.9747222
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.80263152989272,
+            "lng": -104.9733109701073
+          },
+          "southwest": {
+            "lat": 39.79993187010728,
+            "lng": -104.9760106298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+      "icon_background_color": "#4B96F3",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+      "name": "Denver Hardwood Co Inc",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1800,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/109701016250066106491\">Denver Hardwood Co Inc</a>"
+          ],
+          "photo_reference": "AWYs27yqI6RKf2JxxeKfVv4jk7IgEgpropvx3_KCLDAwpIR1WGURvq_ZK3qlD3HG1Drnnk4apXLSUM0lHmekkdVVa-VxmuELi-zzirLwUnbLr8pSbpu99wJxHFSm82LdyFYw84P9puQopXFEZ8lvNs53Q_JicAsd_bhcRz4gFdkttwT2W20u",
+          "width": 1440
+        }
+      ],
+      "place_id": "ChIJlcnEE6h5bIcR40yhnMP9dYc",
+      "plus_code": {
+        "compound_code": "R22G+H4 Denver, Colorado",
+        "global_code": "85FQR22G+H4"
+      },
+      "rating": 4.2,
+      "reference": "ChIJlcnEE6h5bIcR40yhnMP9dYc",
+      "types": [
+        "home_goods_store",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 156
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "1001 S Platte River Dr, Denver, CO 80223, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.698141,
+          "lng": -104.993308
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.69948217989272,
+            "lng": -104.9917540201073
+          },
+          "southwest": {
+            "lat": 39.69678252010728,
+            "lng": -104.9944536798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+      "icon_background_color": "#4B96F3",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+      "name": "The Flooring Group",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1536,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/104211161192762411638\">The Flooring Group</a>"
+          ],
+          "photo_reference": "AWYs27xp1SO7qMUiyUVorhhLD3mZte6zqVqkl7GSaztOx_C9kTL_8-GrmU-zwJtPoXjDb8P4qH4iSeoER-uyWMgohxj0hEZ6zYCoBjtYLhQRdG6tmV_3V7LfgBBHUTOt6MLi9on6uwqT5-iJGjRVnJUJfq5l2uH5FhQlU2cRaFS4manUeyTx",
+          "width": 2048
+        }
+      ],
+      "place_id": "ChIJa6JibAd_bIcRFXSIh8HnSxg",
+      "plus_code": {
+        "compound_code": "M2X4+7M Denver, Colorado",
+        "global_code": "85FQM2X4+7M"
+      },
+      "rating": 4.2,
+      "reference": "ChIJa6JibAd_bIcRFXSIh8HnSxg",
+      "types": [
+        "general_contractor",
+        "home_goods_store",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 41
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "1741 W 64th Ln, Denver, CO 80221, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.8159291,
+          "lng": -105.0076193
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.81728477989272,
+            "lng": -105.0062073701073
+          },
+          "southwest": {
+            "lat": 39.81458512010727,
+            "lng": -105.0089070298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+      "icon_background_color": "#4B96F3",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+      "name": "Colorado Floorworks",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3456,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/117156933885825235255\">Alex Ortiz</a>"
+          ],
+          "photo_reference": "AWYs27zdvvdQWRFldOefwhV4eGp35RpmMfIVaxfZQGtHIIGLFlqcf2uHlnaokyLq2Nd1sf67Cl6CjCs00qj5EXBEJKTKgRJxKovadG7YokOMeZg6HhfgtRiJS3BT5xW1WTxVw9mqWgORy4Sh5vsz3AhMyfxIhZx9qkg7YMhWP91fzugf2JB_",
+          "width": 4608
+        }
+      ],
+      "place_id": "ChIJ2RH8CiB4bIcRx51JBtN-CPI",
+      "plus_code": {
+        "compound_code": "RX8R+9W Denver, Colorado",
+        "global_code": "85FPRX8R+9W"
+      },
+      "rating": 4.2,
+      "reference": "ChIJ2RH8CiB4bIcRx51JBtN-CPI",
+      "types": [
+        "home_goods_store",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 19
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "1001 S Platte River Dr, Denver, CO 80223, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.6980232,
+          "lng": -104.9931502
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.69942387989272,
+            "lng": -104.9916751201073
+          },
+          "southwest": {
+            "lat": 39.69672422010728,
+            "lng": -104.9943747798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+      "icon_background_color": "#4B96F3",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+      "name": "Colorado Flooring",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4160,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/106171411991936272989\">Josh Souza</a>"
+          ],
+          "photo_reference": "AWYs27yTznLfctpib6t6aJ78SW7-Hprpj_ZH6Ajrxo9hjtMiBPq89aRDagJqC0Q6xwtGXHguiTkWoyZ0LXrJ-rxIkaPbtteT7UKO9hebYHi_Lm5PyKx2IWyt4AEjmUeN0BthEowlc-VvCdzI1UcCSu6Q40TZ1QDhLbsIo6WyMJIugiHhJt0k",
+          "width": 3120
+        }
+      ],
+      "place_id": "ChIJa6JibAd_bIcRo_EGJxg3-QQ",
+      "plus_code": {
+        "compound_code": "M2X4+6P Denver, Colorado",
+        "global_code": "85FQM2X4+6P"
+      },
+      "rating": 3.9,
+      "reference": "ChIJa6JibAd_bIcRo_EGJxg3-QQ",
+      "types": [
+        "general_contractor",
+        "home_goods_store",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 122
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "5060 Acoma St, Denver, CO 80216, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7885668,
+          "lng": -104.9883694
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.78991307989272,
+            "lng": -104.9871960201073
+          },
+          "southwest": {
+            "lat": 39.78721342010728,
+            "lng": -104.9898956798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+      "icon_background_color": "#4B96F3",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+      "name": "Lumber Liquidators",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1067,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/116574058742934101456\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27zyZ2IDUBfZLUiqCVsuwbSPm-8eGbgMdkhIZ51p9sXceSJih13-ecgLU_ydp1k8WYUsQ4CyA-f5StSfSvuafylOoiFJJq6X2ZfkbpTJER6xGXYBfhA4i69WPB-Q18d8PPR2qmiz2Wn62B4fEtJR3s40fzBsTLhtXThkciIfmb-VcXAB",
+          "width": 1600
+        }
+      ],
+      "place_id": "ChIJW_dbgU14bIcRu1fpiD34p1I",
+      "plus_code": {
+        "compound_code": "Q2Q6+CM Denver, Colorado",
+        "global_code": "85FQQ2Q6+CM"
+      },
+      "price_level": 1,
+      "rating": 3.8,
+      "reference": "ChIJW_dbgU14bIcRu1fpiD34p1I",
+      "types": [
+        "home_goods_store",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 122
+    }
+  ]
+}

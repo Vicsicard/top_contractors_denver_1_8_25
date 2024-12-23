@@ -1,0 +1,1010 @@
+{
+  "trade": "fencing",
+  "lastUpdated": "2024-12-23T17:16:05.434Z",
+  "results": [
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "955 S Braun Dr, Lakewood, CO 80228, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.6991349,
+          "lng": -105.150987
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.70046872989272,
+            "lng": -105.1495140201073
+          },
+          "southwest": {
+            "lat": 39.69776907010728,
+            "lng": -105.1522136798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Fence Repair of Denver",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 950,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/111176481891499024420\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27zN3rTlAASFLiHes6eB4ecTwWezx_I8VVIl8fom2gT-e0Q1_qg8WKlEpj0pIZMvvH1KGQj8k8almuG3D5HFBVj2RVuo5wbYgn05r6yxN4zAnmNnfzdUavD8UeDSGos52ssGNvkqLAqaRWAif0Z4fQH5sgONwMgXPCP1BLTpdskE0r_Y",
+          "width": 1500
+        }
+      ],
+      "place_id": "ChIJKU875zh6bIcRV51anN7WOtQ",
+      "plus_code": {
+        "compound_code": "MRXX+MJ Lakewood, Colorado",
+        "global_code": "85FPMRXX+MJ"
+      },
+      "rating": 5,
+      "reference": "ChIJKU875zh6bIcRV51anN7WOtQ",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 79
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "10578 Varese Ln, Northglenn, CO 80234, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.8882758,
+          "lng": -105.0142221
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.88956817989271,
+            "lng": -105.0130005201073
+          },
+          "southwest": {
+            "lat": 39.88686852010726,
+            "lng": -105.0157001798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Greenlight Fencing & Windows",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1536,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/112156163714915251024\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27wuW0tayGuwO7ujIANWoHtDEOfsdU2dZVPbsofOJ7IdjN5-ulOb2UFD6CNk6NdHg0Jg4Z1da3cZHEIQ6e48wvYcEh3_0c0MEG3uny-ci3xJf5c3lN75ixNmki58OVM9X6BqOIHY922Gus7i1Ed6AsyjZMLp7tNjgDwBWjXjiXaj0yAL",
+          "width": 2048
+        }
+      ],
+      "place_id": "ChIJ0wOirgJPXG0Ry0D9x-nxUvk",
+      "plus_code": {
+        "compound_code": "VXQP+88 Northglenn, Colorado",
+        "global_code": "85FPVXQP+88"
+      },
+      "rating": 5,
+      "reference": "ChIJ0wOirgJPXG0Ry0D9x-nxUvk",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 65
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "9271 E Nassau Ave, Denver, CO 80237, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.6441227,
+          "lng": -104.8810655
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.64538592989272,
+            "lng": -104.8796726201073
+          },
+          "southwest": {
+            "lat": 39.64268627010728,
+            "lng": -104.8823722798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Cavaes Fencing & Outdoor Services",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1600,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/117673864760818725305\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27zUvi84z8ucGGRkHgkGq6luQizmnj-yD0YplUhs56BPuklH8BVKml5tfm88QzJBl-fPB60NcSCDNtNml1lFJxoqBk8b3VIqHK40TOmYst7ZcSMeDeHNuR9ngRRxo5iYKOFkKMJT353J2ciRaZJUtunRub_T0ZT-2K_ewfgfyfHBrMbF",
+          "width": 1200
+        }
+      ],
+      "place_id": "ChIJX_O0W4xtyiYR_tUvKfDFOO8",
+      "plus_code": {
+        "compound_code": "J4V9+JH Denver, Colorado",
+        "global_code": "85FQJ4V9+JH"
+      },
+      "rating": 5,
+      "reference": "ChIJX_O0W4xtyiYR_tUvKfDFOO8",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 58
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "755 Juniper St, Golden, CO 80401, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7283031,
+          "lng": -105.1692956
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.72964127989271,
+            "lng": -105.1678320201073
+          },
+          "southwest": {
+            "lat": 39.72694162010727,
+            "lng": -105.1705316798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Eagle Eye Fencing Specialists LLC",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 768,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/109195818164584424440\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27xOETN0A15_yWl8JJdEr1R_LUOSzH1zdfrA5uXl5aXIpmagWVWUVnHrQbPo2ua5Yj-c7sYrC5PYMQjaDD68CCT1-dRHR3NlZRUX_TUFwZwIXHZuVsTjP-mkkQzrLmcTcXGNl8cufJg4rJzqPkJdIkuTGOly35tK4wgg_hHNwvHiQKRi",
+          "width": 1024
+        }
+      ],
+      "place_id": "ChIJyZQOWIRgSgQRpEe8InHyrAk",
+      "plus_code": {
+        "compound_code": "PRHJ+87 Golden, Colorado",
+        "global_code": "85FPPRHJ+87"
+      },
+      "rating": 5,
+      "reference": "ChIJyZQOWIRgSgQRpEe8InHyrAk",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 42
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "12365 N Dumont Way, Littleton, CO 80125, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.541331,
+          "lng": -105.0409087
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.54270342989272,
+            "lng": -105.0393970701073
+          },
+          "southwest": {
+            "lat": 39.54000377010728,
+            "lng": -105.0420967298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Integrity Fencing & Supply Co.",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3000,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/114877040427634038051\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27zqQVm6mQxCVr0IRLq209LXQ77COD07qV3BLh1RXUwFPpMhdf4RIbNKuiLsvGKLjvNpINTG1pfjDeb4VPCDSwqT1MVE95Ku76rKN66mMZGBv5hrjvekM_f2KH0QObT-aRPSeJdfLkkCYslsaS08VBdIfW-PzHoDEaqz94JkFZCB9p_r",
+          "width": 3999
+        }
+      ],
+      "place_id": "ChIJmR6cZD5_a4cRXwgrhG4nJGo",
+      "plus_code": {
+        "compound_code": "GXR5+GJ Littleton, Colorado",
+        "global_code": "85FPGXR5+GJ"
+      },
+      "rating": 4.9,
+      "reference": "ChIJmR6cZD5_a4cRXwgrhG4nJGo",
+      "types": [
+        "general_contractor",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 397
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "13891 E Smith Dr UNIT D, Aurora, CO 80011, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7627528,
+          "lng": -104.8243819
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.76405847989273,
+            "lng": -104.8230333701073
+          },
+          "southwest": {
+            "lat": 39.76135882010728,
+            "lng": -104.8257330298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Denver Fence Pros",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/103505842546840355493\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27xgHbANft9H9-VTybNfbkgY-SHTQ5j2OVZKZRyxbWMeUAIZDPnWPS2RbRrCYyT0wSSuayPVrJ-O7FiSncITZfjTTbjIBtZQzgQNmMC7e_qaAvVHuVTO0vZx2y_DyUs3g0EB-COE0WGUp-Z_Jl-8a_l2sygCHtyH-XV4zpGh3yV9Ll9Q",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJC1JaXgtjbIcR1X9fCx7qLTI",
+      "plus_code": {
+        "compound_code": "Q57G+46 Aurora, Colorado",
+        "global_code": "85FQQ57G+46"
+      },
+      "rating": 4.9,
+      "reference": "ChIJC1JaXgtjbIcR1X9fCx7qLTI",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 140
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "3000 Lawrence St, Denver, CO 80205, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7615033,
+          "lng": -104.9789994
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.76288447989273,
+            "lng": -104.9778847201073
+          },
+          "southwest": {
+            "lat": 39.76018482010728,
+            "lng": -104.9805843798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Denver Fence Company",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1440,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/107197549496526605694\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27wJOdIA5lJ2XNDnVbThVrieIwiazNBYez-CDCbnWtL1OEp8-hVAXMXHqXIozbygtNUeS_Dld-I7fw6Jqwu8t4W_ggpYhQ3Ke7QLRXuTFlRnYTPKdECAFFh2gePQTRhIO7nL7YW99Xa7wgaM9NmH3CDhNq0zRASppKHsNgAOKT8lwalR",
+          "width": 1920
+        }
+      ],
+      "place_id": "ChIJOQRcI9d5bIcRwRAiE922w7c",
+      "plus_code": {
+        "compound_code": "Q26C+JC Denver, Colorado",
+        "global_code": "85FQQ26C+JC"
+      },
+      "rating": 4.9,
+      "reference": "ChIJOQRcI9d5bIcRwRAiE922w7c",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 78
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "5180 Smith Rd Unit E, Denver, CO 80216, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7750844,
+          "lng": -104.9279664
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.77651632989272,
+            "lng": -104.9265754701073
+          },
+          "southwest": {
+            "lat": 39.77381667010728,
+            "lng": -104.9292751298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Superior Fence & Rail",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/101707019861220239212\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27wMlBPTD0fLa027yKY6YXqxUcQlQB-bfuJhdYE39zmIROLbGfiTJAmKwvF63CllytmZmiTVbgg6uFIuPhki-7Mvupy6wrCUIhSg12W5NXTOz40_R975vGTYxxF6ErCLM8kPTyMEupB3BPikkLoc4ots-Wf2J4hCaqXtbFeWZBaS3deP",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJuUSdBLt7bIcR7yYlMTI5HBc",
+      "plus_code": {
+        "compound_code": "Q3GC+2R Denver, Colorado",
+        "global_code": "85FQQ3GC+2R"
+      },
+      "rating": 4.8,
+      "reference": "ChIJuUSdBLt7bIcR7yYlMTI5HBc",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 405
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "5455 Dahlia St unit b, Commerce City, CO 80022, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.79496779999999,
+          "lng": -104.9321778
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.79638827989272,
+            "lng": -104.9307415701073
+          },
+          "southwest": {
+            "lat": 39.79368862010728,
+            "lng": -104.9334412298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Denver Fence Guys",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/114731698715316801041\">Connor Williamson</a>"
+          ],
+          "photo_reference": "AWYs27yzuLrZXKTMz-0RFgUae_gaV1dstxaUtFRyEjTVJ5NxW_rvxqWbZDnAHQ2h1r4MVJQ8D3hdZOEiaErkC2HwbJKPWCAsGwkGSzc8zoLkHXA7_SPxdcEBRzJBs8TL6vaHv9nxRc5UiXFzC1HWePqqkoFMqGAvdSS8TN0N91WPXjlSRevT",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJc6TNlNZ4bIcRijb0H9PkUpU",
+      "plus_code": {
+        "compound_code": "Q3V9+X4 Commerce City, Colorado",
+        "global_code": "85FQQ3V9+X4"
+      },
+      "rating": 4.8,
+      "reference": "ChIJc6TNlNZ4bIcRijb0H9PkUpU",
+      "types": [
+        "general_contractor",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 348
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "4779 Lincoln St, Denver, CO 80216, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7834309,
+          "lng": -104.9862814
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.78478027989272,
+            "lng": -104.9849809701073
+          },
+          "southwest": {
+            "lat": 39.78208062010728,
+            "lng": -104.9876806298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "303 Fence, LLC",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/117813489591761620279\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27wM39A9NSV92MydgSqiZDRM-9djsRcoldIg3JmDeZMe0m-PABfASNGVF0VlAGri3w_WTwYhZ93gvsHe6gBNFTolg0fw7NHQSVAgaxtnOCbq7a1yae49PlfbPrwfypIgRRw4XQZIOW5F2L8TZwYv0vmwpOoAYO2utNJc9R95sn1n0Srf",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJocc5y39_bIcR6sE2xgqJ8qQ",
+      "plus_code": {
+        "compound_code": "Q2M7+9F Denver, Colorado",
+        "global_code": "85FQQ2M7+9F"
+      },
+      "rating": 4.8,
+      "reference": "ChIJocc5y39_bIcR6sE2xgqJ8qQ",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 71
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "5370 Broadway, Denver, CO 80216, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7940951,
+          "lng": -104.9872162
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.79546217989272,
+            "lng": -104.9859915701073
+          },
+          "southwest": {
+            "lat": 39.79276252010727,
+            "lng": -104.9886912298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "First Rate Fence & Access Control",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1080,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/110149548636327966004\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27wFs1MGh9cEk8t--R7T8NbIpmIgaeGTNWmlzUgjJqz5m9F9kXIa3DMR2gVFqFko6mmkqi8c19bID7OOtnN9NEWUtJui_qHg0GN41jUEFrkiUM8XMeosYp2SZRx2fKbsHTpxLzlkCWpqxDATvd352D1TkCvBUYhrztP0nkVuCpQVV7q0",
+          "width": 1080
+        }
+      ],
+      "place_id": "ChIJu7Z9zsN_bIcRrFElK_IXFCE",
+      "plus_code": {
+        "compound_code": "Q2V7+J4 Denver, Colorado",
+        "global_code": "85FQQ2V7+J4"
+      },
+      "rating": 4.8,
+      "reference": "ChIJu7Z9zsN_bIcRrFElK_IXFCE",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 58
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "4300 Forest St, Denver, CO 80216, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7769014,
+          "lng": -104.9266488
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.77824847989272,
+            "lng": -104.9254669701073
+          },
+          "southwest": {
+            "lat": 39.77554882010728,
+            "lng": -104.9281666298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "BNB Fencing & Services",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/105220727834566869517\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27z2d5vqaqfUg73iUGBqHytX_EHePBv_9vGtJC2aPgV46y96w_pS5lFBucfn5EJ0V74eusZKRPeLqustOGoLhX70YWRaiuDtRQ2KcHn9HmDTypQ9AGZ4L-VT2mLeLAjysfKjECkM913hksN7bp2YWORQKATxmLvVzi2-iGJhkWdCrLR4",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJL3dPWvh7bIcRz1cOVgWGDxI",
+      "plus_code": {
+        "compound_code": "Q3GF+Q8 Denver, Colorado",
+        "global_code": "85FQQ3GF+Q8"
+      },
+      "rating": 4.8,
+      "reference": "ChIJL3dPWvh7bIcRz1cOVgWGDxI",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 58
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "1193 S Inca St, Denver, CO 80223, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.6950335,
+          "lng": -104.9982688
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.69631212989272,
+            "lng": -104.9968851201073
+          },
+          "southwest": {
+            "lat": 39.69361247010728,
+            "lng": -104.9995847798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Fence Right Company",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1200,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/111012725880663580861\">Fence Right Co</a>"
+          ],
+          "photo_reference": "AWYs27wm4u1TOpCHiFo0HiBgb9anpAWIqJqLmDEV2Bn-vw9qfdGhOwvR8nj4duTr4nHMzaJPST5WesCWb-MHgAZvm6xFmvfkSm4LBLDMj0NolwSr_EeJch4sVWzPA_0-wqqJMbbnkRUTyWlA2wx4mtkqx_t9kPNIIAbJQQShUWx_cyYaTEEY",
+          "width": 1600
+        }
+      ],
+      "place_id": "ChIJHw0Rwqd_bIcRBHXDYKjSJvM",
+      "plus_code": {
+        "compound_code": "M2W2+2M Denver, Colorado",
+        "global_code": "85FQM2W2+2M"
+      },
+      "rating": 4.8,
+      "reference": "ChIJHw0Rwqd_bIcRBHXDYKjSJvM",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 51
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "5271 N Pecos St, Denver, CO 80221, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7925599,
+          "lng": -105.0067289
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.79393007989272,
+            "lng": -105.0051863201073
+          },
+          "southwest": {
+            "lat": 39.79123042010728,
+            "lng": -105.0078859798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "A Straight Up Fence Company",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 2448,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/103137309207177930236\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27znaANos381bla8sCva2srz5jHJcsSyx6C7-H3qvboITo4huzfgFRlBMCJT-QIdpZwScoPhYq0hYP8NQEw2BtGNiJok2_V5NqtWpMMVfpYQYzevmuQnx-sdTEUOnS8ARmRe0tuWYuuTckShTR_nIBaZ1uYDjFGTGlokoMiwmMS-0v6M",
+          "width": 3264
+        }
+      ],
+      "place_id": "ChIJmftCo0F4bIcRFiQoePuvyZ4",
+      "plus_code": {
+        "compound_code": "QXVV+28 Denver, Colorado",
+        "global_code": "85FPQXVV+28"
+      },
+      "rating": 4.7,
+      "reference": "ChIJmftCo0F4bIcRFiQoePuvyZ4",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 141
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "5895 W 56th Ave, Arvada, CO 80002, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7984518,
+          "lng": -105.0611388
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.79973727989272,
+            "lng": -105.0597885701073
+          },
+          "southwest": {
+            "lat": 39.79703762010728,
+            "lng": -105.0624882298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Highlands Landscaping & Fencing - Denver",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 2848,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/115929136542922078805\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27zd2IcRvIMo6y166qBzxbyURS01no2grmMh2SerrhwM7fC19JXbEMZemHkkGA-t_Kr_Kmu_zyX51R_3J_JCL9bU72b1DtTQZIQaAnNADDjDvUz3mtDF5dikhG3uPCdNt7dO65V7QacJe125qypNpya6S4ocTyOMxCyT2TRLU_-qnlTR",
+          "width": 4288
+        }
+      ],
+      "place_id": "ChIJ5fuiyueHa4cRLbkgTJojZ0k",
+      "plus_code": {
+        "compound_code": "QWXQ+9G Arvada, Colorado",
+        "global_code": "85FPQWXQ+9G"
+      },
+      "rating": 4.7,
+      "reference": "ChIJ5fuiyueHa4cRLbkgTJojZ0k",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 132
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "1357 E 73rd Ave Unit 701, Denver, CO 80229, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.8294997,
+          "lng": -104.9715351
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.83085832989272,
+            "lng": -104.9700964201073
+          },
+          "southwest": {
+            "lat": 39.82815867010728,
+            "lng": -104.9727960798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "D & D Fencing",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 480,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/108127151365161157049\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27x4xRCRER5ZG96oBz9qtB7egs-IXuQEjJ9HvH8RLJnXdP8MasfqG9-AsJ1I3-gLg_o4D11mmBahH7sdd55p0dOYnMKf9fmlz5i5HNPCY-ItpG5AbXQ1Eqie5IJRm1nkYTrY5WlFDdaolbMUe7mOcb3zTd9f6XzQ5cSXtg4kJRvnw9lP",
+          "width": 640
+        }
+      ],
+      "place_id": "ChIJi9IN5CR3bIcRCvHv31Kk-yY",
+      "plus_code": {
+        "compound_code": "R2HH+Q9 Denver, Colorado",
+        "global_code": "85FQR2HH+Q9"
+      },
+      "rating": 4.6,
+      "reference": "ChIJi9IN5CR3bIcRCvHv31Kk-yY",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 55
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "1225 S Jason St, Denver, CO 80223, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.6944576,
+          "lng": -104.9994244
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.69576177989272,
+            "lng": -104.9980846201073
+          },
+          "southwest": {
+            "lat": 39.69306212010728,
+            "lng": -105.0007842798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Boundary Fence and Supply Co.",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4032,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/100712765240988516726\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27yYq3GhiFaLFi7ZOgLxDIFXS2ZDZSGzp0PWINr-p6A6DCVueRfNPLaIH_YoJfJIPrHO4Az_95dOjKoaDGdGHjo0ZIXvkrJOz37kjDkvKKEF2bfIl4Z1jWeWJHGrPK7TIpm7xjo3evvIWNXhg2HXRquGd3UbQ5r39wr0c3Ub7Wa3Iyq6",
+          "width": 3024
+        }
+      ],
+      "place_id": "ChIJR3tKpad_bIcRqgIl-cjmyyo",
+      "plus_code": {
+        "compound_code": "M2V2+Q6 Denver, Colorado",
+        "global_code": "85FQM2V2+Q6"
+      },
+      "rating": 4.5,
+      "reference": "ChIJR3tKpad_bIcRqgIl-cjmyyo",
+      "types": [
+        "general_contractor",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 115
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "44 Cook St #100, Denver, CO 80206, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7167356,
+          "lng": -104.9469691
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.71809052989272,
+            "lng": -104.9458333701073
+          },
+          "southwest": {
+            "lat": 39.71539087010728,
+            "lng": -104.9485330298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Denco Fence Company",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/112333569347824161062\">Emily Gajeski</a>"
+          ],
+          "photo_reference": "AWYs27wbpakN-nISFZjl99bLmU8x9WLaYi5vnsD7U4BwwaNIiZaIkeEkfVFCWVHf3e3YMXuEwS6YGCCjH0UTg5K0S0mE6s9a4TYvs8_-SMLb3OT5lOSi1Gb9uHkchmX3A62BP2c7Gl5DPYV94kwqaUnSFN5zoNtZzuII5SiZMkuEAdDX3ydx",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJA5REt5t-bIcRt4TV1tLLn9A",
+      "plus_code": {
+        "compound_code": "P383+M6 Denver, Colorado",
+        "global_code": "85FQP383+M6"
+      },
+      "rating": 4.3,
+      "reference": "ChIJA5REt5t-bIcRt4TV1tLLn9A",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 102
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "8335 Quebec St, Commerce City, CO 80022, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.8474885,
+          "lng": -104.9041818
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.84883222989271,
+            "lng": -104.9023620201073
+          },
+          "southwest": {
+            "lat": 39.84613257010727,
+            "lng": -104.9050616798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Metro Fence Company",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1000,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/112023321446002518351\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27yBeBMT0U8BjKbC-ky12tnPM2ThrkoCYOAlfyWINZlV8VsenFenv8vJKA_pC1oEHQcuWygy6kM2UK2Oav8LkLFopaUR-j-ZV2SGlNrZZAD_v6TuCvnw5tUGxvV5VgAy3MW8mfFVy3x8QsSxs2JL0Q_wbPiQ2GyMBBuQTbIAHi9AsLlM",
+          "width": 1333
+        }
+      ],
+      "place_id": "ChIJF_7hhpJwbIcRrAOgJpl5YVI",
+      "plus_code": {
+        "compound_code": "R3WW+X8 Commerce City, Colorado",
+        "global_code": "85FQR3WW+X8"
+      },
+      "rating": 4.2,
+      "reference": "ChIJF_7hhpJwbIcRrAOgJpl5YVI",
+      "types": [
+        "general_contractor",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 103
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "1390 E 64th Ave, Denver, CO 80216, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.8122411,
+          "lng": -104.9711569
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.81384932989273,
+            "lng": -104.9698005201073
+          },
+          "southwest": {
+            "lat": 39.81114967010728,
+            "lng": -104.9725001798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Standard Fence Company",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4032,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/112408492866658819109\">Edwin Landa</a>"
+          ],
+          "photo_reference": "AWYs27xLSG-LXR2IaitrevoJgaRis_tBTQRlNZgzumYaVLN6P38WnpG15FuOWeBASWM0Xhl-2fI4jpacwpU6jUYqDc9KXlTMiNmaqNlU9CRjJZA3HU3kFjvDyq157PgJTL__zJ0kft-fhXEDm4fgP9ZWiMMzDm7b0o3kLVC6qNQf7H5-YJpv",
+          "width": 3024
+        }
+      ],
+      "place_id": "ChIJ___Pi1l4bIcRwfBund6XScU",
+      "plus_code": {
+        "compound_code": "R26H+VG Denver, Colorado",
+        "global_code": "85FQR26H+VG"
+      },
+      "rating": 4.2,
+      "reference": "ChIJ___Pi1l4bIcRwfBund6XScU",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 17
+    }
+  ]
+}

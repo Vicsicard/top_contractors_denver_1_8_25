@@ -1,0 +1,1026 @@
+{
+  "trade": "hvac",
+  "lastUpdated": "2024-12-23T17:15:37.126Z",
+  "results": [
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "10525 E 40th Ave #203, Denver, CO 80239, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7732936,
+          "lng": -104.8643188
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.77461647989272,
+            "lng": -104.8628838701073
+          },
+          "southwest": {
+            "lat": 39.77191682010728,
+            "lng": -104.8655835298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "The Weather Changers Heating and Air Conditioning",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3840,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/104077424631752422270\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27zygOVqnfrY7xIXrUxUdgRv28JMvwxkbYJF-jUVhMHWHfE-nIMyhODBEY34fr2nRxdEQWbb9MSkypJxoXXtxZ4ILbyeOsvStloO8hW0SJ6cMrQphfEf-p-fq7iYO68WNqhvtFyrNhZ6Od6Lj5QwphxnTH96aBE9lPz8F1n69JhWdGq6",
+          "width": 5760
+        }
+      ],
+      "place_id": "ChIJa8swlLJhbIcRdyaOJPhGsWs",
+      "plus_code": {
+        "compound_code": "Q4FP+87 Denver, Colorado",
+        "global_code": "85FQQ4FP+87"
+      },
+      "rating": 5,
+      "reference": "ChIJa8swlLJhbIcRdyaOJPhGsWs",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 951
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "871 Thornton Pkwy Suite 202, Denver, CO 80229, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.8719964,
+          "lng": -104.9757449
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.87327662989272,
+            "lng": -104.9744902201073
+          },
+          "southwest": {
+            "lat": 39.87057697010727,
+            "lng": -104.9771898798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Denver Mechanical Contracting",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1975,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/106179976468505156803\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27xnmXxsr6dqUp-v-OdGluIRpZGWf71jllyFqW2aHw4TzCcbRPFu3IQeeB9Bfhpq0NkpScYvKz8ZhedPgjfXXQFUrZ8eraB2ByymmWwjdLT05gyF1dRtlMer9DRiwS_-DYbF2n-iEH0vh1qTp4bFyrF9TUQHPi4mVdM1B3_nI-mj5LNn",
+          "width": 2962
+        }
+      ],
+      "place_id": "ChIJA_-DbethtosRxbETh_82xyQ",
+      "plus_code": {
+        "compound_code": "V2CF+QP Denver, Colorado",
+        "global_code": "85FQV2CF+QP"
+      },
+      "rating": 5,
+      "reference": "ChIJA_-DbethtosRxbETh_82xyQ",
+      "types": [
+        "plumber",
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 10
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "6401 Broadway Unit L, Denver, CO 80221, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.8133912,
+          "lng": -104.9881015
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.81496242989272,
+            "lng": -104.9866022201073
+          },
+          "southwest": {
+            "lat": 39.81226277010727,
+            "lng": -104.9893018798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Apex Clean Air AC & Heating Repair",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4480,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/100033407520840536250\">Apex Clean Air - Denver</a>"
+          ],
+          "photo_reference": "AWYs27ylS1g-wje8QhZ0sDpOrYwedPBu8HvF5IY9fh6LsgBdZP5DCk7R2xBCMFtLmzHEBCkLj8m9L-10sh1f7cEQzJn8Adb76B-3shTAFkyYwcOm-JPRYDmWsMn-K7V05W7R8Dpx11RPQ8vfFiRufp4vpaPZuhjKKHvtF4_ivukkm3127uza",
+          "width": 6720
+        }
+      ],
+      "place_id": "ChIJud3VmNJ3bIcRRTqpx5Ut2XE",
+      "plus_code": {
+        "compound_code": "R276+9Q Denver, Colorado",
+        "global_code": "85FQR276+9Q"
+      },
+      "rating": 4.9,
+      "reference": "ChIJud3VmNJ3bIcRRTqpx5Ut2XE",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 1149
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "4892 Marshall St, Wheat Ridge, CO 80033, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7848516,
+          "lng": -105.0678263
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.78613072989273,
+            "lng": -105.0665622701073
+          },
+          "southwest": {
+            "lat": 39.78343107010728,
+            "lng": -105.0692619298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "B&B Heating & Air Conditioning, Inc.",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4032,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/116657080307146125271\">Grover Draughon</a>"
+          ],
+          "photo_reference": "AWYs27zHqvL_mUOYD2ysOdN5hiqkEjMOq3NhnDxP_yPxyaxi0v8Rw2y3Vnhlb9PfOp7J6D05rYXInl6fdF9Puj3kXRW-J4wnogrssh2_c1ouhliYYu73mwCPmKgMLbzBnFlBINL2a8vA3ZXoAFn5vNDOwUPOiANaYl7FNnq2cllskGepTM4T",
+          "width": 3024
+        }
+      ],
+      "place_id": "ChIJYTCSfLeHa4cR01W6LHjF_6E",
+      "plus_code": {
+        "compound_code": "QWMJ+WV Wheat Ridge, Colorado",
+        "global_code": "85FPQWMJ+WV"
+      },
+      "rating": 4.9,
+      "reference": "ChIJYTCSfLeHa4cR01W6LHjF_6E",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 999
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "7000 N Broadway #1-106, Denver, CO 80221, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.8243325,
+          "lng": -104.9868624
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.82575657989272,
+            "lng": -104.9856084701073
+          },
+          "southwest": {
+            "lat": 39.82305692010728,
+            "lng": -104.9883081298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Controlling Systems Co",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1280,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/108315944213376295108\">Controlling Systems Inc.</a>"
+          ],
+          "photo_reference": "AWYs27ybBCd0v-3dA5kPqqNLoXW2kKdlJjjgjl5WcRawhgwpGD25UVwWTE9GbkJisatJ-E3ARWO_bglY4x12Y1sgn1-UHXXAeD7p5ji9V_PLYOSiZ5FD3cNSti66wjiMc8gputr8_SsVDvShmoh5dHa68FPZVdlRxpjAgh6tmNtXG13mW_kH",
+          "width": 960
+        }
+      ],
+      "place_id": "ChIJu89JIYJ3bIcR24lF6b37iqo",
+      "plus_code": {
+        "compound_code": "R2F7+P7 Denver, Colorado",
+        "global_code": "85FQR2F7+P7"
+      },
+      "rating": 4.9,
+      "reference": "ChIJu89JIYJ3bIcR24lF6b37iqo",
+      "types": [
+        "electrician",
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 500
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "15720 W 6th Ave, Golden, CO 80401, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7249764,
+          "lng": -105.1768476
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.72632607989272,
+            "lng": -105.1755390701073
+          },
+          "southwest": {
+            "lat": 39.72362642010728,
+            "lng": -105.1782387298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "The Bee Heat & AC",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 720,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/113597721064961434059\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27yXb6J4ywtMM-9a5IwRQVXLkN79loCB6gIZgB1WU31A7u0vflUtM1E2VSYKq9WikpSOSj_dzvwf3zXiuzx9tw4QKntqT2-ceKSob1Wb5u9fnERBz1kOWaDeTHWqk44K4CJ_BPsH14ueddXKEoOqSBipnkVyWmZvfNl82PGhsSnub9s",
+          "width": 1280
+        }
+      ],
+      "place_id": "ChIJDS43OxiEa4cRwcVway-sl2M",
+      "plus_code": {
+        "compound_code": "PRFF+X7 Golden, Colorado",
+        "global_code": "85FPPRFF+X7"
+      },
+      "rating": 4.9,
+      "reference": "ChIJDS43OxiEa4cRwcVway-sl2M",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 332
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "340 Santa Fe Dr, Denver, CO 80223, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7217671,
+          "lng": -104.9983773
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.72311947989272,
+            "lng": -104.9971315201073
+          },
+          "southwest": {
+            "lat": 39.72041982010728,
+            "lng": -104.9998311798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Right Away Heating",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/115055119102899404390\">Right Away Heating</a>"
+          ],
+          "photo_reference": "AWYs27w3RPPjKwrGeJcB2FatO5reVtnF4tPf2G0THIS5ApVWkhXa7TRbLCgt75ozkYy-kr_43nyCINlMTqEHfZGrADwemVbnRgvPbD87lqmf_PiwnXZRWjsirdsABIWi_RFJdwcwiaKeqNXgYL1dfWBQRKeO7uvJkN2iosaeExANvbh8lqog",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJqTj_4eF-bIcRCNVFF0KPRJI",
+      "plus_code": {
+        "compound_code": "P2C2+PJ Denver, Colorado",
+        "global_code": "85FQP2C2+PJ"
+      },
+      "rating": 4.9,
+      "reference": "ChIJqTj_4eF-bIcRCNVFF0KPRJI",
+      "types": [
+        "plumber",
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 247
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "6285 W 48th Ave, Wheat Ridge, CO 80033, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7843358,
+          "lng": -105.0661759
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.78568007989273,
+            "lng": -105.0649007201073
+          },
+          "southwest": {
+            "lat": 39.78298042010728,
+            "lng": -105.0676003798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Major Heating and Air Conditioning",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 768,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/114397876515848895600\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27wT23_JSX9uzsH0_gGY1Zu-rJ4eLtJ_4ye4Sge87jvPXiCnZsaInlim9djwJB5W4scgAW7mk9xXp39eMNksNv92NiH3PQQDaqbL53Y0-4u7Z1g4r31CufcdJvnkjcpKIguZNQdN9oKx0MMn8xFZjl49MJujjG2WfAo6AV27jCDE_87P",
+          "width": 1024
+        }
+      ],
+      "place_id": "ChIJo3BRHKhuQocRFJaZ3bpKxVQ",
+      "plus_code": {
+        "compound_code": "QWMM+PG Wheat Ridge, Colorado",
+        "global_code": "85FPQWMM+PG"
+      },
+      "rating": 4.9,
+      "reference": "ChIJo3BRHKhuQocRFJaZ3bpKxVQ",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 118
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "5000 W 29th Ave, Denver, CO 80212, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7583004,
+          "lng": -105.0512657
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.75973902989271,
+            "lng": -105.0499122701073
+          },
+          "southwest": {
+            "lat": 39.75703937010727,
+            "lng": -105.0526119298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Applewood Plumbing Heating & Electric",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 640,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/103963415616979885206\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27yud26MkczVEmBwNQb04r84Qcieu5kVlKLjkToQj7ZNB7uJUrxps2-0X_pE3sr_GMMVKa1WL5nwNFUN6CvZ4XqpqvQjtqkflspPDZ2fgWAs7tQe0pvF_ydqr49ixBMsPKuAcxAflZsBuDErT4_wI0_Fvl-cgLzl4g-KFRLqh7Y6fgpO",
+          "width": 480
+        }
+      ],
+      "place_id": "ChIJkWUJx22Ha4cRVVLq4AJk7Ng",
+      "plus_code": {
+        "compound_code": "QW5X+8F Denver, Colorado",
+        "global_code": "85FPQW5X+8F"
+      },
+      "rating": 4.8,
+      "reference": "ChIJkWUJx22Ha4cRVVLq4AJk7Ng",
+      "types": [
+        "plumber",
+        "electrician",
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 13754
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "4217 Delaware St, Denver, CO 80216, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7747321,
+          "lng": -104.9925994
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.77604897989271,
+            "lng": -104.9911203701073
+          },
+          "southwest": {
+            "lat": 39.77334932010726,
+            "lng": -104.9938200298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Golden West Plumbing, Heating, Air Conditioning, and Electrical",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 2000,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/107182873854475394021\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27xeUUXj3wc13qG2-YhDzSPPI216m3P26bnED727BG7urgV3tlhcvfjYp6X2tTIWAwm3TJvxJM3xOFgjohEg0PxhqALt3M3gpKOJ2OeFsvwyq-MA1SNY9jP5XKGNtlwMS1QYGph_rBrOwKTcZ0QA_lz_vNM2u1g3D_BVbU-3rOIuJe8s",
+          "width": 1500
+        }
+      ],
+      "place_id": "ChIJg1U6I_l4bIcRItUk9Hi71pc",
+      "plus_code": {
+        "compound_code": "Q2F4+VX Denver, Colorado",
+        "global_code": "85FQQ2F4+VX"
+      },
+      "rating": 4.8,
+      "reference": "ChIJg1U6I_l4bIcRItUk9Hi71pc",
+      "types": [
+        "plumber",
+        "electrician",
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 2985
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "6810 Broadway, Denver, CO 80221, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.82024699999999,
+          "lng": -104.986717
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.82137052989272,
+            "lng": -104.9853032201073
+          },
+          "southwest": {
+            "lat": 39.81867087010728,
+            "lng": -104.9880028798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Swan Plumbing, Heating & Air of Denver",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 2016,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/108514254836428803304\">Swan Plumbing, Heating &amp; Air of Denver, Inc.</a>"
+          ],
+          "photo_reference": "AWYs27wJenTcLEOizQH65ZlwqmJyZzgHB9UV9yARlqgdT8lRQFzvL2XJqiNq0PGt6Wkf5_2pMSlUwto6VuusQzR7y1aLuifusYLBWg8jmG9bd_HD2MThY3S3pGGi8HedB56sBq-trnbbmMcXrhAAZrq2hhM1twVmlWHXwnpzFChjTMnQUOT5",
+          "width": 1512
+        }
+      ],
+      "place_id": "ChIJq6qqqhp4bIcR0vuPEgEh4O8",
+      "plus_code": {
+        "compound_code": "R2C7+38 Denver, Colorado",
+        "global_code": "85FQR2C7+38"
+      },
+      "rating": 4.8,
+      "reference": "ChIJq6qqqhp4bIcR0vuPEgEh4O8",
+      "types": [
+        "plumber",
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 2865
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "4730 Paris St #100, Denver, CO 80239, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7838782,
+          "lng": -104.8484537
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.78522792989272,
+            "lng": -104.8471760201073
+          },
+          "southwest": {
+            "lat": 39.78252827010728,
+            "lng": -104.8498756798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Mighty Plumbing Heating Air and Electric LLC.",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1020,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/102590208158176942949\">yosimar sagal</a>"
+          ],
+          "photo_reference": "AWYs27yh7APPCDi_JUhK5vWm-a8ht764w0LHPRMmy3s9W6z3geroGGid110-0-jOneUbAEAhwZBQdFwo9UpNKW0MV_cP5caVIh1zA0rF23QpRzAYl1wijlO47x_qmj0yEliSNDd7UDOB8AHkBEsyRFLRY0BBkA6OMT07savFJV4lGiqIKYrs",
+          "width": 765
+        }
+      ],
+      "place_id": "ChIJO7qJOYpzbIcRjy-0lD8QN3w",
+      "plus_code": {
+        "compound_code": "Q5M2+HJ Denver, Colorado",
+        "global_code": "85FQQ5M2+HJ"
+      },
+      "rating": 4.8,
+      "reference": "ChIJO7qJOYpzbIcRjy-0lD8QN3w",
+      "types": [
+        "plumber",
+        "electrician",
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 2654
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "646 Bryant St, Denver, CO 80204, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.726715,
+          "lng": -105.0183805
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.72806382989272,
+            "lng": -105.0170757701073
+          },
+          "southwest": {
+            "lat": 39.72536417010728,
+            "lng": -105.0197754298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Heart Heating, Cooling, Plumbing & Electric",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4032,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/117570250245922426072\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27zwLCvtxFLBrtFhQrgRufEL2yBKuysRk3cOU4WbMSLqBKQg4pbBuxOYnkLK7_PBP5-jqgbvP41_Y9zTDLK41U9trzrnzT56svT7pudJySWX_O0BDirLSg1qmNf424zkpfgkupPHvKI_7Ikw4yiou2HZ5NCpFmiZMI_2BLrDaz0WZJpd",
+          "width": 3024
+        }
+      ],
+      "place_id": "ChIJl6vLIcGBbIcR3nyblga1lm4",
+      "plus_code": {
+        "compound_code": "PXGJ+MJ Denver, Colorado",
+        "global_code": "85FPPXGJ+MJ"
+      },
+      "rating": 4.8,
+      "reference": "ChIJl6vLIcGBbIcR3nyblga1lm4",
+      "types": [
+        "plumber",
+        "electrician",
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 2126
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "4321 Broadway, Denver, CO 80216, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7760195,
+          "lng": -104.9883127
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.77745292989272,
+            "lng": -104.9869416201073
+          },
+          "southwest": {
+            "lat": 39.77475327010728,
+            "lng": -104.9896412798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Ultimate Heating, Cooling, Plumbing & Electric",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 2016,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/108166599198961925596\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27yEcpOyHsZDakbaPlSRnobrt-0eg7q4J31tupV4BZ_edPJW4Z-eKdvqMLVgtwLkaMLLZzn6nahI0M-LzOzbYAdj2YMeKDpLlMzz9iSwf076TLrslMn7n2pGiK5AHgdoaMvjhDUGn_UM8Ue0cFb8zz8MyiE-TROX7XUTf-OFBdPCzKRw",
+          "width": 1512
+        }
+      ],
+      "place_id": "ChIJ6csqlQx6bIcRNHw3yW85YMI",
+      "plus_code": {
+        "compound_code": "Q2G6+CM Denver, Colorado",
+        "global_code": "85FQQ2G6+CM"
+      },
+      "rating": 4.8,
+      "reference": "ChIJ6csqlQx6bIcRNHw3yW85YMI",
+      "types": [
+        "plumber",
+        "electrician",
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 945
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "2750 S Shoshone St, Englewood, CO 80110, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.6667341,
+          "lng": -105.0095923
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.66808507989272,
+            "lng": -105.0083788201073
+          },
+          "southwest": {
+            "lat": 39.66538542010728,
+            "lng": -105.0110784798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Steel T | HVAC Denver",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4000,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/116791788314479295598\">Charles Danila</a>"
+          ],
+          "photo_reference": "AWYs27zCW3ntCp66jSPcCiDEOoYQN1LDPgxn6Dse0O2ESalLT6T8uU3y6FGhvGBYYWdLDqHhod-MKcm9Ispu0fiW6LH1HPaR7u5ICRO1XvREBgn1KDo_zhqkPGE3mZz5Wvy4a7EdzstXfOetnskQfy-v7kHOcKT-x3VVrfh5EEdq0n7rl3v3",
+          "width": 3000
+        }
+      ],
+      "place_id": "ChIJaTSTLuh_bIcRpo1th4zPtL8",
+      "plus_code": {
+        "compound_code": "MX8R+M5 Englewood, Colorado",
+        "global_code": "85FPMX8R+M5"
+      },
+      "rating": 4.8,
+      "reference": "ChIJaTSTLuh_bIcRpo1th4zPtL8",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 664
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "7100 Broadway #7K, Denver, CO 80221, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.8265292,
+          "lng": -104.9857743
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.82798817989272,
+            "lng": -104.9844968201073
+          },
+          "southwest": {
+            "lat": 39.82528852010728,
+            "lng": -104.9871964798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Sanders & Johnson Heating, Cooling, and Plumbing",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 450,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/113342604424151777262\">Sanders and Johnson Heating &amp; Cooling</a>"
+          ],
+          "photo_reference": "AWYs27zlQA86fSmk65o3M-8P9CysZ-m-T_5jqIrr2sypwvRNXAkaHemVRTMzRFsHHkGbfEtndKEF_jDmuDVWS9-WS37_d7U7IslyROLFOL5JCdvoPjEZCJK-1_ntOs_gnrWnUahc3e3y-xuNlxgJ9R5QLKvFVO_tbL1ykxOLSk1evQLuZVS1",
+          "width": 300
+        }
+      ],
+      "place_id": "ChIJv8uxiHh3bIcReEYjOJ3KC6I",
+      "plus_code": {
+        "compound_code": "R2G7+JM Denver, Colorado",
+        "global_code": "85FQR2G7+JM"
+      },
+      "rating": 4.8,
+      "reference": "ChIJv8uxiHh3bIcReEYjOJ3KC6I",
+      "types": [
+        "plumber",
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 453
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "4395 Oneida St, Denver, CO 80216, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7777943,
+          "lng": -104.9087037
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.77910592989272,
+            "lng": -104.9071110701073
+          },
+          "southwest": {
+            "lat": 39.77640627010728,
+            "lng": -104.9098107298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Cool Sunshine Heating and Air Conditioning, Inc.",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4032,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/113986059667269493337\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27x7HBBUWScbPmFceQzRDAqr7DQ7ek3JwKjfYWWvjQXMDoqqjrr8s8JKWC6uDPTS0g8WB_D3g1Zsp9P-_E2K_ZnRBxWLdbwsiJkjPaK8f267AD301vce8vkK9u2CgAV7YezJf7WeraaA8f2KrET-m6xIEIwNvXaolC3Usc5eihKR5qgu",
+          "width": 1496
+        }
+      ],
+      "place_id": "ChIJMxtE3jt3bIcRyBQsF6jz1CU",
+      "plus_code": {
+        "compound_code": "Q3HR+4G Denver, Colorado",
+        "global_code": "85FQQ3HR+4G"
+      },
+      "rating": 4.8,
+      "reference": "ChIJMxtE3jt3bIcRyBQsF6jz1CU",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 147
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "8661 Rosemary St, Commerce City, CO 80022, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.853731,
+          "lng": -104.900118
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.85517587989272,
+            "lng": -104.8985118701073
+          },
+          "southwest": {
+            "lat": 39.85247622010728,
+            "lng": -104.9012115298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Now Heating and Air",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/103253073265824892570\">Chris Wineman</a>"
+          ],
+          "photo_reference": "AWYs27z-jYSe7vvXeC59aw8juBHgftkN-zag6V0mRf_7dCdtnfPZJW6xJxiS2xDfjurwOOm6DvB1bJhmmaSPLHUgTFHMA4HxVloXU1HwSTHmRarXpw8zSL7W1TFMMzHvLWHaymLQFG_LsrANMUz1OuZMnnmSU8T8J-eB-PL1rFXG-d-U1vJC",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJS05l-SR3bIcRtNeusTiIprM",
+      "plus_code": {
+        "compound_code": "V33X+FX Commerce City, Colorado",
+        "global_code": "85FQV33X+FX"
+      },
+      "rating": 4.7,
+      "reference": "ChIJS05l-SR3bIcRtNeusTiIprM",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 1460
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "4620 E Colfax Ave, Denver, CO 80220, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7399625,
+          "lng": -104.9334178
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.74137447989272,
+            "lng": -104.9320338701073
+          },
+          "southwest": {
+            "lat": 39.73867482010728,
+            "lng": -104.9347335298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Squeaks Services Plumbing Heating & Air",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4032,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/112103258571765483871\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27x_TDZcJo_lFE4o1mDqPLv5S-6lHvw6roXawOo6-CC2cPDCkEgsZjKmz7c0rh3Dbd0YkMZCYtF_HndRelDJ9IPNltclzS1IpFh_mqF66248uxgrSpsrvXSfSHXzen6BhkBvWX_UOMKoESdMg73225fQcI0eVbJIupIBDnDtSjGjSFXR",
+          "width": 3024
+        }
+      ],
+      "place_id": "ChIJz1Zihnh3bIcRYOKxJJh0lPw",
+      "plus_code": {
+        "compound_code": "P3Q8+XJ Denver, Colorado",
+        "global_code": "85FQP3Q8+XJ"
+      },
+      "rating": 4.7,
+      "reference": "ChIJz1Zihnh3bIcRYOKxJJh0lPw",
+      "types": [
+        "plumber",
+        "electrician",
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 1380
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "3270 W Alameda Ave, Denver, CO 80219, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.710994,
+          "lng": -105.029349
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.71239557989272,
+            "lng": -105.0279818201073
+          },
+          "southwest": {
+            "lat": 39.70969592010728,
+            "lng": -105.0306814798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Day & Night Mechanical Solutions, Inc.",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 2592,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/105169453316189092033\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27wTGyrxxZLnguUgkN2fd7-uzbcf5HP0qoKkfOOoybfbF3hlua1y2ZQwELJB6k9QIf8RDy0jGBY7hiAd1R0ZaIxJRE7P0g0VpxvLBM3tbSD6jhv57jm0N_UiFEsqTh7Qz3hrEkv6IWCTg_j2b8_9V5lldoK0QEm8Yo9lyQexLB4WCn36",
+          "width": 3671
+        }
+      ],
+      "place_id": "ChIJDVrKX2B_bIcRPTo-O44NCOA",
+      "plus_code": {
+        "compound_code": "PX6C+97 Denver, Colorado",
+        "global_code": "85FPPX6C+97"
+      },
+      "rating": 4.4,
+      "reference": "ChIJDVrKX2B_bIcRPTo-O44NCOA",
+      "types": [
+        "plumber",
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 154
+    }
+  ]
+}

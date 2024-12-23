@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import Pagination from './Pagination';
 import { PaginatedResponse } from '@/types/pagination';

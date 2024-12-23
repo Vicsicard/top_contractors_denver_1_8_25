@@ -1,0 +1,1011 @@
+{
+  "trade": "painters",
+  "lastUpdated": "2024-12-23T17:15:42.445Z",
+  "results": [
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "5310 Ward Rd Ste G-03, Arvada, CO 80002, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7930041,
+          "lng": -105.137332
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.79434202989272,
+            "lng": -105.1361405701073
+          },
+          "southwest": {
+            "lat": 39.79164237010727,
+            "lng": -105.1388402298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Colorado Commercial & Residential Painting",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4032,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/108135471625437092764\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27znoB6a21gwc8hKmeie3cMe3gvQgsWa86FMnUj-LDaN2YG3P6iPlvimIwOyizS6AeOFVv_6S10FKWEjfhE9vaTG1EeuBl3-GkAxm3BcDo8ZJicghjj17E-11vpciI4ltC9rK3hC-iR_29p5HGifWSOx2i9ScF10p5wLCSmPIoUdt1Og",
+          "width": 3024
+        }
+      ],
+      "place_id": "ChIJs1cNQvCFa4cRhwf7a3-C4ks",
+      "plus_code": {
+        "compound_code": "QVV7+63 Arvada, Colorado",
+        "global_code": "85FPQVV7+63"
+      },
+      "rating": 5,
+      "reference": "ChIJs1cNQvCFa4cRhwf7a3-C4ks",
+      "types": [
+        "painter",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 236
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "1499 W 120th Ave #110, Westminster, CO 80234, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.9144407,
+          "lng": -105.0037813
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.91595982989273,
+            "lng": -105.0024259701073
+          },
+          "southwest": {
+            "lat": 39.91326017010729,
+            "lng": -105.0051256298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "That 1 Painter North Denver",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 585,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/107518794473340671436\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27xsYp5wvZyJfsJU7CnDA0rrBFrzTmTLxcE4HmAOGdtdJUP01Xkyt_uPsbXSzHg4mQdZmSi9qWyAY7GVfLMxAcRV9i9J79UIAsV-MSZB0LSI3GW1RPM2DNxYKFw44DOws_P3vuvr4YHPYKjbMTcKGV70EYW09lTEOfmC9Wmod0nxF7wx",
+          "width": 1040
+        }
+      ],
+      "place_id": "ChIJS8VGOqfZUCMRtEZGQPs5Eis",
+      "plus_code": {
+        "compound_code": "WX7W+QF Westminster, Colorado",
+        "global_code": "85FPWX7W+QF"
+      },
+      "rating": 5,
+      "reference": "ChIJS8VGOqfZUCMRtEZGQPs5Eis",
+      "types": [
+        "painter",
+        "home_goods_store",
+        "general_contractor",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 86
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "559 S Lincoln St, Denver, CO 80209, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7064844,
+          "lng": -104.9865964
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.70783507989272,
+            "lng": -104.9851092201073
+          },
+          "southwest": {
+            "lat": 39.70513542010728,
+            "lng": -104.9878088798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Prominent Painters",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 922,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/113294303392746944894\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27zyxE8BgPAh5UHVqetc0042ybRkc1slxJcqvZZVW0wq1AkYspnd9kOLfJB-65C4NQHPTcJQcawjisuy3IClqYd1En3AdGV-xqxtFLCITmljYeX-poDs2oPGPSB5ZuYQdY8j8lcjjs_JVc8xlEcSO0s5hHJLBxYlmddVdpuiN82FAxBf",
+          "width": 2048
+        }
+      ],
+      "place_id": "ChIJo-qKOyWHa4cRiSFu1zkNGOY",
+      "plus_code": {
+        "compound_code": "P247+H9 Denver, Colorado",
+        "global_code": "85FQP247+H9"
+      },
+      "rating": 5,
+      "reference": "ChIJo-qKOyWHa4cRiSFu1zkNGOY",
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 84
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "7290 Samuel Dr, Denver, CO 80221, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.828929,
+          "lng": -105.007437
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.83013632989272,
+            "lng": -105.0061179201073
+          },
+          "southwest": {
+            "lat": 39.82743667010728,
+            "lng": -105.0088175798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "American Painting Specialists",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 768,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/105437020888637373216\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27zhvV-Pm6HP5gcfBTLkrtkdRC447t27CJ1pPiKD3S-EW7SCId9B_iU326xo3DG4oDDufwaTrC1CjsxZRPMi2N7KyIdUXiqiqQ1d9EkAlnAgUSGYHZm6AYcAzSDiBMaf6JkvPReWLsXGNQd8TDMGP14yTejZpu7ajbiPDUVQAfoaWxbq",
+          "width": 1366
+        }
+      ],
+      "place_id": "ChIJLTBetnd3bIcRsxXlygFf8SQ",
+      "plus_code": {
+        "compound_code": "RXHV+H2 Denver, Colorado",
+        "global_code": "85FPRXHV+H2"
+      },
+      "rating": 5,
+      "reference": "ChIJLTBetnd3bIcRsxXlygFf8SQ",
+      "types": [
+        "painter",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 69
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "3705 Kipling St Suite 206, Wheat Ridge, CO 80033, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7673863,
+          "lng": -105.1102295
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.76877437989272,
+            "lng": -105.1087985701073
+          },
+          "southwest": {
+            "lat": 39.76607472010728,
+            "lng": -105.1114982298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Performance Painting Group Co.",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1092,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/107252579109397087473\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27zrq5geyZ3RNjOTiIQz9fwhYt6JT6WPGPumnU5D9UdusaEriGjv785DVTQvT3N8oQW27_radPQILaxPRld7CmY_sPjghJ4q1Cg-XxgX5-AP_TZqTlCqJq-urbBThm5CBftgMar8U8aq5Xh5ENj_SMnv0cNgYUmkE7en4WhNQLjvGvYb",
+          "width": 1666
+        }
+      ],
+      "place_id": "ChIJJU7m7o26U0sRDYf7Fu3CoaM",
+      "plus_code": {
+        "compound_code": "QV8Q+XW Wheat Ridge, Colorado",
+        "global_code": "85FPQV8Q+XW"
+      },
+      "rating": 5,
+      "reference": "ChIJJU7m7o26U0sRDYf7Fu3CoaM",
+      "types": [
+        "painter",
+        "home_goods_store",
+        "general_contractor",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 49
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "3115 Gilpin St, Denver, CO 80205, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7611041,
+          "lng": -104.9674657
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.76245432989273,
+            "lng": -104.9659777201073
+          },
+          "southwest": {
+            "lat": 39.75975467010728,
+            "lng": -104.9686773798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Dad and Son Painting | Cabinet Refinishing, Interior & Exterior Painting of Colorado",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4046,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/102343768774435598057\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27xM-DkSAujYPo0hDHY-SnAW78P3zPU1n-ZP1Lg0dsyeHHi1SLwgGMY_u_pGtkSeLOQKt3SrUPHjYanpvNLP_kKpZLxOJcysTU7sjgPfgw7Iou22596DJQc3o2hi0qDbuCpI_1Gtv7-CVf9ye1_BT-lLviAAzTh0N9bu6bKh-36YmsFf",
+          "width": 6273
+        }
+      ],
+      "place_id": "ChIJaQPimVF5bIcRe6AKyM5-b84",
+      "plus_code": {
+        "compound_code": "Q26M+C2 Denver, Colorado",
+        "global_code": "85FQQ26M+C2"
+      },
+      "rating": 5,
+      "reference": "ChIJaQPimVF5bIcRe6AKyM5-b84",
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 48
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "1776 S Jackson St Ste 504, Denver, CO 80210, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.6847982,
+          "lng": -104.942764
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.68614607989272,
+            "lng": -104.9413096201073
+          },
+          "southwest": {
+            "lat": 39.68344642010727,
+            "lng": -104.9440092798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Improovy Painters Denver",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4000,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/101041416312631191032\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27z3PDpixONz0mG1BJ-8dh3XOPN5CkQeOoCzGCZC1QQ9w3MrU0vBdEhrIqocSMo81kO2joWzjmJKW-BItF5l4kbhLfmKZ2_CTTG5zWhqWprqATMPx0JVpZ85Y1suEOfaFPrkFqznqH4U6V44C0dBQwsJ7-lmI29GH1U5vQc-GV1QlbRy",
+          "width": 3000
+        }
+      ],
+      "place_id": "ChIJH1vHs-1_bIcRl2odC39c4_o",
+      "plus_code": {
+        "compound_code": "M3M4+WV Denver, Colorado",
+        "global_code": "85FQM3M4+WV"
+      },
+      "rating": 5,
+      "reference": "ChIJH1vHs-1_bIcRl2odC39c4_o",
+      "types": [
+        "painter",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 34
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "1179 Birch Street, Denver, CO 80220, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7342369,
+          "lng": -104.9366693
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.73558677989271,
+            "lng": -104.9353027201073
+          },
+          "southwest": {
+            "lat": 39.73288712010726,
+            "lng": -104.9380023798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Two Painters and A Brush",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/102321054791845299106\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27yzjlfera25KZ-WdVkQe7wfDKLi9502SBtRX1WvPwl4R_VTsSZvypYw8Ty22QQ14ximl-lo6c-U0Mi0lUl6Bvn-hSmI24m1PnsP-HbX5tLbZU6lEGpor8VUvhaR5b1C0B5LDq3Az5-fk7kP1NwGEClVHcWSDAiz0w5zZKirqSzNQrle",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJR6KQfNx9bIcR4hj_B8IyY_c",
+      "plus_code": {
+        "compound_code": "P3M7+M8 Denver, Colorado",
+        "global_code": "85FQP3M7+M8"
+      },
+      "rating": 5,
+      "reference": "ChIJR6KQfNx9bIcR4hj_B8IyY_c",
+      "types": [
+        "painter",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 22
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "1014B S Jason St, Denver, CO 80223, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.6984634,
+          "lng": -104.9981765
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.69976337989272,
+            "lng": -104.9968061201073
+          },
+          "southwest": {
+            "lat": 39.69706372010728,
+            "lng": -104.9995057798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Walls By Design Painting And Decorating",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4032,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/108723203859400574338\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27zKLEjPYw7bNkGDth7meTKW96v8lxJhwH7DuXLj5VcmliF2KMlckzAcDyJOWizlXlRu2XnG-TZGwJS5eFDxj8FrA4wxDlJqexVbcXcDk3r0g9dawpdDDYeVmfQAsMwQfCNKIMyH69p086KPjhS9dcZmgt0An1ezPhALg_b0DPod-3Lz",
+          "width": 3024
+        }
+      ],
+      "place_id": "ChIJ405QvG-CbIcR4HnuYRQKVu0",
+      "plus_code": {
+        "compound_code": "M2X2+9P Denver, Colorado",
+        "global_code": "85FQM2X2+9P"
+      },
+      "rating": 4.9,
+      "reference": "ChIJ405QvG-CbIcR4HnuYRQKVu0",
+      "types": [
+        "painter",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 496
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "4 W Dry Creek Cir #100, Littleton, CO 80120, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7066741,
+          "lng": -105.0803028
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.70802407989272,
+            "lng": -105.0789993701073
+          },
+          "southwest": {
+            "lat": 39.70532442010728,
+            "lng": -105.0816990298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Helix Painting",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1500,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/102767062881491770109\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27xIVyvhqg3LOhHkF4r3zgrK217GLXaGIHvYCKlxx7WA7bBoEqWHzCZdQG_T1j3LFE2SVrGxzJ2pCZ0lPzkBBUxSra76tgJNyURTT0X2-RHIZCNIbqCqnClaX7OAdrHhUI50k7ocSlr43ex5HOm1b4E2hKfFE7Xck87mdqwEkeq0w-HL",
+          "width": 3000
+        }
+      ],
+      "place_id": "ChIJhduLK2yBbIcRBp-L9EUhbQM",
+      "plus_code": {
+        "compound_code": "PW49+MV Littleton, Colorado",
+        "global_code": "85FPPW49+MV"
+      },
+      "rating": 4.9,
+      "reference": "ChIJhduLK2yBbIcRBp-L9EUhbQM",
+      "types": [
+        "painter",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 369
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "383 N Corona St Suite 626, Denver, CO 80218, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7218018,
+          "lng": -104.9744125
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.72315167989272,
+            "lng": -104.9728972201073
+          },
+          "southwest": {
+            "lat": 39.72045202010727,
+            "lng": -104.9755968798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Kind Home Painting Company",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4032,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/107552140381536095133\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27wuAMD8E0H_o7NP2NOb7axY9hC6P3iwm7bH1axvILgbSXtV_ijH_vPZqO56jTSViTb5ayfJLOglCWE2o4xqDoL403dGlNd08hDV6hdp7Hl-ARefPhy1_EGVth3quC64uL-sfqFCYDJY7wz7YFBM0yOMc4X8wd65Iul0ifBqxpFW62Rj",
+          "width": 3024
+        }
+      ],
+      "place_id": "ChIJ0dU1xP1_bIcR_ssQ3zwt1QM",
+      "plus_code": {
+        "compound_code": "P2CG+P6 Denver, Colorado",
+        "global_code": "85FQP2CG+P6"
+      },
+      "rating": 4.9,
+      "reference": "ChIJ0dU1xP1_bIcR_ssQ3zwt1QM",
+      "types": [
+        "painter",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 363
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "1616 Federal Blvd, Denver, CO 80204, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7426901,
+          "lng": -105.024749
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.74412997989272,
+            "lng": -105.0234713201073
+          },
+          "southwest": {
+            "lat": 39.74143032010728,
+            "lng": -105.0261709798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Paint Denver",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 2667,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/103460939256077435569\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27z831nJnEAL2wM-_QObr8WYbqmLX6Abvc9UC8HqONMrD4A-C1GvWaUb5_i9v7W3GOMb8jL36EJwJLRrTgT2AIO_R-ibp_B2LEsGRsRxjRtWhwA9qYkr7ACqb3dNySbIpmMvhTcSy2OeCEZelpcpOQgw-bwsGFtOhO0ITnH9hl3NrVlA",
+          "width": 4000
+        }
+      ],
+      "place_id": "ChIJN4MfZK94bIcR0BR5aiZ7XOk",
+      "plus_code": {
+        "compound_code": "PXVG+34 Denver, Colorado",
+        "global_code": "85FPPXVG+34"
+      },
+      "rating": 4.9,
+      "reference": "ChIJN4MfZK94bIcR0BR5aiZ7XOk",
+      "types": [
+        "painter",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 346
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "1201 S Parker Rd #104, Denver, CO 80231, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.6947106,
+          "lng": -104.8961799
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.69612782989272,
+            "lng": -104.8947016701073
+          },
+          "southwest": {
+            "lat": 39.69342817010728,
+            "lng": -104.8974013298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "CertaPro Painters of Denver, CO",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 366,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/103058541997963679324\">Ann Miller</a>"
+          ],
+          "photo_reference": "AWYs27w5dPoRrRfgw2n5pkEhgqAeJMcQ4doeuZXDV_gYXyBeLSy24viyIibh9pbcgBD6h-lCROMwLqmwd_bw08leo1NTGeuyID2jNCSGqgethNbi1nlI7BkEYyanVSv_Q3Lsb4rQi1Tz6GkPLeuYFrkQ2nxnDcDXERz6Kt-UqIm_GvmYuNfw",
+          "width": 502
+        }
+      ],
+      "place_id": "ChIJ3RHOfyKFbIcRuaGVU_eyC5g",
+      "plus_code": {
+        "compound_code": "M4V3+VG Denver, Colorado",
+        "global_code": "85FQM4V3+VG"
+      },
+      "rating": 4.9,
+      "reference": "ChIJ3RHOfyKFbIcRuaGVU_eyC5g",
+      "types": [
+        "painter",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 289
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "5250 E Cherry Creek S Dr, Denver, CO 80246, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.69881,
+          "lng": -104.9277682
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.70006447989272,
+            "lng": -104.9266122201073
+          },
+          "southwest": {
+            "lat": 39.69736482010727,
+            "lng": -104.9293118798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Imperial Painters",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/107086574054833009284\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27yq0kjQgE2SJAV6iPMmW1y5DPMLCF4KFhiqSrAVCBGfvV3rZdIn4s6YI1v2XQHZqyl3-g5h-wlpskGr8G3OGwHHd7gBGz6XfL_YoTNC79U9tkNDn1PYdE1pJh9TUgCyQoBYD_ApIkRD0-Yr56CSz7HDPv65wKPMAKUhCcGwZ0ka7sv2",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJdaR7IM59bIcRB0CnVtzKias",
+      "plus_code": {
+        "compound_code": "M3XC+GV Denver, Colorado",
+        "global_code": "85FQM3XC+GV"
+      },
+      "rating": 4.9,
+      "reference": "ChIJdaR7IM59bIcRB0CnVtzKias",
+      "types": [
+        "painter",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 249
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "2008 S Corona St, Denver, CO 80210, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.6800967,
+          "lng": -104.974381
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.68145542989272,
+            "lng": -104.9731368201073
+          },
+          "southwest": {
+            "lat": 39.67875577010728,
+            "lng": -104.9758364798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Harmony Painting - Denver Interior, Exterior, and Commercial Painters",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 2268,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/103334257490901172279\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27w5RfeRsvJIPHp0QjeEuWBm4CkJ4DHdQJk51ovO7UNhFYD3n90A4CXEzJJsef1nkKrkjNoYRCicLwbhsXXp37THYbOyQqzhCHUyu83jcnc1tDZHqgq7WPyQWgTMHRzSxeUgNrtLdszzfN53-mAaC2pkTXy3SXLaCPK856krW1_9P0t5",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJ5X8I51B-a4cRur2-HJXzsQw",
+      "plus_code": {
+        "compound_code": "M2JG+26 Denver, Colorado",
+        "global_code": "85FQM2JG+26"
+      },
+      "rating": 4.9,
+      "reference": "ChIJ5X8I51B-a4cRur2-HJXzsQw",
+      "types": [
+        "painter",
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 219
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "4950 Ward Rd, Wheat Ridge, CO 80033, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7859949,
+          "lng": -105.1376005
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.78734472989272,
+            "lng": -105.1362506701073
+          },
+          "southwest": {
+            "lat": 39.78464507010727,
+            "lng": -105.1389503298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "CertaPro Painters of Arvada, CO",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 884,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/118410251091405324019\">CertaPro Painters</a>"
+          ],
+          "photo_reference": "AWYs27xKRxpgjPvQH1Ejxyps8_HiQIAyEjsq8QFxtj5gf47t2f7L935b1KH88v0pW0ceOexxSnBRQzaje3gsau5BnQGj_9RS5RQ_jMykS6P61KyTJuKkNlLzxLgpDuOsLUrlhAFm_SADXBwpDtiNc-qNXbCsEyTIE7JFk7A1zTXDC3hIexaY",
+          "width": 663
+        }
+      ],
+      "place_id": "ChIJQaWCU0SPa4cRLss_2V_OtMI",
+      "plus_code": {
+        "compound_code": "QVP6+9X Wheat Ridge, Colorado",
+        "global_code": "85FPQVP6+9X"
+      },
+      "rating": 4.9,
+      "reference": "ChIJQaWCU0SPa4cRLss_2V_OtMI",
+      "types": [
+        "painter",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 216
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "8601 W Cross Dr F5 #152, Denver, CO 80123, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.6148391,
+          "lng": -105.0964376
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.61614042989272,
+            "lng": -105.0949493201073
+          },
+          "southwest": {
+            "lat": 39.61344077010727,
+            "lng": -105.0976489798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "New Perspective Painting",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/103069402450565834749\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27y5-8RUN5L3RjtKCvWMbvuF7uKH65yQwOm93DTjh2PwVoWZSxS8bvcxFL_2rQKIdcQm2M7ze1A2mtMasHTHfphgc7rquleEu3Ikvw3OTnHkZ5fKhvKsWNy1zyV8DKooCPugvEhHRPsY3h0gPOm1wQa8GcQo2p_On7Oi0yARRchDcznM",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJ6ynTKVCHa4cRfeq-tT8Lb1Q",
+      "plus_code": {
+        "compound_code": "JW73+WC Denver, Colorado",
+        "global_code": "85FPJW73+WC"
+      },
+      "rating": 4.9,
+      "reference": "ChIJ6ynTKVCHa4cRfeq-tT8Lb1Q",
+      "types": [
+        "painter",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 129
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "1050 Yuma St, Denver, CO 80204, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7330274,
+          "lng": -105.0149522
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.73434392989272,
+            "lng": -105.0134098701073
+          },
+          "southwest": {
+            "lat": 39.73164427010728,
+            "lng": -105.0161095298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Vivax Pros",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 4032,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/110616254325587166584\">Powered By Jesus</a>"
+          ],
+          "photo_reference": "AWYs27xdAS9mYOUYnULABfSKTXZfs4mNQ5aZk9FUNaoxB7ZnyuceRLhHcvFtf6JLHPwWk_rhz2GLBvVGaNs8YbuhGqdbpE9uRfn9XbjqMv2FoDurKsQ-ajocrWkCFFC2my9kMFyMQPKFTu4hGpDWNhZWWxQz3M8Ty9CNNIhqShQ7YcpdRkIH",
+          "width": 3024
+        }
+      ],
+      "place_id": "ChIJd8Yeu75_bIcRbIy2DoWDy4g",
+      "plus_code": {
+        "compound_code": "PXMP+62 Denver, Colorado",
+        "global_code": "85FPPXMP+62"
+      },
+      "rating": 4.8,
+      "reference": "ChIJd8Yeu75_bIcRbIy2DoWDy4g",
+      "types": [
+        "painter",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 2735
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "450 Lincoln St Suite 101, Denver, CO 80203, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7233676,
+          "lng": -104.9858687
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.72471082989272,
+            "lng": -104.9845906701073
+          },
+          "southwest": {
+            "lat": 39.72201117010728,
+            "lng": -104.9872903298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Dream Painting – House Painting Company in Denver",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4032,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/107580369102476874276\">Egshiglen Bayarsaikhan</a>"
+          ],
+          "photo_reference": "AWYs27xDPmM52lZ5rA5-YqwXVXge26bteUVHA5EQizrDAcl_rjBlKwVvWaYCRqMDSjYXEdskBrab7ZHLtYbehlIfiuPUkVKlcOTQtTJ8qXYQzgSRwPtL0pw82sFBBunCV7u-HrF7QyaHYBVgmnqrFbRxoVViq2sA_1w3P2dzNEACE-MAp40g",
+          "width": 3024
+        }
+      ],
+      "place_id": "ChIJkcQKC_aPbIcR65uXmQfovZo",
+      "plus_code": {
+        "compound_code": "P2F7+8M Denver, Colorado",
+        "global_code": "85FQP2F7+8M"
+      },
+      "rating": 4.8,
+      "reference": "ChIJkcQKC_aPbIcR65uXmQfovZo",
+      "types": [
+        "painter",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 184
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "2000 W 120th Ave #3, Denver, CO 80234, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.91335249999999,
+          "lng": -105.0111344
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.91470502989272,
+            "lng": -105.0097510201073
+          },
+          "southwest": {
+            "lat": 39.91200537010727,
+            "lng": -105.0124506798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "CertaPro Painters of North Denver",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 353,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/114843121280822318366\">CertaPro Painters</a>"
+          ],
+          "photo_reference": "AWYs27y9v3BcWdsKFwBGx2UmYKEaGdb6KetpGIU-6y0LCYPyMenaIr7iG7EdjhLtc4ZbwMECX2lhEWEoq_PCsQCrBhzXCsjLAWSwQQtt-uIOG_PwEEZkOFnE6YbqICB3n5sTXGDw8cXtX9A0xjDGkxDNqWJyJkCft2xaPBgwGdiYBUJMQnm2",
+          "width": 686
+        }
+      ],
+      "place_id": "ChIJx0_GwQJtbIcRFoGHUxWyYk8",
+      "plus_code": {
+        "compound_code": "WX7Q+8G Denver, Colorado",
+        "global_code": "85FPWX7Q+8G"
+      },
+      "rating": 4.8,
+      "reference": "ChIJx0_GwQJtbIcRFoGHUxWyYk8",
+      "types": [
+        "painter",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 158
+    }
+  ]
+}

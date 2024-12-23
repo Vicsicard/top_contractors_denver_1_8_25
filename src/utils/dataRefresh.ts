@@ -1,11 +1,5 @@
 import { PrismaClient, Business } from '@prisma/client';
-import { Bottleneck } from 'bottleneck';
-
-// Initialize rate limiter for Google Places API
-const limiter = new Bottleneck({
-  maxConcurrent: 1, // Number of concurrent requests
-  minTime: 200, // Minimum time between requests (in ms)
-});
+import { waitForToken } from './rateLimiter';
 
 // Initialize Prisma client
 const prisma = new PrismaClient();
@@ -22,10 +16,10 @@ interface GooglePlacesResponse {
       lng: number;
     };
   };
+  types?: string[];
   formatted_phone_number?: string;
   website?: string;
   business_status?: string;
-  types?: string[];
 }
 
 export const REFRESH_THRESHOLD_HOURS = 24; // Refresh data older than 24 hours
@@ -53,7 +47,8 @@ export async function refreshBusinessData(placeId: string): Promise<Business | n
     }
 
     // Rate-limited Google Places API call
-    const placeDetails = await limiter.schedule(() => fetchGooglePlaceDetails(placeId));
+    await waitForToken();
+    const placeDetails = await fetchGooglePlaceDetails(placeId);
 
     if (!placeDetails) return null;
 
@@ -102,20 +97,22 @@ export async function refreshBusinessData(placeId: string): Promise<Business | n
 async function fetchGooglePlaceDetails(placeId: string): Promise<GooglePlacesResponse | null> {
   const apiKey = process.env.GOOGLE_PLACES_API_KEY;
   if (!apiKey) {
-    throw new Error('Google Places API key not found');
+    console.error('Google Places API key not found');
+    return null;
   }
 
   try {
+    await waitForToken();
     const response = await fetch(
-      `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=name,rating,user_ratings_total,formatted_address,geometry,formatted_phone_number,website,business_status,types&key=${apiKey}`
+      `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&key=${apiKey}&fields=name,rating,user_ratings_total,formatted_address,geometry,types,formatted_phone_number,website,business_status`
     );
 
     if (!response.ok) {
-      throw new Error(`Google Places API error: ${response.statusText}`);
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
 
     const data = await response.json();
-    return data.result;
+    return data.result as GooglePlacesResponse;
   } catch (error) {
     console.error('Error fetching place details:', error);
     return null;

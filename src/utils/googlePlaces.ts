@@ -1,121 +1,195 @@
-import { PlaceCache } from '@/models/PlaceCache';
-import { connectDB } from '@/utils/db';
-import { rateLimiter } from './rateLimiter';
+import { waitForToken } from './rateLimiter';
+import { PlacesApiResponse, PlaceResult } from '@/types/places';
 
-const apiKey = process.env.GOOGLE_PLACES_API_KEY;
-const CACHE_DURATION_HOURS = 24;
-
-if (!apiKey) {
-  throw new Error('GOOGLE_PLACES_API_KEY is not defined in environment variables');
+interface PlaceLocation {
+  lat: number;
+  lng: number;
 }
 
-// Location mapping for better search results
-const locationMap: { [key: string]: string } = {
+interface PlaceGeometry {
+  location: PlaceLocation;
+}
+
+interface PlaceResult {
+  place_id: string;
+  name: string;
+  formatted_address: string;
+  geometry: PlaceGeometry;
+  rating?: number;
+  user_ratings_total?: number;
+  types?: string[];
+}
+
+interface PlacesApiResponse {
+  results: PlaceResult[];
+  status: string;
+  next_page_token?: string;
+}
+
+const locationMap: Record<string, string> = {
   'denver': 'Denver, Colorado',
   'denver, co': 'Denver, Colorado',
-  'denver colorado': 'Denver, Colorado'
+  'denver colorado': 'Denver, Colorado',
+  'denver, colorado': 'Denver, Colorado',
+  'downtown denver': 'Downtown Denver, Colorado',
+  'aurora': 'Aurora, Colorado',
+  'lakewood': 'Lakewood, Colorado',
+  'littleton': 'Littleton, Colorado',
+  'arvada': 'Arvada, Colorado',
+  'westminster': 'Westminster, Colorado',
+  'centennial': 'Centennial, Colorado',
+  'thornton': 'Thornton, Colorado'
 };
 
-// Search term mapping for better results
-const searchTermMap: { [key: string]: string } = {
-  'roofer': 'roofing contractor',
-  'plumber': 'plumbing contractor',
-  'electrician': 'electrical contractor',
-  'hvac': 'HVAC contractor',
-  'handyman': 'handyman services',
-  'painter': 'painting contractor',
-  'carpenter': 'carpentry contractor',
-  'landscaper': 'landscaping contractor',
-  'mason': 'masonry contractor',
-  'siding': 'siding contractor',
-  'gutter': 'gutter contractor',
-  'window': 'window installation contractor',
-  'deck': 'deck building contractor',
-  'fence': 'fencing contractor',
-  'flooring': 'flooring contractor',
-  'bathroom remodeling': 'bathroom remodeling contractor',
-  'kitchen remodeling': 'kitchen remodeling contractor',
-  'home remodeling': 'home remodeling contractor',
-  'epoxy garage': 'epoxy flooring contractor'
-};
-
-async function makeRequest(url: string, options = {}) {
-  const response = await fetch(url, {
-    ...options,
-    next: { revalidate: CACHE_DURATION_HOURS * 3600 }
-  });
+// Popular trades search terms mapping
+const tradeSearchTerms: Record<string, string> = {
+  // Licensed trades (require certification)
+  'plumber': 'plumbing contractor plumber',
+  'electrician': 'electrical contractor electrician',
+  'hvac': 'hvac contractor heating cooling',
+  'roofer': 'roofing contractor roofer',
   
+  // Professional trades
+  'carpenter': 'carpentry contractor carpenter',
+  'painter': 'painting contractor painter',
+  'landscaper': 'landscaping contractor landscaper',
+  'home remodeler': 'home remodeling contractor',
+  'bathroom remodeler': 'bathroom remodeling contractor',
+  'kitchen remodeler': 'kitchen remodeling contractor',
+  'siding installer': 'siding contractor installer',
+  'mason': 'masonry contractor mason',
+  'deck builder': 'deck building contractor',
+  'flooring installer': 'flooring contractor installer',
+  'window installer': 'window installation contractor',
+  'fence installer': 'fence installation contractor',
+  'epoxy garage coater': 'epoxy garage floor contractor'
+};
+
+async function makeRequest(url: string, options: RequestInit = {}): Promise<Response> {
+  await waitForToken();
+  const response = await fetch(url, options);
   if (!response.ok) {
     throw new Error(`HTTP error! status: ${response.status}`);
   }
-  
   return response;
 }
 
-export async function searchPlaces(keyword: string, location: string) {
-  try {
-    // Ensure DB connection
-    await connectDB();
+export async function searchPlaces(keyword: string, location: string): Promise<PlacesApiResponse> {
+  const apiKey = process.env.GOOGLE_PLACES_API_KEY;
+  if (!apiKey) {
+    throw new Error('Google Places API key not found');
+  }
 
-    // Check cache first
-    const cacheKey = `${keyword.toLowerCase()}_${location.toLowerCase()}`;
-    const cachedResult = await PlaceCache.findByQuery(cacheKey);
-    
-    if (cachedResult) {
-      console.log('Cache hit for:', cacheKey);
-      return { results: cachedResult.results };
+  console.log('Searching places with:', { keyword, location });
+
+  // Clean and normalize the location
+  const cleanLocation = location.toLowerCase().trim();
+  const normalizedLocation = locationMap[cleanLocation] || `${location}, Colorado`;
+  
+  // Normalize the keyword and get appropriate search terms
+  const keywordLower = keyword.toLowerCase().trim();
+  
+  // First try exact match
+  let searchTerms = tradeSearchTerms[keywordLower];
+  
+  if (!searchTerms) {
+    // Try singular/plural variations
+    const singularForm = keywordLower.replace(/s$/, '');
+    const pluralForm = keywordLower.endsWith('s') ? keywordLower : `${keywordLower}s`;
+    searchTerms = tradeSearchTerms[singularForm] || tradeSearchTerms[pluralForm];
+  }
+  
+  if (!searchTerms) {
+    // Try partial matches
+    const matchingTerm = Object.entries(tradeSearchTerms).find(
+      ([key]) => keywordLower.includes(key) || key.includes(keywordLower)
+    );
+    if (matchingTerm) {
+      searchTerms = matchingTerm[1];
     }
+  }
 
-    console.log('Cache miss for:', cacheKey);
+  // If no specific trade term found, use generic contractor format
+  if (!searchTerms) {
+    searchTerms = keywordLower.includes('contractor') ? 
+      keyword : 
+      `professional ${keyword} contractor`;
+  }
 
-    // Apply rate limiting
-    await rateLimiter.waitForToken();
+  // Build the final search query
+  const finalQuery = `${searchTerms} in ${normalizedLocation}`;
+  console.log('Using search query:', finalQuery);
+  
+  const url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${encodeURIComponent(finalQuery)}&key=${apiKey}`;
 
-    const enhancedKeyword = searchTermMap[keyword.toLowerCase()] || keyword;
-    const query = `${enhancedKeyword} near ${locationMap[location.toLowerCase()] || `${location}, Colorado`}`;
-    const searchUrl = `https://maps.googleapis.com/maps/api/place/textsearch/json?key=${apiKey}&query=${encodeURIComponent(query)}`;
-
-    console.log('API Request:', {
-      originalKeyword: keyword,
-      enhancedKeyword,
-      query,
-      timestamp: new Date().toISOString()
+  try {
+    console.log('Making request to:', url.replace(apiKey, 'REDACTED'));
+    const response = await makeRequest(url);
+    const data = await response.json();
+    
+    console.log('Places API response:', {
+      status: data.status,
+      resultsCount: data.results?.length,
+      nextPageToken: !!data.next_page_token
     });
 
-    const response = await makeRequest(searchUrl);
-    const data = await response.json();
+    // Filter results to ensure they are relevant contractors
+    if (data.results && Array.isArray(data.results)) {
+      data.results = data.results.filter(result => {
+        const name = result.name.toLowerCase();
+        const types = result.types?.map(t => t.toLowerCase()) || [];
+        
+        // Check if it's a relevant contractor based on the trade
+        const isContractor = 
+          name.includes('contractor') ||
+          name.includes('construction') ||
+          name.includes('service') ||
+          name.includes('repair') ||
+          types.some(t => 
+            t.includes('contractor') || 
+            t.includes('service') || 
+            t.includes('repair') ||
+            t.includes('construction')
+          );
 
-    // If no results found, try an alternative search
-    if (data.results.length === 0) {
-      console.log('No results found. Trying alternative search term...');
-      const alternativeQuery = keyword.toLowerCase() === 'handyman' 
-        ? `home repair ${location}`
-        : `${keyword} repair service ${location}`;
-      const alternativeUrl = `https://maps.googleapis.com/maps/api/place/textsearch/json?key=${apiKey}&query=${encodeURIComponent(alternativeQuery)}`;
-      
-      const alternativeResponse = await makeRequest(alternativeUrl);
-      const alternativeData = await alternativeResponse.json();
-      
-      if (alternativeData.results.length > 0) {
-        data.results = alternativeData.results;
-      }
+        // Check for trade-specific keywords
+        const isRelevantTrade = 
+          // Licensed trades
+          (keywordLower.includes('plumb') && (
+            name.includes('plumb') || 
+            types.includes('plumber') || 
+            types.includes('plumbing_contractor') ||
+            name.includes('rooter')
+          )) ||
+          (keywordLower.includes('electric') && (name.includes('electric') || types.includes('electrician'))) ||
+          (keywordLower.includes('hvac') && (name.includes('hvac') || name.includes('heat') || name.includes('air'))) ||
+          (keywordLower.includes('roof') && (name.includes('roof') || types.includes('roofing'))) ||
+          // Professional trades
+          (keywordLower.includes('carpent') && name.includes('carpent')) ||
+          (keywordLower.includes('paint') && name.includes('paint')) ||
+          (keywordLower.includes('landscap') && name.includes('landscap')) ||
+          (keywordLower.includes('remodel') && name.includes('remodel')) ||
+          (keywordLower.includes('siding') && (name.includes('siding') || name.includes('gutter'))) ||
+          (keywordLower.includes('mason') && name.includes('mason')) ||
+          (keywordLower.includes('deck') && name.includes('deck')) ||
+          (keywordLower.includes('floor') && name.includes('floor')) ||
+          (keywordLower.includes('window') && name.includes('window')) ||
+          (keywordLower.includes('fenc') && name.includes('fenc')) ||
+          (keywordLower.includes('epoxy') && (name.includes('epoxy') || name.includes('garage')));
+
+        return isContractor && isRelevantTrade;
+      });
+
+      console.log('Filtered results:', {
+        original: data.results.length,
+        filtered: data.results.length,
+        trade: keyword
+      });
     }
 
-    // Cache the results
-    if (data.results.length > 0) {
-      try {
-        await PlaceCache.createOrUpdateCache(cacheKey, data.results, CACHE_DURATION_HOURS);
-        console.log('Successfully cached results for:', cacheKey);
-      } catch (error) {
-        console.error('Error caching results:', error);
-        // Continue even if caching fails
-      }
-    }
-
-    return data;
+    return data as PlacesApiResponse;
   } catch (error) {
-    console.error('Error in searchPlaces:', error);
-    // Return empty results instead of throwing
-    return { results: [] };
+    console.error('Error searching places:', error);
+    throw error;
   }
 }

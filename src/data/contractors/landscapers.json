@@ -1,0 +1,1006 @@
+{
+  "trade": "landscapers",
+  "lastUpdated": "2024-12-23T17:15:47.485Z",
+  "results": [
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "22586 E Union Cir, Aurora, CO 80015, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.62994339999999,
+          "lng": -104.7250924
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.63126362989273,
+            "lng": -104.7235869701073
+          },
+          "southwest": {
+            "lat": 39.62856397010728,
+            "lng": -104.7262866298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "HLE Landscaping & Concrete",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1080,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/116126671974695440693\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27yErwEIig_dSLNmtpHS6soJF2oElEwZFCms_cRLtySC0nZvNinCzjqFViVtbs4Kkz-4i1DktBEOw3BNGpLRWRbcRpipvStsB8Ch4aVFd-tZrxmLDhMJSmnytHzt8D68semwyWmoMjG8bFFknXAjHqxgFROWQL_6WlwjUMkPo-AwF4hQ",
+          "width": 1440
+        }
+      ],
+      "place_id": "ChIJE09-QvKnbocRPRl7y7cQ1YY",
+      "plus_code": {
+        "compound_code": "J7HF+XX Aurora, Colorado",
+        "global_code": "85FQJ7HF+XX"
+      },
+      "rating": 5,
+      "reference": "ChIJE09-QvKnbocRPRl7y7cQ1YY",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 291
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "2650 W Warren Ave, Denver, CO 80219, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.67633560000001,
+          "lng": -105.0192881
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.67791952989273,
+            "lng": -105.0179406201073
+          },
+          "southwest": {
+            "lat": 39.67521987010728,
+            "lng": -105.0206402798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Modern Concepts Landscape",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4000,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/115671935030191260478\">Kristen Van Ryswyk</a>"
+          ],
+          "photo_reference": "AWYs27wsbhTYeNd8R7lMYLs-whlpEuer9Kyr8Gbupjsr2uyi7YM59iwNPEoCCkUuiFa6gPkz2iFe7pPp12A-m_lDtPYmF5cCbBiONKFk94Gx7gcdUSqVkyELReYtqvMeuK7_yy4VFGxf3eY8G7oE1lIu6lHcCPG0O8RmmTI7wSbt157sIFW7",
+          "width": 3000
+        }
+      ],
+      "place_id": "ChIJ_ZzPU58caYgRI0jPGjQrUMw",
+      "plus_code": {
+        "compound_code": "MXGJ+G7 Denver, Colorado",
+        "global_code": "85FPMXGJ+G7"
+      },
+      "rating": 5,
+      "reference": "ChIJ_ZzPU58caYgRI0jPGjQrUMw",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 49
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "1312 17th St Unit #2207, Denver, CO 80202, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7502211,
+          "lng": -104.9966411
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.75163262989272,
+            "lng": -104.9952057701073
+          },
+          "southwest": {
+            "lat": 39.74893297010727,
+            "lng": -104.9979054298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Pro Home, Yard and Landscaping",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3000,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/101019091128547834869\">Jason Legg</a>"
+          ],
+          "photo_reference": "AWYs27y3oiTrzWH4OdpDO1QW22MC2xHWt1Rn6K8VsQ8G4SDNao4n9OSG1GWprpQYHPQ3I-nh1NgfrP81Y7pHureFyH8NXuq3Fkc0PbGk5hs0hEgPR1VpbS5FGyjlva7wIsF1BY-_3OCf2SZtdaQHruy1OXGtrJcfjBqnnI_2Y-7DvHfAdDOo",
+          "width": 4000
+        }
+      ],
+      "place_id": "ChIJn8bY5CN5bIcRtBSNCmAMHWg",
+      "plus_code": {
+        "compound_code": "Q223+38 Denver, Colorado",
+        "global_code": "85FQQ223+38"
+      },
+      "rating": 5,
+      "reference": "ChIJn8bY5CN5bIcRtBSNCmAMHWg",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 29
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "2420 W College Ave, Denver, CO 80219, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.66839239999999,
+          "lng": -105.0161443
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.66980407989271,
+            "lng": -105.0147942201073
+          },
+          "southwest": {
+            "lat": 39.66710442010727,
+            "lng": -105.0174938798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Rodriguez Landscape, Inc",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1157,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/116530360200364440562\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27wKBtNJOr1jA7XznRlLIuj75W_7rp2HDYPn2w7Kjz4nBNNECvZaAUJDNLsf7Nw8jl38FsG564S-wrWbP2lmI1rVxw3VzGVsKaOs4yN2gTercL8-nnpTJiDTkquTlZW5xgGCWkXfHULjiA0gj9pwyCx-KvH2_0VqKSin6RKHTUFqN6WO",
+          "width": 1168
+        }
+      ],
+      "place_id": "ChIJVVVRou5_bIcREL1QlH8LFeY",
+      "plus_code": {
+        "compound_code": "MX9M+8G Denver, Colorado",
+        "global_code": "85FPMX9M+8G"
+      },
+      "rating": 5,
+      "reference": "ChIJVVVRou5_bIcREL1QlH8LFeY",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 12
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "266 S Quitman St, Denver, CO 80219, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7121115,
+          "lng": -105.0406276
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.71346637989272,
+            "lng": -105.0394092201073
+          },
+          "southwest": {
+            "lat": 39.71076672010728,
+            "lng": -105.0421088798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "The Fisherman LLC",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/117519268405532497345\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27zphJ_BMbM7Nm7WRSW8C_y97E0qAtJhTKoeNPDTOHQDOeGx7iM3j9V_c2g_I6FnEQHfolykj4cfCu44S3Qh9ZnX4I0bQwEPCNwOBvJ3rawuytbx5Y6AKCCVl3R0zRbwMunYjQoYLfcUPfGL0zjtPEqrGfaUOQqCJSIPrsHjYkulOr5D",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJCRMrZsp_bIcRVQS0GXcDDao",
+      "plus_code": {
+        "compound_code": "PX65+RP Denver, Colorado",
+        "global_code": "85FPPX65+RP"
+      },
+      "rating": 4.9,
+      "reference": "ChIJCRMrZsp_bIcRVQS0GXcDDao",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 164
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "679 S Reed Ct, Lakewood, CO 80226, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7002622,
+          "lng": -105.0794504
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.70139652989272,
+            "lng": -105.0780993201073
+          },
+          "southwest": {
+            "lat": 39.69869687010727,
+            "lng": -105.0807989798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "My Son’s Landscaping & Fencing",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 720,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/103476662055454108671\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27wN8_LlZrP29gLSZjjYgVtAN3GQeVDSCn_nWk7SnVGcCHK77CeZ9wwVk8gFYZ8f4D0Fa2jjBahlljkpj_g2EVsnXj8M4aGjOyBZEvGzVa3Cce8O3ZolNPH-jsEIXUhUbF81Dsr2y324dEvDkrS0_zKENbhCUfiSyu4J0VJRh2GeIoII",
+          "width": 960
+        }
+      ],
+      "place_id": "ChIJYcE-GlRB2aMR1IftN-uHTAc",
+      "plus_code": {
+        "compound_code": "PW2C+46 Lakewood, Colorado",
+        "global_code": "85FPPW2C+46"
+      },
+      "rating": 4.9,
+      "reference": "ChIJYcE-GlRB2aMR1IftN-uHTAc",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 97
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "7080 W 38th Ave, Wheat Ridge, CO 80033, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7691902,
+          "lng": -105.0758694
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.77062132989273,
+            "lng": -105.0745265701073
+          },
+          "southwest": {
+            "lat": 39.76792167010728,
+            "lng": -105.0772262298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Elite Landscape Pro",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1125,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/103247994977818714734\">Mike Caron</a>"
+          ],
+          "photo_reference": "AWYs27y_HEVwZ7MX17ZGsa5MCXVWxR1POaorx9cUueWAGD6vJlnVy2GfLzLdJrmJ5C_qzkJNPC1Q-Ye8FMJNpJR-Qvkd5qJYo4oJSNS2D0hOXuW_HJPbdFJ9qt0F_y8VV9cZlvUE6LucgDrPgGUr1HG1KAeeYD75X9ZKk_nv8rjd9y1SOiZ4",
+          "width": 2000
+        }
+      ],
+      "place_id": "ChIJPaFxpSGHa4cRta14iKba1gk",
+      "plus_code": {
+        "compound_code": "QW9F+MM Wheat Ridge, Colorado",
+        "global_code": "85FPQW9F+MM"
+      },
+      "rating": 4.9,
+      "reference": "ChIJPaFxpSGHa4cRta14iKba1gk",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 69
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "1100 Dakin St, Denver, CO 80221, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.8333977,
+          "lng": -105.0002856
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.83483772989272,
+            "lng": -104.9989963701073
+          },
+          "southwest": {
+            "lat": 39.83213807010728,
+            "lng": -105.0016960298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Little Man Landscaping LLC",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 750,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/114330517967024698074\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27w1dLvzeUgMai44gwkU2QiZ8GQ40D-r8agRRQvQO3TVdVcVB9XXJBICECRhsDsF5bzjmVoXPFz-53aZBkzNnij6hw1lx2tnR-lYKei_QJv4gtKj7Uzt0OD_qbbVASkv8rbQIilIqHkkQb5pzGxYCm80uc3kqctJJzpYtTUFMTZj0r05",
+          "width": 996
+        }
+      ],
+      "place_id": "ChIJE1gECXx3bIcRz2eeGjPOWlI",
+      "plus_code": {
+        "compound_code": "RXMX+9V Denver, Colorado",
+        "global_code": "85FPRXMX+9V"
+      },
+      "rating": 4.9,
+      "reference": "ChIJE1gECXx3bIcRz2eeGjPOWlI",
+      "types": [
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 66
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "2719 S Acoma St, Englewood, CO 80110, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.6672918,
+          "lng": -104.989155
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.66864137989272,
+            "lng": -104.9876580701073
+          },
+          "southwest": {
+            "lat": 39.66594172010728,
+            "lng": -104.9903577298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Down to Earth Landscaping",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 5405,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/107420144331995030063\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27y_AD0VNt_rcn7m4x8vrlORZQO9SzZ6vr0c7ulKBq1arH0LLOIYNipmG4QSX1JyIW-Al7LNyfT-Nm4r9jR0_NlMDNh8leeFEiOLPsqY4ObgIjvAsldum4da4Gnq2apIO1ivc7_qodRPw4UCgeLQ8QzTRsIwqtrfLYdjwencUviIWmzj",
+          "width": 8107
+        }
+      ],
+      "place_id": "ChIJ8-OyWuZ_bIcRn32Yyiu3-wU",
+      "plus_code": {
+        "compound_code": "M286+W8 Englewood, Colorado",
+        "global_code": "85FQM286+W8"
+      },
+      "rating": 4.9,
+      "reference": "ChIJ8-OyWuZ_bIcRn32Yyiu3-wU",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 60
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "1001 Bannock St #311, Denver, CO 80204, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7322814,
+          "lng": -104.9904703
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.73361362989272,
+            "lng": -104.9890164701073
+          },
+          "southwest": {
+            "lat": 39.73091397010727,
+            "lng": -104.9917161298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Harvester Landscapes",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1279,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/100892334513945260549\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27zcVPXrSrenqf_L2OPcBq2yxaRrALocsbwX_duV9aulrfBrUHFZMlt4Azzc5TkHQkf4w6vjlrxbCQK0Nu0iavE5LtQKf9MhDf-8HXLzCCfkdeP4i2HsjckhOkjuhP9IYBky4vAFyWY19SwqmBCg788CKsUia3Tf0j2S19Xk_4A8Wj5u",
+          "width": 1290
+        }
+      ],
+      "place_id": "ChIJY5853dJ_bIcRooJxnudvIyA",
+      "plus_code": {
+        "compound_code": "P2J5+WR Denver, Colorado",
+        "global_code": "85FQP2J5+WR"
+      },
+      "rating": 4.9,
+      "reference": "ChIJY5853dJ_bIcRooJxnudvIyA",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 57
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "5750 Bryant St, Denver, CO 80221, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.8009664,
+          "lng": -105.0181736
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.80231632989272,
+            "lng": -105.0169458701073
+          },
+          "southwest": {
+            "lat": 39.79961667010728,
+            "lng": -105.0196455298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "JR Landscapes LLC",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 622,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/105970784414145710085\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27xKLpRUmDe5dH71lvb6camWF-3BOtjzX-p0lHlUSIhezJuPX_WxS2nvXjWnBeN-c6NXBi78Xfh5vUxyb3Rl1q58qIyGcvpRt4YZByrjGp1CK14QNneGum9t9n9LJPTDP-33pHqM1NyFfS0oePK3y3gc5lr5ltBx_ikidlN8JaVU2Mz3",
+          "width": 1280
+        }
+      ],
+      "place_id": "ChIJFULb-0Z5bIcRuv0TX-bwGhs",
+      "plus_code": {
+        "compound_code": "RX2J+9P Denver, Colorado",
+        "global_code": "85FPRX2J+9P"
+      },
+      "rating": 4.9,
+      "reference": "ChIJFULb-0Z5bIcRuv0TX-bwGhs",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 56
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "4701 Jackson St, Denver, CO 80216, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7820251,
+          "lng": -104.9433089
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.78337237989272,
+            "lng": -104.9417742201073
+          },
+          "southwest": {
+            "lat": 39.78067272010727,
+            "lng": -104.9444738798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Dalia Landscape",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/117631311899482756512\">Sam Lightbody</a>"
+          ],
+          "photo_reference": "AWYs27x6AjlDVx66sSh2UJ4Ornmd0lTkSaG-rHZn-M8b_JzwNfgsR5IprVEljljwRvS8POn4ovNNcT-O7X0RlIWmLXjQU7hPowdHG2U9ZuUADbS8RNDEcA1zSmewK1i_atwHlfcv-BKBmZNJftCi3ze1JARjWc6oo8OJFJi3R4RPl9ltQNZ5",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJ9wQiuVB9bIcRPc0QvyHvg1E",
+      "plus_code": {
+        "compound_code": "Q3J4+RM Denver, Colorado",
+        "global_code": "85FQQ3J4+RM"
+      },
+      "rating": 4.9,
+      "reference": "ChIJ9wQiuVB9bIcRPc0QvyHvg1E",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 44
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "644 S Newton St, Denver, CO 80219, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7048301,
+          "lng": -105.0368496
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.70617977989271,
+            "lng": -105.0356294701073
+          },
+          "southwest": {
+            "lat": 39.70348012010727,
+            "lng": -105.0383291298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Juarez Landscaping LLC",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3000,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/111711226408198186226\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27zv8vZmzcW7QYZif_9LsAt0jRYfHZphbzJieKfkJbNc3oIOwvtqmr7zBonKjGRffU10OKcpCCvzN1f9ZRxDvBRJi4dUiLbUNW9AuJfjSsmPCDkoMH075-UA36w_AaYgVzQgQCzNIAr9PoCACsRyjhpUPa4cDGUWeSorQH7ra3qX2xTG",
+          "width": 4000
+        }
+      ],
+      "place_id": "ChIJA_LhMLGBa4cRdSuNmX4hRQ0",
+      "plus_code": {
+        "compound_code": "PX37+W7 Denver, Colorado",
+        "global_code": "85FPPX37+W7"
+      },
+      "rating": 4.9,
+      "reference": "ChIJA_LhMLGBa4cRdSuNmX4hRQ0",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 25
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "6890 Avrum Dr, Denver, CO 80221, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.8218033,
+          "lng": -105.0094718
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.82315007989272,
+            "lng": -105.0082391201073
+          },
+          "southwest": {
+            "lat": 39.82045042010728,
+            "lng": -105.0109387798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Spring Green Landscaping And Lawn Maintenance LLC",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/105413840019346095584\">Liz Klein</a>"
+          ],
+          "photo_reference": "AWYs27wZ4gAitSZSiYZ9TUQ0FGe2mXA7RJUNDKrnUQOlpqQxe_C1MW7dmeKaGqCmgzoG8FjyxZEEILiOVng1ZLPV9qoiVai0mrZ89KacbHGqM0VD5KbQAooC5H4Q9tp8pxI_9KX2ZOwxEcXmSOCnKxCGVNR7FF11h7ljPt62ZwTemFRhCSUe",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJyRFImLB3bIcRkPI5c6Fvsps",
+      "plus_code": {
+        "compound_code": "RXCR+P6 Denver, Colorado",
+        "global_code": "85FPRXCR+P6"
+      },
+      "rating": 4.8,
+      "reference": "ChIJyRFImLB3bIcRkPI5c6Fvsps",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 99
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "1160 W Virginia Ave, Denver, CO 80223, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7073001,
+          "lng": -105.0007756
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.70878027989272,
+            "lng": -104.9994083701073
+          },
+          "southwest": {
+            "lat": 39.70608062010728,
+            "lng": -105.0021080298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "AGR Landscape & Construction",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1477,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/111478978713395805208\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27xELR9aR3926BqAIX625dIiOAxd__sTG2yvy9o0szYdaneO4yUUTnkH4xipPAxDWxxpq0XbIQegvYsfsW5fDezgfl7NPeyO3Cm9SU4J29-Y8dFYK5mV5ODz0uOPtuezke6WMuX7vtR-L4CG0iUvaivlQJw93wUTvZaM4a5yFLR3qudU",
+          "width": 2196
+        }
+      ],
+      "place_id": "ChIJ6c7JDAqHbIcRsfjTbKpDcv0",
+      "plus_code": {
+        "compound_code": "PX4X+WM Denver, Colorado",
+        "global_code": "85FPPX4X+WM"
+      },
+      "rating": 4.8,
+      "reference": "ChIJ6c7JDAqHbIcRsfjTbKpDcv0",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 41
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "5575 W 11th Ave, Lakewood, CO 80214, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.735153,
+          "lng": -105.058369
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.73647007989273,
+            "lng": -105.0571417701073
+          },
+          "southwest": {
+            "lat": 39.73377042010728,
+            "lng": -105.0598414298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "C&H Landscaping | Denver Landscaping",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1920,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/103346395966950961009\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27wAQMC-QOD2ETspRja16VJXS-aipk3kfFvBSOTPTkliBSWnj2LGn8OoNKzfvpYBazK8iYw_qdVRV5vVPyUi0YoNwF0oDEMdwGtrVZLRLTifUu82PPgdoBgYoSyv18X89d4r07e9VoEZGT4UA95pmmf9yDbTf0kg8tw2MIn7UVIH3mBS",
+          "width": 2880
+        }
+      ],
+      "place_id": "ChIJVVURXjaHa4cR42cA-R9s6_0",
+      "plus_code": {
+        "compound_code": "PWPR+3M Lakewood, Colorado",
+        "global_code": "85FPPWPR+3M"
+      },
+      "rating": 4.8,
+      "reference": "ChIJVVURXjaHa4cR42cA-R9s6_0",
+      "types": [
+        "general_contractor",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 22
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "6669 Colorado Blvd, Commerce City, CO 80022, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.81896649999999,
+          "lng": -104.9430021
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.81989417989272,
+            "lng": -104.9413837701073
+          },
+          "southwest": {
+            "lat": 39.81719452010727,
+            "lng": -104.9440834298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "A Cut Above Landscape",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1152,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/113706265275259216871\">Julie Duca</a>"
+          ],
+          "photo_reference": "AWYs27zxton1giG3Bjeju4hjKHJZ5y63wTsHzxiBY4K1up92VbR_qZv_BWw6YMTjpzykZRQqV3z1yLxqF0e1tOYg14Pp8cSptULjJvFf6MsJpDYurNEj3JOk89TgYI-oSBPXVUOWqDJAq-t7xqyv5JN6FCzFhI_caQd0PhKDcUJIDSSlgPPY",
+          "width": 2048
+        }
+      ],
+      "place_id": "ChIJN3hDT_l5bIcRzkkCwGz2Hpc",
+      "plus_code": {
+        "compound_code": "R394+HQ Commerce City, Colorado",
+        "global_code": "85FQR394+HQ"
+      },
+      "rating": 4.7,
+      "reference": "ChIJN3hDT_l5bIcRzkkCwGz2Hpc",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 685
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "5895 W 56th Ave, Arvada, CO 80002, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7984518,
+          "lng": -105.0611388
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.79973727989272,
+            "lng": -105.0597885701073
+          },
+          "southwest": {
+            "lat": 39.79703762010728,
+            "lng": -105.0624882298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Highlands Landscaping & Fencing - Denver",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 2848,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/115929136542922078805\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27yeB70N_hlorAvAdnMxSudCTm-cL9-v63HqmsgfD6Umx-WSKhBB2f-ttUqlbUz8PcOFdIXss4ITmWY2sUoj84uTQsGOgWbv9CxmtS9QyUU2Lhl8ecK-dIhQad9CqfGT4lY0f0FKnkO2upndpnOXwX379APZvpvesU_3__gVIlZSMjzQ",
+          "width": 4288
+        }
+      ],
+      "place_id": "ChIJ5fuiyueHa4cRLbkgTJojZ0k",
+      "plus_code": {
+        "compound_code": "QWXQ+9G Arvada, Colorado",
+        "global_code": "85FPQWXQ+9G"
+      },
+      "rating": 4.7,
+      "reference": "ChIJ5fuiyueHa4cRLbkgTJojZ0k",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 132
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "15250 E 23rd Ave, Aurora, CO 80011, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.750693,
+          "lng": -104.8109305
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.75222612989272,
+            "lng": -104.8095830701073
+          },
+          "southwest": {
+            "lat": 39.74952647010728,
+            "lng": -104.8122827298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Colorado Landscape Denver, LLC",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4000,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/117518214765534662207\">Abel Muñoz</a>"
+          ],
+          "photo_reference": "AWYs27xhJtg1uc7mCkhtJy024sRXk8_s9aXKjt8m1RsfJIWc0PWbM_Ns3iTAAR14ILBzLXJ9GRnVxT0H4SpKT4cfQVAgYPaOVjFR4eO8WOv4FCQEIJwdZGGSpM_abrR-0qV3mJQhQ0RoXVHRxp9JqLLCwOq7mkX9BWqrO6GLP-_QRp_l09JJ",
+          "width": 3000
+        }
+      ],
+      "place_id": "ChIJRye4NNNkbIcR7KatNFZt-6o",
+      "plus_code": {
+        "compound_code": "Q52Q+7J Aurora, Colorado",
+        "global_code": "85FQQ52Q+7J"
+      },
+      "rating": 4.6,
+      "reference": "ChIJRye4NNNkbIcR7KatNFZt-6o",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 10
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "360 Vallejo St, Denver, CO 80223, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7208821,
+          "lng": -105.0127402
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.72223592989272,
+            "lng": -105.0116077701073
+          },
+          "southwest": {
+            "lat": 39.71953627010728,
+            "lng": -105.0143074298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Mile High Landscaping",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 2975,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/106982214868260998234\">Mile High Landscaping</a>"
+          ],
+          "photo_reference": "AWYs27wUSrtw52nzLKZ543YS3NN4pw6sJ7OnCZPHTbhrOguGK1g2xMv3gNJoxYTdEDIGkRdNTDoeM13Zibv6o0qcYAiAdlk2ci-DQnwYmmzABRgQsKtMlHZNFjn5m9Tbz8xbDyy3Y9T1Lb1_m-wBtvuuVfHRZX9B3nUMtFPwIHarD8ZV3WQC",
+          "width": 3967
+        }
+      ],
+      "place_id": "ChIJ2wbmWDJ_bIcRvDsasF_IVtU",
+      "plus_code": {
+        "compound_code": "PXCP+9W Denver, Colorado",
+        "global_code": "85FPPXCP+9W"
+      },
+      "rating": 4.3,
+      "reference": "ChIJ2wbmWDJ_bIcRvDsasF_IVtU",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 33
+    }
+  ]
+}

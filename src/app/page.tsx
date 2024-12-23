@@ -2,70 +2,9 @@ import React from 'react';
 import Link from 'next/link';
 import SearchBox from '@/components/SearchBox';
 import InquiryForm from '@/components/InquiryForm';
-import { 
-  FaWrench,
-  FaBolt,
-  FaHammer,
-  FaPaintRoller,
-  FaTools,
-  FaFan,
-  FaHome,
-  FaBath,
-  FaUtensils,
-  FaLayerGroup,
-  FaSquare,
-  FaBorderAll,
-  FaWindowMaximize,
-  FaTree,
-  FaGripLines,
-  FaWarehouse,
-  FaPhone
-} from 'react-icons/fa';
-
-const PopularTrades = [
-  { name: 'Plumber', Icon: FaWrench, route: 'plumbers' },
-  { name: 'Electrician', Icon: FaBolt, route: 'electricians' },
-  { name: 'HVAC', Icon: FaFan, route: 'hvac' },
-  { name: 'Roofer', Icon: FaHome, route: 'roofers' },
-  { name: 'Carpenter', Icon: FaHammer, route: 'carpenters' },
-  { name: 'Painter', Icon: FaPaintRoller, route: 'painters' },
-  { name: 'Landscaper', Icon: FaTree, route: 'landscapers' },
-  { name: 'Home Remodeling', Icon: FaTools, route: 'home-remodeling' },
-  { name: 'Bathroom Remodeling', Icon: FaBath, route: 'bathroom-remodeling' },
-  { name: 'Kitchen Remodeling', Icon: FaUtensils, route: 'kitchen-remodeling' },
-  { name: 'Siding & Gutters', Icon: FaHome, route: 'siding-and-gutters' },
-  { name: 'Masonry', Icon: FaLayerGroup, route: 'masonry' },
-  { name: 'Decks', Icon: FaSquare, route: 'decks' },
-  { name: 'Flooring', Icon: FaBorderAll, route: 'flooring' },
-  { name: 'Windows', Icon: FaWindowMaximize, route: 'windows' },
-  { name: 'Fencing', Icon: FaGripLines, route: 'fencing' },
-  { name: 'Epoxy Garage', Icon: FaWarehouse, route: 'epoxy-garage' }
-];
-
-const LocationCategories = {
-  'Central Denver Neighborhoods': {
-    'Downtown Area': ['Downtown Denver', 'Capitol Hill', 'Union Station', 'Five Points'],
-    'Central Parks': ['City Park', 'City Park West', 'Cheesman Park', 'Congress Park'],
-    'Central Shopping': ['Cherry Creek', 'Lincoln Park', 'North Capitol Hill']
-  },
-  'East Denver Neighborhoods': {
-    'Park Hill Area': ['Park Hill', 'North Park Hill', 'Northeast Park Hill', 'South Park Hill'],
-    'Northeast Area': ['Stapleton (Central Park)', 'Montbello', 'Green Valley Ranch', 'Gateway – Green Valley Ranch'],
-    'East Colfax Area': ['East Colfax', 'Skyland']
-  },
-  'Denver Suburbs': {
-    'Northwest Suburbs': ['Westminster', 'Arvada', 'Wheat Ridge', 'Edgewater', 'Golden'],
-    'Northeast Suburbs': ['Thornton', 'Northglenn', 'Brighton', 'Commerce City'],
-    'Southeast Suburbs': ['Centennial', 'Highlands Ranch', 'Parker', 'Lone Tree', 'Greenwood Village'],
-    'Southwest Suburbs': ['Littleton', 'Englewood']
-  },
-  'Boulder & Surrounding Areas': {
-    'Boulder Area': ['Boulder', 'Lafayette', 'Louisville', 'Superior']
-  },
-  'Outer Surrounding Cities': {
-    'Extended Service Area': ['Aurora', 'Castle Rock', 'Loveland']
-  }
-};
+import PopularTradesSection from '@/components/PopularTrades';
+import LocationCategoriesSection from '@/components/LocationCategoriesSection';
+import { FaPhone } from 'react-icons/fa';
 
 export default function Home() {
   return (
@@ -84,70 +23,11 @@ export default function Home() {
         </div>
       </div>
 
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold mb-12 text-blue-900">Popular Trades</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-            {PopularTrades.map((trade, index) => {
-              const IconComponent = trade.Icon;
-              return (
-                <Link 
-                  href={`/${trade.route}`}
-                  key={index}
-                  className="flex items-center p-6 bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:scale-[1.02] border border-gray-100"
-                >
-                  <div className="bg-blue-100 p-3 rounded-lg mr-4">
-                    <IconComponent className="w-8 h-8 text-blue-600" />
-                  </div>
-                  <span className="text-lg font-medium text-gray-800">{trade.name}</span>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      <PopularTradesSection />
 
-      <section className="bg-gradient-to-br from-gray-50 to-blue-50 py-20">
-        <div className="container mx-auto px-4">
-          {Object.entries(LocationCategories).map(([regionName, neighborhoods]) => (
-            <div key={regionName} className="mb-24 last:mb-0">
-              <h2 className="text-4xl font-bold mb-12 text-gray-800 border-b pb-4">{regionName}</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                {Object.entries(neighborhoods).map(([areaName, locations]) => (
-                  <div key={areaName} className="bg-white rounded-xl shadow-md p-6 border border-gray-100 hover:shadow-lg transition-shadow duration-300">
-                    <h3 className="text-xl font-semibold mb-4 text-gray-800 pb-2 border-b">{areaName}</h3>
-                    <ul className="space-y-2">
-                      {locations.map((location) => (
-                        <li key={location}>
-                          <Link
-                            href={`/location/${encodeURIComponent(location.toLowerCase().replace(/[^a-zA-Z0-9]+/g, '-'))}`}
-                            className="text-blue-600 hover:text-blue-800 hover:underline block py-1"
-                          >
-                            {location}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+      <LocationCategoriesSection />
 
       <section className="py-20 bg-white">
-        {/* 
-          ⚠️ IMPORTANT - DO NOT MODIFY ⚠️
-          Popular Trades Section is finalized and locked.
-          This section has been optimized for:
-          - UI/UX consistency
-          - Google Places API integration
-          - Performance and SEO
-          - User conversion
-          DO NOT change the format, layout, or styling of this section.
-          Any modifications must be approved by the project owner.
-        */}
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold mb-12 text-blue-900">Why Choose Our Platform?</h2>
           <div className="grid md:grid-cols-3 gap-12">

@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 
 const SearchBox = (): React.ReactElement => {
   const [keyword, setKeyword] = useState('');
-  const [location, setLocation] = useState('');
+  const [location, setLocation] = useState('Denver, CO');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
@@ -16,7 +16,8 @@ const SearchBox = (): React.ReactElement => {
     setError('');
 
     try {
-      router.push(`/search/results?keyword=${encodeURIComponent(keyword)}&location=${encodeURIComponent(location)}`);
+      const searchLocation = location || 'Denver, CO';
+      router.push(`/search/results?keyword=${encodeURIComponent(keyword)}&location=${encodeURIComponent(searchLocation)}`);
     } catch (err) {
       setError('An error occurred while searching. Please try again.');
       console.error('Search error:', err);

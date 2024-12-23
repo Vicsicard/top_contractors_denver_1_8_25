@@ -1,0 +1,1017 @@
+{
+  "trade": "roofers",
+  "lastUpdated": "2024-12-23T17:15:39.719Z",
+  "results": [
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "9525 E 40th Ave suite 160C, Denver, CO 80238, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.774807,
+          "lng": -104.877744
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.77565297989273,
+            "lng": -104.8768461701073
+          },
+          "southwest": {
+            "lat": 39.77295332010728,
+            "lng": -104.8795458298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Lifetime Roof & Solar",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3456,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/116826300921255214107\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27zbQmE0WJdM1iWG2gU_PHtJmbaLTgPKD1_YGr8S8NpVccArDt7Bby1s4KaJXZcu9no6najHMuHDYOU-msiTTvn-bdu70KALkEVv1Xdu7bUEK2azOjDrdfoT5oeClIst-p9DwRBAQoX1BUS1RTptzjOrgrs2FrLJx1obQ0B7dE-KH438",
+          "width": 5184
+        }
+      ],
+      "place_id": "ChIJ53WLq9F5bIcRp45QbtSS_-k",
+      "plus_code": {
+        "compound_code": "Q4FC+WW Denver, Colorado",
+        "global_code": "85FQQ4FC+WW"
+      },
+      "rating": 5,
+      "reference": "ChIJ53WLq9F5bIcRp45QbtSS_-k",
+      "types": [
+        "roofing_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 321
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "3600 S Yosemite St Suite 530, Denver, CO 80237, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.6509141,
+          "lng": -104.8840307
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.65236477989272,
+            "lng": -104.8826858701073
+          },
+          "southwest": {
+            "lat": 39.64966512010728,
+            "lng": -104.8853855298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Priority Roofing",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4080,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/102236281242831583176\">Robert Bush</a>"
+          ],
+          "photo_reference": "AWYs27ykXV-8Qu4G29vZIVnwRv3lDBUAz2ET8-QgOxRA_dc_Wcb61izA3wim_FyvPujdVvxpRrzxHR5yJeiLnNoFauf6BYEHcwssL49R782DIHE8nAWFtXT6BNeJCZfMHVd-9zQV6N3HEJ6_iuh4PAfCaIEkBPxsV1qBYenRMT6W6sFPQCLe",
+          "width": 3060
+        }
+      ],
+      "place_id": "ChIJox3l9GSHa4cRYzWHlfG55v0",
+      "plus_code": {
+        "compound_code": "M428+99 Denver, Colorado",
+        "global_code": "85FQM428+99"
+      },
+      "rating": 5,
+      "reference": "ChIJox3l9GSHa4cRYzWHlfG55v0",
+      "types": [
+        "roofing_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 130
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "110 16th St Mall Suite 1455, Denver, CO 80202, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7414515,
+          "lng": -104.9877629
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.74287942989272,
+            "lng": -104.9863041201073
+          },
+          "southwest": {
+            "lat": 39.74017977010728,
+            "lng": -104.9890037798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "New Roof Plus",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/109521238484641510996\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27xtQ-ivBnZG4MUsSb8O0DA8mihlwYDZAOBnjiFK-qJ56buDWI1R9AlxFy5t2mkIySfpPJFktA7yriAPfF5nuCBtn3Z2jCbaR0za1lSehpukpPTt6sqzBqHFX2EXK542vCD-gk5u7iLKNDv0pdhkhTSF1WCJUEMrq62Rhbaa4HyLgvbf",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJCXLUbD5_bIcR-gNnH_Ujqhk",
+      "plus_code": {
+        "compound_code": "P2R6+HV Denver, Colorado",
+        "global_code": "85FQP2R6+HV"
+      },
+      "rating": 5,
+      "reference": "ChIJCXLUbD5_bIcR-gNnH_Ujqhk",
+      "types": [
+        "roofing_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 117
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "4981 E 39th Ave, Denver, CO 80207, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7717211,
+          "lng": -104.9295664
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.77292807989272,
+            "lng": -104.9282220201073
+          },
+          "southwest": {
+            "lat": 39.77022842010728,
+            "lng": -104.9309216798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Cenco Roofing",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 768,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/111840651402452401619\">Cenco Building Services</a>"
+          ],
+          "photo_reference": "AWYs27wck_jlKuo-ZK8H_rJYCEvACfzxXuGTe7t8HiiVFsXCZuI19-Zn8msLMp_kMtCwttoK0FfFMr4BBXHEFW_Mnak_n3AVlnEKf1ELjXyl_JcuDTjcnlXlSXx85meWZjmQ2xMUaJZ9N_Z50tZncsGSYMuWzVWh21xcjINsJQLaiE4S4YO1",
+          "width": 1024
+        }
+      ],
+      "place_id": "ChIJ06TbSrd9bIcRktv4WehCflA",
+      "plus_code": {
+        "compound_code": "Q3CC+M5 Denver, Colorado",
+        "global_code": "85FQQ3CC+M5"
+      },
+      "rating": 4.9,
+      "reference": "ChIJ06TbSrd9bIcRktv4WehCflA",
+      "types": [
+        "roofing_contractor",
+        "general_contractor",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 703
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "5475 Peoria St Ste 4-106, Denver, CO 80239, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7950268,
+          "lng": -104.8486736
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.79629282989272,
+            "lng": -104.8473231201073
+          },
+          "southwest": {
+            "lat": 39.79359317010727,
+            "lng": -104.8500227798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Elite Roofing & Solar",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 720,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/107370099163241905408\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27z_CEXoVqwWRJtrToXi1k3-DB25Qk-Wm-IZZZyGCXbtQmnGGNyF-ZKAZSLRWoHoxc2WfuU-cRPqAtkbKu_u9AbGtfmjFU7ciN4w2ZWCWy8QbhBSfUWHFMdTpanLnOq7P4zpGoIPFyFgeBAfAWP4Q9_QCflXT7LQuDIh0TlxWYbumiMf",
+          "width": 1280
+        }
+      ],
+      "place_id": "ChIJzyMLhKZ7bIcRaVEuTzRg54k",
+      "plus_code": {
+        "compound_code": "Q5W2+2G Denver, Colorado",
+        "global_code": "85FQQ5W2+2G"
+      },
+      "rating": 4.9,
+      "reference": "ChIJzyMLhKZ7bIcRaVEuTzRg54k",
+      "types": [
+        "roofing_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 539
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "9800 Mount Pyramid Ct #4051, Englewood, CO 80112, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.5371996,
+          "lng": -104.86594
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.53854987989272,
+            "lng": -104.8647019701073
+          },
+          "southwest": {
+            "lat": 39.53585022010728,
+            "lng": -104.8674016298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "1st Priority Roofing",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4672,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/110131214727528137090\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27wh7Ub0xXxNifTgjASk8C1L1lMsztj3ed0gO-ZX8LHfmmDa9hNw2pGt1ODpa3O4_fi5DwWyfsVm8D6MnZM5OCqgblK6Xz01a4aHT21xPW8S6LNVZajL1W4ZdK1HIvFz3yziCjNAJCRGIEqPDpHpIP72_XpneDFndJ70EvqFYb0SUW6Y",
+          "width": 7008
+        }
+      ],
+      "place_id": "ChIJlxQuvVqPbIcRSvXUQw50xfc",
+      "plus_code": {
+        "compound_code": "G4PM+VJ Englewood, Colorado",
+        "global_code": "85FQG4PM+VJ"
+      },
+      "rating": 4.9,
+      "reference": "ChIJlxQuvVqPbIcRSvXUQw50xfc",
+      "types": [
+        "roofing_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 386
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "4155 E Jewell Ave #1100, Denver, CO 80222, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.683461,
+          "lng": -104.938412
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.68473162989272,
+            "lng": -104.9371568701073
+          },
+          "southwest": {
+            "lat": 39.68203197010727,
+            "lng": -104.9398565298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Peak To Peak Roofing & Exteriors, LLC",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 720,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/101444475403225399093\">Peak To Peak Roofing &amp; Exteriors</a>"
+          ],
+          "photo_reference": "AWYs27ymchkK0muUxG92pWqmvaFLGb37y2uH5ZBQ5CcZeuCdHPP7_Z-dLfRQ6o2d3yvy7jHh4rFjygnebTHuisZMVFY3OQt9ikwFNND1HSNFxN8nZP0TB7eXNjZjhnG6kYxTLkEesbPo1NywDfPL6NhvJQAtp05WeKDYNlA38hSxn6O5gcVC",
+          "width": 1280
+        }
+      ],
+      "place_id": "ChIJPXtnAuB9bIcRUw_jiC8hN4I",
+      "plus_code": {
+        "compound_code": "M3M6+9J Denver, Colorado",
+        "global_code": "85FQM3M6+9J"
+      },
+      "rating": 4.9,
+      "reference": "ChIJPXtnAuB9bIcRUw_jiC8hN4I",
+      "types": [
+        "roofing_contractor",
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 377
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "4049 St Paul St, Denver, CO 80216, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7736593,
+          "lng": -104.9507309
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.77499492989273,
+            "lng": -104.9495403701073
+          },
+          "southwest": {
+            "lat": 39.77229527010728,
+            "lng": -104.9522400298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Core Roofing + Solar",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 2360,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/103432573000914438161\">Core Contractors, Inc.</a>"
+          ],
+          "photo_reference": "AWYs27xlM3MXHg4wJ1Xf1CFGRmv_Kc8zBO9tc7Kfa07EOMC35ryxbYi5X8-yXx1H1Kp_G6G50p3O_OwskyQqFaK_4N0T19ZefZgOSbKsJj_U17fqQqtRvEgMDUVF6bz_6uRam30qRR8zfUUMnb7usHWzVaZT7fvIm_U53cjQLnH8XYkn-cYe",
+          "width": 3568
+        }
+      ],
+      "place_id": "ChIJ9Xl5iAB5bIcRoNUzG6cUMCA",
+      "plus_code": {
+        "compound_code": "Q2FX+FP Denver, Colorado",
+        "global_code": "85FQQ2FX+FP"
+      },
+      "rating": 4.9,
+      "reference": "ChIJ9Xl5iAB5bIcRoNUzG6cUMCA",
+      "types": [
+        "roofing_contractor",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 339
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "7000 N Broadway Unit 101, Denver, CO 80221, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.8251366,
+          "lng": -104.9862402
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.82644427989273,
+            "lng": -104.9848971701073
+          },
+          "southwest": {
+            "lat": 39.82374462010728,
+            "lng": -104.9875968298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Red Diamond Roofing",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1000,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/107960312343451221933\">Red Diamond Roofing</a>"
+          ],
+          "photo_reference": "AWYs27z_Ipzd554muVOD2OaOELWkKjzbxPOTMnMdhFZNuvq5-yKqH5DG4b89WoV9-i4JSl7Iklc80X-fB9V7yEYPLxYOrRh8f5ZAIgOCOelxg7Ps1kgZtKnAcvH8xV9wL09nu_ZqTmlJj3BkUPyKHR-8SkTcSTfNyB5k10g4ID-NNcptiwEn",
+          "width": 1778
+        }
+      ],
+      "place_id": "ChIJY0VLWa93bIcRWL5KRAKMd6M",
+      "plus_code": {
+        "compound_code": "R2G7+3G Denver, Colorado",
+        "global_code": "85FQR2G7+3G"
+      },
+      "rating": 4.9,
+      "reference": "ChIJY0VLWa93bIcRWL5KRAKMd6M",
+      "types": [
+        "roofing_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 259
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "1415 Park Ave W, Denver, CO 80205, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7568002,
+          "lng": -104.9899082
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.75810972989272,
+            "lng": -104.9887195701073
+          },
+          "southwest": {
+            "lat": 39.75541007010728,
+            "lng": -104.9914192298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Integrity Pro Roofing",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 405,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/101102709559014204238\">Integrity Building Solutions</a>"
+          ],
+          "photo_reference": "AWYs27yW3fhyhPa-TymNFGpiJXmcc1Icy1YKeznbxpvQihfmjjSb2P1Uw-eBlrw2i6KZFDg7rVJCmLJxFfcidtJcjaSV_2c9eLofq64mQUI3y9Iob2Ywj9UrgpuqvRTrjK8a5FpFzJiBE-R-YQ_S3p2jD3CFdZz3XANrAngM7J1Fb_rGxlTL",
+          "width": 540
+        }
+      ],
+      "place_id": "ChIJhc9Is-p7bIcRHplRf3-kOvs",
+      "plus_code": {
+        "compound_code": "Q246+P2 Denver, Colorado",
+        "global_code": "85FQQ246+P2"
+      },
+      "rating": 4.9,
+      "reference": "ChIJhc9Is-p7bIcRHplRf3-kOvs",
+      "types": [
+        "roofing_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 202
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "3000 Lawrence St #145, Denver, CO 80205, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7615033,
+          "lng": -104.9789994
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.76279617989272,
+            "lng": -104.9778289201073
+          },
+          "southwest": {
+            "lat": 39.76009652010728,
+            "lng": -104.9805285798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Mighty Dog Roofing of Southwest Denver Metro",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 788,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/114186007141110406986\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27yGr4Cba9iYv3m8aZVMRb2MbFl9gd7aLkyerIa2UygEMjnZKdOQAMCh5HagR4Lk44W3iw5XvOOx2E1J-yhj0eAY0Eo0byy_Dy4JDARHAdQkRBl7558WbMJU-4aZMWcgxfb8nKzQ-42UzbkpG8iJfNVKEMbDO9SRNjFUifP30tC3tHc5",
+          "width": 940
+        }
+      ],
+      "place_id": "ChIJsQQobZF5bIcRLTfd_6_Lwfc",
+      "plus_code": {
+        "compound_code": "Q26C+JC Denver, Colorado",
+        "global_code": "85FQQ26C+JC"
+      },
+      "rating": 4.9,
+      "reference": "ChIJsQQobZF5bIcRLTfd_6_Lwfc",
+      "types": [
+        "roofing_contractor",
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 81
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "4454 Tennyson St, Denver, CO 80212, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7775863,
+          "lng": -105.0437802
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.77893472989273,
+            "lng": -105.0425019701073
+          },
+          "southwest": {
+            "lat": 39.77623507010728,
+            "lng": -105.0452016298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Denver Roofers LLC",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 513,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/108989358649067214146\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27xp7MWuEVThPBUCvuejcbjMFL863z2c6_08Zv7aTIk9V0xLD_beSzasauR806ZIrzPRMuXS5BUl7eI4CzhQYaPlqeeUZ05EMQMRsN65TaBBPUYwzfDa9sd7zPd1Jz-t7mZgk0S6dGFIMn9qSWOIKQIV0ne6IyD3fkfnPa4YixOwjFXi",
+          "width": 931
+        }
+      ],
+      "place_id": "ChIJe7AWBD1_bIcRnHwncIzONiI",
+      "plus_code": {
+        "compound_code": "QXH4+2G Denver, Colorado",
+        "global_code": "85FPQXH4+2G"
+      },
+      "rating": 4.9,
+      "reference": "ChIJe7AWBD1_bIcRnHwncIzONiI",
+      "types": [
+        "roofing_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 67
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "1600 Broadway #1600, Denver, CO 80202, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7421313,
+          "lng": -104.987072
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.74347147989273,
+            "lng": -104.9858946701073
+          },
+          "southwest": {
+            "lat": 39.74077182010728,
+            "lng": -104.9885943298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "A-Denver Roofing Company",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 300,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/102723059814260446058\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27xevvpwXYLkLO3-rUkC9QEqMxxUEr4QsAmNS4al5BdLkJwmP7_2RwQVf7LkQMdpMzQHkUzE7JzL5-sdLXoXatmcgwiGcRbtn04jQIQMAWoTP7b3Y8BV_mocR6brcYZnOFOkCs2A8m83nsI8h5GqTPztS5Y9abNXJzPkZlBSSI42Y4JS",
+          "width": 300
+        }
+      ],
+      "place_id": "ChIJSSSLT3N4bIcRpb5HhzDDoC4",
+      "plus_code": {
+        "compound_code": "P2R7+V5 Denver, Colorado",
+        "global_code": "85FQP2R7+V5"
+      },
+      "rating": 4.9,
+      "reference": "ChIJSSSLT3N4bIcRpb5HhzDDoC4",
+      "types": [
+        "roofing_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 30
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "4510 S Federal Blvd, Englewood, CO 80110, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.6352312,
+          "lng": -105.0248073
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.63656922989272,
+            "lng": -105.0236183201073
+          },
+          "southwest": {
+            "lat": 39.63386957010728,
+            "lng": -105.0263179798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Excel Roofing",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4032,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/106038686888918476919\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27x3DD1UhVJbhE7qo91-mrmBJaLRW4DgzHxUomVSrC4fG3JW70qmOi74jW4NFnz43NJXRnv6QDMqgJnRqIsn9OeV5eQ8GI3WMZGVTfvMjYr2AOLe1YOzAXY2qdKUE_G7WWB8doPKYFxNC-KH1aD82t9OFAJA7t0YvMb1GO9oBCGdZw",
+          "width": 3024
+        }
+      ],
+      "place_id": "ChIJOy0uBRmAbIcRbd7K-LispUg",
+      "plus_code": {
+        "compound_code": "JXPG+33 Englewood, Colorado",
+        "global_code": "85FPJXPG+33"
+      },
+      "rating": 4.8,
+      "reference": "ChIJOy0uBRmAbIcRbd7K-LispUg",
+      "types": [
+        "roofing_contractor",
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 330
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "4560 Columbine St, Denver, CO 80216, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7793396,
+          "lng": -104.9568171
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.78068097989272,
+            "lng": -104.9555359701073
+          },
+          "southwest": {
+            "lat": 39.77798132010727,
+            "lng": -104.9582356298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Formula Roofing and Remodeling",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/113169572505798324152\">Formula Roofing</a>"
+          ],
+          "photo_reference": "AWYs27w1uFa2SFb17iwXsaD2A-u0wPrMWYfSnquD9zMmp11CUP1_vicN2QLgxCo5TzDJLPkPlnCIIpWLCVFPtlzfSNCXNC18Tw_yvG8V0iUkBySIRUd88XNadn4VGWVp9L158agM1UcJzjXvgo4FiFlToOWR0Ngm6aaMsvAFfUqlfifdPh80",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJi2KTJ3R5bIcRE2L1ATJCYgI",
+      "plus_code": {
+        "compound_code": "Q2HV+P7 Denver, Colorado",
+        "global_code": "85FQQ2HV+P7"
+      },
+      "rating": 4.8,
+      "reference": "ChIJi2KTJ3R5bIcRE2L1ATJCYgI",
+      "types": [
+        "roofing_contractor",
+        "painter",
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 248
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "7245 Gilpin Way Suite 280, Denver, CO 80229, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.8279088,
+          "lng": -104.9678937
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.82938447989272,
+            "lng": -104.9665443701073
+          },
+          "southwest": {
+            "lat": 39.82668482010727,
+            "lng": -104.9692440298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Bear Brothers Roofing",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1860,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/100415520530036163770\">Shawn Doyle</a>"
+          ],
+          "photo_reference": "AWYs27yeCW2sUWemOR18b2fk3hUcaQW1RH6H4IvaMeJyCrmgPmy7LfoNYZ3G2JDtwh0imwlv3vqz9mhGFnojJk12v1vTW5ZJQ4MIov6cVCV2qJJNpkMMBHWJrJiRXiBYjuFkDxF6ZT30j1JpVodSE_JnLMRbtstCEDlJ1-1rbe_p4cF7T4YO",
+          "width": 3840
+        }
+      ],
+      "place_id": "ChIJKaFf8Hl3bIcRCj4wng04C5E",
+      "plus_code": {
+        "compound_code": "R2HJ+5R Denver, Colorado",
+        "global_code": "85FQR2HJ+5R"
+      },
+      "rating": 4.8,
+      "reference": "ChIJKaFf8Hl3bIcRCj4wng04C5E",
+      "types": [
+        "roofing_contractor",
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 110
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "5300 Broadway, Denver, CO 80216, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7931093,
+          "lng": -104.9871403
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.79432472989272,
+            "lng": -104.9859934201073
+          },
+          "southwest": {
+            "lat": 39.79162507010727,
+            "lng": -104.9886930798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Commercial Roofing Contractors, LLC",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 756,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/112250067861700652273\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27xlJ1DJGMkPdHfKN6Rh_3IMudRvCsNxvX25GfqdHtWjLhhSzmjiymj-Zz6yjW5G8H8jHCR1-qrI_vqFNyaNHK3e1GEFhMZx9AcvkELlfNCa0lcoRuxKKK0QyZN5Bl9LAiBn6mkyS8uQYnCIHEBFSYr5RosYS7kLYzLRFXoYVvcEriIL",
+          "width": 1008
+        }
+      ],
+      "place_id": "ChIJBa6LS0l5bIcRWTMaN7Csnx4",
+      "plus_code": {
+        "compound_code": "Q2V7+64 Denver, Colorado",
+        "global_code": "85FQQ2V7+64"
+      },
+      "rating": 4.8,
+      "reference": "ChIJBa6LS0l5bIcRWTMaN7Csnx4",
+      "types": [
+        "roofing_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 43
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "2171 S Trenton Way Ste 218, Denver, CO 80231, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.67776449999999,
+          "lng": -104.8968197
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.67909447989273,
+            "lng": -104.8953865701073
+          },
+          "southwest": {
+            "lat": 39.67639482010728,
+            "lng": -104.8980862298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Denver Roofing and Construction LLC",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1440,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/114977435037535330740\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27w1Uo0ZMqThkOA6tbCHVheMrJPGiBVG_v-HZhX4vgUcubttNCnfbzxdyqIVJrk8CxFCjiBOe-94OruecOU6h1SYOt3rJHPCExUM9ZD5V4gb7TIcoFAUlL2BL0-s54e2fuP1tueQ9TemxFVopsy6hNVwj5okX9Nj8HytKwdHg5OrPDcy",
+          "width": 1920
+        }
+      ],
+      "place_id": "ChIJpwR1e4GAbIcRnRtUQZLVbQ8",
+      "plus_code": {
+        "compound_code": "M4H3+47 Denver, Colorado",
+        "global_code": "85FQM4H3+47"
+      },
+      "rating": 4.8,
+      "reference": "ChIJpwR1e4GAbIcRnRtUQZLVbQ8",
+      "types": [
+        "roofing_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 41
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "1000 W 47th Ave, Denver, CO 80211, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7813369,
+          "lng": -104.9997786
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.78300687989273,
+            "lng": -104.9984418701073
+          },
+          "southwest": {
+            "lat": 39.78030722010729,
+            "lng": -105.0011415298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Interstate Roofing, Inc.",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 640,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/114322167522062259019\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27xEMcu8cZFH_qe-FLLzy6dhHQdnlB8vPGcCm8rh3MJsetmrehoOc7DKtU9StV5H2IxMGZ6ITk-7FXdSAEzN82ZsuilGdFhiCpwQraNEohYoh6x9vuXNVDO8WEJzWYVF6kZi_7yWqO2-QQ9AtoRHcgvu5rd-1x0Td-O7E6ahiRfQKSKz",
+          "width": 480
+        }
+      ],
+      "place_id": "ChIJ8y6mnb5_bIcR64J8BUG8i7I",
+      "plus_code": {
+        "compound_code": "Q2J2+G3 Denver, Colorado",
+        "global_code": "85FQQ2J2+G3"
+      },
+      "rating": 4.7,
+      "reference": "ChIJ8y6mnb5_bIcR64J8BUG8i7I",
+      "types": [
+        "roofing_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 867
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "1001 S Monaco St Pkwy #250, Denver, CO 80224, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.69816549999999,
+          "lng": -104.9132432
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.69934072989273,
+            "lng": -104.9117358701073
+          },
+          "southwest": {
+            "lat": 39.69664107010728,
+            "lng": -104.9144355298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Rocky Mountain Roofing and Exteriors",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 640,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/109388068123002627709\">Rocky Mountain Exteriors</a>"
+          ],
+          "photo_reference": "AWYs27zsxHb5BpkILBBRl92zn6K6XnZaUzhUvV275mg589OaccEFkovInaZPZfCUCdGPXkrbGWvKn_-C_ce69IY0pasBEC71JaTnUyqAmEf-pvT4l6rvX59SNvh1YDbYNbfYPCLVR1x8Xve1ufoDo9VUfeeXXla26IzF-kURC0DZ7LS2OF5b",
+          "width": 800
+        }
+      ],
+      "place_id": "ChIJMYganLd9bIcRE-MQGTQHGHk",
+      "plus_code": {
+        "compound_code": "M3XP+7P Denver, Colorado",
+        "global_code": "85FQM3XP+7P"
+      },
+      "rating": 4.7,
+      "reference": "ChIJMYganLd9bIcRE-MQGTQHGHk",
+      "types": [
+        "roofing_contractor",
+        "painter",
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 381
+    }
+  ]
+}

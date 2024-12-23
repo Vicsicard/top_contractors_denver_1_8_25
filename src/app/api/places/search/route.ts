@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { makeRequestWithBackoff } from '@/utils/apiUtils';
 
-// This ensures the route is handled at runtime
-export const dynamic = 'force-dynamic';
-export const runtime = 'edge';
+// Make the route static by default
+export const dynamic = 'force-static';
+export const revalidate = 3600; // Revalidate every hour
 
 // Skip API calls during build time
 const isBuildTime = process.env.NODE_ENV === 'production' && process.env.NEXT_PHASE === 'phase-production-build';
@@ -24,13 +24,9 @@ interface Place {
     };
   };
   rating?: number;
+  user_ratings_total?: number;
   types?: string[];
-  formatted_phone_number?: string;
-  website?: string;
-  opening_hours?: {
-    open_now?: boolean;
-    weekday_text?: string[];
-  };
+  business_status?: string;
 }
 
 interface PlaceDetailsResult {
@@ -40,6 +36,7 @@ interface PlaceDetailsResult {
     open_now?: boolean;
     weekday_text?: string[];
   };
+  business_status?: string;
 }
 
 interface PlacesApiResponse {
@@ -64,177 +61,228 @@ export async function GET(request: NextRequest) {
       });
     }
 
+    const searchParams = request.nextUrl.searchParams;
+    const query = searchParams.get('query');
+    const location = searchParams.get('location') || 'Denver, CO';
+    const type = searchParams.get('type');
+
+    console.log('Received search request:', { query, location, type });
+
+    if (!query) {
+      console.error('Missing query parameter');
+      return NextResponse.json(
+        { 
+          error: 'Missing query parameter',
+          message: 'A search query is required',
+          code: 'MISSING_PARAM'
+        },
+        { status: 400 }
+      );
+    }
+
     // Only access API key after build time check
     const GOOGLE_PLACES_API_KEY = process.env.GOOGLE_PLACES_API_KEY;
 
-    // Enhanced API key validation
     if (!GOOGLE_PLACES_API_KEY) {
-      console.error('GOOGLE_PLACES_API_KEY is not defined in environment variables');
+      console.error('Google Places API key is not defined');
       return NextResponse.json(
         { 
           error: 'Service configuration error',
-          message: 'The service is not properly configured. Please check the environment variables.',
+          message: 'The service is not properly configured',
           code: 'ENV_VAR_MISSING'
         },
         { status: 503 }
       );
     }
 
-    const GOOGLE_PLACES_API_URL = 'https://places.googleapis.com/v1/places:searchText';
-    const GOOGLE_PLACES_DETAILS_URL = 'https://places.googleapis.com/v1/places';
+    // Build search query based on category and type
+    let searchQuery = query;
+    const queryLower = query.toLowerCase();
 
-    const { searchParams } = new URL(request.url);
-    const query = searchParams.get('query');
-    const location = searchParams.get('location') || 'Denver, CO';
-
-    if (!query) {
-      return NextResponse.json(
-        { 
-          error: 'Invalid request',
-          message: 'Query parameter is required',
-          code: 'MISSING_QUERY'
-        },
-        { status: 400 }
-      );
+    // Handle popular trades with specific search terms
+    if (type === 'contractor' || !type) {  
+      if (queryLower.includes('plumb')) {
+        searchQuery = 'plumbing contractor plumber';
+      } else if (queryLower.includes('electric')) {
+        searchQuery = 'licensed electrical contractor';
+      } else if (queryLower.includes('hvac') || queryLower.includes('air condition')) {
+        searchQuery = 'licensed hvac contractor';
+      } else if (queryLower.includes('roof')) {
+        searchQuery = 'licensed roofing contractor';
+      } else if (queryLower.includes('landscap')) {
+        searchQuery = 'professional landscaping contractor';
+      } else if (queryLower.includes('mason')) {
+        searchQuery = 'professional masonry contractor';
+      } else if (queryLower.includes('deck')) {
+        searchQuery = 'professional deck building contractor';
+      } else if (queryLower.includes('floor')) {
+        searchQuery = 'professional flooring contractor';
+      } else if (queryLower.includes('fenc')) {
+        searchQuery = 'professional fence installation contractor';
+      } else if (queryLower.includes('window')) {
+        searchQuery = 'professional window installation contractor';
+      } else if (queryLower.includes('paint')) {
+        searchQuery = 'professional painting contractor';
+      } else if (queryLower.includes('remodel') || queryLower.includes('renovation')) {
+        if (queryLower.includes('kitchen')) {
+          searchQuery = 'professional kitchen remodeling contractor';
+        } else if (queryLower.includes('bathroom')) {
+          searchQuery = 'professional bathroom remodeling contractor';
+        } else {
+          searchQuery = 'professional home remodeling contractor';
+        }
+      } else if (queryLower.includes('siding') || queryLower.includes('gutter')) {
+        searchQuery = 'professional siding and gutter contractor';
+      } else if (queryLower.includes('epoxy') || queryLower.includes('garage floor')) {
+        searchQuery = 'professional epoxy garage floor contractor';
+      } else if (queryLower.includes('carpent')) {
+        searchQuery = 'professional carpentry contractor';
+      } else {
+        // Ensure "contractor" is in the search query
+        searchQuery = queryLower.includes('contractor') ? query : `${query} contractor`;
+      }
     }
 
-    const searchQuery = `${query} in ${location}`;
+    // Add location to search query if not already present
+    const locationLower = location.toLowerCase();
+    const finalLocation = locationLower.includes('denver') ? location : `${location}, Denver, CO`;
     
-    // Using the new Places API v3 format
-    const searchRequest = {
-      textQuery: searchQuery,
-      languageCode: 'en',
-      maxResultCount: 20,
-      locationBias: {
-        circle: {
-          center: {
-            latitude: 39.7392,  // Denver's latitude
-            longitude: -104.9903  // Denver's longitude
-          },
-          radius: 50000.0  // 50km radius
-        }
-      }
-    };
+    // Build the final search query
+    const searchTerms = [searchQuery];
+    if (!searchQuery.toLowerCase().includes(finalLocation.toLowerCase())) {
+      searchTerms.push('in', finalLocation);
+    }
+    const finalQuery = searchTerms.join(' ');
 
-    let response;
+    console.log('Search parameters:', {
+      originalQuery: query,
+      processedQuery: searchQuery,
+      location: finalLocation,
+      type: type,
+      finalQuery: finalQuery
+    });
+
+    // Use Text Search for more accurate category-based results
+    const url = new URL('https://maps.googleapis.com/maps/api/place/textsearch/json');
+    url.searchParams.append('query', finalQuery);
+    url.searchParams.append('key', GOOGLE_PLACES_API_KEY);
+
+    // Add type parameter if specified (but don't use general_contractor as it's too limiting)
+    if (type && type !== 'contractor') {
+      url.searchParams.append('type', type);
+    }
+
+    const logUrl = new URL(url.toString());
+    logUrl.searchParams.set('key', 'REDACTED');
+    console.log('API URL:', logUrl.toString());
+    
+    const response = await makeRequestWithBackoff(() => fetch(url.toString()));
+    const responseText = await response.text();
+    
+    console.log('Raw API Response:', responseText.substring(0, 500)); // Log first 500 chars of raw response
+    console.log('API Response Status:', response.status);
+    console.log('API Response Headers:', Object.fromEntries(response.headers.entries()));
+    
+    let data;
     try {
-      response = await makeRequestWithBackoff(() => 
-        fetch(GOOGLE_PLACES_API_URL, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'X-Goog-Api-Key': GOOGLE_PLACES_API_KEY,
-            'X-Goog-FieldMask': '*'
-          },
-          body: JSON.stringify(searchRequest)
-        })
-      );
+      data = JSON.parse(responseText);
+      console.log('API Response:', {
+        status: data.status,
+        resultsCount: data.results?.length || 0,
+        errorMessage: data.error_message,
+        firstResult: data.results?.[0]?.name,
+        results: data.results?.slice(0, 2) // Log first 2 results for debugging
+      });
 
-      if (!response.ok) {
-        const errorText = await response.text();
-        console.error('Google Places API error:', {
-          status: response.status,
-          statusText: response.statusText,
-          error: errorText
+      // Handle specific API response statuses
+      if (data.status === 'ZERO_RESULTS') {
+        console.log('No results found for query:', finalQuery);
+        return NextResponse.json({
+          results: [],
+          status: 'ZERO_RESULTS',
+          message: 'No contractors found for your search. Try broadening your search terms.'
         });
+      } else if (data.status === 'REQUEST_DENIED') {
+        console.error('API request denied:', data.error_message);
         return NextResponse.json(
-          { 
-            error: 'External API error',
-            message: `Google Places API returned status ${response.status}`,
-            code: 'API_ERROR',
-            details: errorText
+          {
+            error: 'API Error',
+            message: 'Search service is temporarily unavailable. Please try again later.',
+            code: 'REQUEST_DENIED'
           },
-          { status: 502 }
+          { status: 503 }
+        );
+      } else if (data.status !== 'OK') {
+        console.error('API Error:', { status: data.status, error_message: data.error_message });
+        return NextResponse.json(
+          {
+            error: 'API Error',
+            message: data.error_message || 'Failed to fetch results',
+            code: data.status
+          },
+          { status: 500 }
         );
       }
 
-      const data = await response.json();
-
-      if (!data.places || !Array.isArray(data.places)) {
-        console.error('Invalid response format:', data);
-        return NextResponse.json(
-          { 
-            error: 'Invalid response',
-            message: 'Received invalid response format from Google Places API',
-            code: 'INVALID_RESPONSE'
-          },
-          { status: 502 }
-        );
-      }
-
-      // Transform the response to match our expected format
-      const transformedResults = data.places.map(place => ({
-        place_id: place.id,
-        name: place.displayName?.text || '',
-        formatted_address: place.formattedAddress || '',
-        geometry: place.location ? {
-          location: {
-            lat: place.location.latitude,
-            lng: place.location.longitude
-          }
-        } : undefined,
-        rating: place.rating,
-        types: place.types || []
-      }));
-
-      // Fetch additional details for each place
-      const placesWithDetails = await Promise.all(
-        transformedResults.map(async (place) => {
-          try {
-            const detailsResponse = await makeRequestWithBackoff(() =>
-              fetch(`${GOOGLE_PLACES_DETAILS_URL}/${place.place_id}`, {
-                headers: {
-                  'X-Goog-Api-Key': GOOGLE_PLACES_API_KEY,
-                  'X-Goog-FieldMask': 'phoneNumber,websiteUri,currentOpeningHours'
-                }
-              })
+      // If we have results, ensure they're relevant
+      if (data.results && Array.isArray(data.results)) {
+        data.results = data.results.filter(result => {
+          const name = (result.name || '').toLowerCase();
+          const types = (result.types || []).map(t => t.toLowerCase());
+          const address = (result.formatted_address || '').toLowerCase();
+          
+          // Ensure result is in Denver area
+          const isDenverArea = address.includes('denver') || 
+                             address.includes('colorado') || 
+                             address.includes('co');
+          
+          // Check if it's a relevant business
+          const isRelevantBusiness = 
+            name.includes('contractor') ||
+            name.includes('construction') ||
+            name.includes('service') ||
+            name.includes('repair') ||
+            name.includes('build') ||
+            name.includes('remodel') ||
+            types.some(t => 
+              t.includes('contractor') || 
+              t.includes('service') || 
+              t.includes('repair') ||
+              t.includes('construction') ||
+              t === 'general_contractor' ||
+              t === 'home_goods_store' ||
+              t === 'store' ||
+              t === 'point_of_interest'
             );
 
-            if (!detailsResponse.ok) {
-              console.error('Invalid response status:', detailsResponse.status);
-              return place;
-            }
+          return isDenverArea && isRelevantBusiness;
+        });
 
-            const details = await detailsResponse.json();
+        console.log('Filtered results:', {
+          originalCount: data.results.length,
+          filteredCount: data.results.length,
+          firstResult: data.results[0]?.name
+        });
+      }
 
-            return {
-              ...place,
-              phone_number: details.phoneNumber,
-              website: details.websiteUri,
-              opening_hours: details.currentOpeningHours ? {
-                open_now: details.currentOpeningHours.openNow,
-                weekday_text: details.currentOpeningHours.weekdayDescriptions
-              } : undefined
-            };
-          } catch (error) {
-            console.error('Error fetching place details:', error);
-            // Return the place without details if fetching details fails
-            return place;
-          }
-        })
-      );
-
-      return NextResponse.json({
-        results: placesWithDetails,
-        status: 'success'
-      });
-    } catch (error) {
-      console.error('Failed to fetch from Places API:', error);
+      return NextResponse.json(data);
+    } catch (parseError) {
+      console.error('Error parsing response:', parseError);
       return NextResponse.json(
         { 
-          error: 'External API error',
-          message: 'Failed to fetch data from Google Places API',
-          code: 'API_FETCH_ERROR'
+          error: 'Invalid response',
+          message: 'Failed to parse API response',
+          code: 'PARSE_ERROR'
         },
-        { status: 502 }
+        { status: 500 }
       );
     }
   } catch (error) {
-    console.error('Search places error:', error);
+    console.error('Error processing request:', error);
     return NextResponse.json(
       { 
-        error: 'Internal server error',
-        message: error instanceof Error ? error.message : 'An unexpected error occurred',
+        error: 'Server Error',
+        message: 'An unexpected error occurred',
         code: 'INTERNAL_ERROR'
       },
       { status: 500 }

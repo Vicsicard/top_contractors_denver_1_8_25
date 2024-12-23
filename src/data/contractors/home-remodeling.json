@@ -1,0 +1,1042 @@
+{
+  "trade": "home-remodeling",
+  "lastUpdated": "2024-12-23T17:15:55.435Z",
+  "results": [
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "1550 Larimer St Ste 628, Denver, CO 80202, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7486585,
+          "lng": -104.9976223
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.74997237989272,
+            "lng": -104.9962145701073
+          },
+          "southwest": {
+            "lat": 39.74727272010728,
+            "lng": -104.9989142298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "CS Home Solutions",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/102439019986995891658\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27xi7tM9eRhKje0TtN_F5wnrepWMSJOqaPHIC6q6dY4PTOPl4urjjCqticXP1rhZMZmY3tJy_4GRNMkjP2IIjpLAuFwTBFq5vQ4Xl-xpISgmp3T7tWlVhR1JLll62EbGfx1cQ8E3bUlGvTmAnefsSVzfAugtvgWdi2oL6kkqOWZyUOyO",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJIzw3XIx5bIcRDSM_2PgkIqg",
+      "plus_code": {
+        "compound_code": "P2X2+FX Denver, Colorado",
+        "global_code": "85FQP2X2+FX"
+      },
+      "rating": 5,
+      "reference": "ChIJIzw3XIx5bIcRDSM_2PgkIqg",
+      "types": [
+        "general_contractor",
+        "home_goods_store",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 432
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "6301 Federal Blvd Unit 1, Denver, CO 80221, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.8107661,
+          "lng": -105.0258803
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.81201197989272,
+            "lng": -105.0244880701073
+          },
+          "southwest": {
+            "lat": 39.80931232010727,
+            "lng": -105.0271877298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+      "icon_background_color": "#4B96F3",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+      "name": "Denver Bath Remodel, LLC",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1350,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/114828115492115291007\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27yPyrMgD2H1sSouVPchPS-ARX2pV0v5WV99hti9o9B-FwSq-h1NTq9SvHzYYmogoRNtJSdD8leuUEyvSfzMQmmJ08-H3JN1YJG5R_WwYwSZm5Lh8yjQXuq_3jpKFrT1chBkMX020ajaXJZws3nTYaQQ3tKCr37jmjUa6cTW2UhWH8li",
+          "width": 2400
+        }
+      ],
+      "place_id": "ChIJQTdCPaZ5bIcRb2FWtQ1p1vo",
+      "plus_code": {
+        "compound_code": "RX6F+8J Denver, Colorado",
+        "global_code": "85FPRX6F+8J"
+      },
+      "rating": 5,
+      "reference": "ChIJQTdCPaZ5bIcRb2FWtQ1p1vo",
+      "types": [
+        "general_contractor",
+        "home_goods_store",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 131
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "7310 W 52nd Ave A 258, Arvada, CO 80002, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7907877,
+          "lng": -105.077022
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.79203312989272,
+            "lng": -105.0756720701073
+          },
+          "southwest": {
+            "lat": 39.78933347010728,
+            "lng": -105.0783717298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Jax Home Construction, LLC",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/111446317652437329646\">Cuban Handyman</a>"
+          ],
+          "photo_reference": "AWYs27xA98gtdaHnlz3yFlni4txbDdHYI9B7lUgLCitDK_09f3ejh6LIVWJQ9N9d1wKVBQJg95ABbmSsAhDf9tgARYSyGwk2mzw9EWGu2Y6jBuNkMg2nJi7pe2AcOLjD36nUwbnvq1r8asjijAlHq42KcoQWDUHmCAS4YPPOMo5zVfgcgoI",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJrTgs4WDH5YgRSBjAVo9M2ic",
+      "plus_code": {
+        "compound_code": "QWRF+85 Arvada, Colorado",
+        "global_code": "85FPQWRF+85"
+      },
+      "rating": 5,
+      "reference": "ChIJrTgs4WDH5YgRSBjAVo9M2ic",
+      "types": [
+        "general_contractor",
+        "home_goods_store",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 82
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "1660 Lafayette St unit 4, Denver, CO 80218, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7428798,
+          "lng": -104.9706005
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.74423882989272,
+            "lng": -104.9694153201073
+          },
+          "southwest": {
+            "lat": 39.74153917010728,
+            "lng": -104.9721149798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Verified Builders",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4000,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/115397008291830581854\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27yO-_uKRzI5A5pO4RDoTjXPW6nC8z-nSRql9mPlyzMA12heQ_B_6Efv5DnpRQ19rPZbiGWJZB_r_yFCGLSc-kDDDEtju0Ngw1TV_sAZfHV9xeUrGdUJUpU_ubhtB_XOq7gMm3KvxL51xv2oQAhARwZa_fVdgQW84PIFQ4kwBvTtTka8",
+          "width": 6000
+        }
+      ],
+      "place_id": "ChIJQ5EDOVx5bIcRJEvvj454dYA",
+      "plus_code": {
+        "compound_code": "P2VH+5Q Denver, Colorado",
+        "global_code": "85FQP2VH+5Q"
+      },
+      "rating": 5,
+      "reference": "ChIJQ5EDOVx5bIcRJEvvj454dYA",
+      "types": [
+        "general_contractor",
+        "home_goods_store",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 29
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "15938 E 106th Pl, Commerce City, CO 80022, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.8885932,
+          "lng": -104.8012784
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.89002637989272,
+            "lng": -104.8000456701073
+          },
+          "southwest": {
+            "lat": 39.88732672010727,
+            "lng": -104.8027453298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+      "icon_background_color": "#4B96F3",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+      "name": "Elegant Home Remodeling Co.",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1936,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/103468440821580289526\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27xH80zGqfrWxkFCWtKSJoA_z8Obf0M5BAqkF6jqwCxJy016DPAeNhdEhHJGs1B2RyJa-frpBI4rj1RzIBY2_w2ll6OF-FPjXRbjbPNPwVQPu3Pqp04GbIJE3yxmvpOxIsvWibD3mOAqxwUD-HMLJYdUIKNnu6hVIxsEuUJ8NBFi_3sY",
+          "width": 1936
+        }
+      ],
+      "place_id": "ChIJq6o6eVZubIcRqi17RM_p1rI",
+      "plus_code": {
+        "compound_code": "V5QX+CF Commerce City, Colorado",
+        "global_code": "85FQV5QX+CF"
+      },
+      "rating": 5,
+      "reference": "ChIJq6o6eVZubIcRqi17RM_p1rI",
+      "types": [
+        "general_contractor",
+        "home_goods_store",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 29
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "9650 Lamar Pl, Westminster, CO 80021, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.8721006,
+          "lng": -105.0675759
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.87339727989272,
+            "lng": -105.0663425701073
+          },
+          "southwest": {
+            "lat": 39.87069762010728,
+            "lng": -105.0690422298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "ADO Home Renovations",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/116578314589566445755\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27zsDDk2vfdLMWZME86SzKptBGROqAdzvfr9Hl7HLAvBTNnxBUXfZbrv6DEe4mAZMwZ0hKCa8FtP_j74THHXTrWHeGJ7dLXF0wXY-n8ApO3HSS3T8WBCOkC78AMLy04x1fuZ7rPQFrurlM4XrJWUXkpvCWJUNm69-v3yowbhzEOithq6",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJ9zxekPKJa4cRNZ8PQ22hSTQ",
+      "plus_code": {
+        "compound_code": "VWCJ+RX Westminster, Colorado",
+        "global_code": "85FPVWCJ+RX"
+      },
+      "rating": 5,
+      "reference": "ChIJ9zxekPKJa4cRNZ8PQ22hSTQ",
+      "types": [
+        "painter",
+        "general_contractor",
+        "home_goods_store",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 23
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "4444 Morrison Rd, Denver, CO 80219, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7013687,
+          "lng": -105.0456623
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.70266262989272,
+            "lng": -105.0443171201073
+          },
+          "southwest": {
+            "lat": 39.69996297010728,
+            "lng": -105.0470167798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Defined by Design",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4016,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/109690500933038323150\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27xkjyeaFRDSamwaTO-xCmoAr3uCb1L6xaTD68lp3boy0EcCSYVrVVtTxEfomzIIyjhYKqoXH6vTizAU04Psci3Yz2rBzATN3qoAYlHh6XUORAfh8KsZoO_t5pJ2t5x2XUsX8J1oL8dT1JAcs4RCAR4lQw4iExkv1qamlhhHUImw6Bpt",
+          "width": 6016
+        }
+      ],
+      "place_id": "ChIJoU-FFJWBa4cRX7yjZjxl-Dk",
+      "plus_code": {
+        "compound_code": "PX23+GP Denver, Colorado",
+        "global_code": "85FPPX23+GP"
+      },
+      "rating": 5,
+      "reference": "ChIJoU-FFJWBa4cRX7yjZjxl-Dk",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 23
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "201 Columbine St, Denver, CO 80206, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7196773,
+          "lng": -104.9573148
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.72121222989272,
+            "lng": -104.9558344201073
+          },
+          "southwest": {
+            "lat": 39.71851257010727,
+            "lng": -104.9585340798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Kalin Construction Corp",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 2719,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/107137654086746158332\">Kalin Construction</a>"
+          ],
+          "photo_reference": "AWYs27zY9cwPG1QDd1Bg8smjW_itbgmW0rZRBJ_t_Od_w33pWT3C5vqVEfh6h9uFtLVlqkA8VQ6ieP-PDnrGWrqeYVRpPKjX_t0tH1DM8yF0qh_NmmuNRwfQ8k0NDmruRCK-KJ6iMGZYNndnNcA3hYhj9M2MXyaZpPnvXd19nVKFooa0C2fS",
+          "width": 4078
+        }
+      ],
+      "place_id": "ChIJLabEh8V-bIcREoV8O7QPkws",
+      "plus_code": {
+        "compound_code": "P29V+V3 Denver, Colorado",
+        "global_code": "85FQP29V+V3"
+      },
+      "rating": 5,
+      "reference": "ChIJLabEh8V-bIcREoV8O7QPkws",
+      "types": [
+        "general_contractor",
+        "home_goods_store",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 21
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "7022 S Revere Pkwy # 240, Centennial, CO 80112, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.5897266,
+          "lng": -104.8398817
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.59104107989272,
+            "lng": -104.8384303701073
+          },
+          "southwest": {
+            "lat": 39.58834142010728,
+            "lng": -104.8411300298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+      "icon_background_color": "#4B96F3",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+      "name": "Next Home Improvements",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1707,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/110290906723979583246\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27wsVCI0BaAO_9jzOH4UBwHkryBEWYfaAzIq1Vd0tjOh3BIPmnyFWJp70YStotdPRVXETwdIod0rPFerGC_zsmebQwVWmzdzYHmnJHqqN0QwnWISfE8bPKK4szeN-q7q0v34RflB4vGFe2GoRHig6d1CNW4D0jrgXARjtLZlKRW8uCl1",
+          "width": 2560
+        }
+      ],
+      "place_id": "ChIJ3Q1GtoKQU4URRNNkVXzNRU8",
+      "plus_code": {
+        "compound_code": "H5Q6+V2 Centennial, Colorado",
+        "global_code": "85FQH5Q6+V2"
+      },
+      "rating": 4.9,
+      "reference": "ChIJ3Q1GtoKQU4URRNNkVXzNRU8",
+      "types": [
+        "roofing_contractor",
+        "general_contractor",
+        "home_goods_store",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 197
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "1929 Niagara St, Denver, CO 80220, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7468247,
+          "lng": -104.9108252
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.74817392989272,
+            "lng": -104.9093230701073
+          },
+          "southwest": {
+            "lat": 39.74547427010728,
+            "lng": -104.9120227298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Supreme Remodelers Denver",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 400,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/105778597403047884247\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27z83azVLuwqArLF7iVN_V_qGym7Qfodj409Bq_55A3yqktQmKfUi4jMYR8BxMxu0FZ-aXmtHQRQ-vuoWL6BEqCHS3Kz1aKcqjkyYdCsWsP9EQs-2TatnazTWADkgFbn0TzaYws6B39v7pzHejBN5Dr1rPoZXM6FJBL5x553aGc42E5n",
+          "width": 600
+        }
+      ],
+      "place_id": "ChIJ3SnR7ot9bIcRLLHp0zr0iUg",
+      "plus_code": {
+        "compound_code": "P3WQ+PM Denver, Colorado",
+        "global_code": "85FQP3WQ+PM"
+      },
+      "rating": 4.9,
+      "reference": "ChIJ3SnR7ot9bIcRLLHp0zr0iUg",
+      "types": [
+        "general_contractor",
+        "home_goods_store",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 25
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "100 Fillmore St 5th floor, Denver, CO 80206, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7185819,
+          "lng": -104.9530808
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.71991677989272,
+            "lng": -104.9519070701073
+          },
+          "southwest": {
+            "lat": 39.71721712010728,
+            "lng": -104.9546067298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Cransten Handyman and Remodeling",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1200,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/114750585139218332732\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27xQPwr_ufOsjHZF7COmCyY--mplnQBkTlsFTeXOt_pK9yZ8WSwMg5KfBzrvgKEZj-9F_yPsxVoeGpxTGCS1DrHiDUbQb6b7OlpYHRzjPNpvwb3Km3IEr9YliWMrTkwiPTquboOvNjcXXt_wRIsWqT14SHTrwm0P9sGURFEMx5I0D-EX",
+          "width": 1600
+        }
+      ],
+      "place_id": "ChIJUUYv7ip_bIcRu_Vz9bX77Bg",
+      "plus_code": {
+        "compound_code": "P29W+CQ Denver, Colorado",
+        "global_code": "85FQP29W+CQ"
+      },
+      "rating": 4.8,
+      "reference": "ChIJUUYv7ip_bIcRu_Vz9bX77Bg",
+      "types": [
+        "general_contractor",
+        "home_goods_store",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 80
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "7885 W 16th Ave, Lakewood, CO 80214, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7418766,
+          "lng": -105.0848
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.74318392989272,
+            "lng": -105.0834304201073
+          },
+          "southwest": {
+            "lat": 39.74048427010728,
+            "lng": -105.0861300798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+      "icon_background_color": "#4B96F3",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+      "name": "VL Builders",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/105750351651081598650\">Integrity Installations/Front Range Backsplash</a>"
+          ],
+          "photo_reference": "AWYs27yG_vNMzqssPwRlGYpvCpxGASD4rp52v-QyFJZ5gcvkvb4JuUKiKGBtnurTnigq6Zv5-xUtcc-rS67FlFYmeebAVEjrI-DtWPue-_k7VzDBeBd6Ush1X4OVL3s5Un89iyHOMXnzyMsVlXoQAmwhe6O31TYW1-wER8iKeqZNYK89TbU",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJh_zQ2oiEa4cRO9OtrLqMHnU",
+      "plus_code": {
+        "compound_code": "PWR8+Q3 Lakewood, Colorado",
+        "global_code": "85FPPWR8+Q3"
+      },
+      "rating": 4.8,
+      "reference": "ChIJh_zQ2oiEa4cRO9OtrLqMHnU",
+      "types": [
+        "general_contractor",
+        "home_goods_store",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 70
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "13611 E 104th Ave, Commerce City, CO 80022, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.8857114,
+          "lng": -104.8291051
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.88706012989272,
+            "lng": -104.8278184701073
+          },
+          "southwest": {
+            "lat": 39.88436047010727,
+            "lng": -104.8305181298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Affordable Remodeling Solutions, Inc.",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3008,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/106165255312624897437\">Affordable Remodeling Solutions</a>"
+          ],
+          "photo_reference": "AWYs27zfPoP-QaH1ZzxRcKgFVrqhSgSZ7V_YM2geKOnictU9RXGMoHQt8tc0NoOaO1Or-rtG0FObM3PUsx_UrwdOqX3f9Zgkv7Yst3nC3tMQNDbPl_Qz9RKZoYoYnfUMMu1S0coLx2Pdif0Mym07wxblX0KrxddJB9Rl2pOZ8w3FaiCdMELt",
+          "width": 5344
+        }
+      ],
+      "place_id": "ChIJGa9UXTFubIcRb2zUNfQC8v0",
+      "plus_code": {
+        "compound_code": "V5PC+79 Commerce City, Colorado",
+        "global_code": "85FQV5PC+79"
+      },
+      "rating": 4.8,
+      "reference": "ChIJGa9UXTFubIcRb2zUNfQC8v0",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 28
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "1015 E 70th Ave UNIT C, Denver, CO 80229, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.8248438,
+          "lng": -104.9741706
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.82607312989273,
+            "lng": -104.9728046201073
+          },
+          "southwest": {
+            "lat": 39.82337347010728,
+            "lng": -104.9755042798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+      "icon_background_color": "#4B96F3",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+      "name": "Colorado Homes and Design",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4505,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/101317382026745633056\">Colorado Homes and Design</a>"
+          ],
+          "photo_reference": "AWYs27wi2uDLrXcEQkBtRw0WHQydgXsqZEOAREsbt9aXMOt0qbZxvwyXIXUz98V5MaMPwSvoLi3EMmTwILT2tuqgg5cVgt5pgcYu8G04tlCRy_cVPCL8P9qS0YDYvfCu6Hs0I4z9vDuB6QgZ99t45bIvLnVc_Clq4GObJ0D60CTMZ0owJs2z",
+          "width": 6000
+        }
+      ],
+      "place_id": "ChIJmwx8QWN3bIcRbUXPnMBowxg",
+      "plus_code": {
+        "compound_code": "R2FG+W8 Denver, Colorado",
+        "global_code": "85FQR2FG+W8"
+      },
+      "rating": 4.8,
+      "reference": "ChIJmwx8QWN3bIcRbUXPnMBowxg",
+      "types": [
+        "general_contractor",
+        "home_goods_store",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 26
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "1850 S Quebec Way, Denver, CO 80231, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.6826472,
+          "lng": -104.8889091
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.68393977989272,
+            "lng": -104.8876219201073
+          },
+          "southwest": {
+            "lat": 39.68124012010727,
+            "lng": -104.8903215798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Gator Home Remodel Colorado",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1334,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/105550039871166377053\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27xsWZN2-Y6YVqamvN4I8ThcVVlX3ZJlfYd7wr33sZkuRsouI0Eob-_C38X-79fBh8T7DnHmc_oi1Efdybj8ST1YHycmtZqms-chphRF6-zY5GiBfBuTP-RZidQDwh3LOMTbxUdpQasGdhW8yscecsA7syC1ysHkjHQc_R02RSJkClXh",
+          "width": 2000
+        }
+      ],
+      "place_id": "ChIJTzulqct9bIcRxQOrXhHenug",
+      "plus_code": {
+        "compound_code": "M4M6+3C Denver, Colorado",
+        "global_code": "85FQM4M6+3C"
+      },
+      "rating": 4.8,
+      "reference": "ChIJTzulqct9bIcRxQOrXhHenug",
+      "types": [
+        "roofing_contractor",
+        "general_contractor",
+        "home_goods_store",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 23
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "1700 Lincoln St floor 17, Denver, CO 80203, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.743642,
+          "lng": -104.9854807
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.74491992989273,
+            "lng": -104.9844542201073
+          },
+          "southwest": {
+            "lat": 39.74222027010728,
+            "lng": -104.9871538798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Rise Renovation",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4032,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/111448542469857427513\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27wC3fC8BAlGnHZ_m1_zTaDNx6Ien0vmYnK1dasrYZVgJkHy53xozYEa1PUTM5U_sUbJP0rDNF30HweXbiJEf0VS9QI3OVzkBu2l7kmPmER16on9Z9tyThCRc5K1cCZtvCZgxC2vySDVPQ5npQiBbq5J4AJydh42TNMJS-dliXl683wH",
+          "width": 3024
+        }
+      ],
+      "place_id": "ChIJ62vJJTK3SKkRWa-HrkGCPnc",
+      "plus_code": {
+        "compound_code": "P2V7+FR Denver, Colorado",
+        "global_code": "85FQP2V7+FR"
+      },
+      "rating": 4.7,
+      "reference": "ChIJ62vJJTK3SKkRWa-HrkGCPnc",
+      "types": [
+        "roofing_contractor",
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 201
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "5048 E 112th Ct, Thornton, CO 80233, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.900503,
+          "lng": -104.9284185
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.90195222989273,
+            "lng": -104.9270641201073
+          },
+          "southwest": {
+            "lat": 39.89925257010728,
+            "lng": -104.9297637798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+      "icon_background_color": "#4B96F3",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+      "name": "All Pro Remodel, LLC",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/115078673611604383372\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27yyo-iAECoIvy0N5Il61BjndeIB6lX8146n3SwGY7iqc33si2pojHC6Zy2ok-h00lf0kqLG5NKHPzb79RbB9O7clMyGlCI75TTAZRlqTvutwGYZIO-cHCho9_QjQGbi2ulFOG2qH0HIkEIeE5T6IqPU7-X5F6l1nUxu_MXZQpS8YUz1",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJHSSbUXt_bIcROJzXrwxgpNQ",
+      "plus_code": {
+        "compound_code": "W32C+6J Thornton, Colorado",
+        "global_code": "85FQW32C+6J"
+      },
+      "rating": 4.7,
+      "reference": "ChIJHSSbUXt_bIcROJzXrwxgpNQ",
+      "types": [
+        "general_contractor",
+        "home_goods_store",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 53
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "6300 E Hampden Ave C224, Denver, CO 80222, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.6526344,
+          "lng": -104.9163375
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.65388707989272,
+            "lng": -104.9149830201073
+          },
+          "southwest": {
+            "lat": 39.65118742010728,
+            "lng": -104.9176826798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+      "icon_background_color": "#4B96F3",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+      "name": "Vista Remodeling, LLC",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1728,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/115768506910599959085\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27xrzcVRTJyhKOCVPbqv6i_V3-p9es91ANji_lhIIwJkGWh_ws4W2bXWZL0Q7JMWBnpr7DiTvjFFMuSJNVYiLUcbb9e7TIoOi37_thmTMfbfsKjlT9NGwxantfLEf-N2ej2Rx1_LbWQoFp7zFqZDTOqhE6Qjxo9ZHLWUJDE04wCisFyP",
+          "width": 2592
+        }
+      ],
+      "place_id": "ChIJS-mqYvCIbIcRQfnmai624yY",
+      "plus_code": {
+        "compound_code": "M33M+3F Denver, Colorado",
+        "global_code": "85FQM33M+3F"
+      },
+      "rating": 4.7,
+      "reference": "ChIJS-mqYvCIbIcRQfnmai624yY",
+      "types": [
+        "general_contractor",
+        "home_goods_store",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 50
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "637 Osage St, Denver, CO 80204, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7262447,
+          "lng": -105.0067239
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.72770892989271,
+            "lng": -105.0051556201073
+          },
+          "southwest": {
+            "lat": 39.72500927010727,
+            "lng": -105.0078552798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png",
+      "icon_background_color": "#4B96F3",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/shopping_pinlet",
+      "name": "Dreamstyle Remodeling",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 2000,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/102014574030864290298\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27wpBN1Fd4Jdar7Ati269CiJKWxDl1ynnu4oBRKyADJKtYnpOR3OxtkhztCDrufY0hwR7g0i70_f0TTO3v-VSOx_dGvmVPm_SGXIHKhkQZ79ycWgieHadic46HK9j-cbS7Cxxo6ybWEdNudTgzyyG3x_TVt4XHF5krt9lN8bEZ3-A11a",
+          "width": 3000
+        }
+      ],
+      "place_id": "ChIJs-DZqHePbIcRxAHetGaR7A8",
+      "plus_code": {
+        "compound_code": "PXGV+F8 Denver, Colorado",
+        "global_code": "85FPPXGV+F8"
+      },
+      "rating": 4.6,
+      "reference": "ChIJs-DZqHePbIcRxAHetGaR7A8",
+      "types": [
+        "general_contractor",
+        "home_goods_store",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 704
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "482 S Broadway #200, Denver, CO 80209, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7079095,
+          "lng": -104.9872978
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.70927622989272,
+            "lng": -104.9861135201073
+          },
+          "southwest": {
+            "lat": 39.70657657010728,
+            "lng": -104.9888131798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "A2Z Builders",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 711,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/111344396580079347744\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27yBjGqC2_wIYiH5hFjr0tV4gnpn6Jjcg_70W5oGwiW8wGO8LG1PdcBfwBHzELBr06TQKgbMvTk3J6dxZtwZUAZeraGlpDbHAA3xjABgnZQ5oZbWSKPs3MsRSpPxO0pXGJjY9PteL1eviuX3xiy_Vc3WFWw8iK8hj1nj-1cUHt8sUOQe",
+          "width": 1066
+        }
+      ],
+      "place_id": "ChIJ0zdJnmd9bIcR_YXOkPK0Z_s",
+      "plus_code": {
+        "compound_code": "P257+53 Denver, Colorado",
+        "global_code": "85FQP257+53"
+      },
+      "rating": 4.6,
+      "reference": "ChIJ0zdJnmd9bIcR_YXOkPK0Z_s",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 78
+    }
+  ]
+}

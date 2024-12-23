@@ -1,0 +1,762 @@
+{
+  "trade": "decks",
+  "lastUpdated": "2024-12-23T17:16:02.851Z",
+  "results": [
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "1074 S Alkire St, Lakewood, CO 80228, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.6962004,
+          "lng": -105.1474365
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.69749337989272,
+            "lng": -105.1462259701073
+          },
+          "southwest": {
+            "lat": 39.69479372010728,
+            "lng": -105.1489256298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Colorado Deckscapes LLC",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3000,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/116874800773218951107\">Parker Ramey</a>"
+          ],
+          "photo_reference": "AWYs27z_bAraPCHVih-WX0-pHqtNUVstjTDcoAz9Czl9K73cP1islcnAbIVEW4CevQhm4vY4AOpjiyyI7g-9yF1N5rQbX0AbSn5V9nB3p0EiygnLNGR4PQqPLVEK7LbMWpQrn3Ya_ULzauG04sGCcVm3aSU6bN1IOhgz89HLhua4jql3lLpx",
+          "width": 4000
+        }
+      ],
+      "place_id": "ChIJOx1hXleBa4cRk_aXP1m5_BM",
+      "plus_code": {
+        "compound_code": "MVW3+F2 Lakewood, Colorado",
+        "global_code": "85FPMVW3+F2"
+      },
+      "rating": 5,
+      "reference": "ChIJOx1hXleBa4cRk_aXP1m5_BM",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 88
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "9300 E Mineral Ave, Centennial, CO 80112, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.5741995,
+          "lng": -104.8787683
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.57586642989271,
+            "lng": -104.8772766201073
+          },
+          "southwest": {
+            "lat": 39.57316677010727,
+            "lng": -104.8799762798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Denver Deck Builders",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1000,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/115069441524486706521\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27x4qGHIt0d9Bfa8nWDwvXBT6dF3ta216DoYVqUAJZlZyyJQxy5nddwkKWsRODwKZm7yeO2DOQ2Pn6FbjhFGu6jNlRprzj67J4c3xoKGxtD1POL563Cy44gDCyGeELYs2N4qdF0cghvGgW4hpUbWXok1Mtom8B23TuSgaDEGmKCI40W0",
+          "width": 1778
+        }
+      ],
+      "place_id": "ChIJPdY7PFiFbIcRstku85kb6xs",
+      "plus_code": {
+        "compound_code": "H4FC+MF Centennial, Colorado",
+        "global_code": "85FQH4FC+MF"
+      },
+      "rating": 5,
+      "reference": "ChIJPdY7PFiFbIcRstku85kb6xs",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 32
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "1550 N Raleigh St #148, Denver, CO 80204, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7423628,
+          "lng": -105.0406888
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.74371307989272,
+            "lng": -105.0392473701073
+          },
+          "southwest": {
+            "lat": 39.74101342010727,
+            "lng": -105.0419470298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Elevated Outdoor Living, LLC",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 2048,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/103559190241645074613\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27zTFvqA4inkG8qWtWaJljYwd-gCusaezbVRe0q9E1kD9xsHqdFVdJtU0Tf9IVFHLbILJg6ray2SqzNANVPbivFvNgJiL646imoRwxaFchB-ECp1bCxdRNz-Rc7UBqlt0c67vUxZ8O6ZbotQBB6YRpFKSGva_5ii0I4_NNSHmFQwNQCv",
+          "width": 2048
+        }
+      ],
+      "place_id": "ChIJhUmOJ9oZqUURPm4_feEAUXY",
+      "plus_code": {
+        "compound_code": "PXR5+WP Denver, Colorado",
+        "global_code": "85FPPXR5+WP"
+      },
+      "rating": 5,
+      "reference": "ChIJhUmOJ9oZqUURPm4_feEAUXY",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 22
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "6612 Fig St Unit 107, Arvada, CO 80004, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.81659399999999,
+          "lng": -105.1577397
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.81793262989272,
+            "lng": -105.1565198701073
+          },
+          "southwest": {
+            "lat": 39.81523297010727,
+            "lng": -105.1592195298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Services Rendered, Inc. - DBA SRI Decks",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1536,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/107191859744825557298\">Jamie Lied</a>"
+          ],
+          "photo_reference": "AWYs27whIOOsQnbvYBSpEGJl9nqat2QDedzrino_XTUp4rijqCn8WpQdna9qpFqHyVhtAMvNDQ1GPC03V0JJTpbIKXVMO2WTWewSi7-P0CLXP7aBnv3h9rhbDgEXl5PSBudg_OgDKexE_kM7lm6WAt342Gm4__XhimvpZVrMyCisbJQslzfG",
+          "width": 2048
+        }
+      ],
+      "place_id": "ChIJI6os06CIa4cRDsxdheTsveI",
+      "plus_code": {
+        "compound_code": "RR8R+JW Arvada, Colorado",
+        "global_code": "85FPRR8R+JW"
+      },
+      "rating": 4.9,
+      "reference": "ChIJI6os06CIa4cRDsxdheTsveI",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 250
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "11919 W Interstate 70 Frontage Rd N Unit 109, Wheat Ridge, CO 80033, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.78638249999999,
+          "lng": -105.132002
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.78780687989272,
+            "lng": -105.1306522701073
+          },
+          "southwest": {
+            "lat": 39.78510722010727,
+            "lng": -105.1333519298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Archadeck Outdoor Living",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1500,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/105989715290655729652\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27wCE76edR6i2fjHxddM6XNgh0ltGgR1bhXhxUFX4hy8f6sI0mFWUrvkto4zSsMgjhoYLs3r1V1z6T407f66gfsanzQB9atW6N8Hza0YPxd7RH3nS-YzqPnGzLmT9ftMXg_rzGcNNhIofGWSMd1HRZq9QdH_nc5J4XkpeBddi3Pihpgt",
+          "width": 2000
+        }
+      ],
+      "place_id": "ChIJTbI8pPiDa4cR1McPf8pDriQ",
+      "plus_code": {
+        "compound_code": "QVP9+H5 Wheat Ridge, Colorado",
+        "global_code": "85FPQVP9+H5"
+      },
+      "rating": 4.9,
+      "reference": "ChIJTbI8pPiDa4cR1McPf8pDriQ",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 66
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "3650 Krameria St, Denver, CO 80207, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7684364,
+          "lng": -104.9162299
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.76978587989272,
+            "lng": -104.9149367201073
+          },
+          "southwest": {
+            "lat": 39.76708622010727,
+            "lng": -104.9176363798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "integribuilds LLC",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/107784699934561203554\">Sue Greeley</a>"
+          ],
+          "photo_reference": "AWYs27w3XnfVHmCTdbcsEHG8Twctv4YLkRtvqNzwPaoHxyMLuQBr7qeHUFWFoDXrUb3_3G5wZbSNlDsTGRW5y_wttXUZAdBeAL2FiDy0fbU0328XMz_4bql5plXOwcBhbWodykJOLzjcnnCw-fTmfL_VUDcz95j7h7MpyBDKwZHF34mOrgpv",
+          "width": 768
+        }
+      ],
+      "place_id": "ChIJnyTKfud_a4cRMP4wrPGc1TQ",
+      "plus_code": {
+        "compound_code": "Q39M+9G Denver, Colorado",
+        "global_code": "85FQQ39M+9G"
+      },
+      "rating": 4.9,
+      "reference": "ChIJnyTKfud_a4cRMP4wrPGc1TQ",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 43
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "6145 N Broadway, Denver, CO 80216, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.8078924,
+          "lng": -104.9883106
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.80929457989271,
+            "lng": -104.9868307701073
+          },
+          "southwest": {
+            "lat": 39.80659492010727,
+            "lng": -104.9895304298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "K&A Construction",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3456,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/101140895743277327586\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27zXZuxXP8fWHpt1NxAys2UjpYN2PKxH_UDnqLvEq_xJNVcn_W4Wp2sEEW9UJqXCEGcqw7mCep6er6sYcq-MzKjG9no6J_mcbcLn_M43n4ym1_QoYaYk6aA0AdE-niYjvBPn-aig8KMA2o2YTbZUdHlfTzyxmBkk3Kvn1k1ykn1M4SC6",
+          "width": 4608
+        }
+      ],
+      "place_id": "ChIJQR2Vhcd5bIcRkE86h2Ad2SA",
+      "plus_code": {
+        "compound_code": "R256+5M Denver, Colorado",
+        "global_code": "85FQR256+5M"
+      },
+      "rating": 4.9,
+      "reference": "ChIJQR2Vhcd5bIcRkE86h2Ad2SA",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 39
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "3809 Norwood Dr #8, Littleton, CO 80125, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.55559849999999,
+          "lng": -105.0391245
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.55695447989272,
+            "lng": -105.0377542201073
+          },
+          "southwest": {
+            "lat": 39.55425482010727,
+            "lng": -105.0404538798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Decks Unlimited LLC",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1364,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/118008661905569249351\">Lisa Timurlea</a>"
+          ],
+          "photo_reference": "AWYs27xXZZaeqjPbO9v6GT6BDuIfIBrvxb1UK4xJvMEHiMGERb95X_HCP6XXDizZWPBZfXbCg-4GF-7MDR8OziizGGLj4e_Qvj_S5ssf7fXp8X4PBD1UVQ1A--QrlF2GS3HFDQsMRpcpCGIrSPH1GUtY6OaxgMc2YKyTef4qhOiuLKRu94dI",
+          "width": 2048
+        }
+      ],
+      "place_id": "ChIJq6qqqpaBbIcRksjRjRjDmEg",
+      "plus_code": {
+        "compound_code": "HX46+78 Littleton, Colorado",
+        "global_code": "85FPHX46+78"
+      },
+      "rating": 4.8,
+      "reference": "ChIJq6qqqpaBbIcRksjRjRjDmEg",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 178
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "1020 15th St, Denver, CO 80202, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7465192,
+          "lng": -104.9967339
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.74794772989272,
+            "lng": -104.9952828701073
+          },
+          "southwest": {
+            "lat": 39.74524807010728,
+            "lng": -104.9979825298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "JOB Home Services",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 2269,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/101357455799502561164\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27wJgtxsMTnArZofDED9FphgTIAh4pzd_CQPCrRCUo9Hngi3Ewg3Kjfd6uPMvT9GG3UqeQCKRd-ZHyXfVoUthqZMmF6olP_BNKmLl9Bs79ec9jPxrS58HIaOTLwBGDfOJNGMhU7dg5iIyiaGJS3vQR5b4ySV9t5zeRJ8XnreCmkRwKN0",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJTXjMNVtbv4cR8xfJa9CTOLU",
+      "plus_code": {
+        "compound_code": "P2W3+J8 Denver, Colorado",
+        "global_code": "85FQP2W3+J8"
+      },
+      "rating": 4.6,
+      "reference": "ChIJTXjMNVtbv4cR8xfJa9CTOLU",
+      "types": [
+        "general_contractor",
+        "home_goods_store",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 82
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "11915 Bell Cross Way, Parker, CO 80138, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.5355462,
+          "lng": -104.7096656
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.53684072989272,
+            "lng": -104.7084824201073
+          },
+          "southwest": {
+            "lat": 39.53414107010727,
+            "lng": -104.7111820798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Denver Deck Builders",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1000,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/102657243573608858999\">Denver Deck Builders</a>"
+          ],
+          "photo_reference": "AWYs27wruPgWgQtG0T3MFo3ocWOnJY5l216lkksrGdGJZMacQCVX-TlB3Cy3N3_CGwC-eYXZzClbIHv7sQeqNfJs3gIvPifL-AO4nBxL_DKyNtfZFWEIfk7RvALMujhecmlF9ZyhgNaBzMKFIsfDcilCT_xp3qnlOxVfF2MeqtJNAwa12cfX",
+          "width": 1778
+        }
+      ],
+      "place_id": "ChIJRXwUrCr4bIcR6mVMAw0WjiI",
+      "plus_code": {
+        "compound_code": "G7PR+64 Parker, Colorado",
+        "global_code": "85FQG7PR+64"
+      },
+      "rating": 4.6,
+      "reference": "ChIJRXwUrCr4bIcR6mVMAw0WjiI",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 80
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "15200 E Girard Ave # 4025, Aurora, CO 80014, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.6545899,
+          "lng": -104.8110351
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.65586012989272,
+            "lng": -104.8098002201073
+          },
+          "southwest": {
+            "lat": 39.65316047010727,
+            "lng": -104.8124998798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Colorado Deck & Landscape",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/102441459227964496823\">Kevin Teel</a>"
+          ],
+          "photo_reference": "AWYs27zQL5SmIP12Zj6LhohY3tiQFQHAC3_1q80nQqlfj2oV3C4ZDNzi3Md0G6bkBRjvQroH2vLEfSGFwNGNMcvBhPt73nGB7Oi1AxHKYPNwkjPON7zQpg124u4jcwE5Oeqbj5MP8-B-5aEdahezBTCimDtpZZl58QkJoTkkvRGC2Ojg0lwR",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJd_0NBLVjbIcRWRY6yJV6jgE",
+      "plus_code": {
+        "compound_code": "M53Q+RH Aurora, Colorado",
+        "global_code": "85FQM53Q+RH"
+      },
+      "rating": 4.5,
+      "reference": "ChIJd_0NBLVjbIcRWRY6yJV6jgE",
+      "types": [
+        "general_contractor",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 65
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "UPS STORE ADDRESS, 12650 W 64th Ave E-424, Arvada, CO 80004, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.8112878,
+          "lng": -105.1407188
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.81271207989272,
+            "lng": -105.1393721701073
+          },
+          "southwest": {
+            "lat": 39.81001242010728,
+            "lng": -105.1420718298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Denver Decks",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/107996520326843742612\">paul koehn</a>"
+          ],
+          "photo_reference": "AWYs27ydrwFj40voSciwdXAsWM8eNV7uPWfzEkXkr345YKPS-ovqY0zi5D7GcsEaLxc6Ngg3PzLXg3MQwV6l7RsEs_lPNYGt9vbiKHOahvlIBbHEJsrCdV3YkpCK_kMjZMD3CiK5siwqMmHv5Cx80cDyKf1C672tuyiWo54ticKnv4qCeUCU",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJM3ekp62BbIcRwPbJTesn3Xc",
+      "plus_code": {
+        "compound_code": "RV65+GP Arvada, Colorado",
+        "global_code": "85FPRV65+GP"
+      },
+      "rating": 4.4,
+      "reference": "ChIJM3ekp62BbIcRwPbJTesn3Xc",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 46
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "4735 W 38th Ave, Denver, CO 80212, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.7695409,
+          "lng": -105.0482267
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.77080797989272,
+            "lng": -105.0468747201073
+          },
+          "southwest": {
+            "lat": 39.76810832010727,
+            "lng": -105.0495743798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Roof Deck & Garden",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/104166948930743343816\">RDG Garden Design</a>"
+          ],
+          "photo_reference": "AWYs27z2jw2jlMiYMWI_awusnpiV1-_7etRCMQkvlxGuFVamIHlkzqO0qIG8HSheUM2Lb_D77yKxCAd5pvDdHcW5WZGqAr7FgdbgL-_zg-E9G7vmEZH9NWLRWTTKtG4_yGyrFLr-2Wv4NEkSIVSUQguYzt_Aky1uX9DknO0C8bWOJubva_8I",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJURCZzcR4bIcRCKLmfWYIfW4",
+      "plus_code": {
+        "compound_code": "QX92+RP Denver, Colorado",
+        "global_code": "85FPQX92+RP"
+      },
+      "rating": 4.4,
+      "reference": "ChIJURCZzcR4bIcRCKLmfWYIfW4",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 19
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "1040 S Gaylord St #47, Denver, CO 80209, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.6975591,
+          "lng": -104.9615717
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.69896262989272,
+            "lng": -104.9603183701073
+          },
+          "southwest": {
+            "lat": 39.69626297010728,
+            "lng": -104.9630180298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Trio Construction",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 2250,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/107241201234520410203\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27ypEwF_wnFcnJ-g4UlN709CFwUGpW4Uq65pl3_RdNwzY-QcVWLl4q6RDy6_scIO9s-V5uKoVZQnHN2YXQi8lG5kzfBfmJEx3QJc9DiswMYaRQKw4ukmH-bh87LR8YO_WawT44S0Q5ceRKTJztjaNBdX7WCGiL9RUmUpmbIPasa10ZYb",
+          "width": 3000
+        }
+      ],
+      "place_id": "ChIJ66ZYN2l_bIcRyqvB0KqBN6w",
+      "plus_code": {
+        "compound_code": "M2XQ+29 Denver, Colorado",
+        "global_code": "85FQM2XQ+29"
+      },
+      "rating": 4.4,
+      "reference": "ChIJ66ZYN2l_bIcRyqvB0KqBN6w",
+      "types": [
+        "roofing_contractor",
+        "general_contractor",
+        "home_goods_store",
+        "store",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 5
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "7045 S Fulton St #240, Centennial, CO 80112, United States",
+      "geometry": {
+        "location": {
+          "lat": 39.5890011,
+          "lng": -104.8731
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 39.59047027989272,
+            "lng": -104.8715438701073
+          },
+          "southwest": {
+            "lat": 39.58777062010727,
+            "lng": -104.8742435298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Custom Decks",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3078,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/111254271460939848443\">A Google User</a>"
+          ],
+          "photo_reference": "AWYs27ykRF79yjtrGxxHY5bzzh1yDlTNfriCBmDV8isKNT5A_gFUhB3UDh4MvK6S58KFT8GUJLqz0TCAZzcGSEz3-_TRB59FvzFCBDyJCoFxZzm8yRLd6l8dJsjeW-R6Oc_yoTsIBY0SRlgHO1taOZiimuOrTtt0XFU8VLPV-w5I-LjBaKlD",
+          "width": 5472
+        }
+      ],
+      "place_id": "ChIJ8Yjz45aFbIcR36OYmQAlUPk",
+      "plus_code": {
+        "compound_code": "H4QG+JQ Centennial, Colorado",
+        "global_code": "85FQH4QG+JQ"
+      },
+      "rating": 4.3,
+      "reference": "ChIJ8Yjz45aFbIcR36OYmQAlUPk",
+      "types": [
+        "general_contractor",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 61
+    }
+  ]
+}
