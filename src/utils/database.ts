@@ -83,11 +83,15 @@ export async function getContractorsByTradeAndSubregion(
     .from('contractors')
     .select(`
       *,
-      category:categories(*),
-      subregion:subregions(*)
+      categories!inner(*),
+      neighborhoods!inner(
+        *,
+        subregions!inner(*)
+      )
     `)
     .eq('categories.slug', categorySlug)
-    .eq('subregions.slug', subregionSlug);
+    .eq('neighborhoods.subregions.slug', subregionSlug)
+    .limit(10);
 
   if (error) {
     console.error('Error fetching contractors:', error);
