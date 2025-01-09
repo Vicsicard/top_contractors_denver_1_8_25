@@ -45,7 +45,7 @@ export function ContractorCard({ contractor }: ContractorCardProps) {
               <StarIcon
                 key={i}
                 className={`h-5 w-5 ${
-                  i < Math.round(contractor.reviews_avg)
+                  i < Math.round(contractor.google_rating || 0)
                     ? 'text-yellow-400'
                     : 'text-gray-300'
                 }`}

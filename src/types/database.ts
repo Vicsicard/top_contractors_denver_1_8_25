@@ -65,6 +65,7 @@ export interface Database {
           address: string
           phone: string
           website: string | null
+          google_rating: number
           reviews_avg: number
           reviews_count: number
           slug: string
@@ -79,6 +80,7 @@ export interface Database {
           address: string
           phone: string
           website?: string | null
+          google_rating: number
           reviews_avg: number
           reviews_count: number
           slug: string
@@ -93,6 +95,7 @@ export interface Database {
           address?: string
           phone?: string
           website?: string | null
+          google_rating?: number
           reviews_avg?: number
           reviews_count?: number
           slug?: string

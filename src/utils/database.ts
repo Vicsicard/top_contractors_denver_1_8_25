@@ -145,19 +145,15 @@ export async function getContractorsByTradeAndSubregion(
   console.log('[SERVER] Found IDs:', { categoryId: category.id, subregionId: subregion.id });
 
   // Then get contractors matching both IDs
-  const { data: contractors, error } = await supabase
+  const { data: contractors, error: contractorsError } = await supabase
     .from('contractors')
-    .select(`
-      *,
-      categories(*),
-      subregions(*)
-    `)
+    .select('*, categories!inner(*), subregions!inner(*)')
     .eq('category_id', category.id)
     .eq('subregion_id', subregion.id)
-    .limit(10);
+    .order('contractor_name', { ascending: true });
 
-  if (error) {
-    console.error('[SERVER] Error fetching contractors:', error);
+  if (contractorsError) {
+    console.error('[SERVER] Error fetching contractors:', contractorsError);
     throw new Error('Failed to load contractors');
   }
 
