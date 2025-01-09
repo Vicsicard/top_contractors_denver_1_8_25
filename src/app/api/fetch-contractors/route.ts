@@ -51,16 +51,19 @@ const subregionCoordinates = {
 // Helper functions
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
-function formatPhoneNumber(phone: string | null): string | null {
+const formatPhoneNumber = (phone: string | null | undefined): string | null => {
   if (!phone) return null;
+  // Remove all non-numeric characters
   const cleaned = phone.replace(/\D/g, '');
-  if (cleaned.length === 10) {
-    return `(${cleaned.slice(0, 3)}) ${cleaned.slice(3, 6)}-${cleaned.slice(6)}`;
+  // Format as (XXX) XXX-XXXX
+  const match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
+  if (match) {
+    return `(${match[1]}) ${match[2]}-${match[3]}`;
   }
-  return phone;
-}
+  return null;
+};
 
-function formatWebsite(website: string | null): string | null {
+const formatWebsite = (website: string | null | undefined): string | null => {
   if (!website) return null;
   try {
     const url = new URL(website);
@@ -68,7 +71,7 @@ function formatWebsite(website: string | null): string | null {
   } catch {
     return null;
   }
-}
+};
 
 async function fetchPlaceDetails(placeId: string) {
   try {
@@ -93,13 +96,15 @@ async function fetchPlaceDetails(placeId: string) {
         details.name && 
         details.formatted_address && 
         details.rating) {
-      return {
+      const contractorData = {
         name: details.name,
         address: details.formatted_address,
-        phone: formatPhoneNumber(details.formatted_phone_number),
-        website: formatWebsite(details.website),
+        phone: formatPhoneNumber(details.formatted_phone_number || null),
+        website: formatWebsite(details.website || null),
         rating: details.rating
       };
+
+      return contractorData;
     }
     return null;
   } catch (error) {

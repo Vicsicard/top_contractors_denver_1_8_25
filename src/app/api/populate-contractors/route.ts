@@ -51,16 +51,19 @@ const subregionCoordinates = {
 // Helper functions
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
-function formatPhoneNumber(phone: string | null): string | null {
+const formatPhoneNumber = (phone: string | null | undefined): string | null => {
   if (!phone) return null;
+  // Remove all non-numeric characters
   const cleaned = phone.replace(/\D/g, '');
-  if (cleaned.length === 10) {
-    return `(${cleaned.slice(0, 3)}) ${cleaned.slice(3, 6)}-${cleaned.slice(6)}`;
+  // Format as (XXX) XXX-XXXX
+  const match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
+  if (match) {
+    return `(${match[1]}) ${match[2]}-${match[3]}`;
   }
-  return phone;
-}
+  return null;
+};
 
-function formatWebsite(website: string | null): string | null {
+const formatWebsite = (website: string | null | undefined): string | null => {
   if (!website) return null;
   try {
     const url = new URL(website);
@@ -68,7 +71,7 @@ function formatWebsite(website: string | null): string | null {
   } catch {
     return null;
   }
-}
+};
 
 async function fetchPlaceDetails(placeId: string) {
   try {
@@ -96,8 +99,8 @@ async function fetchPlaceDetails(placeId: string) {
       return {
         name: details.name,
         address: details.formatted_address,
-        phone: formatPhoneNumber(details.formatted_phone_number),
-        website: formatWebsite(details.website),
+        phone: formatPhoneNumber(details.formatted_phone_number || null),
+        website: formatWebsite(details.website || null),
         rating: details.rating
       };
     }
@@ -139,22 +142,24 @@ async function fetchContractorsForCategory(
           const details = await fetchPlaceDetails(place.place_id);
 
           if (details) {
-            const contractor = {
-              contractor_name: details.name,
+            const contractorData = {
+              name: details.name,
               address: details.address,
               phone: details.phone,
               website: details.website,
-              google_rating: details.rating,
+              rating: details.rating,
               category_id: categoryId,
               subregion_id: subregionId,
+              created_at: new Date().toISOString(),
+              updated_at: new Date().toISOString(),
               slug: `${details.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}-${place.place_id.substring(0, 6)}`
             };
 
-            await supabase.from('contractors').upsert(contractor, {
+            await supabase.from('contractors').upsert(contractorData, {
               onConflict: 'slug'
             });
 
-            results.push(contractor);
+            results.push(contractorData);
           }
         }
       }
