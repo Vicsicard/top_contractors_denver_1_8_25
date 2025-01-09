@@ -1,7 +1,10 @@
 import { Client } from "@googlemaps/google-maps-services-js";
 import { createClient } from '@supabase/supabase-js';
-import { NextResponse } from 'next/server';
-import { PlaceDetails, PlaceResult, PlaceSearchResponse, Contractor } from '@/types/database';
+import { PlaceDetails, PlaceResult, PlaceSearchResponse } from '@/types/database';
+import * as dotenv from 'dotenv';
+import path from 'path';
+
+dotenv.config({ path: path.resolve(process.cwd(), '.env.local') });
 
 // Initialize clients
 const googleMapsClient = new Client({});
@@ -10,7 +13,7 @@ const supabase = createClient(
   process.env.SUPABASE_SERVICE_ROLE_KEY!
 );
 
-// Define search terms for each category
+// Define exact search terms for each category
 const categorySearchTerms = {
   'plumbers': ['plumber', 'plumbing contractor', 'plumbing service'],
   'electricians': ['electrician', 'electrical contractor', 'electrical service'],
@@ -30,7 +33,7 @@ const categorySearchTerms = {
   'epoxy-garage': ['epoxy flooring contractor', 'garage floor coating']
 };
 
-// Define coordinates for each subregion
+// Define exact coordinates for each subregion
 const subregionCoordinates = {
   'arvada': { lat: 39.8028, lng: -105.0875 },
   'aurora': { lat: 39.7294, lng: -104.8319 },
@@ -49,30 +52,19 @@ const subregionCoordinates = {
   'westminster': { lat: 39.8367, lng: -105.0372 }
 };
 
-// Helper functions
-const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+async function delay(ms: number) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 
-const formatPhoneNumber = (phone: string | null | undefined): string | null => {
+function formatPhoneNumber(phone: string | null | undefined): string | null {
   if (!phone) return null;
-  // Remove all non-numeric characters
-  const cleaned = phone.replace(/\D/g, '');
-  // Format as (XXX) XXX-XXXX
-  const match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
-  if (match) {
-    return `(${match[1]}) ${match[2]}-${match[3]}`;
-  }
-  return null;
-};
+  return phone.replace(/\D/g, '');
+}
 
-const formatWebsite = (website: string | null | undefined): string | null => {
+function formatWebsite(website: string | null | undefined): string | null {
   if (!website) return null;
-  try {
-    const url = new URL(website);
-    return url.toString();
-  } catch {
-    return null;
-  }
-};
+  return website.toLowerCase();
+}
 
 async function searchPlaces(query: string): Promise<PlaceResult[]> {
   try {
@@ -120,102 +112,99 @@ async function fetchPlaceDetails(placeId: string): Promise<PlaceDetails | null> 
   }
 }
 
+interface ContractorData {
+  contractor_name: string;
+  address: string;
+  phone: string | null;
+  website: string | null;
+  google_rating: number;
+  category_id: number;
+  subregion_id: number;
+  slug: string;
+}
+
 async function fetchContractorsForCategory(
   categoryId: number,
   categorySlug: string,
   subregionId: number,
-  subregionSlug: string
-): Promise<Contractor[]> {
-  const results: Contractor[] = [];
+  subregionSlug: string,
+  location: { lat: number; lng: number }
+) {
   try {
     const searchTerms = categorySearchTerms[categorySlug as keyof typeof categorySearchTerms];
+    const validResults = new Set();
 
     for (const searchTerm of searchTerms) {
-      const places = await searchPlaces(`${searchTerm} in ${subregionSlug}, CO`);
-      
-      for (const place of places) {
-        if (!place.place_id) continue;
-        
-        await delay(200);
-        const details = await fetchPlaceDetails(place.place_id);
+      const searchResult = await searchPlaces(`${searchTerm} near ${location.lat},${location.lng}`);
+      for (const place of searchResult) {
+        if (!validResults.has(place.place_id)) {
+          validResults.add(place.place_id);
+          
+          await delay(200);
+          const details = await fetchPlaceDetails(place.place_id);
 
-        if (details) {
-          const contractor: Contractor = {
-            contractor_name: details.name,
-            address: details.formatted_address,
-            phone: formatPhoneNumber(details.formatted_phone_number || null),
-            website: formatWebsite(details.website || null),
-            google_rating: details.rating,
-            category_id: categoryId,
-            subregion_id: subregionId,
-            slug: `${details.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}-${place.place_id.substring(0, 6)}`
-          };
+          if (details) {
+            const contractorData: ContractorData = {
+              contractor_name: details.name,
+              address: details.formatted_address,
+              phone: formatPhoneNumber(details.formatted_phone_number || null),
+              website: formatWebsite(details.website || null),
+              google_rating: details.rating,
+              category_id: categoryId,
+              subregion_id: subregionId,
+              slug: `${details.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}-${place.place_id.substring(0, 6)}`
+            };
 
-          await supabase.from('contractors').upsert(contractor, {
-            onConflict: 'slug'
-          });
+            await supabase.from('contractors').upsert(contractorData, {
+              onConflict: 'slug'
+            });
 
-          results.push(contractor);
+            console.log(`Added/Updated: ${details.name} (${categorySlug} in ${subregionSlug})`);
+          }
         }
       }
     }
   } catch (error) {
     console.error(`Error processing ${categorySlug}:`, error);
   }
-  return results;
 }
 
-export const dynamic = 'force-dynamic';
-
-export async function GET() {
+async function populateContractors() {
   try {
-    const { data: categories, error: categoriesError } = await supabase
+    const { data: categories } = await supabase
       .from('categories')
       .select('*');
 
-    const { data: subregions, error: subregionsError } = await supabase
+    const { data: subregions } = await supabase
       .from('subregions')
       .select('*');
 
-    if (categoriesError || subregionsError) {
+    if (!categories || !subregions) {
       throw new Error('Failed to fetch categories or subregions');
     }
-
-    if (!categories || !subregions) {
-      throw new Error('No categories or subregions found');
-    }
-
-    const results = [];
 
     for (const category of categories) {
       for (const subregion of subregions) {
         const location = subregionCoordinates[subregion.slug as keyof typeof subregionCoordinates];
         if (!location) continue;
 
-        const categoryResults = await fetchContractorsForCategory(
+        console.log(`Processing ${category.category_name} in ${subregion.subregion_name}`);
+        
+        await fetchContractorsForCategory(
           category.id,
           category.slug,
           subregion.id,
-          subregion.slug
+          subregion.slug,
+          location
         );
 
-        results.push({
-          category: category.category_name,
-          subregion: subregion.subregion_name,
-          contractors: categoryResults
-        });
+        await delay(1000);
       }
     }
-
-    return NextResponse.json({
-      success: true,
-      results
-    });
   } catch (error) {
-    console.error('Error:', error);
-    return NextResponse.json({
-      success: false,
-      error: error instanceof Error ? error.message : 'Unknown error'
-    }, { status: 500 });
+    console.error('Error in populateContractors:', error);
   }
 }
+
+// Run the script
+populateContractors().catch(console.error);

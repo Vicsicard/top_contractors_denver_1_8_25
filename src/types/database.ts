@@ -123,3 +123,53 @@ export interface ContractorWithRelations extends ContractorRecord {
   category: CategoryRecord
   subregion: SubregionRecord
 }
+
+// Google Places API types
+export interface Contractor {
+  id?: number;
+  contractor_name: string;
+  address: string;
+  phone: string | null;
+  website: string | null;
+  google_rating: number;
+  category_id: number;
+  subregion_id: number;
+  slug: string;
+  created_at?: string;
+  updated_at?: string;
+}
+
+export interface Category {
+  id: number;
+  category_name: string;
+  slug: string;
+}
+
+export interface Subregion {
+  id: number;
+  subregion_name: string;
+  slug: string;
+  lat: number;
+  lng: number;
+}
+
+export interface PlaceDetails {
+  name: string;
+  formatted_address: string;
+  formatted_phone_number?: string;
+  website?: string;
+  rating: number;
+}
+
+export interface PlaceResult {
+  place_id: string;
+  name: string;
+  formatted_address?: string;
+  rating?: number;
+}
+
+export interface PlaceSearchResponse {
+  data: {
+    results: PlaceResult[];
+  };
+}

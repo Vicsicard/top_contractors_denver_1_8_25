@@ -1,13 +1,14 @@
 import { Client } from "@googlemaps/google-maps-services-js";
 import { createClient } from '@supabase/supabase-js';
 import { NextResponse } from 'next/server';
+import { PlaceDetails, PlaceResult, PlaceSearchResponse, Contractor } from '@/types/database';
 
+// Initialize clients
+const googleMapsClient = new Client({});
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
   process.env.SUPABASE_SERVICE_ROLE_KEY!
 );
-
-const googleMapsClient = new Client({});
 
 // Define search terms for each category
 const categorySearchTerms = {
@@ -73,139 +74,207 @@ const formatWebsite = (website: string | null | undefined): string | null => {
   }
 };
 
-async function fetchPlaceDetails(placeId: string) {
+async function searchPlaces(query: string): Promise<PlaceResult[]> {
+  try {
+    const response = await googleMapsClient.textSearch({
+      params: {
+        query: query,
+        key: process.env.GOOGLE_PLACES_API_KEY || '',
+      },
+    }) as PlaceSearchResponse;
+
+    return response.data.results.filter((result): result is PlaceResult => 
+      typeof result.place_id === 'string' && 
+      typeof result.name === 'string'
+    );
+  } catch (error) {
+    console.error('Error searching places:', error);
+    return [];
+  }
+}
+
+async function fetchPlaceDetails(placeId: string): Promise<PlaceDetails | null> {
   try {
     const response = await googleMapsClient.placeDetails({
       params: {
         place_id: placeId,
-        fields: [
-          'name',
-          'formatted_address',
-          'formatted_phone_number',
-          'website',
-          'rating',
-          'business_status'
-        ],
-        key: process.env.GOOGLE_PLACES_API_KEY!
+        key: process.env.GOOGLE_PLACES_API_KEY || '',
+        fields: ['name', 'formatted_address', 'formatted_phone_number', 'website', 'rating']
       }
     });
 
     const details = response.data.result;
-    
-    if (details.business_status === 'OPERATIONAL' && 
-        details.name && 
-        details.formatted_address && 
-        details.rating) {
+    if (details.name && details.formatted_address && details.rating) {
       return {
         name: details.name,
-        address: details.formatted_address,
-        phone: formatPhoneNumber(details.formatted_phone_number || null),
-        website: formatWebsite(details.website || null),
+        formatted_address: details.formatted_address,
+        formatted_phone_number: details.formatted_phone_number,
+        website: details.website,
         rating: details.rating
       };
     }
     return null;
   } catch (error) {
-    console.error(`Error fetching place details for ${placeId}:`, error);
+    console.error('Error fetching place details:', error);
     return null;
   }
 }
 
+interface ContractorData {
+  name: string;
+  address: string;
+  phone: string | null;
+  website: string | null;
+  rating: number;
+  category_id: number;
+  subregion_id: number;
+  created_at: string;
+  updated_at: string;
+  slug: string;
+}
+
 async function fetchContractorsForCategory(
-  categoryId: string,
+  categoryId: number,
   categorySlug: string,
-  subregionId: string,
-  subregionSlug: string,
-  location: { lat: number; lng: number }
+  subregionId: number
 ) {
-  const results = [];
+  const results: ContractorData[] = [];
   try {
-    const searchTerms = categorySearchTerms[categorySlug as keyof typeof categorySearchTerms];
-    const validResults = new Set();
+    const searchQueries = categorySearchTerms[categorySlug as keyof typeof categorySearchTerms];
 
-    for (const searchTerm of searchTerms) {
-      const searchResult = await googleMapsClient.placesNearby({
-        params: {
-          location,
-          radius: 5000,
-          keyword: searchTerm,
-          type: 'business',
-          key: process.env.GOOGLE_PLACES_API_KEY!
-        }
-      });
+    for (const query of searchQueries) {
+      const places = await searchPlaces(`${query} in Denver, CO`);
+      
+      for (const place of places) {
+        await delay(200);
+        const details = await fetchPlaceDetails(place.place_id);
 
-      for (const place of searchResult.data.results) {
-        if (!validResults.has(place.place_id)) {
-          validResults.add(place.place_id);
-          
-          await delay(200); // Respect API limits
-          const details = await fetchPlaceDetails(place.place_id);
+        if (details) {
+          const contractorData: ContractorData = {
+            name: details.name,
+            address: details.formatted_address,
+            phone: formatPhoneNumber(details.formatted_phone_number || null),
+            website: formatWebsite(details.website || null),
+            rating: details.rating,
+            category_id: categoryId,
+            subregion_id: subregionId,
+            created_at: new Date().toISOString(),
+            updated_at: new Date().toISOString(),
+            slug: `${details.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}-${place.place_id.substring(0, 6)}`
+          };
 
-          if (details) {
-            const contractorData = {
-              name: details.name,
-              address: details.address,
-              phone: details.phone,
-              website: details.website,
-              rating: details.rating,
-              category_id: categoryId,
-              subregion_id: subregionId,
-              created_at: new Date().toISOString(),
-              updated_at: new Date().toISOString(),
-              slug: `${details.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}-${place.place_id.substring(0, 6)}`
-            };
+          await supabase.from('contractors').upsert(contractorData, {
+            onConflict: 'slug'
+          });
 
-            await supabase.from('contractors').upsert(contractorData, {
-              onConflict: 'slug'
-            });
-
-            results.push(contractorData);
-          }
+          results.push(contractorData);
         }
       }
     }
+
+    return results;
   } catch (error) {
     console.error(`Error processing ${categorySlug}:`, error);
+    return [];
   }
-  return results;
 }
+
+export const dynamic = 'force-dynamic';
 
 export async function GET() {
   try {
-    const results = [];
-    const { data: categories } = await supabase
+    const { data: categories, error: categoriesError } = await supabase
       .from('categories')
       .select('*');
 
-    const { data: subregions } = await supabase
-      .from('subregions')
-      .select('*');
-
-    if (!categories || !subregions) {
-      throw new Error('Failed to fetch categories or subregions');
+    if (categoriesError) {
+      console.error('Error fetching categories:', categoriesError);
+      return NextResponse.json({ error: 'Error fetching categories' }, { status: 500 });
     }
 
-    // Process each category and subregion
+    const results = [];
     for (const category of categories) {
+      const categoryName = category.category_name;
+      const categorySlug = category.slug;
+
+      const { data: subregions, error: subregionsError } = await supabase
+        .from('subregions')
+        .select('*');
+
+      if (subregionsError) {
+        console.error('Error fetching subregions:', subregionsError);
+        return NextResponse.json({ error: 'Error fetching subregions' }, { status: 500 });
+      }
+
+      // Process each category and subregion
       for (const subregion of subregions) {
         const location = subregionCoordinates[subregion.slug as keyof typeof subregionCoordinates];
         if (!location) continue;
 
         const contractors = await fetchContractorsForCategory(
           category.id,
-          category.slug,
-          subregion.id,
-          subregion.slug,
-          location
+          categorySlug,
+          subregion.id
         );
 
         results.push({
-          category: category.category_name,
+          category: categoryName,
           subregion: subregion.subregion_name,
           contractors_added: contractors.length
         });
 
         await delay(1000); // Delay between regions
+      }
+    }
+
+    return NextResponse.json({
+      success: true,
+      results
+    });
+  } catch (error) {
+    console.error('Error:', error);
+    return NextResponse.json({
+      success: false,
+      error: error instanceof Error ? error.message : 'Unknown error'
+    }, { status: 500 });
+  }
+}
+
+export async function POST(
+  req: Request,
+  { params }: { params: { categorySlug: string } }
+) {
+  const results: Contractor[] = [];
+  try {
+    const searchQueries = categorySearchTerms[params.categorySlug as keyof typeof categorySearchTerms];
+
+    for (const query of searchQueries) {
+      const places = await searchPlaces(`${query} in Denver, CO`);
+      
+      for (const place of places) {
+        if (!place.place_id) continue;
+        
+        await delay(200);
+        const details = await fetchPlaceDetails(place.place_id);
+
+        if (details) {
+          const contractor: Contractor = {
+            contractor_name: details.name,
+            address: details.formatted_address,
+            phone: formatPhoneNumber(details.formatted_phone_number || null),
+            website: formatWebsite(details.website || null),
+            google_rating: details.rating,
+            category_id: 1, // default category id
+            subregion_id: 1, // default subregion id
+            slug: `${details.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}-${place.place_id.substring(0, 6)}`
+          };
+
+          await supabase.from('contractors').upsert(contractor, {
+            onConflict: 'slug'
+          });
+
+          results.push(contractor);
+        }
       }
     }
 
