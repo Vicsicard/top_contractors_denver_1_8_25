@@ -93,7 +93,6 @@ export function transformToContractorData(placeDetails: any): ContractorData {
 }
 
 // Rate limiting utility
-const DELAY_BETWEEN_REQUESTS = 200; // 200ms delay between requests
 export const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
 // Error handling utility
