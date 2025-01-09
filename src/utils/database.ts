@@ -79,18 +79,36 @@ export async function getContractorsByTradeAndSubregion(
   categorySlug: string,
   subregionSlug: string
 ): Promise<ContractorRecord[]> {
+  // First get the category and subregion IDs
+  const [{ data: category }, { data: subregion }] = await Promise.all([
+    supabase
+      .from('categories')
+      .select('id')
+      .eq('slug', categorySlug)
+      .single(),
+    supabase
+      .from('subregions')
+      .select('id')
+      .eq('slug', subregionSlug)
+      .single()
+  ]);
+
+  if (!category || !subregion) {
+    console.error('Category or subregion not found:', { categorySlug, subregionSlug });
+    return [];
+  }
+
+  // Then get contractors matching both IDs
   const { data: contractors, error } = await supabase
     .from('contractors')
     .select(`
       *,
-      categories!inner(*),
-      neighborhoods!inner(
-        *,
-        subregions!inner(*)
-      )
+      categories(*),
+      subregions(*)
     `)
-    .eq('categories.slug', categorySlug)
-    .eq('neighborhoods.subregions.slug', subregionSlug)
+    .eq('category_id', category.id)
+    .eq('subregion_id', subregion.id)
+    .order('reviews_avg', { ascending: false })
     .limit(10);
 
   if (error) {
