@@ -79,24 +79,60 @@ export async function getContractorsByTradeAndSubregion(
   categorySlug: string,
   subregionSlug: string
 ): Promise<ContractorRecord[]> {
+  console.log('Fetching contractors for:', { categorySlug, subregionSlug });
+
+  // First get all categories and subregions to debug
+  const { data: allCategories } = await supabase
+    .from('categories')
+    .select('*');
+  
+  const { data: allSubregions } = await supabase
+    .from('subregions')
+    .select('*');
+
+  console.log('All categories:', allCategories?.map(c => c.slug));
+  console.log('All subregions:', allSubregions?.map(s => s.slug));
+
   // First get the category and subregion IDs
-  const [{ data: category }, { data: subregion }] = await Promise.all([
-    supabase
-      .from('categories')
-      .select('id')
-      .eq('slug', categorySlug)
-      .single(),
-    supabase
-      .from('subregions')
-      .select('id')
-      .eq('slug', subregionSlug)
-      .single()
+  const categoryPromise = supabase
+    .from('categories')
+    .select('id, slug')
+    .eq('slug', categorySlug)
+    .single();
+
+  const subregionPromise = supabase
+    .from('subregions')
+    .select('id, slug')
+    .eq('slug', subregionSlug)
+    .single();
+
+  const [categoryResult, subregionResult] = await Promise.all([
+    categoryPromise,
+    subregionPromise
   ]);
+
+  console.log('Category result:', categoryResult);
+  console.log('Subregion result:', subregionResult);
+
+  if (categoryResult.error) {
+    console.error('Error fetching category:', categoryResult.error);
+    return [];
+  }
+
+  if (subregionResult.error) {
+    console.error('Error fetching subregion:', subregionResult.error);
+    return [];
+  }
+
+  const category = categoryResult.data;
+  const subregion = subregionResult.data;
 
   if (!category || !subregion) {
     console.error('Category or subregion not found:', { categorySlug, subregionSlug });
     return [];
   }
+
+  console.log('Found IDs:', { categoryId: category.id, subregionId: subregion.id });
 
   // Then get contractors matching both IDs
   const { data: contractors, error } = await supabase
@@ -116,6 +152,7 @@ export async function getContractorsByTradeAndSubregion(
     throw new Error('Failed to load contractors');
   }
 
+  console.log('Found contractors:', contractors?.length || 0);
   return contractors || [];
 }
 
