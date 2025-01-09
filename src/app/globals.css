@@ -5,9 +5,9 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --primary: #0ea5e9;
+  --primary: #3366FF;
   --primary-foreground: #ffffff;
-  --secondary: #8b5cf6;
+  --secondary: #4D7FFF;
   --secondary-foreground: #ffffff;
   --muted: #f3f4f6;
   --muted-foreground: #6b7280;
@@ -17,7 +17,7 @@
   --card-foreground: #171717;
   --border: #e5e7eb;
   --input: #e5e7eb;
-  --ring: #0ea5e9;
+  --ring: #3366FF;
 }
 
 @media (prefers-color-scheme: dark) {
