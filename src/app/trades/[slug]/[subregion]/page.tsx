@@ -16,11 +16,19 @@ interface TradeSubregionPageProps {
 }
 
 export default async function TradeSubregionPage({ params }: TradeSubregionPageProps) {
+  console.log('[SERVER] TradeSubregionPage params:', params);
+
   const [trade, subregion, contractors] = await Promise.all([
     getTradeBySlug(params.slug),
     getSubregionBySlug(params.subregion),
     getContractorsByTradeAndSubregion(params.slug, params.subregion)
   ]);
+
+  console.log('[SERVER] TradeSubregionPage results:', {
+    trade: trade?.category_name,
+    subregion: subregion?.subregion_name,
+    contractorsFound: contractors?.length || 0
+  });
 
   if (!trade || !subregion) {
     notFound();

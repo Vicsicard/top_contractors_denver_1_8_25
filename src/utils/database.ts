@@ -79,7 +79,7 @@ export async function getContractorsByTradeAndSubregion(
   categorySlug: string,
   subregionSlug: string
 ): Promise<ContractorRecord[]> {
-  console.warn('DEBUG: Fetching contractors for:', { categorySlug, subregionSlug });
+  console.log('[SERVER] Fetching contractors for:', { categorySlug, subregionSlug });
 
   // First get all categories and subregions to debug
   const { data: allCategories, error: categoriesError } = await supabase
@@ -87,7 +87,7 @@ export async function getContractorsByTradeAndSubregion(
     .select('*');
   
   if (categoriesError) {
-    console.warn('DEBUG: Error fetching categories:', categoriesError);
+    console.error('[SERVER] Error fetching categories:', categoriesError);
     return [];
   }
 
@@ -96,12 +96,12 @@ export async function getContractorsByTradeAndSubregion(
     .select('*');
 
   if (subregionsError) {
-    console.warn('DEBUG: Error fetching subregions:', subregionsError);
+    console.error('[SERVER] Error fetching subregions:', subregionsError);
     return [];
   }
 
-  console.warn('DEBUG: All categories:', allCategories?.map(c => ({ slug: c.slug, id: c.id })));
-  console.warn('DEBUG: All subregions:', allSubregions?.map(s => ({ slug: s.slug, id: s.id })));
+  console.log('[SERVER] All categories:', allCategories?.map(c => ({ slug: c.slug, id: c.id })));
+  console.log('[SERVER] All subregions:', allSubregions?.map(s => ({ slug: s.slug, id: s.id })));
 
   // First get the category and subregion IDs
   const categoryPromise = supabase
@@ -121,16 +121,16 @@ export async function getContractorsByTradeAndSubregion(
     subregionPromise
   ]);
 
-  console.warn('DEBUG: Category result:', categoryResult);
-  console.warn('DEBUG: Subregion result:', subregionResult);
+  console.log('[SERVER] Category result:', categoryResult);
+  console.log('[SERVER] Subregion result:', subregionResult);
 
   if (categoryResult.error) {
-    console.warn('DEBUG: Error fetching category:', categoryResult.error);
+    console.error('[SERVER] Error fetching category:', categoryResult.error);
     return [];
   }
 
   if (subregionResult.error) {
-    console.warn('DEBUG: Error fetching subregion:', subregionResult.error);
+    console.error('[SERVER] Error fetching subregion:', subregionResult.error);
     return [];
   }
 
@@ -138,11 +138,11 @@ export async function getContractorsByTradeAndSubregion(
   const subregion = subregionResult.data;
 
   if (!category || !subregion) {
-    console.warn('DEBUG: Category or subregion not found:', { categorySlug, subregionSlug });
+    console.error('[SERVER] Category or subregion not found:', { categorySlug, subregionSlug });
     return [];
   }
 
-  console.warn('DEBUG: Found IDs:', { categoryId: category.id, subregionId: subregion.id });
+  console.log('[SERVER] Found IDs:', { categoryId: category.id, subregionId: subregion.id });
 
   // Then get contractors matching both IDs
   const { data: contractors, error } = await supabase
@@ -158,13 +158,13 @@ export async function getContractorsByTradeAndSubregion(
     .limit(10);
 
   if (error) {
-    console.warn('DEBUG: Error fetching contractors:', error);
+    console.error('[SERVER] Error fetching contractors:', error);
     throw new Error('Failed to load contractors');
   }
 
-  console.warn('DEBUG: Found contractors:', contractors?.length || 0);
+  console.log('[SERVER] Found contractors:', contractors?.length || 0);
   if (contractors?.length === 0) {
-    console.warn('DEBUG: No contractors found for:', { 
+    console.error('[SERVER] No contractors found for:', { 
       categorySlug, 
       categoryId: category.id,
       subregionSlug,

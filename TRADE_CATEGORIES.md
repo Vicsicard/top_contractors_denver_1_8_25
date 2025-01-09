@@ -1,105 +1,190 @@
-# Trade Categories SQL Editor
+# Trade Categories and Subregions
 
-Use this SQL to update the trade categories in the database. Copy and paste these commands into your Supabase SQL editor.
+## Trade Categories
+Current categories in the system:
 
-```sql
--- First, let's view the current categories
-SELECT * FROM categories ORDER BY category_name;
+1. **Plumbers**
+   - Plumbing services
+   - Emergency repairs
+   - Installation work
 
--- To update existing categories, use UPDATE statements like:
-UPDATE categories
-SET category_name = 'New Name'
-WHERE id = 'category-id';
+2. **Electricians**
+   - Electrical repairs
+   - New installations
+   - Emergency services
 
--- To add new categories, use INSERT statements like:
-INSERT INTO categories (category_name, slug)
-VALUES 
-('Category Name', 'category-slug');
+3. **HVAC**
+   - Heating systems
+   - Air conditioning
+   - Ventilation work
 
--- To delete categories, use DELETE statements like:
-DELETE FROM categories
-WHERE category_name = 'Category to Delete';
+4. **Roofers**
+   - Roof repairs
+   - New installations
+   - Maintenance
 
--- Example of a complete update:
-BEGIN;
+5. **Painters**
+   - Interior painting
+   - Exterior painting
+   - Commercial painting
 
--- Clear existing categories (if needed)
--- TRUNCATE categories CASCADE;
+6. **Landscapers**
+   - Landscape design
+   - Maintenance
+   - Installation
 
--- Insert all categories
-INSERT INTO categories (category_name, slug)
-VALUES 
-('Bathroom Remodelers', 'bathroom-remodelers'),
-('Carpenters', 'carpenters'),
-('Concrete Contractors', 'concrete-contractors'),
-('Decks', 'decks'),
-('Door Contractors', 'door-contractors'),
-('Drywall Contractors', 'drywall-contractors'),
-('Electricians', 'electricians'),
-('Epoxy Garage', 'epoxy-garage'),
-('Fence Contractors', 'fence-contractors'),
-('Fencing', 'fencing'),
-('Flooring', 'flooring'),
-('Flooring Contractors', 'flooring-contractors'),
-('General Contractors', 'general-contractors'),
-('Home Remodelers', 'home-remodelers'),
-('HVAC', 'hvac'),
-('HVAC Contractors', 'hvac-contractors'),
-('Kitchen Remodelers', 'kitchen-remodelers'),
-('Landscapers', 'landscapers'),
-('Masonry', 'masonry'),
-('Painters', 'painters'),
-('Plumbers', 'plumbers'),
-('Roofers', 'roofers'),
-('Siding & Gutters', 'siding-gutters'),
-('Window Contractors', 'window-contractors'),
-('Windows', 'windows')
-ON CONFLICT (slug) 
-DO UPDATE SET 
-  category_name = EXCLUDED.category_name,
-  updated_at = CURRENT_TIMESTAMP;
+7. **Home Remodelers**
+   - Full home renovation
+   - Room additions
+   - General remodeling
 
-COMMIT;
-```
+8. **Bathroom Remodelers**
+   - Bathroom renovation
+   - Fixture installation
+   - Tile work
 
-## Notes
-1. The `slug` field is used in URLs and should be URL-friendly (lowercase, no spaces, etc.)
-2. The `ON CONFLICT` clause ensures we don't create duplicates if the category already exists
-3. Make sure to review the categories before running any DELETE or TRUNCATE commands
-4. The categories are ordered alphabetically for easy reference
+9. **Kitchen Remodelers**
+   - Kitchen renovation
+   - Cabinet installation
+   - Countertop work
 
-## Current Categories in Database
-Based on the build output, these are the categories currently in your database:
-```
-1. Bathroom Remodelers
-2. Carpenters
-3. Concrete Contractors
-4. Decks
-5. Door Contractors
-6. Drywall Contractors
-7. Electricians
-8. Epoxy Garage
-9. Fence Contractors
-10. Fencing
-11. Flooring
-12. Flooring Contractors
-13. General Contractors
-14. Home Remodelers
-15. HVAC
-16. HVAC Contractors
-17. Kitchen Remodelers
-18. Landscapers
-19. Masonry
-20. Painters
-21. Plumbers
-22. Roofers
-23. Siding & Gutters
-24. Window Contractors
-25. Windows
-```
+10. **Siding & Gutters**
+    - Siding installation
+    - Gutter repair
+    - Maintenance
 
-Please review these categories and let me know if you'd like to make any changes. You can:
-1. Add new categories
-2. Remove existing categories
-3. Rename categories
-4. Reorder categories (though they'll typically be displayed alphabetically)
+11. **Masonry**
+    - Brick work
+    - Stone installation
+    - Repairs
+
+12. **Decks**
+    - Deck building
+    - Repairs
+    - Maintenance
+
+13. **Flooring**
+    - Hardwood installation
+    - Tile work
+    - Carpet installation
+
+14. **Windows**
+    - Window installation
+    - Repairs
+    - Replacement
+
+15. **Fencing**
+    - Fence installation
+    - Repairs
+    - Gate work
+
+16. **Epoxy Garage**
+    - Garage floor coating
+    - Maintenance
+    - Repairs
+
+## Subregions
+Denver metropolitan area regions:
+
+1. **Downtown Denver**
+   - Central business district
+   - LoDo
+   - Union Station area
+
+2. **Aurora**
+   - North Aurora
+   - Central Aurora
+   - South Aurora
+
+3. **Lakewood**
+   - North Lakewood
+   - South Lakewood
+   - Green Mountain area
+
+4. **Arvada**
+   - Olde Town
+   - West Arvada
+   - East Arvada
+
+5. **Westminster**
+   - North Westminster
+   - South Westminster
+   - West Westminster
+
+6. **Thornton**
+   - North Thornton
+   - South Thornton
+   - Central Thornton
+
+7. **Centennial**
+   - West Centennial
+   - East Centennial
+   - Central Centennial
+
+8. **Littleton**
+   - Downtown Littleton
+   - West Littleton
+   - East Littleton
+
+9. **Parker**
+   - Downtown Parker
+   - North Parker
+   - South Parker
+
+10. **Brighton**
+    - Downtown Brighton
+    - East Brighton
+    - West Brighton
+
+11. **Northglenn**
+    - North Northglenn
+    - South Northglenn
+    - Central Northglenn
+
+12. **Broomfield**
+    - North Broomfield
+    - South Broomfield
+    - Interlocken area
+
+13. **Denver Tech Center**
+    - North DTC
+    - South DTC
+    - Greenwood Village
+
+14. **Cherry Creek**
+    - Cherry Creek North
+    - Cherry Creek South
+    - Shopping District
+
+15. **Park Hill**
+    - North Park Hill
+    - South Park Hill
+    - East Park Hill
+
+## Current Status
+
+### Data Population
+- Currently populating with real contractor data from Google Places API
+- Targeting ~10 contractors per category per subregion
+- Expected total: ~2,400 contractors
+
+### Data Quality
+Each contractor record includes:
+- Verified business name
+- Physical address
+- Phone number
+- Website (if available)
+- Google rating
+- Proper category assignment
+- Correct subregion assignment
+
+### Next Steps
+1. **Data Verification**
+   - Verify contractor data quality
+   - Check category assignments
+   - Validate subregion assignments
+
+2. **Frontend Integration**
+   - Update category pages
+   - Implement subregion filtering
+   - Add search functionality
