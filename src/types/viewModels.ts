@@ -5,7 +5,6 @@ export interface ContractorViewModel {
   address: string;
   phone: string;
   website: string | null;
-  rating: number;         // from reviews_avg
   reviewCount: number;    // from reviews_count
   slug: string;
 }

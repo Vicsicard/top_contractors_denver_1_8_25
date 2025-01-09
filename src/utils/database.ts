@@ -88,7 +88,7 @@ export async function getContractorsByTradeAndSubregion(
   
   if (categoriesError) {
     console.error('[SERVER] Error fetching categories:', categoriesError);
-    return [];
+    throw new Error('Failed to fetch categories');
   }
 
   const { data: allSubregions, error: subregionsError } = await supabase
@@ -97,7 +97,7 @@ export async function getContractorsByTradeAndSubregion(
 
   if (subregionsError) {
     console.error('[SERVER] Error fetching subregions:', subregionsError);
-    return [];
+    throw new Error('Failed to fetch subregions');
   }
 
   console.log('[SERVER] All categories:', allCategories?.map(c => ({ slug: c.slug, id: c.id })));
@@ -126,12 +126,12 @@ export async function getContractorsByTradeAndSubregion(
 
   if (categoryResult.error) {
     console.error('[SERVER] Error fetching category:', categoryResult.error);
-    return [];
+    throw new Error(`Failed to fetch category: ${categorySlug}`);
   }
 
   if (subregionResult.error) {
     console.error('[SERVER] Error fetching subregion:', subregionResult.error);
-    return [];
+    throw new Error(`Failed to fetch subregion: ${subregionSlug}`);
   }
 
   const category = categoryResult.data;
@@ -139,7 +139,7 @@ export async function getContractorsByTradeAndSubregion(
 
   if (!category || !subregion) {
     console.error('[SERVER] Category or subregion not found:', { categorySlug, subregionSlug });
-    return [];
+    throw new Error(`Category or subregion not found: ${categorySlug}/${subregionSlug}`);
   }
 
   console.log('[SERVER] Found IDs:', { categoryId: category.id, subregionId: subregion.id });
@@ -154,7 +154,6 @@ export async function getContractorsByTradeAndSubregion(
     `)
     .eq('category_id', category.id)
     .eq('subregion_id', subregion.id)
-    .order('reviews_avg', { ascending: false })
     .limit(10);
 
   if (error) {

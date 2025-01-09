@@ -11,7 +11,6 @@ export async function GET(request: NextRequest) {
     const region = searchParams.get('region')
     const subregion = searchParams.get('subregion')
     const neighborhood = searchParams.get('neighborhood')
-    const min_rating = parseFloat(searchParams.get('min_rating') || '0')
     const page = parseInt(searchParams.get('page') || '1')
     const limit = parseInt(searchParams.get('limit') || '10')
     
@@ -21,19 +20,8 @@ export async function GET(request: NextRequest) {
     
     let dbQuery = supabase
       .from('contractors')
-      .select(`
-        *,
-        categories!inner(*),
-        neighborhoods!inner(
-          *,
-          subregions!inner(
-            *,
-            regions!inner(*)
-          )
-        )
-      `)
+      .select('*', { count: 'exact' })
       .ilike('contractor_name', `%${query}%`)
-      .gte('reviews_avg', min_rating)
       
     if (category) {
       dbQuery = dbQuery.eq('categories.slug', category)
@@ -48,7 +36,7 @@ export async function GET(request: NextRequest) {
     }
     
     const { data: contractors, error: dbError, count } = await dbQuery
-      .order('reviews_avg', { ascending: false })
+      .order('contractor_name', { ascending: true })
       .range(offset, offset + limit - 1)
       
     if (dbError) {

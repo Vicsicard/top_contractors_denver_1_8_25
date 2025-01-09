@@ -39,16 +39,20 @@ export interface Region {
   slug: string
 }
 
+export interface ContractorsQueryParams {
+  page?: number
+  limit?: number
+  sort_by?: 'name'
+  category?: string
+  region?: string
+  subregion?: string
+  neighborhood?: string
+}
+
 // API functions
 export const contractorsApi = {
   // Get all contractors with optional filtering
-  getContractors: async (params?: {
-    category?: string
-    neighborhood?: string
-    page?: number
-    limit?: number
-    sort_by?: 'name' | 'reviews_avg'
-  }) => {
+  getContractors: async (params?: ContractorsQueryParams) => {
     const { data } = await api.get<{
       contractors: Contractor[]
       page: number

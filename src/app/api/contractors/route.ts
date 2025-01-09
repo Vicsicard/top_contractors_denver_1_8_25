@@ -10,7 +10,7 @@ export async function GET(request: NextRequest) {
     const neighborhood_slug = searchParams.get('neighborhood')
     const page = parseInt(searchParams.get('page') || '1')
     const limit = parseInt(searchParams.get('limit') || '10')
-    const sort_by = searchParams.get('sort_by') || 'reviews_avg'
+    const sort_by = searchParams.get('sort_by') || 'name'
     
     const offset = (page - 1) * limit
     
@@ -39,7 +39,7 @@ export async function GET(request: NextRequest) {
     }
     
     const { data: contractors, error: dbError, count } = await query
-      .order(sort_by === 'name' ? 'contractor_name' : 'reviews_avg', { ascending: sort_by === 'name' })
+      .order('contractor_name', { ascending: true })
       .range(offset, offset + limit - 1)
       
     if (dbError) {
