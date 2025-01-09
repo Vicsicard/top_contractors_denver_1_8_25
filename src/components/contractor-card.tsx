@@ -14,34 +14,19 @@ export function ContractorCard({ contractor }: ContractorCardProps) {
       <h3 className="text-xl font-semibold text-gray-900 mb-2">
         {contractor.contractor_name}
       </h3>
-      <p className="text-gray-600 mb-4">{contractor.address}</p>
       
-      <div className="flex items-center mb-4">
-        <div className="flex items-center">
-          {[...Array(5)].map((_, i) => (
-            <StarIcon
-              key={i}
-              className={`h-5 w-5 ${
-                i < Math.round(contractor.reviews_avg)
-                  ? 'text-yellow-400'
-                  : 'text-gray-300'
-              }`}
-            />
-          ))}
-        </div>
-        <span className="ml-2 text-gray-600">
-          ({contractor.reviews_count} reviews)
-        </span>
-      </div>
-
       <div className="space-y-2">
-        {contractor.phone && (
-          <p className="text-gray-600">
-            <span className="font-medium">Phone:</span> {contractor.phone}
-          </p>
-        )}
+        <p className="text-gray-600">
+          <span className="font-medium">Address:</span> {contractor.address}
+        </p>
+        
+        <p className="text-gray-600">
+          <span className="font-medium">Phone:</span> {contractor.phone}
+        </p>
+        
         {contractor.website && (
           <p className="text-gray-600">
+            <span className="font-medium">Website:</span>{' '}
             <a
               href={contractor.website}
               target="_blank"
@@ -52,6 +37,25 @@ export function ContractorCard({ contractor }: ContractorCardProps) {
             </a>
           </p>
         )}
+        
+        <div className="flex items-center">
+          <span className="font-medium mr-2">Reviews:</span>
+          <div className="flex items-center">
+            {[...Array(5)].map((_, i) => (
+              <StarIcon
+                key={i}
+                className={`h-5 w-5 ${
+                  i < Math.round(contractor.reviews_avg)
+                    ? 'text-yellow-400'
+                    : 'text-gray-300'
+                }`}
+              />
+            ))}
+          </div>
+          <span className="ml-2 text-gray-600">
+            ({contractor.reviews_count})
+          </span>
+        </div>
       </div>
     </div>
   );

@@ -115,36 +115,3 @@ export async function getContractorBySlug(slug: string): Promise<ContractorRecor
 
   return contractor;
 }
-
-export async function getTradeStats(categorySlug: string) {
-  try {
-    const { data: contractors, error } = await supabase
-      .from('contractors')
-      .select(`
-        id,
-        google_rating,
-        google_review_count
-      `)
-      .eq('category_slug', categorySlug);
-
-    if (error) {
-      console.error('Error fetching trade stats:', error);
-      throw new Error('Failed to load trade statistics');
-    }
-
-    const totalContractors = contractors?.length || 0;
-    const totalReviews = contractors?.reduce((sum, c) => sum + (c.google_review_count || 0), 0) || 0;
-    const avgRating = totalContractors > 0
-      ? contractors?.reduce((sum, c) => sum + (c.google_rating || 0), 0) / totalContractors
-      : 0;
-
-    return {
-      totalContractors,
-      totalReviews,
-      avgRating: Number(avgRating.toFixed(1))
-    };
-  } catch (error) {
-    console.error('Error in getTradeStats:', error);
-    throw new Error('Failed to load trade statistics');
-  }
-}
