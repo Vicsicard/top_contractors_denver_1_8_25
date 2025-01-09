@@ -13,32 +13,11 @@ CREATE TABLE categories (
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
--- Regions Table
-CREATE TABLE regions (
-    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-    region_name VARCHAR(100) NOT NULL,
-    slug VARCHAR(100) NOT NULL UNIQUE,
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
-);
-
--- Subregions Table
+-- Subregions Table (15 fixed subregions)
 CREATE TABLE subregions (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-    region_id UUID NOT NULL REFERENCES regions(id) ON DELETE CASCADE,
     subregion_name VARCHAR(100) NOT NULL,
     slug VARCHAR(100) NOT NULL UNIQUE,
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
-);
-
--- Neighborhoods Table
-CREATE TABLE neighborhoods (
-    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-    subregion_id UUID NOT NULL REFERENCES subregions(id) ON DELETE CASCADE,
-    neighborhood_name VARCHAR(100) NOT NULL,
-    slug VARCHAR(100) NOT NULL UNIQUE,
-    description TEXT,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
@@ -47,7 +26,7 @@ CREATE TABLE neighborhoods (
 CREATE TABLE contractors (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     category_id UUID NOT NULL REFERENCES categories(id) ON DELETE CASCADE,
-    neighborhood_id UUID NOT NULL REFERENCES neighborhoods(id) ON DELETE CASCADE,
+    subregion_id UUID NOT NULL REFERENCES subregions(id) ON DELETE CASCADE,
     contractor_name VARCHAR(200) NOT NULL,
     address VARCHAR(500) NOT NULL,
     phone VARCHAR(20) NOT NULL,
@@ -61,13 +40,9 @@ CREATE TABLE contractors (
 
 -- Create indexes for better query performance
 CREATE INDEX idx_categories_slug ON categories(slug);
-CREATE INDEX idx_regions_slug ON regions(slug);
-CREATE INDEX idx_subregions_region_id ON subregions(region_id);
 CREATE INDEX idx_subregions_slug ON subregions(slug);
-CREATE INDEX idx_neighborhoods_subregion_id ON neighborhoods(subregion_id);
-CREATE INDEX idx_neighborhoods_slug ON neighborhoods(slug);
 CREATE INDEX idx_contractors_category_id ON contractors(category_id);
-CREATE INDEX idx_contractors_neighborhood_id ON contractors(neighborhood_id);
+CREATE INDEX idx_contractors_subregion_id ON contractors(subregion_id);
 CREATE INDEX idx_contractors_slug ON contractors(slug);
 CREATE INDEX idx_contractors_reviews_avg ON contractors(reviews_avg DESC);
 
@@ -85,18 +60,8 @@ CREATE TRIGGER update_categories_updated_at
     FOR EACH ROW
     EXECUTE FUNCTION update_updated_at_column();
 
-CREATE TRIGGER update_regions_updated_at
-    BEFORE UPDATE ON regions
-    FOR EACH ROW
-    EXECUTE FUNCTION update_updated_at_column();
-
 CREATE TRIGGER update_subregions_updated_at
     BEFORE UPDATE ON subregions
-    FOR EACH ROW
-    EXECUTE FUNCTION update_updated_at_column();
-
-CREATE TRIGGER update_neighborhoods_updated_at
-    BEFORE UPDATE ON neighborhoods
     FOR EACH ROW
     EXECUTE FUNCTION update_updated_at_column();
 
@@ -107,16 +72,12 @@ CREATE TRIGGER update_contractors_updated_at
 
 -- Enable Row Level Security (RLS)
 ALTER TABLE categories ENABLE ROW LEVEL SECURITY;
-ALTER TABLE regions ENABLE ROW LEVEL SECURITY;
 ALTER TABLE subregions ENABLE ROW LEVEL SECURITY;
-ALTER TABLE neighborhoods ENABLE ROW LEVEL SECURITY;
 ALTER TABLE contractors ENABLE ROW LEVEL SECURITY;
 
 -- Create policies
 CREATE POLICY "Enable read access for all users" ON categories FOR SELECT USING (true);
-CREATE POLICY "Enable read access for all users" ON regions FOR SELECT USING (true);
 CREATE POLICY "Enable read access for all users" ON subregions FOR SELECT USING (true);
-CREATE POLICY "Enable read access for all users" ON neighborhoods FOR SELECT USING (true);
 CREATE POLICY "Enable read access for all users" ON contractors FOR SELECT USING (true);
 
 -- Only authenticated users can insert/update/delete

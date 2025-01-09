@@ -1,15 +1,12 @@
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
-import "./globals.css"
+import './globals.css'
+import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
 
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-})
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: "Contractor Directory",
-  description: "Find and connect with trusted contractors in your area.",
+  title: 'Contractor Directory',
+  description: 'Find local contractors in your area',
 }
 
 export default function RootLayout({
@@ -18,9 +15,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={inter.className}>
-      <body className="min-h-screen bg-background font-sans antialiased">
-        {children}
+    <html lang="en">
+      <body className={inter.className}>
+        <main className="min-h-screen bg-gray-50">
+          {children}
+        </main>
       </body>
     </html>
   )

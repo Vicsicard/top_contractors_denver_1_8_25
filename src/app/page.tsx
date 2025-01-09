@@ -1,30 +1,17 @@
-import { ContractorForm } from "@/components/contractor-form";
+import { CategoryList } from '@/components/CategoryList';
+import { getAllTrades } from '@/utils/database';
 
-export default function Home() {
+export const revalidate = 3600; // Revalidate every hour
+
+export default async function HomePage() {
+  const categories = await getAllTrades();
+
   return (
-    <main className="min-h-screen bg-background">
-      <div className="container mx-auto py-10">
-        <div className="space-y-6">
-          <div className="space-y-2">
-            <h1 className="text-3xl font-bold tracking-tight">Contractor Directory</h1>
-            <p className="text-muted-foreground">
-              Find and connect with trusted contractors in your area.
-            </p>
-          </div>
-
-          <div className="rounded-lg border bg-card p-6">
-            <div className="space-y-4">
-              <div className="space-y-2">
-                <h2 className="text-xl font-semibold tracking-tight">Add New Contractor</h2>
-                <p className="text-sm text-muted-foreground">
-                  Fill out the form below to add a new contractor to our directory.
-                </p>
-              </div>
-              <ContractorForm />
-            </div>
-          </div>
-        </div>
-      </div>
+    <main className="container mx-auto px-4 py-8">
+      <h1 className="text-4xl font-bold text-center mb-12">
+        Find Top Local Contractors
+      </h1>
+      <CategoryList categories={categories} />
     </main>
   );
 }

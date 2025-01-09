@@ -1,43 +1,34 @@
-import { createServerClient } from '@supabase/ssr';
+import { createClient as createSupabaseClient } from '@supabase/supabase-js';
 import { cookies } from 'next/headers';
-import { CookieOptions } from '@supabase/ssr';
 import { Database } from '@/types/supabase';
 
 export async function createClient() {
   const cookieStore = await cookies();
-  
-  return createServerClient<Database>(
+
+  return createSupabaseClient<Database>(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
     {
-      cookies: {
-        async get(name: string) {
-          const cookie = cookieStore.get(name);
-          return cookie?.value;
-        },
-        async set(name: string, value: string, options: CookieOptions) {
-          try {
-            cookieStore.set({
-              name,
+      auth: {
+        persistSession: true,
+        storageKey: 'supabase.auth.token',
+        storage: {
+          getItem: (key: string) => {
+            return cookieStore.get(key)?.value ?? null;
+          },
+          setItem: (key: string, value: string) => {
+            cookieStore.set({ 
+              name: key, 
               value,
-              ...options
+              path: '/',
+              maxAge: 60 * 60 * 24 * 365, // 1 year
+              sameSite: 'lax',
+              secure: process.env.NODE_ENV === 'production'
             });
-          } catch (error) {
-            // Handle any errors that occur during cookie setting
-            console.error('Error setting cookie:', error);
-          }
-        },
-        async remove(name: string, options: CookieOptions) {
-          try {
-            cookieStore.set({
-              name,
-              value: '',
-              ...options
-            });
-          } catch (error) {
-            // Handle any errors that occur during cookie removal
-            console.error('Error removing cookie:', error);
-          }
+          },
+          removeItem: (key: string) => {
+            cookieStore.delete(key);
+          },
         },
       },
     }

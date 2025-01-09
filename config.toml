@@ -1,0 +1,4 @@
+# Project Configuration
+project_id = "bmiyyaexngxbrzkyqgzk"
+api_url = "https://bmiyyaexngxbrzkyqgzk.supabase.co"
+db_url = "postgres://postgres:Jerrygarcia1993!Manniemae1993!@db.bmiyyaexngxbrzkyqgzk.supabase.co:5432/postgres"

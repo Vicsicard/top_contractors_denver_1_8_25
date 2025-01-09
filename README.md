@@ -1,25 +1,34 @@
 # Contractor Directory
 
-A modern web application for finding and connecting with trusted contractors in your area. Built with Next.js, React, and Supabase.
+A public directory website for finding local contractors in the Denver metropolitan area.
 
 ## Features
 
-- Modern, responsive UI built with Tailwind CSS
-- Form handling with React Hook Form and Zod validation
-- API integration with Supabase
-- SEO optimization with Next.js metadata
-- Type-safe development with TypeScript
+- Browse contractors by trade (plumbers, electricians, etc.)
+- Find contractors in specific regions and neighborhoods
+- View complete contractor information
+- Simple and easy-to-use interface
+- Mobile-friendly design
 
-## Tech Stack
+## Technology Stack
 
-- **Framework**: Next.js 15.1.3
-- **Database**: Supabase
-- **Styling**: Tailwind CSS
-- **Form Management**: React Hook Form
-- **Validation**: Zod
-- **HTTP Client**: Axios
-- **UI Components**: Radix UI
-- **Font**: Inter (Google Fonts)
+- Next.js 15.1.3
+- React 19
+- Supabase (PostgreSQL)
+- Tailwind CSS
+- TypeScript
+
+## Directory Structure
+
+```
+src/
+├── app/                    # Next.js App Router
+│   ├── api/               # Data retrieval endpoints
+│   └── trades/           # Trade pages
+├── components/            # React components
+├── lib/                  # Utility functions
+└── types/               # TypeScript definitions
+```
 
 ## Getting Started
 
@@ -28,61 +37,29 @@ A modern web application for finding and connecting with trusted contractors in 
    ```bash
    npm install
    ```
-
-3. Create a `.env.local` file in the root directory with your Supabase credentials:
+3. Set up environment variables:
    ```
-   NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
-   NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+   NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
    ```
-
 4. Run the development server:
    ```bash
    npm run dev
    ```
 
-5. Open [http://localhost:3000](http://localhost:3000) in your browser
+## Data Structure
 
-## Project Structure
+The directory organizes contractors hierarchically:
+- Trade Categories (e.g., Plumbers)
+- Regions (e.g., Central Denver)
+- Neighborhoods (e.g., Downtown)
 
-```
-contractor-directory/
-├── src/
-│   ├── app/
-│   │   ├── api/            # API routes
-│   │   ├── layout.tsx      # Root layout
-│   │   └── page.tsx        # Home page
-│   ├── components/
-│   │   ├── ui/            # Reusable UI components
-│   │   └── contractor-form.tsx
-│   └── lib/
-│       ├── api.ts         # API client
-│       ├── axios.ts       # Axios configuration
-│       ├── supabase/      # Supabase configuration
-│       └── utils.ts       # Utility functions
-├── public/
-└── package.json
-```
-
-## Development Status
-
-- [x] Project setup and configuration
-- [x] UI components and styling
-- [x] Form handling and validation
-- [x] API integration
-- [x] Supabase configuration
-- [ ] Authentication
-- [ ] Contractor listing page
-- [ ] Search functionality
-- [ ] Reviews system
+Each neighborhood contains 10 verified contractors per trade.
 
 ## Contributing
 
-1. Fork the repository
-2. Create your feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a new Pull Request
+To update contractor information or report issues, please open a GitHub issue.
 
 ## License
 
-This project is licensed under the MIT License.
+MIT
