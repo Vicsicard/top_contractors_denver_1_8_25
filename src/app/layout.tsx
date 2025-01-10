@@ -6,6 +6,7 @@ import { PerformanceMonitor } from '@/components/PerformanceMonitor'
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Navigation } from '@/components/Navigation';
+import GoogleAnalytics from '@/components/GoogleAnalytics';
 
 // Optimize font loading
 const inter = Inter({
@@ -79,6 +80,7 @@ export default function RootLayout({
         <main className="min-h-screen bg-gray-50">
           {children}
         </main>
+        <GoogleAnalytics />
         <PerformanceMonitor />
         <Analytics />
         <SpeedInsights />
