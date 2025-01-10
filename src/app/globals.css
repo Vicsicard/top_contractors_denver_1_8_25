@@ -18,6 +18,11 @@
   --border: #e5e7eb;
   --input: #e5e7eb;
   --ring: #3366FF;
+  --primary-dark: #1e3a8a;  /* Deep blue from the sky */
+  --primary-light: #60a5fa; /* Lighter blue for accents */
+  --accent-warm: #f97316;   /* Warm orange for CTAs */
+  --bg-light: #f8fafc;     /* Light background */
+  --text-dark: #1e293b;    /* Dark text color */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -47,7 +52,36 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
   }
+}
+
+/* Add styles for the header */
+header {
+  position: relative;
+  background-color: #1e3a8a; /* Fallback color */
+  transition: all 0.3s ease;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.4)
+  );
+  z-index: 1;
+}
+
+header > div {
+  position: relative;
+  z-index: 2;
 }
 
 .scrollbar-hide::-webkit-scrollbar {
@@ -57,4 +91,45 @@
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+/* Card hover effects */
+.category-card {
+  transition: all 0.3s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -8px rgba(30, 58, 138, 0.2);
+}
+
+/* Gradient overlays */
+.hero-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(30, 58, 138, 0.2),
+    rgba(30, 58, 138, 0.6)
+  );
+}
+
+/* Custom button styles */
+.btn-primary {
+  background-color: var(--accent-warm);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #ea580c;
+  transform: translateY(-1px);
+}
+
+/* Section styling */
+.section-light {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(30, 58, 138, 0.1);
 }
