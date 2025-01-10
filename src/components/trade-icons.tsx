@@ -1,10 +1,10 @@
 import { IconType } from 'react-icons';
 import { FaWrench, FaBolt, FaSnowflake, FaHome, FaHammer } from 'react-icons/fa';
 import { MdBrush, MdLandscape, MdHome, MdBathtub, MdKitchen } from 'react-icons/md';
-import { GiStoneBrick, GiWoodBeam } from 'react-icons/gi';
+import { GiBrickWall, GiWoodBeam } from 'react-icons/gi';
 import { BsWindow } from 'react-icons/bs';
 import { TbGarage } from 'react-icons/tb';
-import { BiSolidFence } from 'react-icons/bi';
+import { BiFence } from 'react-icons/bi';
 
 export const getCategoryIcon = (categoryName: string): IconType => {
   const iconMap: { [key: string]: IconType } = {
@@ -19,11 +19,11 @@ export const getCategoryIcon = (categoryName: string): IconType => {
     'Bathroom Remodeling': MdBathtub,
     'Kitchen Remodeling': MdKitchen,
     'Siding & Gutters': MdHome,
-    'Masonry': GiStoneBrick,
+    'Masonry': GiBrickWall,
     'Decks': GiWoodBeam,
     'Flooring': GiWoodBeam,
     'Windows': BsWindow,
-    'Fencing': BiSolidFence,
+    'Fencing': BiFence,
     'Epoxy Garage': TbGarage
   };
 
