@@ -6,16 +6,18 @@ import { TradeCard } from './trade-card';
 
 interface CategoryListProps {
   categories: CategoryRecord[];
-  stats?: Record<string, {
-    totalContractors: number;
-    avgRating: number;
-    totalReviews: number;
-  }>;
+  stats?: {
+    [key: string]: {
+      totalContractors: number;
+      avgRating: number;
+      totalReviews: number;
+    };
+  };
 }
 
 export function CategoryList({ categories, stats }: CategoryListProps) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
       {categories.map((category) => (
         <TradeCard
           key={category.id}
