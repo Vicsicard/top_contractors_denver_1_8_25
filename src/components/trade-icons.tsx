@@ -18,29 +18,28 @@ import {
 import { 
   GiWoodBeam, 
   GiBrickWall,
-  GiGarage,
-  GiFenceGate
+  GiFencer
 } from 'react-icons/gi';
 
 export const getCategoryIcon = (categoryName: string): IconType => {
   const iconMap: { [key: string]: IconType } = {
-    'Plumber': FaWrench,
-    'Electrician': FaBolt,
+    'Plumbers': FaWrench,
+    'Electricians': FaBolt,
     'HVAC': FaSnowflake,
-    'Roofer': FaHome,
-    'Carpenter': FaHammer,
-    'Painter': FaPaintBrush,
-    'Landscaper': FaTree,
-    'Home Remodeling': MdHome,
-    'Bathroom Remodeling': FaBath,
-    'Kitchen Remodeling': MdKitchen,
+    'Roofers': FaHome,
+    'Carpenters': FaHammer,
+    'Painters': FaPaintBrush,
+    'Landscapers': FaTree,
+    'Home Remodelers': MdHome,
+    'Bathroom Remodelers': FaBath,
+    'Kitchen Remodelers': MdKitchen,
     'Siding & Gutters': FaWarehouse,
     'Masonry': GiBrickWall,
     'Decks': GiWoodBeam,
     'Flooring': GiWoodBeam,
     'Windows': FaWindowMaximize,
-    'Fencing': GiFenceGate,
-    'Epoxy Garage': GiGarage
+    'Fencing': GiFencer,
+    'Epoxy Garage': FaWarehouse
   };
 
   return iconMap[categoryName] || MdHome;
