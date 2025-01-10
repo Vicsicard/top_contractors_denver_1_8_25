@@ -18,7 +18,7 @@ import {
 import { 
   GiWoodBeam, 
   GiBrickWall,
-  GiGarageStorage,
+  GiGarage,
   GiFenceGate
 } from 'react-icons/gi';
 
@@ -40,7 +40,7 @@ export const getCategoryIcon = (categoryName: string): IconType => {
     'Flooring': GiWoodBeam,
     'Windows': FaWindowMaximize,
     'Fencing': GiFenceGate,
-    'Epoxy Garage': GiGarageStorage
+    'Epoxy Garage': GiGarage
   };
 
   return iconMap[categoryName] || MdHome;
