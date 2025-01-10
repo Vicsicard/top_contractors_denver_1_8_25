@@ -10,7 +10,6 @@ export async function GET(request: NextRequest) {
     const neighborhood_slug = searchParams.get('neighborhood')
     const page = parseInt(searchParams.get('page') || '1')
     const limit = parseInt(searchParams.get('limit') || '10')
-    const sort_by = searchParams.get('sort_by') || 'name'
     
     const offset = (page - 1) * limit
     

@@ -1,20 +1,23 @@
 import { notFound } from 'next/navigation';
+import { Metadata, Viewport } from 'next';
 import { ContractorList } from '@/components/ContractorList';
 import {
   getTradeBySlug,
   getSubregionBySlug,
-  getContractorsByTradeAndSubregion,
   getAllTrades,
-  getAllSubregions
+  getAllSubregions,
+  getContractorsByTradeAndSubregion
 } from '@/utils/database';
+import { generateLocalBusinessSchema, generateBreadcrumbSchema, generateFAQSchema } from '@/utils/schema';
+import { Breadcrumb } from '@/components/breadcrumb';
+import { FAQSection } from '@/components/FAQSection';
+import { getFAQsForTrade } from '@/data/faqs';
 
-export const revalidate = 3600; // Revalidate every hour
-
-interface TradeSubregionPageProps {
-  params: {
+interface Props {
+  params: { 
     slug: string;
     subregion: string;
-  };
+  }
 }
 
 // This helps Next.js understand our dynamic routes
@@ -35,48 +38,141 @@ export async function generateStaticParams() {
   return paths;
 }
 
-export default async function TradeSubregionPage({ params }: TradeSubregionPageProps) {
+async function getTradeAndSubregionNames({ slug, subregion }: Props['params']) {
+  const trade = await getTradeBySlug(slug);
+  const subregionData = await getSubregionBySlug(subregion);
+
+  if (!trade || !subregionData) {
+    throw new Error('Trade or subregion not found');
+  }
+
+  return {
+    tradeName: trade.category_name,
+    subregionName: subregionData.subregion_name,
+  };
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { tradeName, subregionName } = await getTradeAndSubregionNames(params);
+
+  const title = `${tradeName} in ${subregionName} | Top Local Contractors`;
+  const description = `Find trusted ${tradeName} in ${subregionName}. Compare verified reviews, get free quotes, and connect with the best local contractors.`;
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+    },
+  };
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: [{ media: '(prefers-color-scheme: light)', color: '#ffffff' }],
+};
+
+export default async function TradeSubregionPage({ params }: Props) {
   if (!params?.slug || !params?.subregion) {
     console.error('[SERVER] Missing required params:', params);
     notFound();
   }
 
-  console.log('[SERVER] TradeSubregionPage params:', params);
+  const [trade, subregion] = await Promise.all([
+    getTradeBySlug(params.slug),
+    getSubregionBySlug(params.subregion)
+  ]);
 
-  try {
-    const [trade, subregion, contractors] = await Promise.all([
-      getTradeBySlug(params.slug),
-      getSubregionBySlug(params.subregion),
-      getContractorsByTradeAndSubregion(params.slug, params.subregion)
-    ]);
-
-    console.log('[SERVER] TradeSubregionPage results:', {
-      trade: trade?.category_name,
-      subregion: subregion?.subregion_name,
-      contractorsFound: contractors?.length || 0
-    });
-
-    if (!trade || !subregion) {
-      console.error('[SERVER] Trade or subregion not found:', params);
-      notFound();
-    }
-
-    return (
-      <main className="container mx-auto px-4 py-8">
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold mb-2">{trade.category_name}</h1>
-          <p className="text-xl text-gray-600">in {subregion.subregion_name}</p>
-        </div>
-
-        <ContractorList
-          contractors={contractors}
-          tradeName={trade.category_name}
-          subregionName={subregion.subregion_name}
-        />
-      </main>
-    );
-  } catch (error) {
-    console.error('[SERVER] Error in TradeSubregionPage:', error);
-    throw error; // This will trigger Next.js error page
+  if (!trade || !subregion) {
+    notFound();
   }
+
+  const tradeName = trade.category_name;
+  const subregionName = subregion.subregion_name;
+  const faqs = getFAQsForTrade(tradeName);
+
+  // Fetch contractors for this trade and subregion
+  const contractors = await getContractorsByTradeAndSubregion(params.slug, params.subregion);
+
+  const schema = {
+    localBusiness: generateLocalBusinessSchema({ trade: tradeName, subregion: subregionName }),
+    breadcrumb: generateBreadcrumbSchema({ trade: tradeName, subregion: subregionName }),
+    faq: generateFAQSchema(faqs)
+  };
+
+  const breadcrumbItems = [
+    { label: 'Home', href: '/' },
+    { label: tradeName, href: `/trades/${params.slug}` },
+    { label: subregionName, href: `/trades/${params.slug}/${params.subregion}` }
+  ];
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(schema)
+        }}
+      />
+      <div className="container mx-auto px-4">
+        <Breadcrumb items={breadcrumbItems} />
+        
+        <div className="py-8">
+          <h1 className="text-4xl font-bold mb-4">
+            Top {tradeName} in {subregionName}
+          </h1>
+          <p className="text-lg text-gray-600 mb-8">
+            Find the best {tradeName.toLowerCase()} serving {subregionName}. Compare verified reviews, 
+            ratings, and get free quotes from top local contractors in your area.
+          </p>
+
+          <ContractorList 
+            contractors={contractors}
+            tradeName={tradeName}
+            subregionName={subregionName}
+          />
+          
+          <section className="mt-12">
+            <h2 className="text-2xl font-bold mb-6">
+              Why Choose Our {tradeName} in {subregionName}?
+            </h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                <h3 className="text-xl font-semibold mb-3">Local Expertise</h3>
+                <p className="text-gray-600">Our contractors are familiar with {subregionName} building codes and regulations.</p>
+              </div>
+              <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                <h3 className="text-xl font-semibold mb-3">Quality Guaranteed</h3>
+                <p className="text-gray-600">All work is backed by our satisfaction guarantee and proper insurance coverage.</p>
+              </div>
+              <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                <h3 className="text-xl font-semibold mb-3">Competitive Pricing</h3>
+                <p className="text-gray-600">Get multiple quotes to ensure you&apos;re getting the best value for your project.</p>
+              </div>
+            </div>
+          </section>
+
+          <div className="mt-8">
+            <h2 className="text-2xl font-semibold mb-4">Why Choose Us</h2>
+            <p className="text-gray-600 mb-4">
+              Looking for professional {tradeName} in {subregionName}? You&apos;re in the right place! We connect you with top-rated contractors who deliver exceptional results.
+            </p>
+          </div>
+
+          <FAQSection 
+            faqs={faqs} 
+            title={`Frequently Asked Questions About ${tradeName} in ${subregionName}`}
+          />
+        </div>
+      </div>
+    </>
+  );
 }
