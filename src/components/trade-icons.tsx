@@ -1,9 +1,26 @@
 import { IconType } from 'react-icons';
-import { FaWrench, FaBolt, FaSnowflake, FaHome, FaHammer } from 'react-icons/fa';
-import { MdBrush, MdLandscape, MdHome, MdBathtub, MdKitchen } from 'react-icons/md';
-import { GiBrickWall, GiWoodBeam, GiHomeGarage } from 'react-icons/gi';
-import { BsWindow } from 'react-icons/bs';
-import { BiFence } from 'react-icons/bi';
+import { 
+  FaWrench, 
+  FaBolt, 
+  FaSnowflake, 
+  FaHome,
+  FaHammer,
+  FaPaintBrush,
+  FaTree,
+  FaBath,
+  FaWarehouse,
+  FaWindowMaximize
+} from 'react-icons/fa';
+import { 
+  MdHome,
+  MdKitchen,
+} from 'react-icons/md';
+import { 
+  GiWoodBeam, 
+  GiBrickWall,
+  GiGarageStorage,
+  GiFenceGate
+} from 'react-icons/gi';
 
 export const getCategoryIcon = (categoryName: string): IconType => {
   const iconMap: { [key: string]: IconType } = {
@@ -12,18 +29,18 @@ export const getCategoryIcon = (categoryName: string): IconType => {
     'HVAC': FaSnowflake,
     'Roofer': FaHome,
     'Carpenter': FaHammer,
-    'Painter': MdBrush,
-    'Landscaper': MdLandscape,
+    'Painter': FaPaintBrush,
+    'Landscaper': FaTree,
     'Home Remodeling': MdHome,
-    'Bathroom Remodeling': MdBathtub,
+    'Bathroom Remodeling': FaBath,
     'Kitchen Remodeling': MdKitchen,
-    'Siding & Gutters': MdHome,
+    'Siding & Gutters': FaWarehouse,
     'Masonry': GiBrickWall,
     'Decks': GiWoodBeam,
     'Flooring': GiWoodBeam,
-    'Windows': BsWindow,
-    'Fencing': BiFence,
-    'Epoxy Garage': GiHomeGarage
+    'Windows': FaWindowMaximize,
+    'Fencing': GiFenceGate,
+    'Epoxy Garage': GiGarageStorage
   };
 
   return iconMap[categoryName] || MdHome;
