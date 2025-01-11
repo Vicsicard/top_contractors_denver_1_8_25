@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     description: 'Discover trusted Denver contractors for home improvement, remodeling, and repairs. Our verified local pros bring your projects to life with quality workmanship and reliable service.',
     images: [
       {
-        url: '/images/denver-skyline.jpg',
+        url: '/images/denver sky 666.jpg',
         width: 1200,
         height: 630,
         alt: 'Denver skyline'
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    images: ['/images/denver-skyline.jpg']
+    images: ['/images/denver sky 666.jpg']
   },
   verification: {
     google: 'your-google-verification-code', // Add your Google verification code

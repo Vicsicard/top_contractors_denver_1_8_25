@@ -11,7 +11,7 @@ export default function Header({ title, subtitle }: HeaderProps) {
     <header className={styles.header}>
       <div className={styles.imageWrapper}>
         <Image
-          src="/images/denver-skyline.jpg"
+          src="/images/denver sky 666.jpg"
           alt="Denver skyline with mountains at sunset"
           fill
           priority

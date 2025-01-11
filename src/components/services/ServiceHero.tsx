@@ -10,7 +10,7 @@ export function ServiceHero({ title, description }: ServiceHeroProps) {
     <div className="relative h-[400px] w-full">
       {/* Background Image */}
       <Image
-        src="/images/denver-skyline.jpg"
+        src="/images/denver sky 666.jpg"
         alt="Denver skyline"
         fill
         priority
