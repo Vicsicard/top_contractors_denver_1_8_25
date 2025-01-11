@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
@@ -12,10 +11,10 @@ export function Navigation() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-gray-900/75 to-transparent backdrop-blur-sm">
       <nav className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
-          <Link href="/" className="text-2xl font-bold text-white hover:text-accent-warm transition-colors">
+          <a href="/" className="text-2xl font-bold text-white hover:text-accent-warm transition-colors">
             <span className="md:inline hidden">Top Contractors Denver</span>
             <span className="md:hidden">TCD</span>
-          </Link>
+          </a>
           
           {/* Mobile menu button */}
           <button
@@ -42,18 +41,18 @@ export function Navigation() {
 
           {/* Desktop menu */}
           <div className="hidden md:flex gap-6">
-            <Link 
+            <a 
               href="/" 
               className={`text-white hover:text-accent-warm transition-colors font-medium ${pathname === '/' ? 'text-accent-warm' : ''}`}
             >
               Home
-            </Link>
-            <Link 
+            </a>
+            <a 
               href="/blog" 
               className={`text-white hover:text-accent-warm transition-colors font-medium ${pathname === '/blog' ? 'text-accent-warm' : ''}`}
             >
               Blog
-            </Link>
+            </a>
           </div>
         </div>
 
@@ -61,20 +60,20 @@ export function Navigation() {
         {isMenuOpen && (
           <div className="md:hidden mt-4 bg-gray-900/95 rounded-lg p-4 backdrop-blur-sm">
             <div className="flex flex-col gap-4">
-              <Link 
+              <a 
                 href="/" 
                 onClick={() => setIsMenuOpen(false)}
                 className={`text-white hover:text-accent-warm transition-colors font-medium ${pathname === '/' ? 'text-accent-warm' : ''}`}
               >
                 Home
-              </Link>
-              <Link 
+              </a>
+              <a 
                 href="/blog" 
                 onClick={() => setIsMenuOpen(false)}
                 className={`text-white hover:text-accent-warm transition-colors font-medium ${pathname === '/blog' ? 'text-accent-warm' : ''}`}
               >
                 Blog
-              </Link>
+              </a>
             </div>
           </div>
         )}
