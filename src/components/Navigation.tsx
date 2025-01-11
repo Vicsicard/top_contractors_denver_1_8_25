@@ -2,6 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
+import Link from 'next/link';
 
 export function Navigation() {
   const pathname = usePathname();
@@ -11,10 +12,10 @@ export function Navigation() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-gray-900/75 to-transparent backdrop-blur-sm">
       <nav className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
-          <a href="/" className="text-2xl font-bold text-white hover:text-accent-warm transition-colors">
+          <Link href="/" className="text-2xl font-bold text-white hover:text-accent-warm transition-colors">
             <span className="md:inline hidden">Top Contractors Denver</span>
             <span className="md:hidden">TCD</span>
-          </a>
+          </Link>
           
           {/* Mobile menu button */}
           <button
@@ -41,42 +42,53 @@ export function Navigation() {
 
           {/* Desktop menu */}
           <div className="hidden md:flex gap-6">
-            <a 
+            <Link 
               href="/" 
               className={`text-white hover:text-accent-warm transition-colors font-medium ${pathname === '/' ? 'text-accent-warm' : ''}`}
             >
               Home
-            </a>
-            <a 
+            </Link>
+            <Link 
               href="/blog" 
               className={`text-white hover:text-accent-warm transition-colors font-medium ${pathname === '/blog' ? 'text-accent-warm' : ''}`}
             >
               Blog
-            </a>
+            </Link>
+            <Link 
+              href="/services" 
+              className={`text-white hover:text-accent-warm transition-colors font-medium ${pathname === '/services' ? 'text-accent-warm' : ''}`}
+            >
+              Services
+            </Link>
           </div>
-        </div>
 
-        {/* Mobile menu */}
-        {isMenuOpen && (
-          <div className="md:hidden mt-4 bg-gray-900/95 rounded-lg p-4 backdrop-blur-sm">
-            <div className="flex flex-col gap-4">
-              <a 
+          {/* Mobile menu */}
+          <div className={`md:hidden absolute top-full left-0 right-0 bg-gray-900/95 backdrop-blur-sm transition-all duration-300 ${isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>
+            <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
+              <Link 
                 href="/" 
-                onClick={() => setIsMenuOpen(false)}
                 className={`text-white hover:text-accent-warm transition-colors font-medium ${pathname === '/' ? 'text-accent-warm' : ''}`}
+                onClick={() => setIsMenuOpen(false)}
               >
                 Home
-              </a>
-              <a 
+              </Link>
+              <Link 
                 href="/blog" 
-                onClick={() => setIsMenuOpen(false)}
                 className={`text-white hover:text-accent-warm transition-colors font-medium ${pathname === '/blog' ? 'text-accent-warm' : ''}`}
+                onClick={() => setIsMenuOpen(false)}
               >
                 Blog
-              </a>
+              </Link>
+              <Link 
+                href="/services" 
+                className={`text-white hover:text-accent-warm transition-colors font-medium ${pathname === '/services' ? 'text-accent-warm' : ''}`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Services
+              </Link>
             </div>
           </div>
-        )}
+        </div>
       </nav>
     </header>
   );

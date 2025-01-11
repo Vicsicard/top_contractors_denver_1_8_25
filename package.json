@@ -11,7 +11,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "generate-sitemap": "node scripts/generate-sitemap.mjs"
+    "generate-sitemap": "node scripts/generate-sitemap.js"
   },
   "dependencies": {
     "@heroicons/react": "^2.0.18",
