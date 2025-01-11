@@ -35,15 +35,24 @@ export function generateOrganizationSchema() {
 }
 
 export function generateLocalBusinessSchema({ trade, subregion }: SchemaParams) {
+  const businessName = trade ? `${trade} in Denver` : 'Top Contractors Denver';
   const baseSchema = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    name: trade ? `${trade} in Denver` : 'Top Contractors Denver',
+    name: businessName,
     description: trade 
       ? `Find the best ${trade.toLowerCase()} in ${subregion ? `${subregion}, ` : ''}Denver. Compare local contractors, read verified reviews, and get free quotes.`
       : 'Find the best local contractors in Denver. Compare verified reviews, ratings, and get free quotes.',
     url: 'https://topcontractorsdenver.com',
     telephone: '+1-303-555-0123',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '1234 Market Street',
+      addressLocality: 'Denver',
+      addressRegion: 'CO',
+      postalCode: '80202',
+      addressCountry: 'US'
+    },
     areaServed: {
       '@type': 'City',
       name: 'Denver',
@@ -68,29 +77,45 @@ export function generateLocalBusinessSchema({ trade, subregion }: SchemaParams) 
       },
       itemReviewed: {
         '@type': 'LocalBusiness',
-        name: trade ? `${trade} in Denver` : 'Top Contractors Denver',
-        sameAs: 'https://topcontractorsdenver.com'
+        name: businessName,
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: '1234 Market Street',
+          addressLocality: 'Denver',
+          addressRegion: 'CO',
+          postalCode: '80202',
+          addressCountry: 'US'
+        }
       }
-    },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.8',
-      reviewCount: '150',
-      bestRating: '5',
-      worstRating: '1'
     }
   };
 
-  if (trade) {
-    return {
-      ...baseSchema,
-      '@type': 'Service',
-      serviceType: trade,
-      provider: generateOrganizationSchema()
-    };
-  }
+  const schemaWithService = trade ? {
+    ...baseSchema,
+    '@type': 'Service',
+    serviceType: trade,
+    provider: {
+      '@type': 'LocalBusiness',
+      name: businessName,
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: '1234 Market Street',
+        addressLocality: 'Denver',
+        addressRegion: 'CO',
+        postalCode: '80202',
+        addressCountry: 'US'
+      },
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: '4.8',
+        reviewCount: '150',
+        bestRating: '5',
+        worstRating: '1'
+      }
+    }
+  } : baseSchema;
 
-  return baseSchema;
+  return schemaWithService;
 }
 
 export function generateFAQSchema(faqs: Array<{ question: string; answer: string }>) {
