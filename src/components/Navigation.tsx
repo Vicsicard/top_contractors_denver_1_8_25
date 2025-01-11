@@ -1,39 +1,40 @@
-'use server';
-
 import Link from 'next/link';
 
-export default function Navigation() {
+function Navigation() {
   return (
-    <>
-      <Link 
-        href="/" 
-        className="text-2xl font-bold text-white hover:text-accent-warm transition-colors"
-      >
-        <span className="md:inline hidden">Top Contractors Denver</span>
-        <span className="md:hidden">TCD</span>
-      </Link>
-      
-      {/* Desktop menu */}
-      <div className="hidden md:flex gap-6">
+    <nav className="flex-1">
+      <div className="flex justify-between items-center">
         <Link 
           href="/" 
-          className="text-white hover:text-accent-warm transition-colors font-medium"
+          className="text-2xl font-bold text-white hover:text-accent-warm transition-colors"
         >
-          Home
+          <span className="md:inline hidden">Top Contractors Denver</span>
+          <span className="md:hidden">TCD</span>
         </Link>
-        <Link 
-          href="/blog" 
-          className="text-white hover:text-accent-warm transition-colors font-medium"
-        >
-          Blog
-        </Link>
-        <Link 
-          href="/services" 
-          className="text-white hover:text-accent-warm transition-colors font-medium"
-        >
-          Services
-        </Link>
+        
+        <div className="hidden md:flex gap-6">
+          <Link 
+            href="/" 
+            className="text-white hover:text-accent-warm transition-colors font-medium"
+          >
+            Home
+          </Link>
+          <Link 
+            href="/blog" 
+            className="text-white hover:text-accent-warm transition-colors font-medium"
+          >
+            Blog
+          </Link>
+          <Link 
+            href="/services" 
+            className="text-white hover:text-accent-warm transition-colors font-medium"
+          >
+            Services
+          </Link>
+        </div>
       </div>
-    </>
+    </nav>
   );
 }
+
+export default Navigation;
