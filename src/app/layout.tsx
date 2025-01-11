@@ -6,6 +6,7 @@ import { PerformanceMonitor } from '@/components/PerformanceMonitor'
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Navigation } from '@/components/Navigation';
+import { MobileMenu } from '@/components/MobileMenu';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 
 // Optimize font loading
@@ -95,7 +96,14 @@ export default function RootLayout({
         <link rel="preload" href="/images/logo.png" as="image" />
       </head>
       <body className={inter.className}>
-        <Navigation />
+        <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-gray-900/75 to-transparent backdrop-blur-sm">
+          <nav className="container mx-auto px-4 py-4">
+            <div className="flex justify-between items-center">
+              <Navigation />
+              <MobileMenu />
+            </div>
+          </nav>
+        </header>
         <main className="min-h-screen bg-gray-50">
           {children}
         </main>
