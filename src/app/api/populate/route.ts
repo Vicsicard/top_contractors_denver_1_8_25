@@ -1,4 +1,3 @@
-import { Client } from "@googlemaps/google-maps-services-js";
 import { createClient } from '@supabase/supabase-js';
 import { NextResponse } from 'next/server';
 
@@ -7,20 +6,9 @@ const supabase = createClient(
   process.env.SUPABASE_SERVICE_ROLE_KEY!
 );
 
-const googleMapsClient = new Client({});
-
 export async function GET() {
   try {
-    // Test the Google Places API
-    const testResult = await googleMapsClient.placeDetails({
-      params: {
-        place_id: 'ChIJN1t_tDeuEmsRUsoyG83frY4', // Example place ID
-        fields: ['name', 'formatted_address'],
-        key: process.env.GOOGLE_PLACES_API_KEY!
-      }
-    });
-
-    // Test Supabase connection
+    // Test Supabase connection and fetch data
     const { data: categories, error: categoriesError } = await supabase
       .from('categories')
       .select('*');
@@ -29,11 +17,23 @@ export async function GET() {
       throw new Error(`Supabase error: ${categoriesError.message}`);
     }
 
+    // Fetch contractors to verify database access
+    const { data: contractors, error: contractorsError } = await supabase
+      .from('contractors')
+      .select('*')
+      .limit(5);
+
+    if (contractorsError) {
+      throw new Error(`Supabase error: ${contractorsError.message}`);
+    }
+
     return NextResponse.json({
       success: true,
-      message: 'APIs working correctly',
-      googlePlacesTest: testResult.data,
-      categories
+      message: 'Database connection working correctly',
+      data: {
+        categories,
+        sampleContractors: contractors
+      }
     });
   } catch (error) {
     console.error('Error:', error);
