@@ -54,10 +54,30 @@ export function generateLocalBusinessSchema({ trade, subregion }: SchemaParams) 
       latitude: 39.7392,
       longitude: -104.9903
     },
+    review: {
+      '@type': 'Review',
+      reviewRating: {
+        '@type': 'Rating',
+        ratingValue: '4.8',
+        bestRating: '5',
+        worstRating: '1'
+      },
+      author: {
+        '@type': 'Person',
+        name: 'Top Contractors Denver'
+      },
+      itemReviewed: {
+        '@type': 'LocalBusiness',
+        name: trade ? `${trade} in Denver` : 'Top Contractors Denver',
+        sameAs: 'https://topcontractorsdenver.com'
+      }
+    },
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '4.8',
-      reviewCount: '150'
+      reviewCount: '150',
+      bestRating: '5',
+      worstRating: '1'
     }
   };
 
