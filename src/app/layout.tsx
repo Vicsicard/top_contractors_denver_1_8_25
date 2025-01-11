@@ -17,21 +17,37 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.example.com'),
-  title: 'Find Local Contractors | Denver Area',
-  description: 'Find and connect with trusted local contractors in the Denver area.',
+  metadataBase: new URL('https://topcontractorsdenver.com'),
+  title: {
+    default: 'Top Denver Contractors | Verified Local Pros for Home Improvement, Remodeling, and Repairs',
+    template: '%s | Top Contractors Denver'
+  },
+  description: 'Discover trusted Denver contractors for home improvement, remodeling, and repairs. Our verified local pros bring your projects to life with quality workmanship and reliable service.',
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
-    title: 'Find Local Contractors | Denver Area',
-    description: 'Find and connect with trusted local contractors in the Denver area.',
-    url: 'https://www.example.com',
-    siteName: 'Denver Contractors Directory',
-    locale: 'en_US',
     type: 'website',
+    locale: 'en_US',
+    url: 'https://topcontractorsdenver.com',
+    siteName: 'Top Contractors Denver',
+    title: 'Top Denver Contractors | Verified Local Pros for Home Improvement',
+    description: 'Discover trusted Denver contractors for home improvement, remodeling, and repairs. Our verified local pros bring your projects to life with quality workmanship and reliable service.',
+    images: [
+      {
+        url: '/images/denver-skyline.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Denver skyline'
+      }
+    ]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Find Local Contractors | Denver Area',
-    description: 'Find and connect with trusted local contractors in the Denver area.',
+    images: ['/images/denver-skyline.jpg']
+  },
+  verification: {
+    google: 'your-google-verification-code', // Add your Google verification code
   },
   robots: {
     index: true,
@@ -75,7 +91,7 @@ export default function RootLayout({
         {/* Preload critical assets */}
         <link rel="preload" href="/images/logo.png" as="image" />
       </head>
-      <body>
+      <body className={inter.className}>
         <Navigation />
         <main className="min-h-screen bg-gray-50">
           {children}

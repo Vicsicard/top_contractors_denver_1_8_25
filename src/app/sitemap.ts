@@ -1,27 +1,14 @@
-import { tradesData } from "@/lib/trades-data";
-import { MetadataRoute } from "next";
-import { denverRegions } from "@/lib/locations";
+import { MetadataRoute } from "next"
+import { getAllTrades, getAllSubregions } from "@/utils/database"
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = "https://topcontractorsdenver.com";
+  const baseUrl = "https://topcontractorsdenver.com"
   
-  // Create sitemap entries for all trades
-  const tradeEntries = Object.keys(tradesData).map((trade) => ({
-    url: `${baseUrl}/trades/${trade}`,
-    lastModified: new Date(),
-    changeFrequency: "weekly" as const,
-    priority: 0.8,
-  }));
-
-  // Create sitemap entries for all locations
-  const locationEntries = Object.entries(denverRegions).flatMap(([region, data]) =>
-    Object.entries(data.areas).map(([area]) => ({
-      url: `${baseUrl}/trades/painters/${region}/${area}`,
-      lastModified: new Date(),
-      changeFrequency: "weekly" as const,
-      priority: 0.7,
-    }))
-  );
+  // Get all trades and subregions
+  const [trades, subregions] = await Promise.all([
+    getAllTrades(),
+    getAllSubregions()
+  ])
 
   // Create sitemap entries for static pages
   const staticPages = [
@@ -31,7 +18,31 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "daily" as const,
       priority: 1,
     },
-  ];
+    {
+      url: `${baseUrl}/services`,
+      lastModified: new Date(),
+      changeFrequency: "daily" as const,
+      priority: 0.9,
+    },
+  ]
 
-  return [...staticPages, ...tradeEntries, ...locationEntries];
+  // Create sitemap entries for trade pages
+  const tradePages = trades.map((trade) => ({
+    url: `${baseUrl}/services/${trade.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 0.8,
+  }))
+
+  // Create sitemap entries for location-specific pages
+  const locationPages = trades.flatMap((trade) =>
+    subregions.map((subregion) => ({
+      url: `${baseUrl}/services/${trade.slug}/${subregion.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
+    }))
+  )
+
+  return [...staticPages, ...tradePages, ...locationPages]
 }

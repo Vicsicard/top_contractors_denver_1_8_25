@@ -19,11 +19,11 @@ export default async function HomePage() {
           <div className="absolute inset-0 hero-overlay">
             <div className="container mx-auto px-4 h-full flex flex-col justify-center items-center">
               <h1 className="text-6xl font-bold mb-6 text-white drop-shadow-lg text-center">
-                Top Contractors Denver
+                Top Denver Contractors - Local Pros for Home Improvement, Remodeling, and Repairs
               </h1>
-              <p className="text-2xl text-white opacity-90 drop-shadow-md text-center max-w-3xl">
-                Connect with verified local contractors for your home improvement needs
-              </p>
+              <h2 className="text-2xl text-white opacity-90 drop-shadow-md text-center max-w-3xl">
+                Discover trusted Denver contractors for home improvement, remodeling, and repairs. Verified local pros to bring your projects to life.
+              </h2>
             </div>
           </div>
         </header>
@@ -35,25 +35,47 @@ export default async function HomePage() {
           
           <section className="mt-16 text-center">
             <h2 className="text-3xl font-bold text-primary-dark mb-4">
-              Why Choose Our Contractors?
+              Your Trusted Source for Denver Home Services
             </h2>
+            <p className="text-lg text-gray-700 mb-8 max-w-4xl mx-auto">
+              Whether you&apos;re planning a major renovation or need routine maintenance, our network of verified contractors in Denver has you covered. We carefully vet each professional to ensure they meet our high standards for quality, reliability, and customer service.
+            </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
               <div className="p-6 bg-white rounded-xl shadow-md">
                 <div className="text-accent-warm text-2xl mb-4">✓</div>
-                <h3 className="text-xl font-semibold mb-2">Verified Professionals</h3>
-                <p className="text-gray-600">All contractors are thoroughly vetted and licensed</p>
+                <h3 className="text-xl font-semibold mb-3">Quality Assurance</h3>
+                <p className="text-gray-600">Every contractor in our network undergoes thorough vetting and maintains high service standards.</p>
               </div>
               <div className="p-6 bg-white rounded-xl shadow-md">
-                <div className="text-accent-warm text-2xl mb-4">★</div>
-                <h3 className="text-xl font-semibold mb-2">Quality Service</h3>
-                <p className="text-gray-600">Rated and reviewed by local homeowners</p>
+                <div className="text-accent-warm text-2xl mb-4">✓</div>
+                <h3 className="text-xl font-semibold mb-3">Local Expertise</h3>
+                <p className="text-gray-600">Our contractors know Denver&apos;s unique requirements and building codes inside and out.</p>
               </div>
               <div className="p-6 bg-white rounded-xl shadow-md">
-                <div className="text-accent-warm text-2xl mb-4">⚡</div>
-                <h3 className="text-xl font-semibold mb-2">Quick Response</h3>
-                <p className="text-gray-600">Get quotes from available contractors within 24 hours</p>
+                <div className="text-accent-warm text-2xl mb-4">✓</div>
+                <h3 className="text-xl font-semibold mb-3">Verified Reviews</h3>
+                <p className="text-gray-600">Real feedback from Denver homeowners helps you make informed decisions.</p>
               </div>
             </div>
+          </section>
+
+          <section className="mt-16">
+            <h2 className="text-3xl font-bold text-primary-dark mb-4 text-center">
+              Expert Services Across Denver Metro
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+              <div className="bg-white p-6 rounded-xl shadow-md">
+                <h3 className="text-xl font-semibold mb-3">Home Improvement Specialists</h3>
+                <p className="text-gray-600">From minor repairs to major renovations, our contractors bring years of experience to every project. We specialize in kitchen remodels, bathroom updates, and whole-home renovations.</p>
+              </div>
+              <div className="bg-white p-6 rounded-xl shadow-md">
+                <h3 className="text-xl font-semibold mb-3">Professional Trade Services</h3>
+                <p className="text-gray-600">Access skilled electricians, plumbers, HVAC technicians, and more. All our trade professionals are licensed, insured, and ready to tackle your project.</p>
+              </div>
+            </div>
+          </section>
+
+          <section className="mt-16 mb-12">
           </section>
         </main>
       </div>

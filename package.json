@@ -10,11 +10,9 @@
     "clean": "rimraf .next node_modules",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage",
-    "fetch-contractors": "ts-node src/scripts/fetchGooglePlacesData.ts"
+    "test:coverage": "jest --coverage"
   },
   "dependencies": {
-    "@googlemaps/google-maps-services-js": "^3.4.0",
     "@heroicons/react": "^2.0.18",
     "@hookform/resolvers": "^3.10.0",
     "@radix-ui/react-label": "^2.1.1",
@@ -28,6 +26,7 @@
     "@vercel/analytics": "^1.4.1",
     "@vercel/speed-insights": "^1.1.0",
     "axios": "^1.7.9",
+    "axios-http-adapter": "^0.0.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "crypto-js": "^4.2.0",

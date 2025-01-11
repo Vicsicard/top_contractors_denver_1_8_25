@@ -61,18 +61,26 @@ export async function getAllSubregions(): Promise<SubregionRecord[]> {
 }
 
 export async function getSubregionBySlug(slug: string): Promise<SubregionRecord | null> {
-  const { data: subregion, error } = await supabase
-    .from('subregions')
-    .select('*')
-    .eq('slug', slug)
-    .single();
+  try {
+    const { data: subregion, error } = await supabase
+      .from('subregions')
+      .select('*')
+      .eq('slug', slug)
+      .single();
 
-  if (error) {
-    console.error('Error fetching subregion:', error);
-    throw new Error('Failed to load subregion');
+    if (error) {
+      if (error.code === 'PGRST116') {  // No rows returned
+        return null;
+      }
+      console.error('Error fetching subregion:', error);
+      throw new Error('Failed to load subregion');
+    }
+
+    return subregion;
+  } catch (error) {
+    console.error('Error in getSubregionBySlug:', error);
+    return null;
   }
-
-  return subregion;
 }
 
 export async function getContractorsByTradeAndSubregion(
