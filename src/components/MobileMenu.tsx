@@ -8,18 +8,11 @@ export function MobileMenu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
 
-  const isActive = (path: string) => {
-    if (path === '/') {
-      return pathname === path;
-    }
-    return pathname?.startsWith(path);
-  };
-
   return (
-    <>
+    <div className="md:hidden">
       <button
         onClick={() => setIsMenuOpen(!isMenuOpen)}
-        className="md:hidden text-white hover:text-accent-warm focus:outline-none"
+        className="text-white hover:text-accent-warm focus:outline-none"
         aria-label="Toggle menu"
       >
         <svg
@@ -39,31 +32,41 @@ export function MobileMenu() {
         </svg>
       </button>
 
-      <div className={`md:hidden absolute top-full left-0 right-0 bg-gray-900/95 backdrop-blur-sm transition-all duration-300 ${isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>
+      <div 
+        className={`absolute top-full left-0 right-0 bg-gray-900/95 backdrop-blur-sm transition-all duration-300 ${
+          isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+        }`}
+      >
         <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
           <Link 
             href="/" 
-            className={`text-white hover:text-accent-warm transition-colors font-medium ${isActive('/') ? 'text-accent-warm' : ''}`}
+            className={`text-white hover:text-accent-warm transition-colors font-medium ${
+              pathname === '/' ? 'text-accent-warm' : ''
+            }`}
             onClick={() => setIsMenuOpen(false)}
           >
             Home
           </Link>
           <Link 
             href="/blog" 
-            className={`text-white hover:text-accent-warm transition-colors font-medium ${isActive('/blog') ? 'text-accent-warm' : ''}`}
+            className={`text-white hover:text-accent-warm transition-colors font-medium ${
+              pathname?.startsWith('/blog') ? 'text-accent-warm' : ''
+            }`}
             onClick={() => setIsMenuOpen(false)}
           >
             Blog
           </Link>
           <Link 
             href="/services" 
-            className={`text-white hover:text-accent-warm transition-colors font-medium ${isActive('/services') ? 'text-accent-warm' : ''}`}
+            className={`text-white hover:text-accent-warm transition-colors font-medium ${
+              pathname?.startsWith('/services') ? 'text-accent-warm' : ''
+            }`}
             onClick={() => setIsMenuOpen(false)}
           >
             Services
           </Link>
         </div>
       </div>
-    </>
+    </div>
   );
 }

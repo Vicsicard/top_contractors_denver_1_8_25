@@ -5,7 +5,7 @@ import { generateOrganizationSchema } from '@/utils/schema'
 import { PerformanceMonitor } from '@/components/PerformanceMonitor'
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import { Navigation } from '@/components/Navigation';
+import Navigation from '@/components/Navigation';
 import { MobileMenu } from '@/components/MobileMenu';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 
@@ -104,7 +104,7 @@ export default function RootLayout({
             </div>
           </nav>
         </header>
-        <main className="min-h-screen bg-gray-50">
+        <main className="min-h-screen bg-gray-50 pt-20">
           {children}
         </main>
         <GoogleAnalytics />
