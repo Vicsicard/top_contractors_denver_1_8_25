@@ -1,9 +1,19 @@
 import GhostContentAPI from '@tryghost/content-api';
 
+const ghostUrl = process.env.GHOST_URL;
+const ghostKey = process.env.GHOST_ORG_CONTENT_API_KEY;
+
+if (!ghostUrl || !ghostKey) {
+  console.error('Ghost configuration missing:', {
+    hasUrl: !!ghostUrl,
+    hasKey: !!ghostKey
+  });
+}
+
 // Create API instance with site credentials
 const api = new GhostContentAPI({
-    url: process.env.GHOST_URL || '',
-    key: process.env.GHOST_ORG_CONTENT_API_KEY || '',
+    url: ghostUrl || '',
+    key: ghostKey || '',
     version: 'v5.0'
 });
 
