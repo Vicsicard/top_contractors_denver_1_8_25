@@ -1,4 +1,4 @@
-import { fetchBlogPosts } from '@/utils/rss';
+import { fetchBlogPosts } from '@/utils/ghost';
 import Link from 'next/link';
 import BlogImage from '@/components/BlogImage';
 import { Metadata } from 'next';

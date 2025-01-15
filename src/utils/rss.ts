@@ -1,7 +1,12 @@
 import { BlogPost, RSSFeedResponse } from '@/types/blog';
 import { XMLParser } from 'fast-xml-parser';
 
-const RSS_URL = 'https://top-contractors-denver.ghost.io/c36da403a913b9a47563b6235f0016/rss';
+const GHOST_URL = process.env.GHOST_URL;
+if (!GHOST_URL) {
+  throw new Error('Please define GHOST_URL in your .env.local file');
+}
+
+const RSS_URL = `${GHOST_URL}/rss/`;
 const CACHE_TIME = 3600; // 1 hour in seconds
 
 let cachedData: RSSFeedResponse | null = null;
