@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-const LocationCategories = {
+const _locationCategories = {
   'Central Denver Neighborhoods': {
     'Downtown Area': ['Downtown Denver', 'Capitol Hill', 'Union Station', 'Five Points'],
     'Central Parks': ['City Park', 'City Park West', 'Cheesman Park', 'Congress Park'],
