@@ -13,6 +13,7 @@ const nextConfig = {
       'maps.googleapis.com',
       'maps.gstatic.com',
       'top-contractors-denver.ghost.io',
+      'top-contractors-denver-1.ghost.io',
       '6be7e0906f1487fecf0b9cbd301defd6.cdn.bubble.io'
     ],
   },
@@ -58,6 +59,8 @@ const nextConfig = {
     MONGODB_DB: process.env.MONGODB_DB,
     NEXT_PUBLIC_DOMAIN: process.env.NEXT_PUBLIC_DOMAIN,
     NEXT_PUBLIC_BUILD_TIME_KEY: 'dummy-key-for-build',
+    GHOST_URL: process.env.GHOST_URL,
+    GHOST_ORG_CONTENT_API_KEY: process.env.GHOST_ORG_CONTENT_API_KEY
   },
   async rewrites() {
     return [
