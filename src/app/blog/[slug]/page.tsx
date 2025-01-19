@@ -1,7 +1,6 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
-import Link from 'next/link';
 import { getPostBySlug } from '@/utils/ghost';
 
 interface Props {
@@ -15,19 +14,51 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     
     if (!post) {
         return {
-            title: 'Post Not Found',
+            title: 'Post Not Found | Top Contractors Denver',
             description: 'The requested blog post could not be found.',
+            robots: 'noindex, nofollow'
         };
     }
 
+    // Create a clean excerpt without HTML tags, limited to ~155 characters
+    const cleanExcerpt = post.excerpt?.replace(/<[^>]*>/g, '').slice(0, 155) + '...' || '';
+    const cleanTitle = post.title?.length > 60 ? post.title.slice(0, 57) + '...' : post.title;
+
     return {
-        title: `${post.title} | Contractor Blog`,
-        description: post.excerpt,
+        title: `${cleanTitle} | Top Contractors Denver Blog`,
+        description: cleanExcerpt,
         keywords: post.tags?.map(tag => tag.name).join(', '),
+        alternates: {
+            canonical: `https://topcontractorsdenver.com/blog/${post.slug}`
+        },
+        robots: {
+            index: true,
+            follow: true,
+            googleBot: {
+                index: true,
+                follow: true,
+                'max-image-preview': 'large',
+                'max-snippet': -1,
+            },
+        },
         openGraph: {
-            title: post.title,
-            description: post.excerpt,
+            title: cleanTitle,
+            description: cleanExcerpt,
+            url: `https://topcontractorsdenver.com/blog/${post.slug}`,
+            siteName: 'Top Contractors Denver',
+            locale: 'en_US',
+            type: 'article',
             images: post.feature_image ? [post.feature_image] : [],
+            authors: post.authors?.map(author => author.name) || ['Top Contractors Denver'],
+            publishedTime: post.published_at,
+            modifiedTime: post.updated_at,
+        },
+        authors: post.authors?.map(author => ({ name: author.name })) || [{ name: 'Top Contractors Denver' }],
+        publisher: 'Top Contractors Denver',
+        formatDetection: {
+            email: false,
+            address: false,
+            telephone: false,
         },
     };
 }
@@ -54,30 +85,53 @@ export default async function BlogPost({ params }: Props) {
                     <div className="relative aspect-video mb-8">
                         <Image
                             src={post.feature_image}
-                            alt={post.title}
+                            alt={post.feature_image_alt || post.title}
                             fill
                             className="object-cover rounded-lg"
                             priority
                         />
                     </div>
                 )}
-                {post.tags && post.tags.length > 0 && (
-                    <div className="flex flex-wrap gap-2 mb-8">
-                        {post.tags.map(tag => (
-                            <Link
-                                key={tag.slug}
-                                href={`/blog/tag/${tag.slug}`}
-                                className="text-sm bg-gray-100 text-gray-600 px-3 py-1 rounded-full hover:bg-gray-200"
-                            >
-                                {tag.name}
-                            </Link>
-                        ))}
-                    </div>
-                )}
             </header>
+            
             <div 
                 className="prose prose-lg max-w-none"
-                dangerouslySetInnerHTML={{ __html: post.html }} 
+                dangerouslySetInnerHTML={{ __html: post.html || '' }}
+            />
+
+            {/* Structured Data for Google */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        '@context': 'https://schema.org',
+                        '@type': 'BlogPosting',
+                        headline: post.title,
+                        description: post.excerpt,
+                        image: post.feature_image,
+                        datePublished: post.published_at,
+                        dateModified: post.updated_at,
+                        author: post.authors?.map(author => ({
+                            '@type': 'Person',
+                            name: author.name,
+                        })) || [{
+                            '@type': 'Organization',
+                            name: 'Top Contractors Denver',
+                        }],
+                        publisher: {
+                            '@type': 'Organization',
+                            name: 'Top Contractors Denver',
+                            logo: {
+                                '@type': 'ImageObject',
+                                url: 'https://topcontractorsdenver.com/logo.png'
+                            }
+                        },
+                        mainEntityOfPage: {
+                            '@type': 'WebPage',
+                            '@id': `https://topcontractorsdenver.com/blog/${post.slug}`
+                        }
+                    })
+                }}
             />
         </article>
     );

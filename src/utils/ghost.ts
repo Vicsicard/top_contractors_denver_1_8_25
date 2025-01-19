@@ -1,8 +1,20 @@
+import { notifySearchEngines } from './indexing';
+
 const NEW_GHOST_URL = process.env.GHOST_URL || 'https://top-contractors-denver-2.ghost.io';
 const NEW_GHOST_KEY = process.env.GHOST_ORG_CONTENT_API_KEY || '6229b20c390c831641ea577093';
 
 const OLD_GHOST_URL = 'https://top-contractors-denver-1.ghost.io';
 const OLD_GHOST_KEY = '130d98b20875066982b1a8314f';
+
+// Cache for posts to detect new content
+const postCache: { [key: string]: string } = {};
+
+interface GhostAuthor {
+    id: string;
+    name: string;
+    slug: string;
+    profile_image?: string;
+}
 
 export interface GhostPost {
     id: string;
@@ -10,21 +22,23 @@ export interface GhostPost {
     title: string;
     html: string;
     feature_image?: string;
+    feature_image_alt?: string;
     excerpt?: string;
     published_at: string;
+    updated_at?: string;
     reading_time?: number;
     tags?: any[];
+    authors?: GhostAuthor[];
     source?: string;
 }
 
-export interface PaginatedPosts {
-    posts: GhostPost[];
-    totalPages: number;
-    currentPage: number;
-    hasNextPage: boolean;
-    hasPrevPage: boolean;
-}
-
+/**
+ * Fetches all posts from a Ghost instance.
+ * 
+ * @param url The URL of the Ghost instance.
+ * @param key The API key for the Ghost instance.
+ * @returns A promise that resolves to an array of Ghost posts.
+ */
 async function fetchAllPosts(url: string, key: string): Promise<GhostPost[]> {
     const allPosts: GhostPost[] = [];
     let currentPage = 1;
@@ -33,7 +47,7 @@ async function fetchAllPosts(url: string, key: string): Promise<GhostPost[]> {
     while (true) {
         try {
             const response = await fetch(
-                `${url}/ghost/api/content/posts/?key=${key}&limit=${limit}&page=${currentPage}&include=tags`,
+                `${url}/ghost/api/content/posts/?key=${key}&limit=${limit}&page=${currentPage}&include=tags,authors`,
                 { next: { revalidate: 3600 } }
             );
             
@@ -49,13 +63,13 @@ async function fetchAllPosts(url: string, key: string): Promise<GhostPost[]> {
             
             allPosts.push(...data.posts);
             
-            if (!data.meta.pagination.next) {
+            if (data.posts.length < limit) {
                 break;
             }
             
             currentPage++;
         } catch (error) {
-            console.error(`Error fetching from ${url} page ${currentPage}:`, error);
+            console.error(`Error fetching posts from ${url}:`, error);
             break;
         }
     }
@@ -63,6 +77,13 @@ async function fetchAllPosts(url: string, key: string): Promise<GhostPost[]> {
     return allPosts;
 }
 
+/**
+ * Gets paginated posts.
+ * 
+ * @param page The page number to fetch.
+ * @param limit The number of posts to fetch per page.
+ * @returns A promise that resolves to a paginated posts object.
+ */
 export async function getPosts(page = 1, limit = 10): Promise<PaginatedPosts> {
     try {
         // Fetch all posts from both Ghost instances
@@ -115,11 +136,53 @@ export async function getPosts(page = 1, limit = 10): Promise<PaginatedPosts> {
     }
 }
 
+/**
+ * Gets all posts.
+ * 
+ * @returns A promise that resolves to an array of Ghost posts.
+ */
+export async function getAllPosts(): Promise<GhostPost[]> {
+    try {
+        const [newPosts, oldPosts] = await Promise.all([
+            fetchAllPosts(NEW_GHOST_URL, NEW_GHOST_KEY),
+            fetchAllPosts(OLD_GHOST_URL, OLD_GHOST_KEY)
+        ]);
+
+        const combinedPosts = [...newPosts, ...oldPosts];
+        
+        // Check for new or updated posts
+        const newUrls: string[] = [];
+        combinedPosts.forEach(post => {
+            const cacheKey = `${post.id}-${post.updated_at || post.published_at}`;
+            if (!postCache[post.id] || postCache[post.id] !== cacheKey) {
+                postCache[post.id] = cacheKey;
+                newUrls.push(`https://topcontractorsdenver.com/blog/${post.slug}`);
+            }
+        });
+
+        // If we found new or updated posts, notify search engines
+        if (newUrls.length > 0) {
+            await notifySearchEngines(newUrls);
+        }
+
+        return combinedPosts;
+    } catch (error) {
+        console.error('Error fetching all posts:', error);
+        return [];
+    }
+}
+
+/**
+ * Gets a post by slug.
+ * 
+ * @param slug The slug of the post to fetch.
+ * @returns A promise that resolves to a Ghost post or null if not found.
+ */
 export async function getPostBySlug(slug: string): Promise<GhostPost | null> {
     try {
         // Try to fetch from new Ghost first
         const newResponse = await fetch(
-            `${NEW_GHOST_URL}/ghost/api/content/posts/slug/${slug}/?key=${NEW_GHOST_KEY}&include=tags`,
+            `${NEW_GHOST_URL}/ghost/api/content/posts/slug/${slug}/?key=${NEW_GHOST_KEY}&include=tags,authors`,
             { next: { revalidate: 3600 } }
         );
         
@@ -132,7 +195,7 @@ export async function getPostBySlug(slug: string): Promise<GhostPost | null> {
 
         // If not found in new Ghost, try old Ghost
         const oldResponse = await fetch(
-            `${OLD_GHOST_URL}/ghost/api/content/posts/slug/${slug}/?key=${OLD_GHOST_KEY}&include=tags`,
+            `${OLD_GHOST_URL}/ghost/api/content/posts/slug/${slug}/?key=${OLD_GHOST_KEY}&include=tags,authors`,
             { next: { revalidate: 3600 } }
         );
         
@@ -150,6 +213,14 @@ export async function getPostBySlug(slug: string): Promise<GhostPost | null> {
     }
 }
 
+/**
+ * Gets posts by tag.
+ * 
+ * @param tag The tag to filter by.
+ * @param page The page number to fetch.
+ * @param limit The number of posts to fetch per page.
+ * @returns A promise that resolves to a paginated posts object.
+ */
 export async function getPostsByTag(tag: string, page = 1, limit = 10): Promise<PaginatedPosts> {
     try {
         // Fetch all posts from both Ghost instances
@@ -206,4 +277,15 @@ export async function getPostsByTag(tag: string, page = 1, limit = 10): Promise<
             hasPrevPage: false
         };
     }
+}
+
+/**
+ * Interface for paginated posts.
+ */
+export interface PaginatedPosts {
+    posts: GhostPost[];
+    totalPages: number;
+    currentPage: number;
+    hasNextPage: boolean;
+    hasPrevPage: boolean;
 }

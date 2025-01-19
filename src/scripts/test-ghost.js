@@ -6,18 +6,7 @@ const OLD_GHOST_KEY = '130d98b20875066982b1a8314f';
 const NEW_GHOST_URL = 'https://top-contractors-denver-2.ghost.io';
 const NEW_GHOST_KEY = '6229b20c390c831641ea577093';
 
-interface GhostTag {
-    name: string;
-    slug: string;
-}
-
-interface GhostPost {
-    title: string;
-    published_at: string;
-    tags?: GhostTag[];
-}
-
-async function testGhostAPI(url: string, key: string, name: string) {
+async function testGhostAPI(url, key, name) {
     try {
         console.log(`\nTesting ${name} Ghost API connection...`);
         console.log('URL:', url);
@@ -32,14 +21,14 @@ async function testGhostAPI(url: string, key: string, name: string) {
         const posts = await api.posts.browse({
             limit: 5,
             include: ['tags']
-        }) as GhostPost[];
+        });
 
         console.log(`Successfully fetched posts from ${name}:`, posts.length);
         if (posts.length > 0) {
             console.log('Latest post:', {
                 title: posts[0].title,
                 published: posts[0].published_at,
-                tags: posts[0].tags?.map((t: GhostTag) => t.name)
+                tags: posts[0].tags?.map(t => t.name)
             });
         }
     } catch (error) {

@@ -1,65 +1,123 @@
-# Contractor Directory
+# Top Contractors Denver
 
-A public directory website for finding local contractors in the Denver metropolitan area.
+A comprehensive contractor directory for the Denver metropolitan area, featuring an integrated blog system with advanced SEO capabilities.
 
 ## Features
 
-- Browse contractors by trade (plumbers, electricians, etc.)
-- Find contractors in specific regions and neighborhoods
-- View complete contractor information
-- Simple and easy-to-use interface
-- Mobile-friendly design
+### Contractor Directory
+- Location-based contractor search
+- Trade category filtering
+- Detailed contractor profiles
+- Google Places integration
+- Review aggregation
 
-## Technology Stack
+### Blog System
+- Integrated Ghost blog platform
+- Multi-instance support (combines posts from multiple Ghost blogs)
+- Tag-based navigation
+- SEO-optimized post pages
+- Automatic search engine notifications
 
-- Next.js 15.1.3
-- React 19
-- Supabase (PostgreSQL)
-- Tailwind CSS
+### SEO Features
+- Dynamic sitemap generation
+- Structured data (Schema.org)
+- IndexNow API integration
+- Optimized meta tags
+- Automatic search engine notifications
+
+## Tech Stack
+- Next.js 14.0.4
 - TypeScript
-
-## Directory Structure
-
-```
-src/
-├── app/                    # Next.js App Router
-│   ├── api/               # Data retrieval endpoints
-│   └── trades/           # Trade pages
-├── components/            # React components
-├── lib/                  # Utility functions
-└── types/               # TypeScript definitions
-```
+- Tailwind CSS
+- Supabase
+- Ghost Content API
 
 ## Getting Started
 
-1. Clone the repository
+### Prerequisites
+- Node.js 18.x or later
+- npm or yarn
+- Ghost blog instance(s)
+- Supabase account
+- Google Places API key (for contractor data)
+
+### Environment Setup
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Vicsicard/Top_Contractors_1_20_25.git
+   cd Top_Contractors_1_20_25
+   ```
+
 2. Install dependencies:
    ```bash
    npm install
+   # or
+   yarn install
    ```
-3. Set up environment variables:
+
+3. Create a `.env.local` file with the following variables:
+   ```env
+   # Ghost Blog Configuration
+   GHOST_URL=your_ghost_url
+   GHOST_ORG_CONTENT_API_KEY=your_ghost_api_key
+   
+   # Optional: Second Ghost Instance
+   OLD_GHOST_URL=your_old_ghost_url
+   OLD_GHOST_KEY=your_old_ghost_api_key
+   
+   # Search Engine Integration
+   INDEXNOW_KEY=your_indexnow_key
+   
+   # Google Places API
+   GOOGLE_PLACES_API_KEY=your_google_api_key
    ```
-   NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
-   NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
-   ```
-4. Run the development server:
+
+4. Generate IndexNow key:
    ```bash
-   npm run dev
+   node scripts/generate-indexnow-key.js
    ```
 
-## Data Structure
+### Development
+```bash
+npm run dev
+# or
+yarn dev
+```
 
-The directory organizes contractors hierarchically:
-- Trade Categories (e.g., Plumbers)
-- Regions (e.g., Central Denver)
-- Neighborhoods (e.g., Downtown)
+### Production Build
+```bash
+npm run build
+npm start
+# or
+yarn build
+yarn start
+```
 
-Each neighborhood contains 10 verified contractors per trade.
+## Project Structure
+```
+├── src/
+│   ├── app/                 # Next.js app router
+│   ├── components/         # Reusable components
+│   ├── utils/             # Utility functions
+│   │   ├── ghost.ts       # Ghost blog integration
+│   │   └── indexing.ts    # Search engine notifications
+│   └── scripts/           # Utility scripts
+├── public/                # Static assets
+└── types/                # TypeScript type definitions
+```
 
 ## Contributing
-
-To update contractor information or report issues, please open a GitHub issue.
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-MIT
+## Acknowledgments
+- Ghost Headless CMS
+- Next.js Team
+- Supabase
+- Google Places API

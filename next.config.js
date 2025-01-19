@@ -4,8 +4,11 @@ const config = {
   images: {
     domains: [
       'maps.googleapis.com',
-      '6be7e0906f1487fecf0b9cbd301defd6.cdn.bubble.io',
-      'top-contractors-denver-1.ghost.io'
+      'maps.gstatic.com',
+      'top-contractors-denver.ghost.io',
+      'top-contractors-denver-1.ghost.io',
+      'top-contractors-denver-2.ghost.io',
+      '6be7e0906f1487fecf0b9cbd301defd6.cdn.bubble.io'
     ],
   },
 };

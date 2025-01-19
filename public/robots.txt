@@ -1,3 +1,25 @@
+# Top Contractors Denver - Robots.txt
 User-agent: *
 Allow: /
-Sitemap: https://yourwebsite.com/sitemap.xml
+
+# Allow crawling of all content
+Allow: /services/
+Allow: /blog/
+Allow: /images/
+Allow: /*.js
+Allow: /*.css
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.gif
+Allow: /*.svg
+
+# Prevent crawling of irrelevant paths
+Disallow: /api/
+Disallow: /_next/
+Disallow: /*?*
+
+# Crawl-delay for better server performance
+Crawl-delay: 1
+
+# Sitemaps
+Sitemap: https://topcontractorsdenver.com/sitemap.xml
