@@ -65,36 +65,91 @@ export default async function BlogPage({ searchParams }: Props) {
 
                     {/* Pagination */}
                     {totalPages > 1 && (
-                        <div className="flex justify-center items-center gap-4">
+                        <div className="flex justify-center items-center gap-2">
                             {hasPrevPage && (
                                 <Link
                                     href={`/blog?page=${currentPage - 1}`}
-                                    className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50"
+                                    className="px-3 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50"
                                 >
                                     Previous
                                 </Link>
                             )}
                             
-                            <div className="flex items-center gap-2">
-                                {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => (
-                                    <Link
-                                        key={pageNum}
-                                        href={`/blog?page=${pageNum}`}
-                                        className={`px-4 py-2 text-sm font-medium rounded-md ${
-                                            pageNum === currentPage
-                                                ? 'bg-blue-600 text-white'
-                                                : 'text-gray-700 bg-white border border-gray-300 hover:bg-gray-50'
-                                        }`}
-                                    >
-                                        {pageNum}
-                                    </Link>
-                                ))}
+                            <div className="flex items-center gap-1">
+                                {(() => {
+                                    const pageNumbers = [];
+                                    const maxVisiblePages = 5;
+                                    const halfVisible = Math.floor(maxVisiblePages / 2);
+                                    
+                                    // Always show first page
+                                    pageNumbers.push(1);
+                                    
+                                    let startPage = Math.max(2, currentPage - halfVisible);
+                                    let endPage = Math.min(totalPages - 1, currentPage + halfVisible);
+                                    
+                                    // Adjust if we're near the start
+                                    if (currentPage <= halfVisible + 1) {
+                                        endPage = Math.min(totalPages - 1, maxVisiblePages - 1);
+                                    }
+                                    
+                                    // Adjust if we're near the end
+                                    if (currentPage >= totalPages - halfVisible) {
+                                        startPage = Math.max(2, totalPages - maxVisiblePages + 1);
+                                    }
+                                    
+                                    // Add ellipsis after first page if needed
+                                    if (startPage > 2) {
+                                        pageNumbers.push('...');
+                                    }
+                                    
+                                    // Add middle pages
+                                    for (let i = startPage; i <= endPage; i++) {
+                                        pageNumbers.push(i);
+                                    }
+                                    
+                                    // Add ellipsis before last page if needed
+                                    if (endPage < totalPages - 1) {
+                                        pageNumbers.push('...');
+                                    }
+                                    
+                                    // Always show last page if there is more than one page
+                                    if (totalPages > 1) {
+                                        pageNumbers.push(totalPages);
+                                    }
+                                    
+                                    return pageNumbers.map((pageNum, index) => {
+                                        if (pageNum === '...') {
+                                            return (
+                                                <span
+                                                    key={`ellipsis-${index}`}
+                                                    className="px-3 py-2 text-sm text-gray-700"
+                                                >
+                                                    ...
+                                                </span>
+                                            );
+                                        }
+                                        
+                                        return (
+                                            <Link
+                                                key={pageNum}
+                                                href={`/blog?page=${pageNum}`}
+                                                className={`px-3 py-2 text-sm font-medium rounded-md ${
+                                                    pageNum === currentPage
+                                                        ? 'bg-blue-600 text-white'
+                                                        : 'text-gray-700 bg-white border border-gray-300 hover:bg-gray-50'
+                                                }`}
+                                            >
+                                                {pageNum}
+                                            </Link>
+                                        );
+                                    });
+                                })()}
                             </div>
 
                             {hasNextPage && (
                                 <Link
                                     href={`/blog?page=${currentPage + 1}`}
-                                    className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50"
+                                    className="px-3 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50"
                                 >
                                     Next
                                 </Link>
